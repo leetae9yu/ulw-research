@@ -1,0 +1,1280 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>현대차그룹 차량용 앱 공모전 · Pleos SDK 제공 정보 범위 조사</title>
+<meta name="description" content="조사 기준일: 2026년 10월 23일. 공개 자료만 사용했습니다.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#FBFBFA">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#131312">
+<meta property="og:title" content="현대차그룹 차량용 앱 공모전 · Pleos SDK 제공 정보 범위 조사">
+<meta property="og:description" content="조사 기준일: 2026년 10월 23일. 공개 자료만 사용했습니다.">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231A1A1A'/%3E%3Cpath d='M8 9h16M8 16h16M8 23h10' stroke='%23FBFBFA' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<script>(function(){var d=document.documentElement;d.className+=" js";try{if(!matchMedia("(min-width: 60em)").matches){d.className+=" m-collapse"}}catch(e){}})();</script>
+<style>
+:root{color-scheme:light dark;--canvas:#FBFBFA;--surface:#F3F2EE;--ink:#1A1A1A;--ink-2:#5E5C57;--ink-3:#8B8984;--hairline:#E3E1DB;--rule:#1A1A1A;--link:#0B5D97;--link-hover:#073E66;--ring:#0B5D97;--mark-bg:#FFE69C;--mark-ink:#1A1A1A;--wash-1:rgb(26 26 26 / .05);--wash-2:rgb(26 26 26 / .09);--ok-bg:#E9F2E7;--ok-ink:#2F6B3A;--part-bg:#FBF1D6;--part-ink:#8A5A00;--no-bg:#FCE9E8;--no-ink:#9C2E2C;--unk-bg:#EEEDE8;--unk-ink:#55534E;--scrim:rgb(26 26 26 / .35);--font-sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",Pretendard,"Noto Sans KR","Noto Sans CJK KR","Malgun Gothic","Segoe UI",sans-serif;--font-mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono","DejaVu Sans Mono",monospace;--fs-display:clamp(1.75rem,1.2rem + 2.2vw,2.5rem);--fs-h2:clamp(1.375rem,1.15rem + 1vw,1.75rem);--fs-h3:clamp(1.125rem,1.05rem + .4vw,1.3125rem);--fs-body:1.0625rem;--fs-table:.9375rem;--fs-ui:.9375rem;--fs-small:.8125rem;--lh-body:1.75;--lh-table:1.6;--lh-head:1.3;--lh-tight:1.2;--s-1:4px;--s-2:8px;--s-3:12px;--s-4:16px;--s-5:20px;--s-6:24px;--s-8:32px;--s-10:40px;--s-12:48px;--s-16:64px;--s-20:80px;--container:80rem;--gutter:clamp(1.25rem,4vw,3rem);--sidebar:15.5rem;--col-gap:var(--s-12);--measure:44rem;--header-h:3.5rem;--control-h:2.75rem;--icon:1.25rem;--r-ctl:4px;--r-pill:999px;--t-micro:120ms;--t-std:200ms;--ease:cubic-bezier(.2,0,0,1);--z-header:30;--z-totop:20}@media (prefers-color-scheme:dark){:root{--canvas:#131312;--surface:#1C1C1A;--ink:#ECEAE4;--ink-2:#A8A69F;--ink-3:#7C7A74;--hairline:#2A2927;--rule:#ECEAE4;--link:#7CBCEC;--link-hover:#AAD6F7;--ring:#7CBCEC;--mark-bg:#5E4C14;--mark-ink:#FFF3CF;--wash-1:rgb(236 234 228 / .07);--wash-2:rgb(236 234 228 / .12);--ok-bg:#1B2B1E;--ok-ink:#A3D9A8;--part-bg:#2D2712;--part-ink:#E5BD55;--no-bg:#34201F;--no-ink:#F2A19E;--unk-bg:#2A2926;--unk-ink:#B9B7B0;--scrim:rgb(0 0 0 / .55)}}*,*::before,*::after{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + var(--s-4));-webkit-text-size-adjust:100%;text-size-adjust:100%}body{margin:0;background:var(--canvas);color:var(--ink);font:400 var(--fs-body) / var(--lh-body) var(--font-sans);word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}html.sheet-open{overflow:hidden}[hidden]{display:none !important}.mono{font-family:var(--font-mono);letter-spacing:.04em}:focus-visible{outline:2px solid var(--ring);outline-offset:2px}a{color:var(--link);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.15em;text-decoration-color:color-mix(in srgb,var(--link) 45%,transparent);transition:color var(--t-micro) var(--ease),text-decoration-color var(--t-micro) var(--ease)}a:hover{color:var(--link-hover);text-decoration-color:currentColor}svg{display:block}.sr-only{position:absolute !important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}html:not(.js) .js-only{display:none !important}.skip{position:absolute;top:var(--s-2);left:var(--s-2);z-index:calc(var(--z-header) + 1);padding:var(--s-3) var(--s-4);background:var(--ink);color:var(--canvas);border-radius:var(--r-ctl);text-decoration:none;font-weight:600;transform:translateY(-200%)}.skip:focus-visible{transform:none;outline-color:var(--ring)}.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s-1);min-height:var(--control-h);min-width:var(--control-h);padding:0 var(--s-3);border:1px solid transparent;border-radius:var(--r-ctl);background:transparent;color:var(--ink);font:500 var(--fs-ui) / 1 var(--font-sans);cursor:pointer;text-decoration:none;white-space:nowrap;transition:background-color var(--t-micro) var(--ease)}.btn:hover{background:var(--wash-1)}.btn:active{background:var(--wash-2)}.btn--outline{border-color:var(--hairline)}.btn--icon{padding:0}.btn svg{width:var(--icon);height:var(--icon);flex:none}.hdr{position:sticky;top:0;z-index:var(--z-header);background:var(--canvas);border-bottom:1px solid var(--hairline)}.hdr__in{max-width:var(--container);margin:0 auto;padding:var(--s-1) var(--gutter);min-height:var(--header-h);display:flex;flex-wrap:wrap;align-items:center;gap:var(--s-1)}.brand{display:flex;flex-direction:column;justify-content:center;min-width:0;flex:1 1 0;min-height:var(--control-h);color:inherit;text-decoration:none;border-radius:var(--r-ctl)}.brand:hover{color:inherit}.brand__kicker{display:none;font-size:var(--fs-small);font-weight:600;line-height:1.3;letter-spacing:.02em;color:var(--ink-2);white-space:nowrap}.btn--all .btn__label{display:none}.btn--all[data-action="open"] .ico--close,.btn--all[data-action="close"] .ico--open{display:none}.hdr .btn--outline{border-color:transparent}.brand__title{font-size:var(--fs-ui);font-weight:600;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.srch{flex:1 1 100%;order:10;display:none;margin:0;padding-bottom:var(--s-2)}.hdr.search-open .srch{display:block}.srch__box{position:relative;display:flex;align-items:center}.srch__icon{position:absolute;left:var(--s-3);width:var(--icon);height:var(--icon);color:var(--ink-2);pointer-events:none}.srch input{width:100%;height:var(--control-h);margin:0;padding:0 var(--control-h) 0 calc(var(--s-3) + var(--icon) + var(--s-2));border:1px solid var(--hairline);border-radius:var(--r-ctl);background:var(--canvas);color:var(--ink);font:400 var(--fs-ui) / 1 var(--font-sans);-webkit-appearance:none;appearance:none}.srch input::placeholder{color:var(--ink-2);opacity:1}.srch input::-webkit-search-cancel-button,.srch input::-webkit-search-decoration{-webkit-appearance:none;appearance:none}.srch__clear{position:absolute;right:2px;top:2px;min-height:calc(var(--control-h) - 4px);min-width:calc(var(--control-h) - 4px);color:var(--ink-2)}.status{max-width:var(--container);margin:0 auto;padding:var(--s-2) var(--gutter);display:flex;flex-wrap:wrap;align-items:center;gap:var(--s-2) var(--s-3);background:var(--surface);border-top:1px solid var(--hairline);color:var(--ink-2);font-size:var(--fs-small);font-weight:500;line-height:1.4}.status[hidden]{display:none}.status strong{color:var(--ink);font-weight:600}.status .btn{min-height:2rem;padding:0 var(--s-2);font-size:var(--fs-small);color:var(--link)}@media (min-width:60em){.hdr__in{flex-wrap:nowrap;gap:var(--s-3)}.btn--toc,.btn--search{display:none}.brand__kicker{display:block}.btn--all svg{display:none}.btn--all .btn__label{display:inline}.hdr .btn--outline{border-color:var(--hairline)}.srch{display:block;flex:0 1 22rem;order:0;padding-bottom:0}}.hero{max-width:var(--container);margin:0 auto;padding:var(--s-10) var(--gutter) var(--s-8);border-bottom:2px solid var(--rule)}.kicker{margin:0 0 var(--s-3);font-size:var(--fs-small);font-weight:600;line-height:1.4;letter-spacing:.02em;color:var(--ink-2)}.kicker__sep{margin:0 var(--s-1)}.hero h1{margin:0;display:flex;flex-direction:column;gap:var(--s-2);max-width:var(--measure)}.hero__sup{font:500 var(--fs-ui) / 1.4 var(--font-sans);color:var(--ink-2)}.hero__sep{display:none}.hero__main{font-size:var(--fs-display);font-weight:700;line-height:var(--lh-tight);letter-spacing:-.02em}@media (min-width:60em){.hero{padding-top:var(--s-20);padding-bottom:var(--s-12)}}.layout{max-width:var(--container);margin:0 auto;padding:0 var(--gutter)}.side{display:none}.doc{min-width:0;padding-bottom:var(--s-16)}@media (min-width:60em){.layout{display:grid;grid-template-columns:var(--sidebar) minmax(0,1fr);gap:var(--col-gap);align-items:start}.side{display:block;position:sticky;top:calc(var(--header-h) + var(--s-6));max-height:calc(100dvh - var(--header-h) - var(--s-12));overflow-y:auto;padding:var(--s-6) 0 var(--s-6);scrollbar-width:thin}}.side__title{margin:0 0 var(--s-2);padding:0 var(--s-3);font-size:var(--fs-small);font-weight:600;line-height:1.4;letter-spacing:.02em;color:var(--ink-2)}.toc,.toc ol{list-style:none;margin:0;padding:0}.toc a{display:flex;align-items:baseline;gap:var(--s-2);min-height:var(--control-h);padding:var(--s-2) var(--s-3);border-radius:var(--r-ctl);color:var(--ink-2);font-size:var(--fs-ui);font-weight:500;line-height:1.4;text-decoration:none;transition:background-color var(--t-micro) var(--ease),color var(--t-micro) var(--ease)}.toc a:hover{background:var(--wash-1);color:var(--ink)}.toc a[aria-current="true"]{background:var(--wash-2);color:var(--ink);font-weight:600}.toc__num{flex:none;min-width:2rem;font:500 var(--fs-small) / 1.4 var(--font-mono);letter-spacing:.04em}.toc__sub a{padding-left:var(--s-6)}.toc__sub .toc__num{min-width:2.25rem}.sec{border-top:2px solid var(--rule);margin-top:var(--s-10);padding-top:var(--s-4)}.doc>.sec:first-child{border-top:0;margin-top:0;padding-top:var(--s-6)}.sec__h{margin:0;font-size:var(--fs-h2);font-weight:700;line-height:var(--lh-head);letter-spacing:-.01em}.sec__btn{display:flex;align-items:baseline;gap:var(--s-3);width:calc(100% + 2 * var(--s-2));margin:0 calc(-1 * var(--s-2));padding:var(--s-3) var(--s-2);border:0;border-radius:var(--r-ctl);background:transparent;color:inherit;font:inherit;letter-spacing:inherit;text-align:left;cursor:pointer;-webkit-appearance:none;appearance:none;transition:background-color var(--t-micro) var(--ease)}.sec__btn:hover{background:var(--wash-1)}.sec__btn:active{background:var(--wash-2)}.num{flex:none;font:500 var(--fs-ui) / 1 var(--font-mono);letter-spacing:.06em;color:var(--ink-2)}.ttl{flex:1 1 auto;min-width:0}.chev{flex:none;align-self:center;width:var(--icon);height:var(--icon);color:var(--ink-2);transition:transform var(--t-micro) var(--ease)}.sec__btn[aria-expanded="false"] .chev{transform:rotate(-90deg)}.sec__body{padding-top:var(--s-2)}.sec__body.is-entering{animation:fade-in var(--t-micro) var(--ease) both}@keyframes fade-in{from{opacity:0}to{opacity:1}}.js:not(.is-ready).m-collapse .doc>.sec ~ .sec>.sec__body,.js:not(.is-ready) .sec[data-default="closed"]>.sec__body{display:none}.blk{padding-top:var(--s-6)}.blk + .blk{border-top:1px solid var(--hairline);margin-top:var(--s-6)}.blk__h{display:flex;align-items:baseline;gap:var(--s-3);margin:0 0 var(--s-4);font-size:var(--fs-h3);font-weight:600;line-height:1.4}.blk__h .num{font-size:var(--fs-small)}.doc p,.doc ul,.doc ol:not(.srcs){max-width:var(--measure)}.doc p{margin:0 0 var(--s-4)}.doc ul,.doc ol{margin:0 0 var(--s-4);padding-left:var(--s-6)}.doc li{margin-bottom:var(--s-2)}.doc li::marker{color:var(--ink-2)}.doc>.blk>:last-child,.sec__body>.blk>:last-child{margin-bottom:0}code{font-family:var(--font-mono);font-size:.92em;letter-spacing:-.01em;background:var(--surface);padding:0 var(--s-1);border-radius:var(--r-ctl);overflow-wrap:anywhere}mark{background:var(--mark-bg);color:var(--mark-ink);border-radius:var(--r-ctl);padding:0 1px}.url{overflow-wrap:anywhere}.src{display:inline-flex;align-items:center;min-height:2rem;margin:1px 0;padding:0 var(--s-2);border:1px solid var(--hairline);border-radius:var(--r-ctl);font-size:var(--fs-small);font-weight:600;line-height:1;text-decoration:none;white-space:nowrap;transition:background-color var(--t-micro) var(--ease),color var(--t-micro) var(--ease)}.src:hover{background:var(--wash-1);text-decoration:underline}.src + .src{margin-left:var(--s-1)}.tbl{margin:var(--s-6) 0}.tbl__scroll{overflow-x:auto;scrollbar-width:thin}.tbl__scroll:focus-visible{outline-offset:4px}table{border-collapse:collapse;width:100%;font-size:var(--fs-table);line-height:var(--lh-table)}th,td{padding:var(--s-3) var(--s-2);text-align:left;vertical-align:top;border-bottom:1px solid var(--hairline);overflow-wrap:break-word}.tbl--scroll th:first-child,.tbl--scroll td:first-child{position:sticky;left:0;background:var(--canvas);border-right:1px solid var(--hairline)}.tbl--scroll thead th:first-child{background:var(--surface)}thead th{background:var(--surface);color:var(--ink-2);font-size:var(--fs-small);font-weight:600;letter-spacing:.02em;line-height:1.4;vertical-align:bottom;border-bottom:1px solid var(--rule)}td code{font-size:.9em}@media (min-width:48em){th,td{min-width:4rem}td code,th code{overflow-wrap:break-word}.tbl--cards th:first-child,.tbl--cards td:first-child{position:sticky;left:0;background:var(--canvas);border-right:1px solid var(--hairline)}.tbl--cards thead th:first-child{background:var(--surface)}}.pill{display:inline-flex;align-items:center;min-height:1.5rem;padding:var(--s-1) var(--s-3);border-radius:var(--r-pill);font-size:var(--fs-small);font-weight:600;line-height:1.3}.pill--ok{background:var(--ok-bg);color:var(--ok-ink)}.pill--part{background:var(--part-bg);color:var(--part-ink)}.pill--no{background:var(--no-bg);color:var(--no-ink)}.pill--unk{background:var(--unk-bg);color:var(--unk-ink)}.pill__note{display:block;margin-top:var(--s-1);color:var(--ink-2);font-size:var(--fs-small);line-height:1.4}@media (max-width:47.99em){.tbl--scroll th,.tbl--scroll td{min-width:5.5rem}.tbl--cards table,.tbl--cards tbody,.tbl--cards tr,.tbl--cards td{display:block}.tbl--cards thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}.tbl--cards tr{padding:var(--s-4) 0 var(--s-5);border-bottom:1px solid var(--hairline)}.tbl--cards tr:first-child{border-top:1px solid var(--rule)}.tbl--cards td{display:grid;grid-template-columns:minmax(5.5rem,28%) minmax(0,1fr);gap:var(--s-1) var(--s-3);padding:var(--s-1) 0;border:0}.tbl--cards td::before{content:attr(data-label);color:var(--ink-2);font-size:var(--fs-small);font-weight:600;line-height:var(--lh-table)}.tbl--cards td:first-child{display:block;margin-bottom:var(--s-2);font-size:var(--fs-body);font-weight:600;line-height:1.4}.tbl--cards td:first-child::before{display:none}.tbl--cards .cell{display:block;min-width:0}.tbl--numbered td:first-child{margin-bottom:var(--s-1);font:500 var(--fs-small) / 1.4 var(--font-mono);letter-spacing:.04em;color:var(--ink-2)}.tbl--numbered td:nth-child(2){display:block;margin-bottom:var(--s-2);font-size:var(--fs-body);font-weight:600;line-height:1.4}.tbl--numbered td:nth-child(2)::before{display:none}}.srcs{margin:0;padding-left:var(--s-8);font-size:var(--fs-table);line-height:var(--lh-table)}.srcs li{margin-bottom:var(--s-2);overflow-wrap:anywhere}.srcs li::marker{font-family:var(--font-mono);color:var(--ink-2)}.ftr{border-top:1px solid var(--hairline)}.ftr__in{max-width:var(--container);margin:0 auto;padding:var(--s-6) var(--gutter) calc(var(--s-12) + var(--control-h));display:flex;flex-wrap:wrap;gap:var(--s-2) var(--s-4);color:var(--ink-2);font-size:var(--fs-small);font-weight:500}.sheet{position:fixed;inset:var(--header-h) 0 auto 0;width:100%;max-width:none;max-height:calc(100dvh - var(--header-h) - var(--s-10));margin:0;padding:0;border:0;border-bottom:1px solid var(--hairline);border-radius:0 0 var(--r-ctl) var(--r-ctl);background:var(--canvas);color:var(--ink);overflow:hidden}.sheet[open]{display:flex;flex-direction:column}.sheet::backdrop{background:var(--scrim)}.sheet__head{display:flex;align-items:center;justify-content:space-between;gap:var(--s-2);padding:var(--s-2) var(--gutter);border-bottom:1px solid var(--hairline)}.sheet__title{margin:0;font-size:var(--fs-ui);font-weight:600}.sheet__body{overflow-y:auto;padding:var(--s-3) var(--gutter) var(--s-6)}@media (prefers-reduced-motion:no-preference){.sheet[open]{animation:sheet-in var(--t-std) var(--ease)}.sheet.is-closing{animation:sheet-out var(--t-std) var(--ease) forwards}}@keyframes sheet-in{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}@keyframes sheet-out{from{opacity:1;transform:none}to{opacity:0;transform:translateY(-8px)}}.totop{position:fixed;right:var(--s-5);bottom:var(--s-5);z-index:var(--z-totop);display:inline-flex;align-items:center;justify-content:center;width:var(--control-h);height:var(--control-h);border:1px solid var(--rule);border-radius:var(--r-ctl);background:var(--canvas);color:var(--ink);text-decoration:none;animation:fade-in var(--t-micro) var(--ease) both;transition:background-color var(--t-micro) var(--ease)}.totop:hover{background:var(--wash-1);color:var(--ink)}.totop svg{width:var(--icon);height:var(--icon)}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.chev,.skip{transition:none}.sec__body.is-entering,.totop{animation-duration:1ms}}@media print{.hdr,.side,.totop,.sheet,.skip,.chev,.status{display:none !important}.sec__body[hidden]{display:block !important}body{font-size:11pt;line-height:1.6;color:#000;background:#fff}.hero{padding-top:0}.layout{display:block;padding:0}.sec__btn{padding:0;margin:0;width:auto}a{color:inherit}.src{border-color:#999}.tbl__scroll{overflow:visible}table{font-size:9.5pt}tr{break-inside:avoid}.sec{break-inside:auto}.blk__h,.sec__h{break-after:avoid}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+
+<header class="hdr" id="top">
+  <div class="hdr__in">
+    <button class="btn btn--toc js-only" id="toc-open" type="button" aria-haspopup="dialog" aria-controls="toc-sheet" aria-label="목차 열기" title="목차">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+    </button>
+    <a class="brand" href="#top">
+      <span class="brand__kicker">조사 기준일 <span class="mono">2026-10-23</span></span>
+      <span class="brand__title">Pleos SDK 제공 정보 범위 조사</span>
+    </a>
+    <button class="btn btn--icon btn--search js-only" id="search-toggle" type="button" aria-expanded="false" aria-controls="search-form" aria-label="검색 열기" title="검색">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    </button>
+    <button class="btn btn--outline btn--all js-only" id="toggle-all" type="button" data-action="close" aria-label="모두 접기" title="모두 접기">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path class="ico--open" d="m7 15 5 5 5-5M7 9l5-5 5 5"/><path class="ico--close" d="m7 20 5-5 5 5M7 4l5 5 5-5"/></svg>
+      <span class="btn__label">모두 접기</span>
+    </button>
+    <form class="srch js-only" id="search-form" role="search" action="#main" method="get">
+      <label class="sr-only" for="q">본문 검색</label>
+      <div class="srch__box">
+        <svg class="srch__icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" name="q" type="search" placeholder="본문 검색 (예: 퍼미션, SOC)" autocomplete="off" enterkeyhint="search" spellcheck="false">
+        <button class="btn btn--icon srch__clear" id="q-clear" type="button" aria-label="검색 지우기" hidden>
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="status" id="search-status" role="status" hidden></div>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="doc-title">
+    <p class="kicker">조사 보고서 <span class="kicker__sep" aria-hidden="true">·</span> 조사 기준일 <span class="mono">2026-10-23</span></p>
+    <h1 id="doc-title"><span class="hero__sup">현대차그룹 차량용 앱 공모전</span><span class="hero__sep" aria-hidden="true"> · </span><span class="hero__main">Pleos SDK 제공 정보 범위 조사</span></h1>
+  </section>
+
+  <div class="layout">
+    <aside class="side" aria-label="목차 사이드바">
+      <p class="side__title">목차</p>
+      <nav aria-label="목차"><ol class="toc"><li><a href="#s-0"><span class="toc__num">0</span><span class="toc__ttl">요약</span></a></li><li><a href="#s-1"><span class="toc__num">1</span><span class="toc__ttl">조사 범위와 방법</span></a></li><li><a href="#s-2"><span class="toc__num">2</span><span class="toc__ttl">Pleos SDK별 제공 정보 범위</span></a><ol class="toc__sub"><li><a href="#s-2-1"><span class="toc__num">2.1</span><span class="toc__ttl">SDK 목록과 공모전 사용 가능 상태</span></a></li><li><a href="#s-2-2"><span class="toc__num">2.2</span><span class="toc__ttl">공통 개발 환경</span></a></li><li><a href="#s-2-3"><span class="toc__num">2.3</span><span class="toc__ttl">Vehicle SDK</span></a></li><li><a href="#s-2-4"><span class="toc__num">2.4</span><span class="toc__ttl">NaviHelper SDK</span></a></li><li><a href="#s-2-5"><span class="toc__num">2.5</span><span class="toc__ttl">TextToSpeech SDK와 SpeechToText SDK</span></a></li><li><a href="#s-2-6"><span class="toc__num">2.6</span><span class="toc__ttl">FusedLocation SDK</span></a></li><li><a href="#s-2-7"><span class="toc__num">2.7</span><span class="toc__ttl">Gleo Interface와 AAOS 표준 Car API</span></a></li><li><a href="#s-2-8"><span class="toc__num">2.8</span><span class="toc__ttl">공개 API로 얻을 수 없는 정보</span></a></li><li><a href="#s-2-9"><span class="toc__num">2.9</span><span class="toc__ttl">주행 중 제한</span></a></li><li><a href="#s-2-10"><span class="toc__num">2.10</span><span class="toc__ttl">Playground의 다른 공개 API(차량 앱 밖)</span></a></li></ol></li><li><a href="#s-3"><span class="toc__num">3</span><span class="toc__ttl">기능 영역별 현실 문제와 불편</span></a><ol class="toc__sub"><li><a href="#s-3-1"><span class="toc__num">3.1</span><span class="toc__ttl">운전 보조·안전: 졸음과 주의 분산</span></a></li><li><a href="#s-3-2"><span class="toc__num">3.2</span><span class="toc__ttl">내비게이션·경로·휴게소</span></a></li><li><a href="#s-3-3"><span class="toc__num">3.3</span><span class="toc__ttl">전기차 충전</span></a></li><li><a href="#s-3-4"><span class="toc__num">3.4</span><span class="toc__ttl">차량 음성 비서와 앱 생태계</span></a></li><li><a href="#s-3-5"><span class="toc__num">3.5</span><span class="toc__ttl">차량 상태·정비</span></a></li><li><a href="#s-3-6"><span class="toc__num">3.6</span><span class="toc__ttl">뒷좌석 아이와 가족 이동</span></a></li><li><a href="#s-3-7"><span class="toc__num">3.7</span><span class="toc__ttl">동승자 엔터테인먼트</span></a></li></ol></li><li><a href="#s-4"><span class="toc__num">4</span><span class="toc__ttl">교차표: 현실 문제 × 쓸 수 있는 데이터</span></a></li><li><a href="#s-5"><span class="toc__num">5</span><span class="toc__ttl">후보 아이디어 3개의 실현 가능성</span></a><ol class="toc__sub"><li><a href="#s-5-1"><span class="toc__num">5.1</span><span class="toc__ttl">졸음운전 대응(ADAS 감지 + Gleo AI 대화 + NaviHelper 휴게소 안내)</span></a></li><li><a href="#s-5-2"><span class="toc__num">5.2</span><span class="toc__ttl">뒷좌석 아이 케어</span></a></li><li><a href="#s-5-3"><span class="toc__num">5.3</span><span class="toc__ttl">동승자 참여형 엔터테인먼트</span></a></li><li><a href="#s-5-4"><span class="toc__num">5.4</span><span class="toc__ttl">세 후보 공통 위험</span></a></li></ol></li><li><a href="#s-6"><span class="toc__num">6</span><span class="toc__ttl">확인 못 한 것</span></a></li><li><a href="#s-sources"><span class="toc__ttl">출처 목록</span></a></li></ol></nav>
+    </aside>
+    <article class="doc">
+<div class="blk blk--lead" data-block="" id="s-lead"><p>조사 기준일: 2026년 10월 23일. 공개 자료만 사용했습니다.</p></div><section aria-labelledby="h-s-0" class="sec" id="s-0"><h2 class="sec__h" id="h-s-0"><button aria-controls="b-s-0" aria-expanded="true" class="sec__btn" type="button"><span class="num">0</span><span class="ttl">요약</span><svg aria-hidden="true" class="chev" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="m6 9 6 6 6-6"></path></svg></button></h2><div class="sec__body" id="b-s-0"><div class="blk blk--lead" data-block=""><ul>
+<li>공모전 SDK는 Vehicle, NaviHelper, TextToSpeech, SpeechToText, FusedLocation 다섯 개입니다. 이 가운데 지금 신청 없이 바로 쓸 수 있는 것은 Vehicle State(차량 상태 조회)와 NaviHelper뿐입니다. TextToSpeech, SpeechToText, FusedLocation, Vehicle Control(차량 제어)은 "준비 중(Coming Soon)" 상태입니다(<a class="xref" href="#s-2-1">2.1절</a>).</li>
+<li>공개 ADAS·차량 데이터로 졸음이나 부주의를 직접 알 수 없습니다. 운전자 주의 경고(<code>DRIVER_ATTENTION</code>), 차선 유지(LKA), 전방 충돌(FCA) 같은 경고등 정보와 AAOS의 운전자 졸음·주의 분산·차선 이탈 상태는 모두 signature|privileged 권한이라 서드파티 앱이 받을 수 없습니다. 실내 카메라와 생체 신호 API도 없습니다(<a class="xref" href="#s-2-3">2.3절</a>, <a class="xref" href="#s-2-7">2.7절</a>, <a class="xref" href="#s-2-8">2.8절</a>).</li>
+<li>좌석별 탑승 여부(<code>getCurrentSeatOccupancy</code>), 좌석별 안전벨트, 도어·창문, 실내 온도, EV 배터리 잔량, 현재 주행 시간은 일반 권한으로 읽을 수 있고 에뮬레이터 Virtual Console에서 재현됩니다(<a class="xref" href="#s-2-3">2.3절</a>).</li>
+<li>차량 속도는 AAOS 표준 프로퍼티 <code>PERF_VEHICLE_SPEED</code>로 읽습니다. Vehicle SDK의 속도 리스너는 v2.3.2에서 삭제되었습니다. 기어는 AAOS <code>GEAR_SELECTION</code>으로 읽을 수 있고, Vehicle SDK 기어 API는 예제 코드에만 나와 제공 여부를 확인 못 했습니다(<a class="xref" href="#s-2-3">2.3절</a>, <a class="xref" href="#s-2-7">2.7절</a>).</li>
+<li>NaviHelper는 위치, 목적지, 남은 거리·시간, 도착 시 예상 배터리, 충전 계획, 주의 구간, 제한 속도(1초 주기)를 주고 경로·경유지를 설정할 수 있지만, 휴게소·졸음쉼터 검색 API는 없습니다(<a class="xref" href="#s-2-4">2.4절</a>).</li>
+<li>주행 중에는 동영상·게임·브라우저 앱을 쓸 수 없고, 앱은 CarUxRestrictions에 맞춰 기능을 줄여야 합니다(<a class="xref" href="#s-2-9">2.9절</a>).</li>
+<li>현실 문제: 고속도로 사망자의 약 70%가 졸음·주시태만으로 집계되었고, 졸음운전 치사율은 전체 사고의 약 2배입니다(<a class="xref" href="#s-3-1">3.1절</a>). 충전 앱의 "사용 가능" 표시가 실제와 다른 경험은 20.6%였습니다(<a class="xref" href="#s-3-3">3.3절</a>). 뒷좌석 아이와의 상호작용은 휴대전화 상호작용의 12배 빈도로 관찰되었습니다(<a class="xref" href="#s-3-6">3.6절</a>).</li>
+<li>후보 판정(4장, 5장)은 세 후보 모두 "부분"입니다. 이 보고서는 아이디어를 고르지 않습니다.</li>
+<li>졸음운전 대응: 졸음 감지는 불가능합니다. 시간 기반 피로 위험 추정과 휴게소 경유지 안내는 가능합니다.</li>
+<li>뒷좌석 아이 케어: 주행 중 착좌·안전벨트·도어·온도 모니터링은 가능합니다. 영상·소리 확인과 하차 후 감지는 불가능합니다.</li>
+<li>동승자 엔터테인먼트: 주행 중 화면 콘텐츠는 불가능합니다. 위치·경로 기반 음성 콘텐츠는 음성 SDK가 준비 중입니다.</li>
+</ul></div></div></section><section aria-labelledby="h-s-1" class="sec" id="s-1"><h2 class="sec__h" id="h-s-1"><button aria-controls="b-s-1" aria-expanded="true" class="sec__btn" type="button"><span class="num">1</span><span class="ttl">조사 범위와 방법</span><svg aria-hidden="true" class="chev" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="m6 9 6 6 6-6"></path></svg></button></h2><div class="sec__body" id="b-s-1"><div class="blk blk--lead" data-block=""><ul>
+<li>조사 기준일은 2026년 10월 23일입니다. 공개 자료만 사용했고 Pleos Playground에 가입하거나 로그인하지 않았으며, 공모전 운영처나 어떤 사람에게도 문의하지 않았습니다.</li>
+<li>SDK 범위는 Pleos Playground 개발 문서(<a class="url" href="https://document.pleos.ai/docs/pleos-only/getting-started">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>getting-started</a>)와 공모전 개발 환경 안내(<a class="url" href="https://appdevchallenge.auto-hmg.io/guide/development">appdevchallenge.auto-hmg.io/<wbr/>guide/<wbr/>development</a>)를 1차 자료로 삼았습니다. 문서 사이트의 개발자 가이드 412쪽을 내려받았고, 스크립트로 그려지는 API Reference는 문서 사이트가 배포하는 번들에서 1,866개 API 페이지 원문을 추출했습니다. 보고서에 적은 Pleos SDK와 AAOS의 API·상수 이름은 추출 원문과 자동 대조해 모두 원문에 있음을 확인했습니다. Android 표준 API인 CarPropertyManager.<code>getPropertyList</code>는 대조 대상에서 빠졌습니다.</li>
+<li>AAOS 표준 차량 프로퍼티의 권한은 Android 공식 레퍼런스(<a class="url" href="https://developer.android.com/reference/android/car/VehiclePropertyIds">developer.android.com/<wbr/>reference/<wbr/>android/<wbr/>car/<wbr/>VehiclePropertyIds</a>)를 2026년 10월 23일에 내려받은 본으로 확인했습니다. 로그인 상태나 접속 환경에 따라 이 주소가 Google 로그인 화면으로 이동할 수 있습니다.</li>
+<li>현실 문제는 정부·공공기관 통계, 언론 보도, 연구 논문, 소비자 조사, 커뮤니티 글을 찾아 각 주장 옆에 출처를 붙였습니다. 열어 보지 못했거나 수치를 대조하지 못한 항목은 "확인 못 함"으로 적었습니다.</li>
+<li>이 보고서는 아이디어를 고르지 않습니다. 근거와 판정만 정리합니다.</li>
+<li>판정 기준: "가능"은 공모전에서 지금 쓸 수 있는 공개 API(사용 가능 상태 SDK 또는 normal·dangerous 권한의 AAOS 프로퍼티)로 필요한 데이터를 모두 얻는 경우입니다. "부분"은 일부 데이터만 얻거나 준비 중 SDK에 기대는 경우입니다. "불가"는 핵심 데이터가 signature|privileged 권한 뒤에 있거나 공개 API가 없는 경우입니다.</li>
+</ul></div></div></section><section aria-labelledby="h-s-2" class="sec" id="s-2"><h2 class="sec__h" id="h-s-2"><button aria-controls="b-s-2" aria-expanded="true" class="sec__btn" type="button"><span class="num">2</span><span class="ttl">Pleos SDK별 제공 정보 범위</span><svg aria-hidden="true" class="chev" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="m6 9 6 6 6-6"></path></svg></button></h2><div class="sec__body" id="b-s-2"><div class="blk blk--lead" data-block=""><p>이 장의 API 이름은 Pleos Playground 공개 문서의 API Reference 표기를 그대로 옮겼습니다. API Reference 본문은 브라우저에서 스크립트로 그려지는 방식이어서, 공개 문서 사이트가 배포하는 문서 번들에서 1,866개 API 페이지 원문을 추출해 대조했습니다. 각 행의 URL은 사람이 열어 볼 수 있는 해당 API 페이지 주소입니다. 문서 기준 버전은 Vehicle SDK v2.3.2, NaviHelper v3.0.5, TextToSpeech v3.3.1, SpeechToText v3.3.1, FusedLocation SDK v1.1.3이며 릴리스일은 2026년 10월 19일입니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/release-note/sdk-261015">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>release-note/<wbr/>sdk-261015</a>).</p></div><div class="blk" data-block="" id="s-2-1"><h3 class="blk__h" id="h-s-2-1"><span class="num">2.1</span><span class="ttl">SDK 목록과 공모전 사용 가능 상태</span></h3><p>공모전이 안내하는 SDK는 Vehicle SDK, NaviHelper SDK, TextToSpeech SDK, SpeechToText SDK, FusedLocation SDK 다섯 개입니다(<a class="url" href="https://appdevchallenge.auto-hmg.io/faq">appdevchallenge.auto-hmg.io/<wbr/>faq</a>, "어떤 SDK와 API를 쓸 수 있나요?"; <a class="url" href="https://appdevchallenge.auto-hmg.io/guide/development">appdevchallenge.auto-hmg.io/<wbr/>guide/<wbr/>development</a>, "Pleos Connect SDK"). 공모전 FAQ는 "각 SDK의 현재 제공 상태와 사용 조건은 SDK 문서 페이지에서 확인"하라고 안내합니다. Playground 문서의 SDK 사용 신청 절차는 각 SDK의 상태를 다음과 같이 밝힙니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/create-my-project">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>create-my-project</a>, "SDK 사용 신청").</p><figure class="tbl tbl--scroll" data-cols="3"><div aria-label="표 1: SDK, Playground 상태, 의미" class="tbl__scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">SDK</th>
+<th scope="col">Playground 상태</th>
+<th scope="col">의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="SDK">Vehicle State</td>
+<td data-label="Playground 상태"><span class="pill pill--ok">사용 가능</span> <span class="pill__note">(신청 없이 바로 사용)</span></td>
+<td data-label="의미">차량 상태 조회·구독</td>
+</tr>
+<tr>
+<td data-label="SDK">NaviHelper SDK</td>
+<td data-label="Playground 상태"><span class="pill pill--ok">사용 가능</span> <span class="pill__note">(신청 없이 바로 사용)</span></td>
+<td data-label="의미">내장 내비게이션 연동</td>
+</tr>
+<tr>
+<td data-label="SDK">Vehicle Control</td>
+<td data-label="Playground 상태"><span class="pill pill--part">준비 중</span> <span class="pill__note">(Coming Soon, 신청 불가)</span></td>
+<td data-label="의미">차량 제어</td>
+</tr>
+<tr>
+<td data-label="SDK">FusedLocation SDK</td>
+<td data-label="Playground 상태"><span class="pill pill--part">준비 중</span> <span class="pill__note">(Coming Soon, 신청 불가)</span></td>
+<td data-label="의미">차량 위치</td>
+</tr>
+<tr>
+<td data-label="SDK">TextToSpeech SDK</td>
+<td data-label="Playground 상태"><span class="pill pill--part">준비 중</span> <span class="pill__note">(Coming Soon, 신청 불가)</span></td>
+<td data-label="의미">음성 합성</td>
+</tr>
+<tr>
+<td data-label="SDK">SpeechToText SDK</td>
+<td data-label="Playground 상태"><span class="pill pill--part">준비 중</span> <span class="pill__note">(Coming Soon, 신청 불가)</span></td>
+<td data-label="의미">음성 인식</td>
+</tr>
+</tbody>
+</table></div></figure><p>Vehicle State와 Vehicle Control의 경계는 문서에 API 단위로 적혀 있지 않습니다. 퍼미션 체계가 조회용 <code>CAR_*</code> 와 제어용 <code>CONTROL_CAR_*</code> 로 나뉘어 있으므로(<a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle-permission">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>Vehicle/<wbr/>vehicle-permission</a>, "퍼미션 종류"), 이 보고서는 Vehicle State를 <code>CAR_*</code> 조회·구독 API로, Vehicle Control을 <code>CONTROL_CAR_*</code> 설정 API로 추정합니다. 이 대응은 추정이며 문서로 확인 못 함입니다.</p><p>에뮬레이터 개발은 신청 상태와 별개로 문서화되어 있습니다. TextToSpeech와 SpeechToText의 <code>ON_DEVICE</code> 모드는 앱 등록 없이 동작한다고 문서에 적혀 있습니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/TextToSpeech/intro">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>TextToSpeech/<wbr/>intro</a>, "음성 합성 모드"; <a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/SpeechToText/intro">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>SpeechToText/<wbr/>intro</a>, "음성 인식 모드"). 준비 중 상태의 SDK가 에뮬레이터에서 실제로 호출되는지는 로그인과 실행이 필요해 확인 못 함입니다.</p><p>Pleos App Market 출시 단계에서는 App Market과 사전 협의해 승인받은 Vehicle SDK 퍼미션만 선언할 수 있습니다. 승인되지 않은 퍼미션을 선언한 앱은 심사를 통과할 수 없습니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/distribute/app-review-guide/review-functionality-performance-stability">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>distribute/<wbr/>app-review-guide/<wbr/>review-functionality-performance-stability</a>, "SDK·API 사용 심사"). 공모전 2차 PT는 에뮬레이터 구동 화면 시연을 인정합니다(<a class="url" href="https://appdevchallenge.auto-hmg.io/notice/c0a1a000-2026-4923-8000-000000000006">appdevchallenge.auto-hmg.io/<wbr/>notice/<wbr/>c0a1a000-2026-4923-8000-000000000006</a>, "2. 심사 및 시상·현장 시연 관련 유의사항").</p></div><div class="blk" data-block="" id="s-2-2"><h3 class="blk__h" id="h-s-2-2"><span class="num">2.2</span><span class="ttl">공통 개발 환경</span></h3><ul>
+<li>최소 Android API 28, Gradle 8.0 이상, Java 또는 Kotlin을 사용합니다. 에뮬레이터는 Pleos Connect Emulator 2.1.0이며 Android Studio SDK Manager에 업데이트 사이트를 추가해 Android API 34 시스템 이미지로 설치합니다(<a class="url" href="https://document.pleos.ai/docs/connect/guide/getting-started/application-development/setup-connect-sdk-emulator">document.pleos.ai/<wbr/>docs/<wbr/>connect/<wbr/>guide/<wbr/>getting-started/<wbr/>application-development/<wbr/>setup-connect-sdk-emulator</a>, "소프트웨어 개발 환경", "Emulator를 Android Studio에 추가하기").</li>
+<li>Pleos Connect Virtual Console은 에뮬레이터의 8088 포트를 포워딩한 뒤 PC 브라우저에서 차량 상태를 바꾸는 도구입니다(<a class="url" href="https://document.pleos.ai/docs/connect/guide/getting-started/application-development/use-vehicle-emulator">document.pleos.ai/<wbr/>docs/<wbr/>connect/<wbr/>guide/<wbr/>getting-started/<wbr/>application-development/<wbr/>use-vehicle-emulator</a>, "Pleos Connect Virtual Console 실행 방법").</li>
+<li>Vehicle SDK 호출은 IPC이므로 capability·get·set 결과가 <code>onComplete</code>·<code>onFailed</code> 비동기 람다로 돌아옵니다. <code>register*</code> 함수는 리스너를 등록해 상태 변화를 구독합니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/intro">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>Vehicle/<wbr/>intro</a>, "진입점과 도메인 구조").</li>
+<li>갱신 주기: Vehicle SDK 문서는 Hz나 주기 값을 적지 않습니다. <code>register*</code> 리스너는 "property updates"를 받는다고만 적혀 있어, 고정 주기는 확인 못 함입니다. NaviHelper의 <code>onCurrentRoadSpeedLimit</code>만 "등록 후 매초 수신"으로 주기가 명시되어 있습니다(<a class="xref" href="#s-2-4">2.4절</a>).</li>
+<li>차량 모델마다 지원 API가 다르며 <code>checkXXXCapabilities</code>로 지원 여부를 확인해야 합니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/vehicle-app-planning-guide/api-compatibility-availability">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>vehicle-app-planning-guide/<wbr/>api-compatibility-availability</a>, "Pleos Connect SDK API 호환성").</li>
+</ul></div><div class="blk" data-block="" id="s-2-3"><h3 class="blk__h" id="h-s-2-3"><span class="num">2.3</span><span class="ttl">Vehicle SDK</span></h3><p>진입점은 Vehicle 클래스입니다. 이 클래스는 <code>initialize()</code>, <code>release()</code>와 다음 도메인 획득 함수 <code>getBrake()</code>, <code>getCarInfo()</code>, <code>getDisplay()</code>, <code>getDoor()</code>, <code>getDrivingMode()</code>, <code>getEvBattery()</code>, <code>getFuel()</code>, <code>getHVAC()</code>, <code>getLight()</code>, <code>getOdometer()</code>, <code>getSafety()</code>, <code>getSeat()</code>, <code>getSideMirror()</code>, <code>getSteeringWheel()</code>, <code>getTire()</code>, <code>getToll()</code>, <code>getTurnSignal()</code>, <code>getWindow()</code>, <code>getWiper()</code>를 제공합니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle/vehicle/entry">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>Vehicle/<wbr/>vehicle/<wbr/>ai.pleos.playground.vehicle/<wbr/>vehicle/<wbr/>entry</a>). 아래 표의 보호 수준은 각 API 페이지의 "Permission: ... (protection level: ...)" 표기입니다. normal은 일반 앱이 선언만으로 받는 수준이고, signature|privileged는 플랫폼 서명이나 시스템 권한 앱만 받는 수준입니다.</p><figure class="tbl tbl--cards" data-cols="6"><div aria-label="표 2: 도메인, 주요 데이터(API 이름 그대로), 읽기/쓰기, 퍼미션(보호 수준), Virtual Console 재현, 출처" class="tbl__scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">도메인</th>
+<th scope="col">주요 데이터(API 이름 그대로)</th>
+<th scope="col">읽기/쓰기</th>
+<th scope="col">퍼미션(보호 수준)</th>
+<th scope="col">Virtual Console 재현</th>
+<th scope="col">출처</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="도메인"><span class="cell">Brake</span></td>
+<td data-label="주요 데이터(API 이름 그대로)"><span class="cell"><code>getCurrentBrakePedalStatus</code><wbr/>(눌림 여부 Boolean), <code>registerBrakePedalStatus</code><wbr/></span></td>
+<td data-label="읽기/쓰기"><span class="cell">읽기·구독</span></td>
+<td data-label="퍼미션(보호 수준)"><span class="cell"><code>CAR_DRIVE</code><wbr/>(normal)</span></td>
+<td data-label="Virtual Console 재현"><span class="cell">Brake Pedal 0~100%</span></td>
+<td data-label="출처"><span class="cell"><a class="src" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/brake/entry" title="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/brake/entry">출처1</a></span></td>
+</tr>
+<tr>
+<td data-label="도메인"><span class="cell">CarInfo</span></td>
+<td data-label="주요 데이터(API 이름 그대로)"><span class="cell"><code>getVINInfo</code><wbr/>(VIN 문자열), <code>getCRNInfo</code><wbr/>(deprecated)</span></td>
+<td data-label="읽기/쓰기"><span class="cell">읽기</span></td>
+<td data-label="퍼미션(보호 수준)"><span class="cell"><code>CAR_INFO</code><wbr/>(normal)</span></td>
+<td data-label="Virtual Console 재현"><span class="cell">없음</span></td>
+<td data-label="출처"><span class="cell"><a class="src" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/car-info/entry" title="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/car-info/entry">출처2</a></span></td>
+</tr>
+<tr>
+<td data-label="도메인"><span class="cell">Display</span></td>
+<td data-label="주요 데이터(API 이름 그대로)"><span class="cell"><code>getCurrentTemperatureDisplayUnit</code><wbr/>, <code>registerTemperatureDisplayUnit</code><wbr/></span></td>
+<td data-label="읽기/쓰기"><span class="cell">읽기·구독</span></td>
+<td data-label="퍼미션(보호 수준)"><span class="cell"><code>CAR_INFO</code><wbr/>(normal)</span></td>
+<td data-label="Virtual Console 재현"><span class="cell">없음</span></td>
+<td data-label="출처"><span class="cell"><a class="src" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/display/entry" title="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/display/entry">출처3</a></span></td>
+</tr>
+<tr>
+<td data-label="도메인"><span class="cell">Door</span></td>
+<td data-label="주요 데이터(API 이름 그대로)"><span class="cell"><code>getCurrentDoorPosition</code><wbr/>, <code>getDoorLockState</code><wbr/>, <code>getCurrentGloveBoxLockState</code><wbr/>, <code>register*</code><wbr/>; <code>setDoorLock</code><wbr/>, <code>setDoorPosition</code><wbr/>, <code>setGloveBoxLock</code><wbr/></span></td>
+<td data-label="읽기/쓰기"><span class="cell">읽기·구독, 쓰기</span></td>
+<td data-label="퍼미션(보호 수준)"><span class="cell"><code>CAR_DOORS</code><wbr/>(normal), 쓰기 <code>CONTROL_CAR_DOORS</code><wbr/>(normal)</span></td>
+<td data-label="Virtual Console 재현"><span class="cell">Door Position, Door Lock, Trunk/Frunk, Glove Box</span></td>
+<td data-label="출처"><span class="cell"><a class="src" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/door/entry" title="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/door/entry">출처4</a></span></td>
+</tr>
+<tr>
+<td data-label="도메인"><span class="cell">DrivingMode</span></td>
+<td data-label="주요 데이터(API 이름 그대로)"><span class="cell"><code>getCurrentDrivingModeState</code><wbr/>(DrivingModeType), <code>getCruiseControlState</code><wbr/>(CruiseControl), <code>getCruiseControlTargetSpeed</code><wbr/>, <code>register*</code><wbr/></span></td>
+<td data-label="읽기/쓰기"><span class="cell">읽기·구독</span></td>
+<td data-label="퍼미션(보호 수준)"><span class="cell"><code>CAR_DRIVE</code><wbr/>(normal)</span></td>
+<td data-label="Virtual Console 재현"><span class="cell">Cruise Control State, Cruise Target Speed</span></td>
+<td data-label="출처"><span class="cell"><a class="src" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/driving-mode/entry" title="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/driving-mode/entry">출처5</a></span></td>
+</tr>
+<tr>
+<td data-label="도메인"><span class="cell">EvBattery</span></td>
+<td data-label="주요 데이터(API 이름 그대로)"><span class="cell"><code>getEvBatteryStateOfCharge</code><wbr/>(%), <code>getCurrentEvEfficiency</code><wbr/>, <code>getInstantaneousEvEfficiency</code><wbr/>, <code>getCumulativeEvEfficiency</code><wbr/>, <code>getSinceChargeEvEfficiency</code><wbr/>(km/<code>kWh</code><wbr/>), <code>getEvChargeSwitchState</code><wbr/>, <code>getEvChargeCurrentDrawLimit</code><wbr/>, <code>register*</code><wbr/>; <code>setEvChargePercentLimit</code><wbr/>, <code>setEvChargeCurrentDrawLimit</code><wbr/>, <code>setEvChargePortOpen</code><wbr/>, <code>setEvChargeSwitch</code><wbr/></span></td>
+<td data-label="읽기/쓰기"><span class="cell">읽기·구독, 쓰기</span></td>
+<td data-label="퍼미션(보호 수준)"><span class="cell"><code>CAR_ENERGY</code><wbr/>(normal), 쓰기 <code>CONTROL_CAR_ENERGY</code><wbr/>(normal)</span></td>
+<td data-label="Virtual Console 재현"><span class="cell">Battery SOC, Battery Energy, Capacity, Charge Limit, Charge Switch, Charge Port, Remaining Range</span></td>
+<td data-label="출처"><span class="cell"><a class="src" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/ev-battery/entry" title="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/ev-battery/entry">출처6</a></span></td>
+</tr>
+<tr>
+<td data-label="도메인"><span class="cell">Fuel</span></td>
+<td data-label="주요 데이터(API 이름 그대로)"><span class="cell"><code>getFuelPercent</code><wbr/>(%), <code>getCurrentFuelEconomy</code><wbr/>, <code>getInstantaneousFuelEconomy</code><wbr/>, <code>getCumulativeFuelEconomy</code><wbr/>, <code>getSinceChargeFuelEconomy</code><wbr/>(L/100km), <code>register*</code><wbr/></span></td>
+<td data-label="읽기/쓰기"><span class="cell">읽기·구독</span></td>
+<td data-label="퍼미션(보호 수준)"><span class="cell"><code>CAR_ENERGY</code><wbr/>(normal)</span></td>
+<td data-label="Virtual Console 재현"><span class="cell">없음</span></td>
+<td data-label="출처"><span class="cell"><a class="src" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/fuel/entry" title="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/fuel/entry">출처7</a></span></td>
+</tr>
+<tr>
+<td data-label="도메인"><span class="cell">HVAC</span></td>
+<td data-label="주요 데이터(API 이름 그대로)"><span class="cell"><code>getHvacTemperature</code><wbr/>, <code>getHvacTemperatureCurrent</code><wbr/>(실내 온도 °C), <code>getHvacPowerState</code><wbr/>, <code>getHvacFanSpeed</code><wbr/>, <code>getHvacFanDirection</code><wbr/>, <code>getHvacAcState</code><wbr/>, <code>getHvacAutoState</code><wbr/>, <code>getHvacRecirculationState</code><wbr/>, <code>getHvacDefrosterState</code><wbr/>, <code>getHvacAirCleanerState</code><wbr/> 등, <code>register*</code><wbr/>; <code>setHvacTemperature</code><wbr/>, <code>setHvacFanSpeed</code><wbr/>, <code>setHvacAc</code><wbr/>, <code>setHvacRecirculation</code><wbr/>, <code>setHvacAirCleaner</code><wbr/> 등 13종</span></td>
+<td data-label="읽기/쓰기"><span class="cell">읽기·구독, 쓰기</span></td>
+<td data-label="퍼미션(보호 수준)"><span class="cell"><code>CAR_CLIMATE</code><wbr/>(normal), 쓰기 <code>CONTROL_CAR_CLIMATE</code><wbr/>(normal)</span></td>
+<td data-label="Virtual Console 재현"><span class="cell">Climate 도메인 11개 카드</span></td>
+<td data-label="출처"><span class="cell"><a class="src" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/h-v-a-c/entry" title="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/h-v-a-c/entry">출처8</a></span></td>
+</tr>
+<tr>
+<td data-label="도메인"><span class="cell">Light</span></td>
+<td data-label="주요 데이터(API 이름 그대로)"><span class="cell">앰비언트(<code>getAmbientLightBrightness</code><wbr/>, <code>getAmbientLightBrightnessColor</code><wbr/> 등), 실내등·독서등·전조등·안개등·미등 상태와 스위치, <code>register*</code><wbr/>; <code>setAmbientLightBrightnessColor</code><wbr/>(32비트 ARGB), <code>setReadingLightSwitch</code><wbr/>, <code>setCabinLightSwitch</code><wbr/> 등</span></td>
+<td data-label="읽기/쓰기"><span class="cell">읽기·구독, 쓰기</span></td>
+<td data-label="퍼미션(보호 수준)"><span class="cell"><code>CAR_LIGHTS</code><wbr/>(normal), 쓰기 <code>CONTROL_CAR_LIGHTS</code><wbr/>(normal)</span></td>
+<td data-label="Virtual Console 재현"><span class="cell">Ambient, Cabin, Reading, Exterior, High Beam, Hazard, Stop</span></td>
+<td data-label="출처"><span class="cell"><a class="src" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/light/entry" title="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/light/entry">출처9</a></span></td>
+</tr>
+<tr>
+<td data-label="도메인"><span class="cell">Odometer</span></td>
+<td data-label="주요 데이터(API 이름 그대로)"><span class="cell"><code>getCurrentDistanceDriven</code><wbr/>, <code>getTripCurrentDrivingTime</code><wbr/>(현재 주행 세션 분), <code>getTripCurrentDrivingDistance</code><wbr/>, <code>getTripCumulativeDrivingTime</code><wbr/>, <code>getTripSinceRefillDrivingTime</code><wbr/> 등, <code>register*</code><wbr/></span></td>
+<td data-label="읽기/쓰기"><span class="cell">읽기·구독</span></td>
+<td data-label="퍼미션(보호 수준)"><span class="cell"><code>CAR_DRIVE</code><wbr/>(normal)</span></td>
+<td data-label="Virtual Console 재현"><span class="cell">Odometer</span></td>
+<td data-label="출처"><span class="cell"><a class="src" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/odometer/entry" title="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/odometer/entry">출처10</a></span></td>
+</tr>
+<tr>
+<td data-label="도메인"><span class="cell">Safety</span></td>
+<td data-label="주요 데이터(API 이름 그대로)"><span class="cell"><code>hasSeatBeltNotBuckledWarning</code><wbr/>, <code>hasSeatAirbagEnabled</code><wbr/>, <code>hasSeatAirbagBeenDeployed</code><wbr/>, <code>getEngineOilLevelState</code><wbr/>, <code>getBrakeFluidLevelState</code><wbr/>, <code>getTransmissionOilLevelState</code><wbr/>, <code>hasLowWasherFluidWarning</code><wbr/>, <code>hasPowerDownWarningIndicator</code><wbr/>, <code>register*</code><wbr/></span></td>
+<td data-label="읽기/쓰기"><span class="cell">읽기·구독</span></td>
+<td data-label="퍼미션(보호 수준)"><span class="cell"><code>CAR_SAFETY</code><wbr/>(normal)</span></td>
+<td data-label="Virtual Console 재현"><span class="cell">일부(Telltales 카드)</span></td>
+<td data-label="출처"><span class="cell"><a class="src" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/safety/entry" title="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/safety/entry">출처11</a></span></td>
+</tr>
+<tr>
+<td data-label="도메인"><span class="cell">Safety(경고등)</span></td>
+<td data-label="주요 데이터(API 이름 그대로)"><span class="cell"><code>getTelltalesInfo</code><wbr/>, <code>registerTelltales</code><wbr/>, <code>checkTelltalesCapabilities</code><wbr/></span></td>
+<td data-label="읽기/쓰기"><span class="cell">읽기·구독</span></td>
+<td data-label="퍼미션(보호 수준)"><span class="cell"><code>PRIVATE_CAR_SAFETY</code><wbr/>(signature|privileged)</span></td>
+<td data-label="Virtual Console 재현"><span class="cell">Telltales</span></td>
+<td data-label="출처"><span class="cell"><a class="src" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/safety/get-telltales-info" title="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/safety/get-telltales-info">출처12</a></span></td>
+</tr>
+<tr>
+<td data-label="도메인"><span class="cell">Seat</span></td>
+<td data-label="주요 데이터(API 이름 그대로)"><span class="cell"><code>getCurrentSeatOccupancy</code><wbr/>(좌석별 탑승 Boolean), <code>registerSeatOccupancy</code><wbr/>, <code>getCurrentSeatBeltBuckledState</code><wbr/>, <code>registerSeatBeltBuckledState</code><wbr/>, 좌석 위치·각도(<code>getCurrentSeatForeAftPosition</code><wbr/> 등), <code>getHvacSeatTemperature</code><wbr/>, <code>getHvacSeatVentilationState</code><wbr/>; <code>moveSeat*</code><wbr/>(11종), <code>selectSeatMemory</code><wbr/>, <code>setHvacSeatTemperature</code><wbr/>, <code>setHvacSeatVentilation</code><wbr/></span></td>
+<td data-label="읽기/쓰기"><span class="cell">읽기·구독, 쓰기</span></td>
+<td data-label="퍼미션(보호 수준)"><span class="cell"><code>CAR_SEATS</code><wbr/>(normal), 쓰기 <code>CONTROL_CAR_SEATS</code><wbr/>(normal)</span></td>
+<td data-label="Virtual Console 재현"><span class="cell">Seat Occupancy(운전석·동승석·뒷좌석 좌우), Seat Temperature</span></td>
+<td data-label="출처"><span class="cell"><a class="src" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/seat/entry" title="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/seat/entry">출처13</a></span></td>
+</tr>
+<tr>
+<td data-label="도메인"><span class="cell">SideMirror</span></td>
+<td data-label="주요 데이터(API 이름 그대로)"><span class="cell"><code>getHvacSideMirrorHeatState</code><wbr/>, <code>setHvacSideMirrorHeat</code><wbr/></span></td>
+<td data-label="읽기/쓰기"><span class="cell">읽기, 쓰기</span></td>
+<td data-label="퍼미션(보호 수준)"><span class="cell"><code>CAR_MIRRORS</code><wbr/>(normal), <code>CONTROL_CAR_MIRRORS</code><wbr/>(normal)</span></td>
+<td data-label="Virtual Console 재현"><span class="cell">없음</span></td>
+<td data-label="출처"><span class="cell"><a class="src" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/side-mirror/entry" title="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/side-mirror/entry">출처14</a></span></td>
+</tr>
+<tr>
+<td data-label="도메인"><span class="cell">SteeringWheel</span></td>
+<td data-label="주요 데이터(API 이름 그대로)"><span class="cell"><code>getCurrentSteeringWheelAngle</code><wbr/>(앞바퀴 조향각, 도), <code>registerSteeringWheelAngle</code><wbr/>, <code>getHvacSteeringWheelHeatState</code><wbr/>, <code>setHvacSteeringWheelHeat</code><wbr/></span></td>
+<td data-label="읽기/쓰기"><span class="cell">읽기·구독, 쓰기</span></td>
+<td data-label="퍼미션(보호 수준)"><span class="cell"><code>CAR_DRIVE</code><wbr/>(normal), 열선 <code>CAR_CLIMATE</code><wbr/>/<code>CONTROL_CAR_CLIMATE</code><wbr/>(normal)</span></td>
+<td data-label="Virtual Console 재현"><span class="cell">Steering Angle -540~540도, Steering Wheel Heat</span></td>
+<td data-label="출처"><span class="cell"><a class="src" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/steering-wheel/entry" title="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/steering-wheel/entry">출처15</a></span></td>
+</tr>
+<tr>
+<td data-label="도메인"><span class="cell">Tire</span></td>
+<td data-label="주요 데이터(API 이름 그대로)"><span class="cell"><code>getLowTirePressure</code><wbr/>(저압 경고 임계값 <code>kPa</code><wbr/>)</span></td>
+<td data-label="읽기/쓰기"><span class="cell">읽기</span></td>
+<td data-label="퍼미션(보호 수준)"><span class="cell"><code>CAR_SAFETY</code><wbr/>(normal)</span></td>
+<td data-label="Virtual Console 재현"><span class="cell">없음</span></td>
+<td data-label="출처"><span class="cell"><a class="src" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/tire/entry" title="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/tire/entry">출처16</a></span></td>
+</tr>
+<tr>
+<td data-label="도메인"><span class="cell">Toll</span></td>
+<td data-label="주요 데이터(API 이름 그대로)"><span class="cell"><code>getCurrentEtcsVoiceGuidanceVolume</code><wbr/>, <code>setEtcsVoiceGuidanceVolume</code><wbr/></span></td>
+<td data-label="읽기/쓰기"><span class="cell">읽기·구독, 쓰기</span></td>
+<td data-label="퍼미션(보호 수준)"><span class="cell"><code>CAR_TOLL</code><wbr/>(normal), <code>CONTROL_CAR_TOLL</code><wbr/>(normal)</span></td>
+<td data-label="Virtual Console 재현"><span class="cell">ETCS Power, ETCS Scenario</span></td>
+<td data-label="출처"><span class="cell"><a class="src" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/toll/entry" title="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/toll/entry">출처17</a></span></td>
+</tr>
+<tr>
+<td data-label="도메인"><span class="cell">TurnSignal</span></td>
+<td data-label="주요 데이터(API 이름 그대로)"><span class="cell"><code>getCurrentTurnSignalState</code><wbr/>, <code>registerTurnSignalState</code><wbr/></span></td>
+<td data-label="읽기/쓰기"><span class="cell">읽기·구독</span></td>
+<td data-label="퍼미션(보호 수준)"><span class="cell"><code>CAR_LIGHTS</code><wbr/>(normal)</span></td>
+<td data-label="Virtual Console 재현"><span class="cell">Turn Signal State</span></td>
+<td data-label="출처"><span class="cell"><a class="src" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/turn-signal/entry" title="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/turn-signal/entry">출처18</a></span></td>
+</tr>
+<tr>
+<td data-label="도메인"><span class="cell">Window</span></td>
+<td data-label="주요 데이터(API 이름 그대로)"><span class="cell"><code>getCurrentWindowPosition</code><wbr/>, <code>getCurrentWindowLockState</code><wbr/>, <code>getCurrentWindowBlindPosition</code><wbr/>, <code>getCurrentSmartGlassLevel</code><wbr/>, <code>register*</code><wbr/>; <code>setWindowPosition</code><wbr/>, <code>setWindowLock</code><wbr/>, <code>moveWindowBlind</code><wbr/>, <code>setSmartGlassLevel</code><wbr/></span></td>
+<td data-label="읽기/쓰기"><span class="cell">읽기·구독, 쓰기</span></td>
+<td data-label="퍼미션(보호 수준)"><span class="cell"><code>CAR_WINDOWS</code><wbr/>(normal), <code>CONTROL_CAR_WINDOWS</code><wbr/>(normal), <code>setSmartGlassState</code><wbr/>만 signature|privileged</span></td>
+<td data-label="Virtual Console 재현"><span class="cell">Window Position, Window Lock</span></td>
+<td data-label="출처"><span class="cell"><a class="src" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/window/entry" title="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/window/entry">출처19</a></span></td>
+</tr>
+<tr>
+<td data-label="도메인"><span class="cell">Wiper</span></td>
+<td data-label="주요 데이터(API 이름 그대로)"><span class="cell"><code>getCurrentWiperState</code><wbr/>, <code>getCurrentWiperSwitch</code><wbr/>, <code>registerWiperState</code><wbr/>, <code>setWiperSwitch</code><wbr/></span></td>
+<td data-label="읽기/쓰기"><span class="cell">읽기·구독, 쓰기</span></td>
+<td data-label="퍼미션(보호 수준)"><span class="cell"><code>CAR_WINDOWS</code><wbr/>(normal), <code>CONTROL_CAR_WINDOWS</code><wbr/>(normal)</span></td>
+<td data-label="Virtual Console 재현"><span class="cell">Windshield Wiper Switch</span></td>
+<td data-label="출처"><span class="cell"><a class="src" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/wiper/entry" title="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/wiper/entry">출처20</a></span></td>
+</tr>
+</tbody>
+</table></div></figure><p>Virtual Console 열은 Virtual Console 사용 가이드의 카드 목록 기준입니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/app-test-guide/virtual-console-guide">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>app-test-guide/<wbr/>virtual-console-guide</a>, "Emulation Controls 사용 방법"). 기어(P, R, N, D)는 Virtual Console에서 바꿀 수 있습니다. Vehicle 클래스 설명의 예제 코드에는 vehicle.<code>getGear()</code>, <code>registerGearSelection</code>, GearSelectionListener가 나오지만, 같은 페이지의 함수 목록과 API Reference의 도메인 페이지에는 Gear가 없습니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle/vehicle/entry">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>Vehicle/<wbr/>vehicle/<wbr/>ai.pleos.playground.vehicle/<wbr/>vehicle/<wbr/>entry</a>). Vehicle SDK의 기어 API 제공 여부는 확인 못 함이며, 문서가 확실히 안내하는 경로는 AAOS 표준 프로퍼티 <code>GEAR_SELECTION</code>입니다(<a class="xref" href="#s-2-7">2.7절</a>).</p><p>조향각 주의점: <code>getCurrentSteeringWheelAngle</code>의 값은 "front-wheel steering angle"입니다. 문서는 이 값이 "does not represent the rotation angle of the steering wheel"이라고 명시합니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/steering-wheel/get-current-steering-wheel-angle">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>Vehicle/<wbr/>vehicle/<wbr/>ai.pleos.playground.vehicle.api/<wbr/>steering-wheel/<wbr/>get-current-steering-wheel-angle</a>). Virtual Console 카드는 같은 값을 "스티어링 휠 각도 -540~540도"로 설명해 표현이 다릅니다.</p><p>경고등(Telltale) 상세: TelltaleType은 경고등 종류를 나열한 열거형입니다. 여기에는 <code>DRIVER_ATTENTION</code>, FCA, LKA, LFA, <code>LCA_LEFT</code>, <code>LCA_RIGHT</code>, ICC, <code>OVER_SPEED</code>, <code>SEAT_BELT</code>, <code>DOOR_OPEN</code>, TPMS, <code>CHILD_PRESENCE_DETECTION_OFF</code>, <code>LOW_EV_BATTERY</code>, <code>LOW_FUEL</code>, ENGINE, <code>MASTER_WARNING</code> 등이 있고, TelltaleData는 type, state(OFF, ON, BLINK), color, priority, <code>warningCount</code>를 담습니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.constant.telltale/telltale-type/entry">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>Vehicle/<wbr/>vehicle/<wbr/>ai.pleos.playground.vehicle.constant.telltale/<wbr/>telltale-type/<wbr/>entry</a> 및 <a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api.model.telltale/telltale-data/entry">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>Vehicle/<wbr/>vehicle/<wbr/>ai.pleos.playground.vehicle.api.model.telltale/<wbr/>telltale-data/<wbr/>entry</a>). 그러나 이 데이터를 받는 <code>getTelltalesInfo</code>, <code>registerTelltales</code>는 <code>PRIVATE_CAR_SAFETY</code>(signature|privileged)를 요구합니다. <code>getTelltalesInfo</code> 페이지는 어노테이션에 <code>CAR_SAFETY</code>, 설명에 <code>PRIVATE_CAR_SAFETY</code>(signature|privileged)를 함께 적어 표기가 서로 다릅니다. <code>registerTelltales</code>와 <code>checkTelltalesCapabilities</code>는 어노테이션과 설명 모두 <code>PRIVATE_CAR_SAFETY</code>입니다. 따라서 운전자 주의 경고(DAW) 점등 여부는 열거형에는 있지만 서드파티 앱이 받을 수 없는 것으로 판단합니다.</p><p>삭제된 API: Vehicle SDK v2.3.2에서 VehicleSpeedListener와 <code>onSpeedUpdated</code>가 삭제되었습니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/release-note/sdk-261015">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>release-note/<wbr/>sdk-261015</a>, "Shutdown API").</p></div><div class="blk" data-block="" id="s-2-4"><h3 class="blk__h" id="h-s-2-4"><span class="num">2.4</span><span class="ttl">NaviHelper SDK</span></h3><p>NaviHelper는 Pleos Connect 내장 내비게이션과 연동하는 SDK입니다. 진입점은 NaviHelper(context)이며 <code>initialize()</code>, initialize(<code>onConnected</code>, <code>onFailed</code>), <code>addListener()</code>, <code>removeListener()</code>, <code>release()</code>를 제공합니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/NaviHelper/navi-helper/ai.pleos.playground.navi.helper/navi-helper/entry">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>NaviHelper/<wbr/>navi-helper/<wbr/>ai.pleos.playground.navi.helper/<wbr/>navi-helper/<wbr/>entry</a>). 내비게이션이 탑재된 차량에서만 전체 호환됩니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/vehicle-app-planning-guide/api-compatibility-availability">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>vehicle-app-planning-guide/<wbr/>api-compatibility-availability</a>). 공모전 상태는 "사용 가능"입니다(<a class="xref" href="#s-2-1">2.1절</a>).</p><figure class="tbl tbl--cards" data-cols="4"><div aria-label="표 3: 구분, API 이름 그대로, 퍼미션, 출처" class="tbl__scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">구분</th>
+<th scope="col">API 이름 그대로</th>
+<th scope="col">퍼미션</th>
+<th scope="col">출처</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="구분"><span class="cell">조회(결과는 리스너로 수신)</span></td>
+<td data-label="API 이름 그대로"><span class="cell"><code>getCurrentLocationInfo</code><wbr/>, <code>getDestinationInfo</code><wbr/>, <code>getWaypointInfo</code><wbr/>, <code>getRouteStateInfo</code><wbr/>, <code>getTBTInfo</code><wbr/>, <code>getBookmarkInfo</code><wbr/>, <code>getRecentDestinationInfo</code><wbr/>, <code>getChargerOperatorInfo</code><wbr/>, <code>requestTrip</code><wbr/></span></td>
+<td data-label="퍼미션"><span class="cell"><code>pleos.car.permission.NAVI_ROUTE</code><wbr/></span></td>
+<td data-label="출처"><span class="cell"><a class="src" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/NaviHelper/declaring-permissions" title="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/NaviHelper/declaring-permissions">출처21</a></span></td>
+</tr>
+<tr>
+<td data-label="구분"><span class="cell">경로 제어(쓰기)</span></td>
+<td data-label="API 이름 그대로"><span class="cell"><code>requestRoute</code><wbr/>, <code>requestRouteWithWaypoints</code><wbr/>, <code>cancelRoute</code><wbr/>, <code>requestReRoute</code><wbr/>, <code>addWaypoint</code><wbr/>, <code>removeWaypoint</code><wbr/>, <code>changeRouteOption</code><wbr/></span></td>
+<td data-label="퍼미션"><span class="cell"><code>pleos.car.permission.NAVI_ROUTE_SEARCH</code><wbr/></span></td>
+<td data-label="출처"><span class="cell">같은 페이지</span></td>
+</tr>
+<tr>
+<td data-label="구분"><span class="cell">화면 전환</span></td>
+<td data-label="API 이름 그대로"><span class="cell"><code>requestNavigationScreen</code><wbr/>(Foreground, FavoriteMain, AddHomeFavorite, AddWorkFavorite, NearbyChargingStations, Settings, MoveToCurrentLocationOnMap, OverviewRoute, SearchPlace, POIDetailPopup, RecentDestinations, RouteOptionList, EditRoute)</span></td>
+<td data-label="퍼미션"><span class="cell"><code>pleos.car.permission.NAVI_CUSTOM_MAP</code><wbr/></span></td>
+<td data-label="출처"><span class="cell"><a class="src" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/NaviHelper/navi-helper/ai.pleos.playground.navi.data/navigation-screen-request/entry" title="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/NaviHelper/navi-helper/ai.pleos.playground.navi.data/navigation-screen-request/entry">출처22</a></span></td>
+</tr>
+</tbody>
+</table></div></figure><p>NaviHelperEventListener는 다음 이벤트를 제공합니다. <code>onCurrentLocationInfo</code>, <code>onCurrentRoadSpeedLimit</code>(등록 후 매초 수신), <code>onCameraAlert</code>, <code>onCautionPointInfo</code>, <code>onTBTInfo</code>, <code>onDrivingInfo</code>, <code>onTripInfo</code>, <code>onRouteStateInfo</code>, <code>onNavigationStatus</code>, <code>onRouteStarted</code>, <code>onRoutingCompleted</code>, <code>onReRouteEnded</code>, <code>onRouteCancelled</code>, <code>onRouteOptionChanged</code>, <code>onDestinationInfo</code>, <code>onDestinationChanged</code>, <code>onDestinationArrived</code>, <code>onWayPointInfo</code>, <code>onWaypointChanged</code>, <code>onWayPointArrived</code>, <code>onBookmarkInfo</code>, <code>onBookMarkChanged</code>, <code>onRecentDestinationInfo</code>, <code>onChargerOperatorInfo</code>, <code>onError</code>(<a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/NaviHelper/navi-helper/ai.pleos.playground.navi.helper.listener/navi-helper-event-listener/entry">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>NaviHelper/<wbr/>navi-helper/<wbr/>ai.pleos.playground.navi.helper.listener/<wbr/>navi-helper-event-listener/<wbr/>entry</a>).</p><p>주요 데이터 필드는 다음과 같습니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/NaviHelper/navi-helper/ai.pleos.playground.navi.data/entry">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>NaviHelper/<wbr/>navi-helper/<wbr/>ai.pleos.playground.navi.data/<wbr/>entry</a>).</p><ul>
+<li>CurrentLocationInfo: latitude, longitude, heading, address, <code>routeId</code>, <code>currentRouteIndex</code></li>
+<li>DestinationInfo: name, address, <code>remainDistance</code>, <code>remainTime</code>, <code>tollFare</code>, <code>poiId</code></li>
+<li>TripInfo: distance(m), eta(초), <code>estimatedSocAtDest</code>(도착 시 예상 배터리 %), <code>energyConsumption</code>(Wh), summary(TripSummary: <code>trafficConditions</code>, <code>routePoints</code>)</li>
+<li>DrivingState: duration, distance, <code>remainDestinationChargingValue</code>, <code>isChargingStation</code>, <code>isRecommendedChargingStation</code>, <code>maxChargingPower</code>, <code>targetSoc</code>, <code>chargerCount</code>, <code>chargingPlan</code>(duration, <code>startSoc</code>, <code>endSoc</code>)</li>
+<li>CameraAlert: type, <code>speedLimit</code>, <code>remainDistance</code>, <code>sectionAvrSpeed</code>, <code>isOverSpeed</code>, <code>isOverSectionAvrSpeed</code></li>
+<li>CautionPoint: type(<code>SPEED_BUMP</code>, <code>SCHOOL_ZONE</code>, <code>ACCIDENT_PRONE_AREA</code>, <code>FOG_AREA</code>, <code>FALLING_ROCK_AREA</code>, <code>DOWNHILL_CAUTION_AREA</code>, <code>WILDLIFE_CROSSING</code> 등), <code>remainDistance</code></li>
+<li>RouteStateInfo.<code>trafficStatus</code>: TrafficCongestionSummary(<code>totalCongestionDist</code>, <code>totalCongestionTime</code>, <code>totalCongestionAvrSpeed</code>), TrafficCongestionInfo(<code>avrSpeed</code>, <code>roadName</code> 등), TrafficEventInfo(<code>eventType</code>: ACCIDENT, <code>ROAD_DAMAGE</code>, REPAIRING, EVENT, DISASTER)</li>
+<li>NavigationStatus: INACTIVE, INITIALIZING, <code>FREE_DRIVE</code>, <code>ROUTE_DRIVE</code></li>
+</ul><p>NaviHelper에서 찾지 못한 것: 공개 API 목록에서 휴게소·졸음쉼터·주차장 같은 장소 유형 검색 API를 찾지 못했습니다. 경로 지점의 POI 유형은 NORMAL과 <code>EV_CHARGING</code> 두 가지뿐이고(<a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/NaviHelper/navi-helper/ai.pleos.playground.navi.constants/route-point-poi-type/entry">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>NaviHelper/<wbr/>navi-helper/<wbr/>ai.pleos.playground.navi.constants/<wbr/>route-point-poi-type/<wbr/>entry</a>), <code>requestRoute</code>는 앱이 위도·경도·<code>poiId</code>를 직접 넘기는 방식입니다. 따라서 휴게소 안내를 하려면 앱이 휴게소 좌표를 별도 공개 데이터에서 가져와 경유지로 넣어야 합니다. 갱신 주기는 <code>onCurrentRoadSpeedLimit</code>의 1초만 명시되어 있고 나머지 이벤트 주기는 확인 못 함입니다.</p></div><div class="blk" data-block="" id="s-2-5"><h3 class="blk__h" id="h-s-2-5"><span class="num">2.5</span><span class="ttl">TextToSpeech SDK와 SpeechToText SDK</span></h3><figure class="tbl tbl--cards" data-cols="3"><div aria-label="표 4: 항목, TextToSpeech, SpeechToText" class="tbl__scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">항목</th>
+<th scope="col">TextToSpeech</th>
+<th scope="col">SpeechToText</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="항목"><span class="cell">진입점·주요 API</span></td>
+<td data-label="TextToSpeech"><span class="cell"><code>ai.pleos.playground.tts.TextToSpeech</code><wbr/>; initialize, <code>addEventListener</code><wbr/>, <code>setLocale</code><wbr/>, <code>setSpeakerType</code><wbr/>, <code>setAudioZoneId</code><wbr/>, <code>setAudioAttributes</code><wbr/>, <code>registerApp</code><wbr/>, speak, stop, release</span></td>
+<td data-label="SpeechToText"><span class="cell"><code>ai.pleos.playground.stt.SpeechToText</code><wbr/>; initialize, <code>addListener</code><wbr/>, <code>setLocale</code><wbr/>, <code>registerApp</code><wbr/>, request, <code>sendAudio</code><wbr/>, <code>completeAudioSend</code><wbr/>, stop, release</span></td>
+</tr>
+<tr>
+<td data-label="항목"><span class="cell">모드</span></td>
+<td data-label="TextToSpeech"><span class="cell">HYBRID(기본), SERVER, <code>ON_DEVICE</code><wbr/></span></td>
+<td data-label="SpeechToText"><span class="cell">HYBRID(기본), SERVER, <code>ON_DEVICE</code><wbr/></span></td>
+</tr>
+<tr>
+<td data-label="항목"><span class="cell">퍼미션</span></td>
+<td data-label="TextToSpeech"><span class="cell"><code>pleos.car.permission.TTS_SERVICE</code><wbr/>(<a class="src" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/TextToSpeech/declaring-permissions" title="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/TextToSpeech/declaring-permissions">출처23</a>)</span></td>
+<td data-label="SpeechToText"><span class="cell"><code>pleos.car.permission.STT_SERVICE</code><wbr/>(<a class="src" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/SpeechToText/declaring-permissions" title="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/SpeechToText/declaring-permissions">출처24</a>)</span></td>
+</tr>
+<tr>
+<td data-label="항목"><span class="cell">서버 모드 조건</span></td>
+<td data-label="TextToSpeech"><span class="cell">Playground 프로젝트의 클라이언트 ID·시크릿으로 앱 등록 필요</span></td>
+<td data-label="SpeechToText"><span class="cell">같음</span></td>
+</tr>
+<tr>
+<td data-label="항목"><span class="cell">특징</span></td>
+<td data-label="TextToSpeech"><span class="cell">화자 seoyoon, eunwoo, haeun, sanghyeok(한국어) 선택, 오디오 존 지정</span></td>
+<td data-label="SpeechToText"><span class="cell">결과는 텍스트만 반환하고 명령을 실행하지 않음. <code>sendAudio</code><wbr/>는 앱이 가진 PCM을 <code>ON_DEVICE</code><wbr/> 모드에서만 인식</span></td>
+</tr>
+<tr>
+<td data-label="항목"><span class="cell">공모전 상태</span></td>
+<td data-label="TextToSpeech"><span class="cell"><span class="pill pill--part">준비 중</span></span></td>
+<td data-label="SpeechToText"><span class="cell"><span class="pill pill--part">준비 중</span></span></td>
+</tr>
+<tr>
+<td data-label="항목"><span class="cell">출처</span></td>
+<td data-label="TextToSpeech"><span class="cell"><a class="src" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/TextToSpeech/intro" title="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/TextToSpeech/intro">출처25</a>, <a class="src" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/TextToSpeech/text-to-speech/ai.pleos.playground.tts/text-to-speech/set-speaker-type" title="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/TextToSpeech/text-to-speech/ai.pleos.playground.tts/text-to-speech/set-speaker-type">출처26</a></span></td>
+<td data-label="SpeechToText"><span class="cell"><a class="src" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/SpeechToText/intro" title="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/SpeechToText/intro">출처27</a>, <a class="src" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/SpeechToText/sending-audio-data" title="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/SpeechToText/sending-audio-data">출처28</a></span></td>
+</tr>
+</tbody>
+</table></div></figure><p>문서상 음성은 주행 중에도 허용되는 입력 방식입니다. 북미 정책은 주행 중 검색을 음성으로만 허용합니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/vehicle-app-planning-guide/driving-restiction-policy">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>vehicle-app-planning-guide/<wbr/>driving-restiction-policy</a>). 주의 분산 설계 원칙은 음성 입력과 프리셋을 우선하라고 안내합니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/vehicle-app-planning-guide/driver-distraction-guideline">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>vehicle-app-planning-guide/<wbr/>driver-distraction-guideline</a>). 다만 두 SDK 모두 공모전 상태가 준비 중이라는 점이 제약입니다.</p></div><div class="blk" data-block="" id="s-2-6"><h3 class="blk__h" id="h-s-2-6"><span class="num">2.6</span><span class="ttl">FusedLocation SDK</span></h3><p>FusedLocation은 <code>isSupported</code>, initialize, <code>getLastKnownLocation</code>, <code>registerFusedLocationCallback</code>, <code>unregisterFusedLocationCallback</code>, <code>showLocationAccessBlockedPopup</code>, <code>addProximityAlert</code>, <code>removeProximityAlert</code>를 제공합니다. LocationData는 위도, 경도, 고도, 진행 방향, 신뢰도, 타임스탬프를 담습니다. 퍼미션은 <code>pleos.car.permission</code>.<code>FUSED_LOCATION</code>이며 차량 모델에 따라 지원 여부가 다릅니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/FusedLocation/intro">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>FusedLocation/<wbr/>intro</a>, "제공 기능", "위치 데이터", "권한 및 접근 제약"). 공모전 상태는 준비 중입니다. 위치가 필요하면 사용 가능 상태인 NaviHelper의 <code>getCurrentLocationInfo</code>, <code>onCurrentLocationInfo</code>로 대체할 수 있습니다(<a class="xref" href="#s-2-4">2.4절</a>).</p></div><div class="blk" data-block="" id="s-2-7"><h3 class="blk__h" id="h-s-2-7"><span class="num">2.7</span><span class="ttl">Gleo Interface와 AAOS 표준 Car API</span></h3><p>Gleo Interface는 Gleo AI가 서드파티 앱을 음성 명령으로 호출하는 연동 규격이며, 별도 SDK는 아닙니다. 앱이 App Schema(JSON)에 function을 정의하면 LLM이 function call을 만듭니다. Gleo AI는 Gleo Action으로 앱을 호출하고 Callback으로 응답을 받습니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/app-integration-guide/guide/core-concepts">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>app-integration-guide/<wbr/>guide/<wbr/>core-concepts</a>). App Schema의 <code>actionCalls</code>는 최대 3개이고 호출 방식은 activity(<code>startActivity</code>) 또는 service(<code>sendBroadcast</code>)입니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/app-integration-guide/guide/app-capability">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>app-integration-guide/<wbr/>guide/<wbr/>app-capability</a>, "2.1 Fields"). 즉 Gleo AI는 사용자가 말을 걸었을 때 앱을 부르는 구조이며, 앱이 Gleo AI에게 대화를 먼저 시작하게 하는 API는 문서에서 찾지 못했습니다. 공모전 FAQ와 개발 안내의 SDK 목록에는 Gleo Interface가 없습니다(<a class="url" href="https://appdevchallenge.auto-hmg.io/faq">appdevchallenge.auto-hmg.io/<wbr/>faq</a>). App Schema 등록 절차와 공모전 사용 가능 여부는 확인 못 함입니다.</p><p>Pleos는 AAOS 표준 API에 같은 기능이 있으면 SDK에서 중복 제공하지 않고 표준 API 사용을 권장합니다. 문서는 속도, 기어 상태, 외기 온도, 연료 레벨을 AAOS Car API 대상 예시로 듭니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/vehicle-app-planning-guide/pleos-connect-sdk-api">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>vehicle-app-planning-guide/<wbr/>pleos-connect-sdk-api</a>, "API 선택 기준"). 클러스터와 같은 속도는 CarPropertyManager로 <code>PERF_VEHICLE_SPEED</code>를 읽으라고 안내합니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/vehicle-app-developer-guide/vehicle-app-faq">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>vehicle-app-developer-guide/<wbr/>vehicle-app-faq</a>, "클러스터 속도 조회 방법").</p><figure class="tbl tbl--cards" data-cols="4"><div aria-label="표 5: AAOS 프로퍼티, 내용, 필요 권한(보호 수준), 서드파티 사용" class="tbl__scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">AAOS 프로퍼티</th>
+<th scope="col">내용</th>
+<th scope="col">필요 권한(보호 수준)</th>
+<th scope="col">서드파티 사용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="AAOS 프로퍼티"><span class="cell"><code>PERF_VEHICLE_SPEED</code><wbr/></span></td>
+<td data-label="내용"><span class="cell">차량 속도 m/s, CONTINUOUS</span></td>
+<td data-label="필요 권한(보호 수준)"><span class="cell">Car.<code>PERMISSION_SPEED</code><wbr/>(dangerous)</span></td>
+<td data-label="서드파티 사용"><span class="cell"><span class="pill pill--ok">가능</span> <span class="pill__note">(런타임 권한)</span></span></td>
+</tr>
+<tr>
+<td data-label="AAOS 프로퍼티"><span class="cell"><code>GEAR_SELECTION</code><wbr/></span></td>
+<td data-label="내용"><span class="cell">선택 기어</span></td>
+<td data-label="필요 권한(보호 수준)"><span class="cell">Car.<code>PERMISSION_POWERTRAIN</code><wbr/>(normal)</span></td>
+<td data-label="서드파티 사용"><span class="cell"><span class="pill pill--ok">가능</span></span></td>
+</tr>
+<tr>
+<td data-label="AAOS 프로퍼티"><span class="cell"><code>ENV_OUTSIDE_TEMPERATURE</code><wbr/>, <code>NIGHT_MODE</code><wbr/></span></td>
+<td data-label="내용"><span class="cell">외기 온도, 야간 모드</span></td>
+<td data-label="필요 권한(보호 수준)"><span class="cell">normal</span></td>
+<td data-label="서드파티 사용"><span class="cell"><span class="pill pill--ok">가능</span></span></td>
+</tr>
+<tr>
+<td data-label="AAOS 프로퍼티"><span class="cell"><code>SEAT_OCCUPANCY</code><wbr/></span></td>
+<td data-label="내용"><span class="cell">좌석 점유</span></td>
+<td data-label="필요 권한(보호 수준)"><span class="cell">Car.<code>PERMISSION_READ_CAR_SEATS</code><wbr/>(dangerous)</span></td>
+<td data-label="서드파티 사용"><span class="cell"><span class="pill pill--ok">가능</span></span></td>
+</tr>
+<tr>
+<td data-label="AAOS 프로퍼티"><span class="cell"><code>DRIVER_DROWSINESS_ATTENTION_STATE</code><wbr/>, <code>DRIVER_DROWSINESS_ATTENTION_WARNING</code><wbr/></span></td>
+<td data-label="내용"><span class="cell">KSS 기반 졸음·주의 상태와 경고</span></td>
+<td data-label="필요 권한(보호 수준)"><span class="cell">Car.<code>PERMISSION_READ_DRIVER_MONITORING_STATES</code><wbr/>(signature|privileged)</span></td>
+<td data-label="서드파티 사용"><span class="cell"><span class="pill pill--no">불가</span></span></td>
+</tr>
+<tr>
+<td data-label="AAOS 프로퍼티"><span class="cell"><code>DRIVER_DISTRACTION_STATE</code><wbr/>, <code>DRIVER_DISTRACTION_WARNING</code><wbr/></span></td>
+<td data-label="내용"><span class="cell">주의 분산 상태와 경고</span></td>
+<td data-label="필요 권한(보호 수준)"><span class="cell">같음(signature|privileged)</span></td>
+<td data-label="서드파티 사용"><span class="cell"><span class="pill pill--no">불가</span></span></td>
+</tr>
+<tr>
+<td data-label="AAOS 프로퍼티"><span class="cell"><code>HANDS_ON_DETECTION_DRIVER_STATE</code><wbr/></span></td>
+<td data-label="내용"><span class="cell">핸들 파지 여부</span></td>
+<td data-label="필요 권한(보호 수준)"><span class="cell">같음(signature|privileged)</span></td>
+<td data-label="서드파티 사용"><span class="cell"><span class="pill pill--no">불가</span></span></td>
+</tr>
+<tr>
+<td data-label="AAOS 프로퍼티"><span class="cell"><code>LANE_DEPARTURE_WARNING_STATE</code><wbr/>, <code>FORWARD_COLLISION_WARNING_STATE</code><wbr/>, <code>BLIND_SPOT_WARNING_STATE</code><wbr/></span></td>
+<td data-label="내용"><span class="cell">차선 이탈·전방 충돌·후측방 경고 상태</span></td>
+<td data-label="필요 권한(보호 수준)"><span class="cell">Car.<code>PERMISSION_READ_ADAS_STATES</code><wbr/>(signature|privileged)</span></td>
+<td data-label="서드파티 사용"><span class="cell"><span class="pill pill--no">불가</span></span></td>
+</tr>
+</tbody>
+</table></div></figure><p>표의 출처는 <a class="url" href="https://developer.android.com/reference/android/car/VehiclePropertyIds">developer.android.com/<wbr/>reference/<wbr/>android/<wbr/>car/<wbr/>VehiclePropertyIds</a> 의 각 상수 항목입니다. 표준 정의가 있어도 차량이 해당 프로퍼티를 실제로 제공하는지는 모델마다 다르며 CarPropertyManager로 확인해야 합니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/vehicle-app-planning-guide/api-compatibility-availability">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>vehicle-app-planning-guide/<wbr/>api-compatibility-availability</a>, "AAOS Vehicle Property 가용성"). Pleos Connect 실차가 <code>PERF_VEHICLE_SPEED</code> 외의 프로퍼티를 어디까지 제공하는지는 확인 못 함입니다. Virtual Console 셋업 가이드는 "차량 속도" 변경을 할 수 있다고 소개하지만 사용 가이드의 카드 목록에는 속도 카드가 없어, 에뮬레이터에서 속도를 바꾸는 방법은 확인 못 함입니다(<a class="url" href="https://document.pleos.ai/docs/connect/guide/getting-started/application-development/use-vehicle-emulator">document.pleos.ai/<wbr/>docs/<wbr/>connect/<wbr/>guide/<wbr/>getting-started/<wbr/>application-development/<wbr/>use-vehicle-emulator</a> 및 <a class="url" href="https://document.pleos.ai/docs/pleos-only/app-test-guide/virtual-console-guide">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>app-test-guide/<wbr/>virtual-console-guide</a>).</p></div><div class="blk" data-block="" id="s-2-8"><h3 class="blk__h" id="h-s-2-8"><span class="num">2.8</span><span class="ttl">공개 API로 얻을 수 없는 정보</span></h3><figure class="tbl tbl--cards" data-cols="3"><div aria-label="표 6: 정보, 판정, 근거" class="tbl__scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">정보</th>
+<th scope="col">판정</th>
+<th scope="col">근거</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="정보"><span class="cell">실내 카메라 영상, 운전자 모니터링(DMS) 데이터</span></td>
+<td data-label="판정"><span class="cell">공개 문서에서 찾지 못함</span></td>
+<td data-label="근거"><span class="cell">Vehicle SDK 19개 도메인과 다섯 SDK 어디에도 카메라·DMS API가 없습니다(<a class="src" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/intro" title="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/intro">출처29</a>). AAOS의 운전자 상태 프로퍼티는 signature|privileged입니다(<a class="xref" href="#s-2-7">2.7절</a>). 표준 Android 카메라 API로 실내 카메라에 접근할 수 있는지는 확인 못 함입니다.</span></td>
+</tr>
+<tr>
+<td data-label="정보"><span class="cell">졸음·주의 분산 판정값, DAW 경고</span></td>
+<td data-label="판정"><span class="cell"><span class="pill pill--no">서드파티 불가</span></span></td>
+<td data-label="근거"><span class="cell">TelltaleType.<code>DRIVER_ATTENTION</code><wbr/>은 <code>PRIVATE_CAR_SAFETY</code><wbr/>(signature|privileged), <code>DRIVER_DROWSINESS_ATTENTION_STATE</code><wbr/>는 <code>READ_DRIVER_MONITORING_STATES</code><wbr/>(signature|privileged)</span></td>
+</tr>
+<tr>
+<td data-label="정보"><span class="cell">차선 이탈·전방 충돌·후측방 경고(ADAS 경고)</span></td>
+<td data-label="판정"><span class="cell"><span class="pill pill--no">서드파티 불가</span></span></td>
+<td data-label="근거"><span class="cell">LKA, FCA, LCA 경고등은 <code>PRIVATE_CAR_SAFETY</code><wbr/>, AAOS ADAS 상태는 <code>READ_ADAS_STATES</code><wbr/>(signature|privileged)</span></td>
+</tr>
+<tr>
+<td data-label="정보"><span class="cell">크루즈 컨트롤 상태</span></td>
+<td data-label="판정"><span class="cell"><span class="pill pill--ok">가능</span></span></td>
+<td data-label="근거"><span class="cell"><code>getCruiseControlState</code><wbr/>(<code>CAR_DRIVE</code><wbr/>, normal). 상태 값은 OTHER, ENABLED, ACTIVATED, <code>USER_OVERRIDE</code><wbr/>, SUSPENDED, <code>FORCED_DEACTIVATION_WARNING</code><wbr/>(<a class="src" href="https://document.pleos.ai/docs/pleos-only/release-note/sdk-261015" title="https://document.pleos.ai/docs/pleos-only/release-note/sdk-261015">출처30</a>)</span></td>
+</tr>
+<tr>
+<td data-label="정보"><span class="cell">생체 신호(심박, 체온 등)</span></td>
+<td data-label="판정"><span class="cell">공개 문서에서 찾지 못함</span></td>
+<td data-label="근거"><span class="cell">다섯 SDK의 공개 API 목록에서 생체 신호 API를 찾지 못했습니다(SDK 개요 <a class="src" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/" title="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/">출처31</a>)</span></td>
+</tr>
+<tr>
+<td data-label="정보"><span class="cell">좌석 점유(사람이 앉았는지)</span></td>
+<td data-label="판정"><span class="cell"><span class="pill pill--ok">가능</span></span></td>
+<td data-label="근거"><span class="cell"><code>getCurrentSeatOccupancy</code><wbr/>, <code>registerSeatOccupancy</code><wbr/>(<code>CAR_SEATS</code><wbr/>, normal), 1~3열 좌우·가운데 SeatValue. 실차 센서가 어느 좌석에 있는지는 <code>checkSeatOccupancyCapabilities</code><wbr/>로만 알 수 있어 차종별 범위는 확인 못 함</span></td>
+</tr>
+<tr>
+<td data-label="정보"><span class="cell">뒷좌석 아이 감지(Child Presence Detection)</span></td>
+<td data-label="판정"><span class="cell">결과값 API를 찾지 못함</span></td>
+<td data-label="근거"><span class="cell">TelltaleType에 <code>CHILD_PRESENCE_DETECTION_OFF</code><wbr/>(기능 꺼짐 표시)만 있고 <code>PRIVATE_CAR_SAFETY</code><wbr/>입니다. 감지 결과를 주는 API는 공개 문서에서 찾지 못했습니다.</span></td>
+</tr>
+<tr>
+<td data-label="정보"><span class="cell">안전벨트 착용</span></td>
+<td data-label="판정"><span class="cell"><span class="pill pill--ok">가능</span></span></td>
+<td data-label="근거"><span class="cell"><code>getCurrentSeatBeltBuckledState</code><wbr/>(<code>CAR_SEATS</code><wbr/>), <code>hasSeatBeltNotBuckledWarning</code><wbr/>(<code>CAR_SAFETY</code><wbr/>)</span></td>
+</tr>
+<tr>
+<td data-label="정보"><span class="cell">차량 속도, 기어</span></td>
+<td data-label="판정"><span class="cell"><span class="pill pill--ok">AAOS로 가능</span></span></td>
+<td data-label="근거"><span class="cell"><code>PERF_VEHICLE_SPEED</code><wbr/>(dangerous), <code>GEAR_SELECTION</code><wbr/>(normal). Vehicle SDK 속도 리스너는 삭제됨. Vehicle SDK 기어 API는 예제 코드에만 나오며 제공 여부 확인 못 함</span></td>
+</tr>
+<tr>
+<td data-label="정보"><span class="cell">마이크 원음 녹음</span></td>
+<td data-label="판정"><span class="cell"><span class="pill pill--unk">확인 못 함</span></span></td>
+<td data-label="근거"><span class="cell">STT는 텍스트만 반환합니다. 일반 Android AudioRecord 사용 가능 여부는 문서에 없습니다.</span></td>
+</tr>
+<tr>
+<td data-label="정보"><span class="cell">휴게소·졸음쉼터 검색</span></td>
+<td data-label="판정"><span class="cell">NaviHelper 공개 API에서 찾지 못함</span></td>
+<td data-label="근거"><span class="cell">POI 유형은 NORMAL, <code>EV_CHARGING</code><wbr/>뿐(<a class="xref" href="#s-2-4">2.4절</a>)</span></td>
+</tr>
+<tr>
+<td data-label="정보"><span class="cell">알림, 계정, 결제 SDK</span></td>
+<td data-label="판정"><span class="cell">공모전 SDK 목록에서 찾지 못함</span></td>
+<td data-label="근거"><span class="cell">SDK 개요의 모듈 목록은 다섯 SDK뿐입니다(<a class="src" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/" title="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/">출처31</a>). 결제(Universal Wallet) 등은 Playground 제품 소개 페이지 제목으로만 존재하며 공모전 SDK가 아닙니다. 상세는 확인 못 함</span></td>
+</tr>
+</tbody>
+</table></div></figure></div><div class="blk" data-block="" id="s-2-9"><h3 class="blk__h" id="h-s-2-9"><span class="num">2.9</span><span class="ttl">주행 중 제한</span></h3><ul>
+<li>앱이 Distraction Optimization(DO)을 선언하지 않으면 주차 중에만 쓸 수 있고 주행 중에는 쓸 수 없습니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/vehicle-app-planning-guide/driving-restiction-policy">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>vehicle-app-planning-guide/<wbr/>driving-restiction-policy</a>, "주행 상황에 따른 앱 사용 여부").</li>
+<li>주행 규제 상태에서 키보드, 다이얼패드, 설정, 동영상, 대용량 텍스트가 제한됩니다. 문서는 북미, 유럽, "그외 지역" 세 표만 제공하며 한국을 따로 명시하지 않습니다. 한국이 "그외 지역"에 속한다는 것은 추정입니다. "그외 지역"은 주행 중 키보드·다이얼패드·검색·미디어 앱 로그인과 내비게이션 검색을 허용하고, 차량 설정, 동영상, QR 로그인, 대용량 텍스트를 막습니다. 북미는 검색을 음성으로만 허용합니다(같은 페이지, "주행 상황별 기능 제한"). 지역 코드는 <code>product.sw.target_region</code> 값 KOR로 구분합니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/vehicle-app-developer-guide/vehicle-app-faq">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>vehicle-app-developer-guide/<wbr/>vehicle-app-faq</a>, "지역 코드 확인").</li>
+<li>앱은 AAOS CarUxRestrictionsManager의 <code>onUxRestrictionsChanged</code>로 제한 상태를 받아 반영해야 합니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/vehicle-app-developer-guide/driving-restriction-development-guide">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>vehicle-app-developer-guide/<wbr/>driving-restriction-development-guide</a>). 에뮬레이터에서는 adb shell cmd hmg_car_service --service drivingstate driving 으로 주행 규제를 켤 수 있습니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/vehicle-app-developer-guide/adb-command-reference-guide">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>vehicle-app-developer-guide/<wbr/>adb-command-reference-guide</a>, "주행 규제 활성화/해제").</li>
+<li>동영상, 게임, 브라우저 기능을 가진 미디어 앱은 운전 중 실행·사용할 수 없고, 운전이 시작되면 일시 중지하고 UI를 숨겨야 합니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/distribute/app-review-guide/review-driver-distraction-elements">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>distribute/<wbr/>app-review-guide/<wbr/>review-driver-distraction-elements</a>, "미디어 앱 설계").</li>
+<li>앱 카테고리 중 Music/Audio, Maps/Navigation, Mobility Services는 주행 중 일부 기능이 제한적으로 허용될 수 있고, Kids 카테고리도 따로 있습니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/vehicle-app-planning-guide/app-category">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>vehicle-app-planning-guide/<wbr/>app-category</a>).</li>
+<li>동승석 전용 화면이나 뒷좌석 화면을 위한 별도 규제나 API는 공개 문서에서 찾지 못했습니다(확인 못 함). Pleos Connect 플랫폼은 Connect-S, Connect-L, Connect-W 세 가지로 구분됩니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/vehicle-app-developer-guide/vehicle-app-faq">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>vehicle-app-developer-guide/<wbr/>vehicle-app-faq</a>, "실행 플랫폼 확인").</li>
+</ul></div><div class="blk" data-block="" id="s-2-10"><h3 class="blk__h" id="h-s-2-10"><span class="num">2.10</span><span class="ttl">Playground의 다른 공개 API(차량 앱 밖)</span></h3><p>Pleos Playground에는 차량용 앱 SDK 외에도 API 문서가 공개되어 있습니다. 공모전 개발 안내는 이 API들을 공모전 SDK로 안내하지 않습니다(<a class="url" href="https://appdevchallenge.auto-hmg.io/guide/development">appdevchallenge.auto-hmg.io/<wbr/>guide/<wbr/>development</a>).</p><figure class="tbl tbl--cards" data-cols="5"><div aria-label="표 7: API, 성격, 제공 데이터, 사용 조건, 출처" class="tbl__scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">API</th>
+<th scope="col">성격</th>
+<th scope="col">제공 데이터</th>
+<th scope="col">사용 조건</th>
+<th scope="col">출처</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="API"><span class="cell">Vehicle Data API</span></td>
+<td data-label="성격"><span class="cell">현대·기아·제네시스 커넥티드 카의 텔레매틱스 데이터를 서버에서 조회하는 클라우드 REST API</span></td>
+<td data-label="제공 데이터"><span class="cell">충전 상태(/batteries), 파워트레인(/powertrains), 위치·방향·속도(/locations), 시동·누적 거리·주차(/driving), 도어·트렁크·타이어 공기압·경고등·공조(/status), 냉동고(/freezer), 기초 데이터(/powertrains/data, /speed, /driving/data, /status/data)</span></td>
+<td data-label="사용 조건"><span class="cell">Private User는 API 키 발급 후 본인 차량 조회. Business User는 차량 소유자의 데이터 공유 동의가 필요하고, 기초 데이터는 동의 후 24시간이 지나야 조회 가능</span></td>
+<td data-label="출처"><span class="cell"><a class="src" href="https://document.pleos.ai/api-reference/vehicle-data-api/intro" title="https://document.pleos.ai/api-reference/vehicle-data-api/intro">출처32</a></span></td>
+</tr>
+<tr>
+<td data-label="API"><span class="cell">Fleet API</span></td>
+<td data-label="성격"><span class="cell">Pleos Fleet 기반 차량·단말 관리 REST API와 Webhook</span></td>
+<td data-label="제공 데이터"><span class="cell">차량·단말 등록과 조회, 차량 데이터 조회, Webhook 실시간 수신. 이상 이벤트, 예약, 운전자, 정비, 운행 이력은 "지원 예정"</span></td>
+<td data-label="사용 조건"><span class="cell">Pleos Fleet 가입 필요(상세 확인 못 함)</span></td>
+<td data-label="출처"><span class="cell"><a class="src" href="https://document.pleos.ai/api-reference/fleet-api/intro" title="https://document.pleos.ai/api-reference/fleet-api/intro">출처33</a></span></td>
+</tr>
+<tr>
+<td data-label="API"><span class="cell">Pleos Platform SDK</span></td>
+<td data-label="성격"><span class="cell">승인된 privileged 앱에 차량 기능을 System API로 제공하는 SDK</span></td>
+<td data-label="제공 데이터"><span class="cell">문서상 권한·기능·호환성 표는 "문서화 진행 중"</span></td>
+<td data-label="사용 조건"><span class="cell">Maven 계정을 회사별 담당자에게 받아야 함. 공모전 참가자용이 아님</span></td>
+<td data-label="출처"><span class="cell"><a class="src" href="https://document.pleos.ai/api-reference/pleos-platform-sdk/intro" title="https://document.pleos.ai/api-reference/pleos-platform-sdk/intro">출처34</a>, <a class="src" href="https://document.pleos.ai/api-reference/pleos-platform-sdk/get-started" title="https://document.pleos.ai/api-reference/pleos-platform-sdk/get-started">출처35</a></span></td>
+</tr>
+</tbody>
+</table></div></figure><p>Vehicle Data API의 목록에는 운전자 상태, 졸음, 실내 카메라 항목이 없습니다. 이 API는 차량 밖의 서버나 휴대폰 앱이 쓰는 경로이며, 국내 차종 지원 범위와 API 키 발급 조건은 로그인 필요로 확인 못 함입니다.</p></div></div></section><section aria-labelledby="h-s-3" class="sec" id="s-3"><h2 class="sec__h" id="h-s-3"><button aria-controls="b-s-3" aria-expanded="true" class="sec__btn" type="button"><span class="num">3</span><span class="ttl">기능 영역별 현실 문제와 불편</span><svg aria-hidden="true" class="chev" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="m6 9 6 6 6-6"></path></svg></button></h2><div class="sec__body" id="b-s-3"><div class="blk blk--lead" data-block=""><p>이 장은 SDK가 다루는 영역별로 운전자와 동승자가 실제로 겪는 문제, 그리고 기존 해결책이 부족한 이유를 정리합니다. 기관 발표를 인용한 기사는 재인용임을 밝혔습니다.</p></div><div class="blk" data-block="" id="s-3-1"><h3 class="blk__h" id="h-s-3-1"><span class="num">3.1</span><span class="ttl">운전 보조·안전: 졸음과 주의 분산</span></h3><p>고속도로 졸음·주시태만</p><ul>
+<li>한국도로공사 자료를 인용한 보도에 따르면 최근 3년간 고속도로 교통사고 사망자의 약 70%가 졸음·주시태만(추정)으로 발생했습니다(환경일보 2024년 2월, <a class="url" href="https://www.hkbs.co.kr/news/articleView.html?idxno=743674">www.hkbs.co.kr/<wbr/>news/<wbr/>articleView.html?idxno=743674</a>). 졸음과 주시태만을 합친 분류이며 졸음 단독 수치가 아닙니다.</li>
+<li>2020~2024년 고속도로 전체 사고 8,280건 중 4,848건(58.6%)이 졸음·주시태만 사고였고, 설·추석 연휴에는 167건 중 109건(65.3%)이었습니다(한국도로공사 발표 인용, 뉴스핌 2025년 10월 2일, <a class="url" href="https://newspim.com/news/view/20251002001172">newspim.com/<wbr/>news/<wbr/>view/<wbr/>20251002001172</a>).</li>
+<li>도로공사 대전충남본부는 졸음 취약 시간대로 오후 2~4시를 제시했습니다(파이낸셜뉴스 2024년 5월, <a class="url" href="https://www.fnnews.com/news/202405171614485473">www.fnnews.com/<wbr/>news/<wbr/>202405171614485473</a>).</li>
+</ul><p>졸음운전 사고 통계</p><ul>
+<li>경찰청 집계로 2019~2023년 졸음운전 사고는 10,765건, 사망자는 316명이고 치사율(사고 100건당 사망자)은 2.9명으로 음주운전 1.5명의 약 2배였습니다. 고속도로 졸음운전 치사율은 8.3명입니다. 주간(06~18시) 사망자가 201명으로 야간 115명보다 많았습니다(정책브리핑 2024년 4월, <a class="url" href="https://www.korea.kr/news/policyNewsView.do?newsId=148927915">www.korea.kr/<wbr/>news/<wbr/>policyNewsView.do?newsId=148927915</a>).</li>
+<li>한국도로교통공단 발표에 따르면 2021~2023년 졸음운전 치사율은 2.7명으로 전체 교통사고 1.4명보다 높고, 사고는 12~18시에 몰리는 경향을 보였습니다(오토타임즈 2025년 4월, <a class="url" href="https://v.daum.net/v/2ozBNte7yM">v.daum.net/<wbr/>v/<wbr/>2ozBNte7yM</a>).</li>
+<li>경찰청 2020~2024년 분석에서 졸음운전 사망자 252명 중 14.3%가 8월에 발생했고, 8월 고속도로 졸음운전 치사율은 10.81명이었습니다(파이낸셜뉴스 2025년 7월 30일, <a class="url" href="https://www.fnnews.com/news/202507301202194822">www.fnnews.com/<wbr/>news/<wbr/>202507301202194822</a>).</li>
+</ul><p>스마트폰·터치스크린 주의 분산</p><ul>
+<li>2024년 교통문화지수 조사에서 운전 중 스마트기기 미사용 준수율은 63.43%였습니다(국토교통부·한국교통안전공단 2025년 2월 보도자료 첨부, <a class="url" href="https://www.korea.kr/common/download.do?fileId=198040390&amp;tblKey=GMN">www.korea.kr/<wbr/>common/<wbr/>download.do?fileId=198040390&amp;tblKey=GMN</a>). 설문조사 지표입니다.</li>
+<li>AAA 재단·유타대학교 실험(2017년, 차량 30종, 운전자 120명)에서 내비게이션 설정 같은 과제를 할 때 운전자의 주의가 40초 넘게 분산되었습니다. 23종은 높거나 매우 높은 주의 요구도를 보였습니다(<a class="url" href="https://newsroom.aaa.com/2017/10/new-vehicle-infotainment-systems-create-increased-distractions-behind-wheel/">newsroom.aaa.com/<wbr/>2017/<wbr/>10/<wbr/>new-vehicle-infotainment-systems-create-increased-distractions-behind-wheel/<wbr/></a>). 음성 명령도 평가 대상이었으므로 음성이면 항상 안전하다는 결론은 나오지 않습니다.</li>
+<li>스웨덴 Vi Bilägare 시험(2022년, 시속 110km)에서 네 가지 과제 완료 시간은 물리 버튼 중심의 2005년식 Volvo V70이 10.0초, 현대 Ioniq 5가 26.7초였습니다(<a class="url" href="https://www.vibilagare.se/english/physical-buttons-outperform-touchscreens-new-cars-test-finds">www.vibilagare.se/<wbr/>english/<wbr/>physical-buttons-outperform-touchscreens-new-cars-test-finds</a>).</li>
+<li>Euro NCAP은 2026년 평가에서 방향지시등, 와이퍼, 비상등, 경적, <code>eCall</code>의 직접 물리 조작을 요구합니다(<a class="url" href="https://www.euroncap.com/press-media/buttons-are-back-for-basic-functions-euro-ncap-confirms-in-testing/">www.euroncap.com/<wbr/>press-media/<wbr/>buttons-are-back-for-basic-functions-euro-ncap-confirms-in-testing/<wbr/></a>).</li>
+</ul><p>기존 대응 수단과 한계</p><ul>
+<li>현대차그룹 DAW는 차로 추종 능력 저하, 갑작스러운 조향 같은 운전 패턴을 분석해 휴식을 권합니다(2022년, <a class="url" href="https://www.hyundaimotorgroup.com/ko/story/CONT0000000000016227">www.hyundaimotorgroup.com/<wbr/>ko/<wbr/>story/<wbr/>CONT0000000000016227</a>). 기아 2024년형 설명서는 피곤하지 않아도 경고할 수 있고 부주의 상태를 판단하지 못할 수도 있다고 명시합니다(<a class="url" href="https://ownersmanual.kia.com/full_webhelp/TAM/2024/ko_KR/topics/t00045.html">ownersmanual.kia.com/<wbr/>full_webhelp/<wbr/>TAM/<wbr/>2024/<wbr/>ko_KR/<wbr/>topics/<wbr/>t00045.html</a>).</li>
+<li>제네시스 GV70(2025년형)의 운전자 모니터링 시스템은 실내 카메라로 얼굴 방향과 눈 개폐를 보지만, 편광 선글라스나 가림 같은 제한 조건이 있습니다(<a class="url" href="https://ownersmanual.genesis.com/full_webhelp/JK/2025/ko_KR/topic_qzj_r31_syb.html">ownersmanual.genesis.com/<wbr/>full_webhelp/<wbr/>JK/<wbr/>2025/<wbr/>ko_KR/<wbr/>topic_qzj_r31_syb.html</a>). GV60은 2025년 3월 개편 모델에 실내 카메라가 추가되었습니다(<a class="url" href="https://newsroom.genesis.com/download/b8b83f4d-b1eb-4ced-bbb4-19bb1a86d969/250306-first-everredesignofgenesisgv60makeskoreandebut.pdf">newsroom.genesis.com/<wbr/>download/<wbr/>b8b83f4d-b1eb-4ced-bbb4-19bb1a86d969/<wbr/>250306-first-everredesignofgenesisgv60makeskoreandebut.pdf</a>).</li>
+<li>EU는 운전 패턴 기반 졸음 경고(DDAW)를 신규 형식 2022년 7월, 모든 신차 2024년 7월부터 의무화했습니다(<a class="url" href="https://data.consilium.europa.eu/doc/document/ST-8164-2021-INIT/en/pdf">data.consilium.europa.eu/<wbr/>doc/<wbr/>document/<wbr/>ST-8164-2021-INIT/<wbr/>en/<wbr/>pdf</a>). 시각 주의 기반 주의 분산 경고(ADDW)는 신규 형식 2024년 7월, 모든 신차 2026년 7월부터 요구합니다(<a class="url" href="https://data.consilium.europa.eu/doc/document/ST-11895-2023-INIT/en/pdf">data.consilium.europa.eu/<wbr/>doc/<wbr/>document/<wbr/>ST-11895-2023-INIT/<wbr/>en/<wbr/>pdf</a>).</li>
+<li>카카오모빌리티 내비게이션 SDK는 2022년 12월 고속도로 안내에 졸음쉼터 정보를 추가했습니다(<a class="url" href="https://developers.kakaomobility.com/guide/android/release.html">developers.kakaomobility.com/<wbr/>guide/<wbr/>android/<wbr/>release.html</a>).</li>
+<li>티맵은 2024년 7월 졸음운전 예방 캠페인으로 휴게 매장 할인 쿠폰을 제공했습니다(<a class="url" href="https://www.tmapmobility.com/story/pr/detail/148">www.tmapmobility.com/<wbr/>story/<wbr/>pr/<wbr/>detail/<wbr/>148</a>). 두 앱이 개인의 졸음 상태를 감지한다는 근거는 확인 못 함입니다.</li>
+<li>졸음쉼터 도입 뒤 고속도로 졸음운전 사망자는 2010년 119명에서 2011~2022년 연평균 69명으로 약 42% 줄었습니다(한국도로공사 자료 인용, 파이낸셜뉴스 2023년 2월, <a class="url" href="https://www.fnnews.com/news/202302191206328663">www.fnnews.com/<wbr/>news/<wbr/>202302191206328663</a>). 다른 요인을 통제한 효과는 아닙니다.</li>
+<li>IIHS 조사(2024년)에서 차로 이탈 경고·방지 기능이 켜진 차량은 87%였지만, 소리로 알리는 과속 경고는 14%만 켜져 있었습니다(<a class="url" href="https://www.iihs.org/news/detail/fewer-drivers-are-opting-out-of-lane-departure-prevention">www.iihs.org/<wbr/>news/<wbr/>detail/<wbr/>fewer-drivers-are-opting-out-of-lane-departure-prevention</a>). 불편한 경고는 꺼진다는 근거입니다. 국내 DAW 해제율은 확인 못 함입니다.</li>
+</ul><p>휴식 알림과 음성 대화의 효과</p><ul>
+<li>미국 NHTSA 실험(2023년, 72명, 새벽 4시간 모의 주행)에서 졸음 알림과 차로 이탈 경고를 함께 준 조건은 차로 이탈을 줄였지만, 휴식 빈도와 시점은 경고 없는 조건과 차이가 없었습니다(DOT HS 813 438, <a class="url" href="https://rosap.ntl.bts.gov/view/dot/67404">rosap.ntl.bts.gov/<wbr/>view/<wbr/>dot/<wbr/>67404</a>). 원문 PDF는 자동 접근이 차단되어 기관 저장소의 초록으로 확인했습니다.</li>
+<li>AAA 재단 연구(2023년)에서 운전자는 극도로 졸리다고 느낄 때도 휴식 기회의 75%를 지나쳤습니다(<a class="url" href="https://newsroom.aaa.com/2023/03/asleep-at-the-wheel-drivers-unaware-of-how-drowsy-they-really-are/">newsroom.aaa.com/<wbr/>2023/<wbr/>03/<wbr/>asleep-at-the-wheel-drivers-unaware-of-how-drowsy-they-really-are/<wbr/></a>).</li>
+<li>휴식 뒤 수행 개선은 40분 안에 원래 수준으로 돌아왔다는 모의 주행 연구(2025년, 90명)가 있습니다(<a class="url" href="https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:40470890&amp;format=json&amp;resultType=core">www.ebi.ac.uk/<wbr/>europepmc/<wbr/>webservices/<wbr/>rest/<wbr/>search?query=EXT_ID:40470890&amp;format=json&amp;resultType=core</a>).</li>
+<li>음성으로 응답하는 과제는 자기보고 졸음 점수를 유의하게 낮췄습니다. 2025년 29명 모의 주행 연구입니다(<a class="url" href="https://eprints.whiterose.ac.uk/id/eprint/233018/1/Manuscript%20revised.pdf">eprints.whiterose.ac.uk/<wbr/>id/<wbr/>eprint/<wbr/>233018/<wbr/>1/<wbr/>Manuscript%20revised.pdf</a>).</li>
+<li>반대로 대화가 피로로 늦어진 긴급 제동 반응을 회복하지 못했다는 연구(2017년)도 있습니다(<a class="url" href="https://stars.library.ucf.edu/scopus2015/5195/">stars.library.ucf.edu/<wbr/>scopus2015/<wbr/>5195/<wbr/></a>). 자연 대화형 AI의 실차 효과는 검증되지 않았습니다.</li>
+</ul><p>기존 해결책의 한계: 차량 내장 DAW와 실내 카메라는 오경고와 미감지 조건을 제조사 스스로 밝히고 있고, 경고가 실제 휴식으로 이어진다는 근거는 약합니다. 내비게이션 앱은 쉼터 정보를 보여 주지만 운전자 상태는 모릅니다. 공개 API로 Pleos 앱이 운전자 상태를 받을 수 없다는 점(<a class="xref" href="#s-2-8">2.8절</a>)과, 휴식 유도 자체의 효과가 약하다는 연구 결과를 함께 고려해야 합니다.</p></div><div class="blk" data-block="" id="s-3-2"><h3 class="blk__h" id="h-s-3-2"><span class="num">3.2</span><span class="ttl">내비게이션·경로·휴게소</span></h3><ul>
+<li>신차 구입자 중 순정 인포테인먼트를 쓰는 비율은 국산차 73%, 수입차 54%였고, 폰 프로젝션 사용률은 각각 17%, 36%였습니다. 컨슈머인사이트 2023년 7월 조사(신차 구입자 2,368명)입니다(<a class="url" href="https://www.consumerinsight.co.kr/voc_view?PageNo=1&amp;id=pr4_list&amp;no=3483&amp;schFlag=0">www.consumerinsight.co.kr/<wbr/>voc_view?PageNo=1&amp;id=pr4_list&amp;no=3483&amp;schFlag=0</a>).</li>
+<li>지도 갱신 지연으로 더 긴 경로를 안내한 사례가 보도되었습니다. 2025년 1월 개통한 고속도로 구간을 순정 내비게이션이 인식하지 못해, 같은 경로에서 티맵보다 12km, 22분 긴 경로를 안내했습니다(IT조선 2025년 3월, <a class="url" href="https://it.chosun.com/news/articleView.html?idxno=2023092136245">it.chosun.com/<wbr/>news/<wbr/>articleView.html?idxno=2023092136245</a>). 개별 취재 사례이며 전체 오류율은 아닙니다.</li>
+<li>폰 연결 장치도 연결 불가, 화면 끊김, 터치 불능 같은 오류 수정 공지를 반복합니다(카링킷 국내 업데이트 공지 2024~2025년, <a class="url" href="https://carlinkit.co.kr/updates/">carlinkit.co.kr/<wbr/>updates/<wbr/></a>).</li>
+<li>한국도로공사는 휴게소 명칭·위치·노선·방향을 공공데이터 API로 제공합니다(<a class="url" href="https://www.data.go.kr/data/15076770/openapi.do">www.data.go.kr/<wbr/>data/<wbr/>15076770/<wbr/>openapi.do</a>). 휴게소별 이용객·교통량은 연 단위 파일 자료(207행)입니다(<a class="url" href="https://www.data.go.kr/data/15118977/fileData.do">www.data.go.kr/<wbr/>data/<wbr/>15118977/<wbr/>fileData.do</a>). 두 공공데이터에는 실시간 잔여 주차면 정보가 없습니다. 다른 경로로 실시간 주차면 API가 있는지는 확인 못 함입니다.</li>
+</ul><p>기존 해결책의 한계: 폰 프로젝션은 순정 지도 갱신 문제를 피하지만 연결 오류를 새로 만듭니다. 위의 두 휴게소 공공데이터는 위치와 연간 통계 위주여서 "도착 시점에 쉴 자리가 있는지"를 알려 주지 못합니다. Pleos NaviHelper도 휴게소 검색 API가 없으므로(<a class="xref" href="#s-2-4">2.4절</a>), 휴게소 안내는 공공데이터 좌표를 앱이 경유지로 넣는 방식이 됩니다.</p></div><div class="blk" data-block="" id="s-3-3"><h3 class="blk__h" id="h-s-3-3"><span class="num">3.3</span><span class="ttl">전기차 충전</span></h3><ul>
+<li>EV Infra 사용자 1,532명 조사에서(조사 연도는 기사 본문에서 확인 못 함) 가장 큰 불편은 잦은 고장 30.1%, 충전 매너 부족 26.1%였습니다. "사용 가능" 표시를 보고 갔는데 다른 차가 충전 중이던 경험은 20.6%, 결제 오류는 6.9%였습니다(<a class="url" href="https://www.thedrive.co.kr/news/newsview.php?ncode=1065569876290312">www.thedrive.co.kr/<wbr/>news/<wbr/>newsview.php?ncode=1065569876290312</a>).</li>
+<li>한국전기차사용자협회가 2023년 3~6월 환경부 급속충전기 7,812기를 점검한 결과, 충전 불가·폐쇄 비중은 2022년 13.2%에서 2023년 7.7%로 낮아졌습니다. 기사는 환경부 집계 고장률 1% 미만과 현장 점검 약 7%의 차이를 지적합니다(<a class="url" href="https://www.electimes.com/news/articleView.html?idxno=324471">www.electimes.com/<wbr/>news/<wbr/>articleView.html?idxno=324471</a>).</li>
+<li>국무조정실·환경부 합동 점검(2025년 4~6월)에서 무공해차 통합누리집은 충전시설 21,283기의 상태를 정확히 표시하지 못했습니다(연합뉴스 2025년 9월 17일, <a class="url" href="https://www.yna.co.kr/view/AKR20250917032700001">www.yna.co.kr/<wbr/>view/<wbr/>AKR20250917032700001</a>).</li>
+<li>2023년 EV이음 협약으로 86개 사업자의 회원카드를 쓸 수 있는 사업자가 늘었지만, 사업자별 회원 요금 차이는 남아 있습니다(<a class="url" href="https://www.electimes.com/news/articleView.html?idxno=325975">www.electimes.com/<wbr/>news/<wbr/>articleView.html?idxno=325975</a>).</li>
+<li>아이오닉 5 2WD 롱레인지 20인치의 환경부 인증 주행거리는 상온 405km, 저온 354km로 약 12.6% 줄었습니다(연합뉴스 2023년 1월, <a class="url" href="https://www.yna.co.kr/view/AKR20230126074300003">www.yna.co.kr/<wbr/>view/<wbr/>AKR20230126074300003</a>). 이 값은 한 사양의 인증값이며 모든 전기차의 감소율은 아닙니다.</li>
+</ul><p>기존 해결책의 한계: 충전 앱의 "사용 가능" 표시가 도착 후 충전을 보장하지 못합니다(20.6%, 21,283기 상태 오류). 카드 호환이 늘어도 요금은 사업자마다 다릅니다. Pleos 차량 앱은 실제 배터리 잔량(<code>getEvBatteryStateOfCharge</code>, <a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/ev-battery/get-ev-battery-state-of-charge">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>Vehicle/<wbr/>vehicle/<wbr/>ai.pleos.playground.vehicle.api/<wbr/>ev-battery/<wbr/>get-ev-battery-state-of-charge</a>)과 내장 내비게이션의 도착 시 예상 잔량(TripInfo.<code>estimatedSocAtDest</code>), 경로상 충전 계획(DrivingState.<code>chargingPlan</code>)을 한 앱 안에서 읽을 수 있습니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/NaviHelper/navi-helper/ai.pleos.playground.navi.data/entry">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>NaviHelper/<wbr/>navi-helper/<wbr/>ai.pleos.playground.navi.data/<wbr/>entry</a>). 폰 앱이 같은 정보를 얻는 다른 경로(예: 클라우드 Vehicle Data API, <a class="xref" href="#s-2-10">2.10절</a>)는 별도 동의와 가입이 필요합니다.</p></div><div class="blk" data-block="" id="s-3-4"><h3 class="blk__h" id="h-s-3-4"><span class="num">3.4</span><span class="ttl">차량 음성 비서와 앱 생태계</span></h3><ul>
+<li>현대차그룹은 Pleos Connect를 2026년 5월 국내 신형 그랜저에 처음 적용한다고 발표했습니다(2026년 4월 30일, <a class="url" href="https://www.hyundai.com/worldwide/en/newsroom/detail/0000001168">www.hyundai.com/<wbr/>worldwide/<wbr/>en/<wbr/>newsroom/<wbr/>detail/<wbr/>0000001168</a>). 현대차 공식 행사 안내는 더 뉴 그랜저와 디 올 뉴 아반떼에 Pleos Connect가 탑재되었다고 적습니다(<a class="url" href="https://www.hyundai.com/kr/ko/event/event-pleos-challenge-by-h-stylist-2026">www.hyundai.com/<wbr/>kr/<wbr/>ko/<wbr/>event/<wbr/>event-pleos-challenge-by-h-stylist-2026</a>).</li>
+<li>그랜저 시승 기사(2026년 5월 29일)는 음성 인식 실패, 동승석 발화를 운전석으로 인식한 오류, 한 번에 2~3개 기능을 요청할 때의 처리 미흡을 기록했습니다(<a class="url" href="https://www.kukinews.com/article/print/kuk202605290163">www.kukinews.com/<wbr/>article/<wbr/>print/<wbr/>kuk202605290163</a>). 기자 1명의 시승이며 오류율은 아닙니다.</li>
+<li>Gleo AI 개발자 인터뷰(2026년 9월 29일)는 경유지를 포함한 복잡한 목적지 설정을 주요 과제로 개발 중이고, 오래 주고받는 대화는 아직 기억하지 못한다고 밝혔습니다. 같은 인터뷰는 음성으로 쓸 수 있는 앱은 일부 프리로드 앱이며 서드파티 연동은 논의 중이라고 설명했습니다(<a class="url" href="https://www.hyundaimotorgroup.com/ko/story/42dot-gleo-ai-developer-present-and-future">www.hyundaimotorgroup.com/<wbr/>ko/<wbr/>story/<wbr/>42dot-gleo-ai-developer-present-and-future</a>).</li>
+<li>2024년 기아 카니발 개발자 인터뷰는 명령어 인식 시간이 0.4초이고 CPU 부하가 크면 약 1.5초까지 늘 수 있다고 설명했습니다(<a class="url" href="https://www.hyundaimotorgroup.com/ko/story/CONT0000000000143973">www.hyundaimotorgroup.com/<wbr/>ko/<wbr/>story/<wbr/>CONT0000000000143973</a>).</li>
+<li>미국 J.D. Power의 음성 인식 문제 조사는 원문 접근이 차단되어 수치를 확인 못 함입니다.</li>
+</ul><p>기존 해결책의 한계: 제조사는 복잡한 경유지 설정을 개발 과제로 두고 있고, 시승 기사는 복합 명령 처리의 미흡을 기록했습니다. 서드파티 앱의 음성 연동 규격은 Gleo Interface(App Schema, 함수 최대 3개)입니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/app-integration-guide/guide/app-capability">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>app-integration-guide/<wbr/>guide/<wbr/>app-capability</a>). 공모전이 안내하는 SDK 목록에는 이 규격이 없습니다(<a class="url" href="https://appdevchallenge.auto-hmg.io/faq">appdevchallenge.auto-hmg.io/<wbr/>faq</a>).</p></div><div class="blk" data-block="" id="s-3-5"><h3 class="blk__h" id="h-s-3-5"><span class="num">3.5</span><span class="ttl">차량 상태·정비</span></h3><ul>
+<li>한국소비자원 자료를 인용한 보도에 따르면 2022년~2025년 5월 자동차 정비 관련 피해구제 신청은 953건이고, 정비 불량이 699건(73.3%), 사전 고지 없는 수리비 청구가 173건(18.2%)이며, 합의는 352건(36.9%)이었습니다(동아일보 2025년 7월 18일, <a class="url" href="https://www.donga.com/news/Society/article/all/20250718/132027236/2">www.donga.com/<wbr/>news/<wbr/>Society/<wbr/>article/<wbr/>all/<wbr/>20250718/<wbr/>132027236/<wbr/>2</a>).</li>
+<li>현대해상 긴급출동 분석(2022년 3월~2024년 2월)에서 겨울철 출동의 58.1%가 배터리 충전 요청이었습니다. 전기차는 긴급 견인 29.6%, 타이어 펑크 수리 24.7%, 배터리 충전 24.1%였습니다(이데일리 2025년 2월 26일, <a class="url" href="https://www.edaily.co.kr/News/Read?mediaCodeNo=257&amp;newsId=02755206642074456">www.edaily.co.kr/<wbr/>News/<wbr/>Read?mediaCodeNo=257&amp;newsId=02755206642074456</a>).</li>
+<li>영국 자동차 소유자 2,000명 조사(2024년)에서 46%는 계기판 경고등의 절반도 식별하지 못했습니다(<a class="url" href="https://www.warrantywise.co.uk/blog/news/23-million-uk-drivers-in-the-dark-when-it-comes-to-identifying-dashboard-warning-lights/">www.warrantywise.co.uk/<wbr/>blog/<wbr/>news/<wbr/>23-million-uk-drivers-in-the-dark-when-it-comes-to-identifying-dashboard-warning-lights/<wbr/></a>). 국내 경고등 이해율 조사는 확인 못 함입니다.</li>
+</ul><p>기존 해결책의 한계: 영국 조사에서는 운전자의 46%가 경고등의 절반도 식별하지 못했습니다. 국내 정비 분쟁에서는 합의가 36.9%에 그쳤습니다. Pleos 차량 앱은 엔진오일·브레이크액·워셔액 상태와 타이어 저압 임계값을 <code>CAR_SAFETY</code>(normal) 권한으로 읽을 수 있습니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/safety/entry">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>Vehicle/<wbr/>vehicle/<wbr/>ai.pleos.playground.vehicle.api/<wbr/>safety/<wbr/>entry</a>). 반면 경고등 전체 목록(<code>getTelltalesInfo</code>)은 <code>PRIVATE_CAR_SAFETY</code>(signature|privileged)여서 "켜진 경고등을 설명해 주는 앱"은 공개 API로 만들 수 없습니다(<a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/safety/get-telltales-info">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>Vehicle/<wbr/>vehicle/<wbr/>ai.pleos.playground.vehicle.api/<wbr/>safety/<wbr/>get-telltales-info</a>).</p></div><div class="blk" data-block="" id="s-3-6"><h3 class="blk__h" id="h-s-3-6"><span class="num">3.6</span><span class="ttl">뒷좌석 아이와 가족 이동</span></h3><p>차내 방치</p><ul>
+<li>2018년 7월 17일 동두천에서 4세 아동이 어린이집 차량에 7시간 10분 동안 갇혀 숨졌습니다(서울신문·연합뉴스 2018년 9월 7일, <a class="url" href="https://www.seoul.co.kr/news/society/2018/09/07/20180907800066">www.seoul.co.kr/<wbr/>news/<wbr/>society/<wbr/>2018/<wbr/>09/<wbr/>07/<wbr/>20180907800066</a>).</li>
+<li>이 사고 뒤 어린이 통학버스 하차 확인장치가 2019년 4월 17일부터 의무가 되었습니다. 엔진 정지 후 3분 안에 차량 맨 뒤 버튼을 누르지 않으면 경고음과 비상점멸등이 작동합니다(<a class="url" href="https://www.ibabynews.com/news/articleView.html?idxno=73666">www.ibabynews.com/<wbr/>news/<wbr/>articleView.html?idxno=73666</a> 및 정부 브리핑 <a class="url" href="https://www.korea.kr/news/policyNewsView.do?newsId=148859879">www.korea.kr/<wbr/>news/<wbr/>policyNewsView.do?newsId=148859879</a>). 이 장치는 사람이 뒤까지 가게 만드는 절차이며 아이를 자동으로 감지하지 않습니다.</li>
+<li>미국 Kids and Car Safety 집계로 2024년 차내 고온 사망 아동은 41명이고, 1990~2024년 누적은 최소 1,126명입니다(<a class="url" href="https://www.kidsandcars.org/hot-cars/2024-deaths">www.kidsandcars.org/<wbr/>hot-cars/<wbr/>2024-deaths</a>).</li>
+<li>같은 단체는 고온 차량 사망의 약 88%가 3세 이하라고 밝혔습니다(<a class="url" href="https://www.kidsandcars.org/news/hot-car-death-season-in-the-us-is-underway-what-can-be-done-to-save-children">www.kidsandcars.org/<wbr/>news/<wbr/>hot-car-death-season-in-the-us-is-underway-what-can-be-done-to-save-children</a>). NHTSA 원문은 접근이 차단되어 확인 못 함입니다. 국내 연도별 차내 방치 사망 통계도 확인 못 함입니다.</li>
+<li>Euro NCAP은 2023년 평가부터 아동 존재 감지(CPD)에 점수를 주기 시작했습니다(<a class="url" href="https://www.euroncap.com/press-media/lexus-puts-safety-up-front-in-all-new-electric-rz/">www.euroncap.com/<wbr/>press-media/<wbr/>lexus-puts-safety-up-front-in-all-new-electric-rz/<wbr/></a>). 2025년 이후 세부 배점은 확인 못 함입니다.</li>
+</ul><p>현대·기아 후석 승객 알림의 작동 방식</p><ul>
+<li>1차 알림은 뒷문을 열고 닫은 이력을 이용합니다. 시동을 끄고 운전석 문을 열면 뒷좌석 확인 메시지를 띄웁니다. 센서 사양은 1차 알림 뒤 문을 잠그면 약 10분 동안 실내 움직임을 감지하고, 감지하면 경적을 약 25초씩 최대 8회 울립니다(현대 2026년형 미국 설명서 <a class="url" href="https://ownersmanual.hyundai.com/full_webhelp/MX5aHEV/2026/en_US/id5afd08a9aae.html">ownersmanual.hyundai.com/<wbr/>full_webhelp/<wbr/>MX5aHEV/<wbr/>2026/<wbr/>en_US/<wbr/>id5afd08a9aae.html</a> 및 기아 2023년형 한국어 설명서 <a class="url" href="https://ownersmanual.kia.com/full_webhelp/NQ5KH/2023/ko_KR/topics/t00421.html">ownersmanual.kia.com/<wbr/>full_webhelp/<wbr/>NQ5KH/<wbr/>2023/<wbr/>ko_KR/<wbr/>topics/<wbr/>t00421.html</a>).</li>
+<li>기아 설명서는 1차 알림이 없으면 2차 알림도 작동하지 않는다고 적습니다. 작은 움직임, 담요나 보조 좌석의 가림, 센서 오염은 미감지 원인이고, 바람, 벌레, 진동은 오경보 원인입니다(같은 기아 설명서). 현대 STARIA의 일부 시장 사양은 레이더 센서를 씁니다(<a class="url" href="https://www.hyundai.com/worldwide/en/newsroom/detail/0000000538">www.hyundai.com/<wbr/>worldwide/<wbr/>en/<wbr/>newsroom/<wbr/>detail/<wbr/>0000000538</a>).</li>
+</ul><p>카시트와 안전띠</p><ul>
+<li>2025년 유아용 카시트 착용률은 도시부도로 60.07%, 고속도로 66.25%였습니다. 고속도로 뒷좌석 안전띠 착용률은 69.65%였습니다(국토교통부·한국교통안전공단 교통문화실태조사 인용 보도 2026년 2월 1일, <a class="url" href="https://v.daum.net/v/20260201110121480">v.daum.net/<wbr/>v/<wbr/>20260201110121480</a>). 다른 표본조사에서 2022년 뒷좌석 안전띠 착용률은 32.3%였습니다(<a class="url" href="https://www.fnnews.com/news/202309171101072946">www.fnnews.com/<wbr/>news/<wbr/>202309171101072946</a>). 두 조사는 범위가 달라 직접 비교하지 않습니다.</li>
+<li>2011~2015년 교통사고로 응급실을 찾은 6세 미만 3,240명 중 카시트 착용은 31%였고, 미착용군의 중상 위험은 2.2배, 머리 손상 위험은 2.1배로 보고되었습니다(질병관리본부 2016년 12월, <a class="url" href="https://www.korea.kr/briefing/policyBriefingView.do?newsId=148826033">www.korea.kr/<wbr/>briefing/<wbr/>policyBriefingView.do?newsId=148826033</a>).</li>
+</ul><p>부모 운전자의 주의 분산</p><ul>
+<li>호주 Monash 대학 연구(2012년, 12가구 자연주행 영상)에서 운전자가 뒷좌석 아이와 상호작용한 빈도는 휴대전화 상호작용의 12배였습니다(<a class="url" href="https://research.monash.edu/en/publications/prevalence-of-mobile-phone-vs-child-related-driver-distraction-in/">research.monash.edu/<wbr/>en/<wbr/>publications/<wbr/>prevalence-of-mobile-phone-vs-child-related-driver-distraction-in/<wbr/></a>). 12배는 상호작용 빈도이며 충돌 위험을 뜻하지 않습니다. 관련 보도에 따르면 아이 관련 행동의 76.4%가 뒤돌아보거나 거울로 보는 행동이었고, 평균 16분 주행에서 3분 22초 동안 시선이 도로를 벗어났습니다(<a class="url" href="https://www.asianscientist.com/2013/10/in-the-lab/children-distracting-mobile-phones-2013/">www.asianscientist.com/<wbr/>2013/<wbr/>10/<wbr/>in-the-lab/<wbr/>children-distracting-mobile-phones-2013/<wbr/></a>).</li>
+<li>애프터마켓 아이 확인용 거울이 충돌 때 떨어지거나 깨져 다칠 수 있다는 카시트 안전 안내가 있습니다(<a class="url" href="https://www.vumc.org/injuryprevention/node/228">www.vumc.org/<wbr/>injuryprevention/<wbr/>node/<wbr/>228</a>). 이 주소가 보여 주는 본문의 작성 기관은 확인 못 함입니다. 뒷좌석 카메라 제품은 2015년에도 있었지만(Garmin <code>babyCam</code>, <a class="url" href="https://www.garmin.com/en-US/newsroom/press-release/automotive/2015-adding-multimedia-garmin-delivers-babycam-the-worlds-first-video-monitor-navigation-system/">www.garmin.com/<wbr/>en-US/<wbr/>newsroom/<wbr/>press-release/<wbr/>automotive/<wbr/>2015-adding-multimedia-garmin-delivers-babycam-the-worlds-first-video-monitor-navigation-system/<wbr/></a>), 화면을 보는 시간이 남는다는 점은 이 보고서의 해석이며 측정된 값은 없습니다.</li>
+</ul><p>멀미와 지루함</p><ul>
+<li>CDC는 멀미가 2~12세 아동에게 더 흔하고, 지평선 보기, 눈 감기, 음악 듣기를 비약물 대처법으로 제시합니다(<a class="url" href="https://wwwnc.cdc.gov/travel/page/motion-sickness">wwwnc.cdc.gov/<wbr/>travel/<wbr/>page/<wbr/>motion-sickness</a>). 한국 아동 유병률은 확인 못 함입니다.</li>
+<li>영국 부모 2,000명 조사(2022년)에서 68%가 뒷좌석 짜증의 원인으로 지루함을 꼽았고, "거의 다 왔어요?"는 출발 32분 뒤에 나왔습니다(<a class="url" href="https://www.rte.ie/news/newslens/2022/0822/1317041-are-we-there-yet-formula-created-to-predict-tantrums/">www.rte.ie/<wbr/>news/<wbr/>newslens/<wbr/>2022/<wbr/>0822/<wbr/>1317041-are-we-there-yet-formula-created-to-predict-tantrums/<wbr/></a>). 상업 후원 조사입니다.</li>
+<li>2025년 추석 특별교통대책기간 예상 이동인원은 3,218만 명이고 승용차 비중은 84.5%였습니다(국토교통부 대책 게시, <a class="url" href="https://www.kric.go.kr/jsp/board/portal/sub01/railNewsDetail.jsp?p_id1=M01060101&amp;p_id2=661585&amp;p_id3=2025.09.29">www.kric.go.kr/<wbr/>jsp/<wbr/>board/<wbr/>portal/<wbr/>sub01/<wbr/>railNewsDetail.jsp?p_id1=M01060101&amp;p_id2=661585&amp;p_id3=2025.09.29</a>). 전국 평균 귀성 소요시간은 확인 못 함입니다.</li>
+</ul><p>기존 해결책의 한계: 하차 확인장치는 버튼 절차이고, 후석 승객 알림은 문 개폐 이력과 10분 감지라는 조건이 붙어 있습니다. 거울과 카메라는 운전자의 시선을 다시 화면으로 끌어옵니다. 차량 앱은 좌석별 점유(<code>getCurrentSeatOccupancy</code>), 안전벨트(<code>getCurrentSeatBeltBuckledState</code>), 도어(<code>getCurrentDoorPosition</code>), 도어 잠금, 실내 온도(<code>getHvacTemperatureCurrent</code>)를 normal 권한으로 읽을 수 있습니다(<a class="xref" href="#s-2-3">2.3절</a>). 다만 차량 앱은 시동이 꺼진 뒤 계속 동작한다는 근거가 문서에 없어, 하차 후 방치 감지는 앱 단독으로 보장할 수 없습니다(확인 못 함).</p></div><div class="blk" data-block="" id="s-3-7"><h3 class="blk__h" id="h-s-3-7"><span class="num">3.7</span><span class="ttl">동승자 엔터테인먼트</span></h3><ul>
+<li>BMW 7시리즈(2022년)는 31인치 뒷좌석 화면을 제공합니다(<a class="url" href="https://www.press.bmwgroup.com/usa/article/detail/T0382613EN_US/the-new-bmw-7-series">www.press.bmwgroup.com/<wbr/>usa/<wbr/>article/<wbr/>detail/<wbr/>T0382613EN_US/<wbr/>the-new-bmw-7-series</a>). BMW 5시리즈의 AirConsole 게임은 스마트폰을 컨트롤러로 쓰며 정차 중에 함께 즐기는 방식입니다(2023년, <a class="url" href="https://www.press.bmwgroup.com/usa/article/detail/T0419599EN_US">www.press.bmwgroup.com/<wbr/>usa/<wbr/>article/<wbr/>detail/<wbr/>T0419599EN_US</a>).</li>
+<li>Audi는 동승석 화면이 있는 차량에서 운전자에게 화면이 보이지 않게 하는 프라이버시 모드로 주행 중 게임을 제공합니다(2025년, <a class="url" href="https://www.audi-mediacenter.com/en/press-releases/gaming-fun-on-the-go-audi-integrates-airconsole-16729">www.audi-mediacenter.com/<wbr/>en/<wbr/>press-releases/<wbr/>gaming-fun-on-the-go-audi-integrates-airconsole-16729</a>). Mercedes-Benz E-Class는 운전자 눈의 움직임을 카메라로 보고 동승석 화면 밝기를 낮춥니다(<a class="url" href="https://media.mbusa.com/news/the-new-e-class-dimensional-concept-and-interior-design">media.mbusa.com/<wbr/>news/<wbr/>the-new-e-class-dimensional-concept-and-interior-design</a>).</li>
+<li>Tesla는 2021년 12월 중앙 화면의 주행 중 Passenger Play를 OTA로 비활성화했고, NHTSA는 조사를 종결했습니다(AP 보도 2023년 5월 30일, <a class="url" href="https://www.cbsnews.com/detroit/news/us-ends-probe-into-tesla-allowing-video-games-while-vehicles-are-moving-says-feature-was-disabled/">www.cbsnews.com/<wbr/>detroit/<wbr/>news/<wbr/>us-ends-probe-into-tesla-allowing-video-games-while-vehicles-are-moving-says-feature-was-disabled/<wbr/></a>).</li>
+<li>국내에서는 현대 블루링크 스트리밍 요금제에 게임이 있고 <code>ccNC</code> 차량에 한정됩니다(<a class="url" href="https://www.hyundai.com/kr/ko/digital-customer-support/app/myhyundai/bluelink-registration">www.hyundai.com/<wbr/>kr/<wbr/>ko/<wbr/>digital-customer-support/<wbr/>app/<wbr/>myhyundai/<wbr/>bluelink-registration</a>). 기아 커넥트 스토어는 차량용 아케이드 게임 8종을 안내합니다(<a class="url" href="https://connectstore.kia.com/kr/info/product-usage-guide-incargame">connectstore.kia.com/<wbr/>kr/<wbr/>info/<wbr/>product-usage-guide-incargame</a>).</li>
+<li>미국 성인 조사(2024년 발표)에서 뒷좌석 화면을 원한다는 응답은 58%였습니다. 이 값은 선호이며 실제 이용률이 아닙니다(<a class="url" href="https://wctvtv.marketminute.com/article/bizwire-2024-6-12-dts-reports-radio-remains-crucial-while-video-and-gaming-surge-in-vehicle">wctvtv.marketminute.com/<wbr/>article/<wbr/>bizwire-2024-6-12-dts-reports-radio-remains-crucial-while-video-and-gaming-surge-in-vehicle</a>). 한국 승객의 이용률은 확인 못 함입니다.</li>
+<li>도로교통법 제49조 제1항 제11호는 운전 중 "운전자가 운전 중 볼 수 있는 위치에 영상이 표시되지 아니하도록" 하라고 정하고, 정지 중이거나 지리안내·교통정보·긴급상황·주변 확인 영상인 경우를 예외로 둡니다. 제11호의2는 운전 중 영상표시장치 조작을 금지합니다(<a class="url" href="https://www.law.go.kr/lsLawLinkInfo.do?chrClsCd=010202&amp;lsJoLnkSeq=1000842761">www.law.go.kr/<wbr/>lsLawLinkInfo.do?chrClsCd=010202&amp;lsJoLnkSeq=1000842761</a>). 2026년 현행 조문과의 일치는 확인 못 함입니다.</li>
+</ul><p>기존 해결책의 한계: 해외 차량 게임은 정차 중 전용이거나 별도 동승석 화면과 시선 차단 장치를 전제합니다. Pleos 문서는 동영상, 게임, 브라우저 앱을 주행 중 실행할 수 없게 하라고 요구하고(<a class="xref" href="#s-2-9">2.9절</a>), 동승석 전용 화면 API는 공개 문서에서 찾지 못했습니다. 따라서 주행 중 동승자 참여는 화면을 쓰지 않는 음성·오디오 방식이나 승객의 휴대폰을 쓰는 방식만 남습니다.</p></div></div></section><section aria-labelledby="h-s-4" class="sec" id="s-4"><h2 class="sec__h" id="h-s-4"><button aria-controls="b-s-4" aria-expanded="true" class="sec__btn" type="button"><span class="num">4</span><span class="ttl">교차표: 현실 문제 × 쓸 수 있는 데이터</span><svg aria-hidden="true" class="chev" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="m6 9 6 6 6-6"></path></svg></button></h2><div class="sec__body" id="b-s-4"><div class="blk blk--lead" data-block=""><p>판정 기준은 1장과 같습니다. "가능"은 지금 쓸 수 있는 공개 API로 필요한 데이터를 모두 얻는 경우, "부분"은 일부만 얻거나 준비 중 SDK·외부 데이터에 기대는 경우, "불가"는 핵심 데이터가 signature|privileged 권한 뒤에 있거나 공개 API가 없는 경우입니다. 이 표는 순위가 아니며 아이디어를 고르지 않습니다. API 출처는 2장의 해당 절에 있습니다.</p><figure class="tbl tbl--cards tbl--numbered" data-cols="7"><div aria-label="표 8: 번호, 현실 문제(근거 절), 필요한 데이터, 공개 API(이름 그대로), 판정, 판정 이유, 폰으로는 못 하는 이유" class="tbl__scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">번호</th>
+<th scope="col">현실 문제(근거 절)</th>
+<th scope="col">필요한 데이터</th>
+<th scope="col">공개 API(이름 그대로)</th>
+<th scope="col">판정</th>
+<th scope="col">판정 이유</th>
+<th scope="col">폰으로는 못 하는 이유</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="번호"><span class="cell">1</span></td>
+<td data-label="현실 문제(근거 절)"><span class="cell">졸음·주의 저하 상태를 직접 알아내 경고(3.1)</span></td>
+<td data-label="필요한 데이터"><span class="cell">운전자 졸음·주의 상태, DAW 경고, 차선 이탈 경고</span></td>
+<td data-label="공개 API(이름 그대로)"><span class="cell">TelltaleType.<code>DRIVER_ATTENTION</code><wbr/>, LKA(<code>PRIVATE_CAR_SAFETY</code><wbr/>), <code>DRIVER_DROWSINESS_ATTENTION_STATE</code><wbr/>, <code>LANE_DEPARTURE_WARNING_STATE</code><wbr/></span></td>
+<td data-label="판정"><span class="cell"><span class="pill pill--no">불가</span></span></td>
+<td data-label="판정 이유"><span class="cell">모두 signature|privileged 권한이며 실내 카메라 API도 없습니다(2.3, 2.7, <a class="xref" href="#s-2-8">2.8절</a>)</span></td>
+<td data-label="폰으로는 못 하는 이유"><span class="cell">해당 없음(차량 앱도 받지 못함)</span></td>
+</tr>
+<tr>
+<td data-label="번호"><span class="cell">2</span></td>
+<td data-label="현실 문제(근거 절)"><span class="cell">장시간 연속 주행의 피로 위험을 추정해 휴식 제안(3.1, 3.2)</span></td>
+<td data-label="필요한 데이터"><span class="cell">현재 주행 시간, 속도, 시각, 남은 거리·시간, 휴게소 좌표</span></td>
+<td data-label="공개 API(이름 그대로)"><span class="cell"><code>getTripCurrentDrivingTime</code><wbr/>(<code>CAR_DRIVE</code><wbr/>), <code>PERF_VEHICLE_SPEED</code><wbr/>(AAOS), DestinationInfo.<code>remainTime</code><wbr/>, <code>requestRouteWithWaypoints</code><wbr/>, 휴게소는 한국도로공사 공공데이터</span></td>
+<td data-label="판정"><span class="cell"><span class="pill pill--part">부분</span></span></td>
+<td data-label="판정 이유"><span class="cell">차량 데이터는 얻지만 졸음 판정이 아닌 시간 기반 추정입니다. 휴게소 검색 API가 없어 외부 데이터가 필요하고, 음성 출력 SDK(TTS)는 준비 중입니다</span></td>
+<td data-label="폰으로는 못 하는 이유"><span class="cell">폰은 차량 세션의 실제 주행 시간과 차량 속도 신호를 직접 읽지 못하고, 내장 내비게이션 경로에 경유지를 넣지 못합니다</span></td>
+</tr>
+<tr>
+<td data-label="번호"><span class="cell">3</span></td>
+<td data-label="현실 문제(근거 절)"><span class="cell">주행 중 뒷좌석 아이의 안전벨트 풀림·착좌 이상 확인(3.6)</span></td>
+<td data-label="필요한 데이터"><span class="cell">좌석별 점유, 좌석별 안전벨트, 속도, 도어 상태</span></td>
+<td data-label="공개 API(이름 그대로)"><span class="cell"><code>getCurrentSeatOccupancy</code><wbr/>, <code>registerSeatOccupancy</code><wbr/>, <code>getCurrentSeatBeltBuckledState</code><wbr/>, <code>registerSeatBeltBuckledState</code><wbr/>(<code>CAR_SEATS</code><wbr/>), <code>getCurrentDoorPosition</code><wbr/>(<code>CAR_DOORS</code><wbr/>), <code>PERF_VEHICLE_SPEED</code><wbr/></span></td>
+<td data-label="판정"><span class="cell"><span class="pill pill--ok">가능</span></span></td>
+<td data-label="판정 이유"><span class="cell">모두 normal 또는 dangerous 권한이며 Vehicle State 범위입니다. 에뮬레이터에 Seat Occupancy 카드가 있습니다. 실차 좌석 센서 위치는 차종별입니다</span></td>
+<td data-label="폰으로는 못 하는 이유"><span class="cell">폰은 좌석 센서와 안전벨트 신호에 접근할 수 없습니다</span></td>
+</tr>
+<tr>
+<td data-label="번호"><span class="cell">4</span></td>
+<td data-label="현실 문제(근거 절)"><span class="cell">하차 후 뒷좌석 아이 방치(3.6)</span></td>
+<td data-label="필요한 데이터"><span class="cell">시동 종료 시점, 뒷좌석 점유, 도어 개폐·잠금</span></td>
+<td data-label="공개 API(이름 그대로)"><span class="cell"><code>getCurrentSeatOccupancy</code><wbr/>, <code>getCurrentDoorPosition</code><wbr/>, <code>getDoorLockState</code><wbr/>, <code>GEAR_SELECTION</code><wbr/></span></td>
+<td data-label="판정"><span class="cell"><span class="pill pill--part">부분</span></span></td>
+<td data-label="판정 이유"><span class="cell">데이터는 읽지만 시동이 꺼진 뒤 앱이 계속 동작하는지 문서로 확인 못 했고, 차량에 이미 후석 승객 알림이 있습니다. 아동 존재 감지 결과값 API는 없습니다</span></td>
+<td data-label="폰으로는 못 하는 이유"><span class="cell">폰은 좌석 점유를 모릅니다. 다만 차량 앱도 시동 후 동작은 확인 못 함입니다</span></td>
+</tr>
+<tr>
+<td data-label="번호"><span class="cell">5</span></td>
+<td data-label="현실 문제(근거 절)"><span class="cell">EV 충전 불확실성과 도착 잔량 불안(3.3)</span></td>
+<td data-label="필요한 데이터"><span class="cell">현재 SOC, 도착 예상 SOC, 경로상 충전 계획, 효율, 공조 상태</span></td>
+<td data-label="공개 API(이름 그대로)"><span class="cell"><code>getEvBatteryStateOfCharge</code><wbr/>, <code>getCurrentEvEfficiency</code><wbr/>(<code>CAR_ENERGY</code><wbr/>), TripInfo.<code>estimatedSocAtDest</code><wbr/>, DrivingState.<code>chargingPlan</code><wbr/>, <code>getChargerOperatorInfo</code><wbr/>, <code>getHvacPowerState</code><wbr/>(<code>CAR_CLIMATE</code><wbr/>), <code>ENV_OUTSIDE_TEMPERATURE</code><wbr/></span></td>
+<td data-label="판정"><span class="cell"><span class="pill pill--ok">가능</span></span></td>
+<td data-label="판정 이유"><span class="cell">Vehicle State와 NaviHelper만으로 구성됩니다. 충전기 실시간 가용 정보는 외부 데이터가 필요합니다</span></td>
+<td data-label="폰으로는 못 하는 이유"><span class="cell">폰 충전 앱은 실제 배터리 잔량과 내장 내비게이션의 도착 잔량 예측을 함께 보지 못합니다</span></td>
+</tr>
+<tr>
+<td data-label="번호"><span class="cell">6</span></td>
+<td data-label="현실 문제(근거 절)"><span class="cell">위험 구간·제한 속도 사전 안내(3.1)</span></td>
+<td data-label="필요한 데이터"><span class="cell">경로상 주의 지점, 현재 도로 제한 속도, 차량 속도</span></td>
+<td data-label="공개 API(이름 그대로)"><span class="cell"><code>onCautionPointInfo</code><wbr/>(<code>SCHOOL_ZONE</code><wbr/>, <code>ACCIDENT_PRONE_AREA</code><wbr/>, <code>FOG_AREA</code><wbr/> 등), <code>onCurrentRoadSpeedLimit</code><wbr/>(1초 주기), <code>onCameraAlert</code><wbr/>, <code>PERF_VEHICLE_SPEED</code><wbr/></span></td>
+<td data-label="판정"><span class="cell"><span class="pill pill--ok">가능</span></span></td>
+<td data-label="판정 이유"><span class="cell">NaviHelper(사용 가능)와 AAOS 속도로 구성됩니다. 내장 내비게이션이 이미 안내하는 정보와 겹칠 수 있습니다</span></td>
+<td data-label="폰으로는 못 하는 이유"><span class="cell">폰 내비게이션은 같은 안내를 하지만 차량 속도 신호와 순정 내비게이션 상태를 결합하지 못합니다</span></td>
+</tr>
+<tr>
+<td data-label="번호"><span class="cell">7</span></td>
+<td data-label="현실 문제(근거 절)"><span class="cell">정비·소모품 상태를 몰라 생기는 고장과 분쟁(3.5)</span></td>
+<td data-label="필요한 데이터"><span class="cell">엔진오일·브레이크액·워셔액, 타이어, 누적 거리, 경고등</span></td>
+<td data-label="공개 API(이름 그대로)"><span class="cell"><code>getEngineOilLevelState</code><wbr/>, <code>getBrakeFluidLevelState</code><wbr/>, <code>hasLowWasherFluidWarning</code><wbr/>(<code>CAR_SAFETY</code><wbr/>), <code>getLowTirePressure</code><wbr/>, <code>getCurrentDistanceDriven</code><wbr/></span></td>
+<td data-label="판정"><span class="cell"><span class="pill pill--part">부분</span></span></td>
+<td data-label="판정 이유"><span class="cell">오일·액체·누적 거리는 normal 권한입니다. 타이어는 저압 임계값만 있고 실제 공기압은 없으며, 경고등 전체 목록은 signature|privileged입니다</span></td>
+<td data-label="폰으로는 못 하는 이유"><span class="cell">폰은 차량 액체 수준과 누적 거리를 직접 읽지 못합니다(클라우드 Vehicle Data API는 별도 동의 필요, <a class="xref" href="#s-2-10">2.10절</a>)</span></td>
+</tr>
+<tr>
+<td data-label="번호"><span class="cell">8</span></td>
+<td data-label="현실 문제(근거 절)"><span class="cell">아이가 탄 차의 실내 환경 관리(3.6)</span></td>
+<td data-label="필요한 데이터"><span class="cell">좌석 점유, 실내 온도, 공조·공기청정 제어, 앰비언트 조명</span></td>
+<td data-label="공개 API(이름 그대로)"><span class="cell"><code>getCurrentSeatOccupancy</code><wbr/>, <code>getHvacTemperatureCurrent</code><wbr/>, <code>setHvacTemperature</code><wbr/>, <code>setHvacAirCleaner</code><wbr/>(<code>CONTROL_CAR_CLIMATE</code><wbr/>), <code>setAmbientLightBrightnessColor</code><wbr/>(<code>CONTROL_CAR_LIGHTS</code><wbr/>)</span></td>
+<td data-label="판정"><span class="cell"><span class="pill pill--part">부분</span></span></td>
+<td data-label="판정 이유"><span class="cell">읽기는 가능하지만 제어(set) API는 Vehicle Control로 추정되어 준비 중 상태입니다</span></td>
+<td data-label="폰으로는 못 하는 이유"><span class="cell">폰은 공조와 조명을 제어하지 못합니다</span></td>
+</tr>
+<tr>
+<td data-label="번호"><span class="cell">9</span></td>
+<td data-label="현실 문제(근거 절)"><span class="cell">장거리 이동에서 동승자 지루함(3.6, 3.7)</span></td>
+<td data-label="필요한 데이터"><span class="cell">현재 위치·주소, 경로, 남은 시간, 경유지, 음성 입출력</span></td>
+<td data-label="공개 API(이름 그대로)"><span class="cell"><code>getCurrentLocationInfo</code><wbr/>, <code>onTripInfo</code><wbr/>, DestinationInfo.<code>remainTime</code><wbr/>, <code>onWayPointArrived</code><wbr/>, SpeechToText·TextToSpeech</span></td>
+<td data-label="판정"><span class="cell"><span class="pill pill--part">부분</span></span></td>
+<td data-label="판정 이유"><span class="cell">위치와 경로는 사용 가능하지만 음성 입출력 SDK가 준비 중입니다. 주행 중 게임·동영상은 허용되지 않습니다(<a class="xref" href="#s-2-9">2.9절</a>)</span></td>
+<td data-label="폰으로는 못 하는 이유"><span class="cell">폰은 내장 내비게이션의 경로와 남은 시간을 실시간으로 받지 못합니다</span></td>
+</tr>
+<tr>
+<td data-label="번호"><span class="cell">10</span></td>
+<td data-label="현실 문제(근거 절)"><span class="cell">경고등 의미를 모르는 운전자(3.5)</span></td>
+<td data-label="필요한 데이터"><span class="cell">켜진 경고등 종류·색·상태</span></td>
+<td data-label="공개 API(이름 그대로)"><span class="cell"><code>getTelltalesInfo</code><wbr/>, <code>registerTelltales</code><wbr/></span></td>
+<td data-label="판정"><span class="cell"><span class="pill pill--no">불가</span></span></td>
+<td data-label="판정 이유"><span class="cell"><code>PRIVATE_CAR_SAFETY</code><wbr/>(signature|privileged)입니다(<a class="xref" href="#s-2-3">2.3절</a>)</span></td>
+<td data-label="폰으로는 못 하는 이유"><span class="cell">해당 없음</span></td>
+</tr>
+</tbody>
+</table></div></figure><p>교차표에서 반복되는 사실은 세 가지입니다. 첫째, 운전자 상태와 ADAS 경고는 공개 API로 받을 수 없습니다. 둘째, 좌석 점유·안전벨트·도어·배터리·주행 시간 같은 차량 상태와 내장 내비게이션 데이터는 지금 쓸 수 있습니다. 셋째, 음성 입출력과 차량 제어는 준비 중이어서 공모전 일정 안에 쓸 수 있는지가 불확실합니다.</p></div></div></section><section aria-labelledby="h-s-5" class="sec" id="s-5"><h2 class="sec__h" id="h-s-5"><button aria-controls="b-s-5" aria-expanded="true" class="sec__btn" type="button"><span class="num">5</span><span class="ttl">후보 아이디어 3개의 실현 가능성</span><svg aria-hidden="true" class="chev" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="m6 9 6 6 6-6"></path></svg></button></h2><div class="sec__body" id="b-s-5"><div class="blk blk--lead" data-block=""><p>이 장은 세 후보를 같은 기준으로 판정합니다. 어느 후보를 고를지는 판단하지 않습니다.</p></div><div class="blk" data-block="" id="s-5-1"><h3 class="blk__h" id="h-s-5-1"><span class="num">5.1</span><span class="ttl">졸음운전 대응(ADAS 감지 + Gleo AI 대화 + NaviHelper 휴게소 안내)</span></h3><figure class="tbl tbl--cards" data-cols="4"><div aria-label="표 9: 구성 요소, 필요한 것, 공개 API로 가능한가, 근거" class="tbl__scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">구성 요소</th>
+<th scope="col">필요한 것</th>
+<th scope="col">공개 API로 가능한가</th>
+<th scope="col">근거</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="구성 요소"><span class="cell">졸음·부주의 감지</span></td>
+<td data-label="필요한 것"><span class="cell">DAW 경고, 운전자 모니터링, 차선 이탈 경고</span></td>
+<td data-label="공개 API로 가능한가"><span class="cell">불가</span></td>
+<td data-label="근거"><span class="cell">TelltaleType.<code>DRIVER_ATTENTION</code><wbr/>과 LKA는 <code>PRIVATE_CAR_SAFETY</code><wbr/>(signature|privileged), AAOS <code>DRIVER_DROWSINESS_ATTENTION_STATE</code><wbr/>와 <code>LANE_DEPARTURE_WARNING_STATE</code><wbr/>도 signature|privileged입니다. 실내 카메라 API는 없습니다(2.3, 2.7, <a class="xref" href="#s-2-8">2.8절</a>)</span></td>
+</tr>
+<tr>
+<td data-label="구성 요소"><span class="cell">졸음 위험 추정</span></td>
+<td data-label="필요한 것"><span class="cell">연속 주행 시간, 속도, 시각, 조향 변화</span></td>
+<td data-label="공개 API로 가능한가"><span class="cell">부분</span></td>
+<td data-label="근거"><span class="cell"><code>getTripCurrentDrivingTime</code><wbr/>, <code>PERF_VEHICLE_SPEED</code><wbr/>, <code>registerSteeringWheelAngle</code><wbr/>은 읽을 수 있습니다. 조향각은 앞바퀴 각도이고 갱신 주기가 문서에 없어 졸음 판정 근거로 검증되지 않았습니다(<a class="xref" href="#s-2-3">2.3절</a>)</span></td>
+</tr>
+<tr>
+<td data-label="구성 요소"><span class="cell">Gleo AI 대화</span></td>
+<td data-label="필요한 것"><span class="cell">앱이 먼저 운전자에게 말을 거는 대화형 AI</span></td>
+<td data-label="공개 API로 가능한가"><span class="cell">불가</span></td>
+<td data-label="근거"><span class="cell">Gleo Interface는 사용자가 말했을 때 Gleo AI가 앱 함수를 부르는 구조이며, 앱이 Gleo AI 대화를 시작하는 API는 찾지 못했습니다. 공모전 SDK 목록에도 없습니다(<a class="xref" href="#s-2-7">2.7절</a>)</span></td>
+</tr>
+<tr>
+<td data-label="구성 요소"><span class="cell">앱 자체 음성 대화</span></td>
+<td data-label="필요한 것"><span class="cell">음성 출력과 인식</span></td>
+<td data-label="공개 API로 가능한가"><span class="cell">부분</span></td>
+<td data-label="근거"><span class="cell">TextToSpeech, SpeechToText가 있지만 공모전 상태는 준비 중입니다(<a class="xref" href="#s-2-1">2.1절</a>, <a class="xref" href="#s-2-5">2.5절</a>)</span></td>
+</tr>
+<tr>
+<td data-label="구성 요소"><span class="cell">휴게소 안내</span></td>
+<td data-label="필요한 것"><span class="cell">휴게소 위치와 경유지 설정</span></td>
+<td data-label="공개 API로 가능한가"><span class="cell">부분</span></td>
+<td data-label="근거"><span class="cell">NaviHelper에 휴게소 검색은 없습니다. 한국도로공사 공공데이터 좌표를 <code>requestRouteWithWaypoints</code><wbr/>나 <code>addWaypoint</code><wbr/>로 넣는 방식은 가능합니다(<a class="xref" href="#s-2-4">2.4절</a>, <a class="xref" href="#s-3-2">3.2절</a>)</span></td>
+</tr>
+</tbody>
+</table></div></figure><p>판정: 부분. 후보가 내건 "ADAS로 졸음 감지"는 불가입니다. "공개 ADAS·차량 데이터로 졸음·부주의를 실제로 알 수 있는가"에 대한 답은 "알 수 없다"입니다. 부분 판정은 공개 데이터로 구현할 수 있는 나머지 기능, 즉 주행 시간과 시각에 근거한 피로 위험 추정과 휴게소 경유지 안내를 가리킵니다. 차량에는 이미 운전자 주의 경고(DAW)가 있고, 휴식 알림이 실제 휴식으로 이어지지 않았다는 연구가 있습니다(<a class="xref" href="#s-3-1">3.1절</a>).</p></div><div class="blk" data-block="" id="s-5-2"><h3 class="blk__h" id="h-s-5-2"><span class="num">5.2</span><span class="ttl">뒷좌석 아이 케어</span></h3><figure class="tbl tbl--cards" data-cols="4"><div aria-label="표 10: 구성 요소, 필요한 것, 공개 API로 가능한가, 근거" class="tbl__scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">구성 요소</th>
+<th scope="col">필요한 것</th>
+<th scope="col">공개 API로 가능한가</th>
+<th scope="col">근거</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="구성 요소"><span class="cell">아이 탑승 여부</span></td>
+<td data-label="필요한 것"><span class="cell">뒷좌석 좌석별 점유</span></td>
+<td data-label="공개 API로 가능한가"><span class="cell">가능</span></td>
+<td data-label="근거"><span class="cell"><code>getCurrentSeatOccupancy</code><wbr/>, <code>registerSeatOccupancy</code><wbr/>(<code>CAR_SEATS</code><wbr/>, normal). SeatValue에 <code>ROW_2_LEFT</code><wbr/> 등 1~3열이 있고 에뮬레이터 Seat Occupancy 카드로 재현됩니다(<a class="xref" href="#s-2-3">2.3절</a>). 실차 센서 좌석은 차종별 확인 필요</span></td>
+</tr>
+<tr>
+<td data-label="구성 요소"><span class="cell">안전벨트 풀림</span></td>
+<td data-label="필요한 것"><span class="cell">좌석별 버클 상태</span></td>
+<td data-label="공개 API로 가능한가"><span class="cell">가능</span></td>
+<td data-label="근거"><span class="cell"><code>getCurrentSeatBeltBuckledState</code><wbr/>, <code>registerSeatBeltBuckledState</code><wbr/>(<code>CAR_SEATS</code><wbr/>), <code>hasSeatBeltNotBuckledWarning</code><wbr/>(<code>CAR_SAFETY</code><wbr/>)</span></td>
+</tr>
+<tr>
+<td data-label="구성 요소"><span class="cell">도어·창문</span></td>
+<td data-label="필요한 것"><span class="cell">뒷문 열림, 창문 위치·잠금</span></td>
+<td data-label="공개 API로 가능한가"><span class="cell">부분</span></td>
+<td data-label="근거"><span class="cell"><code>getCurrentDoorPosition</code><wbr/>, <code>getCurrentWindowPosition</code><wbr/>, <code>getCurrentWindowLockState</code><wbr/>는 읽기 가능. <code>setWindowLock</code><wbr/>, <code>setDoorLock</code><wbr/>은 제어 API로 준비 중 추정</span></td>
+</tr>
+<tr>
+<td data-label="구성 요소"><span class="cell">실내 환경</span></td>
+<td data-label="필요한 것"><span class="cell">실내 온도, 공조·공기청정</span></td>
+<td data-label="공개 API로 가능한가"><span class="cell">부분</span></td>
+<td data-label="근거"><span class="cell"><code>getHvacTemperatureCurrent</code><wbr/>, <code>getHvacAirCleanerState</code><wbr/>는 읽기 가능. <code>set*</code><wbr/> 제어는 준비 중 추정</span></td>
+</tr>
+<tr>
+<td data-label="구성 요소"><span class="cell">아이 상태 확인</span></td>
+<td data-label="필요한 것"><span class="cell">뒷좌석 카메라, 소리, 생체 신호</span></td>
+<td data-label="공개 API로 가능한가"><span class="cell">불가</span></td>
+<td data-label="근거"><span class="cell">카메라·생체 API가 없습니다(<a class="xref" href="#s-2-8">2.8절</a>)</span></td>
+</tr>
+<tr>
+<td data-label="구성 요소"><span class="cell">하차 후 방치 감지</span></td>
+<td data-label="필요한 것"><span class="cell">시동 종료 후 감지·알림</span></td>
+<td data-label="공개 API로 가능한가"><span class="cell">부분</span></td>
+<td data-label="근거"><span class="cell">데이터는 읽지만 시동 후 앱 동작은 확인 못 함이고, 아동 존재 감지 결과 API는 없습니다(<a class="xref" href="#s-2-8">2.8절</a>, <a class="xref" href="#s-3-6">3.6절</a>)</span></td>
+</tr>
+</tbody>
+</table></div></figure><p>판정: 부분. 읽기 기능은 가능하고 제어·영상·하차 후 감지는 부분 또는 불가입니다. 주행 중 뒷좌석 착좌·안전벨트·도어·실내 온도를 모니터링하는 기능은 지금 공개 API로 만들 수 있고 에뮬레이터로 시연할 수 있습니다. 아이의 상태를 보거나 듣는 기능과 하차 후 방치 감지는 공개 API로 보장할 수 없습니다. 기존 후석 승객 알림과 하차 확인장치는 하차 시점을 다룹니다(<a class="xref" href="#s-3-6">3.6절</a>). 차량이 주행 중 뒷좌석 안전벨트 경고를 이미 어디까지 제공하는지는 차종별로 다르며 이 조사에서 확인 못 했습니다.</p></div><div class="blk" data-block="" id="s-5-3"><h3 class="blk__h" id="h-s-5-3"><span class="num">5.3</span><span class="ttl">동승자 참여형 엔터테인먼트</span></h3><figure class="tbl tbl--cards" data-cols="4"><div aria-label="표 11: 구성 요소, 필요한 것, 공개 API로 가능한가, 근거" class="tbl__scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">구성 요소</th>
+<th scope="col">필요한 것</th>
+<th scope="col">공개 API로 가능한가</th>
+<th scope="col">근거</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="구성 요소"><span class="cell">주행 중 화면 게임·영상</span></td>
+<td data-label="필요한 것"><span class="cell">주행 중 실행</span></td>
+<td data-label="공개 API로 가능한가"><span class="cell">불가</span></td>
+<td data-label="근거"><span class="cell">미디어 앱(동영상, 게임, 브라우저)은 운전 중 실행·사용할 수 없습니다. 도로교통법 제49조는 운전자가 볼 수 있는 위치의 영상 표시를 금지합니다(<a class="xref" href="#s-2-9">2.9절</a>, <a class="xref" href="#s-3-7">3.7절</a>)</span></td>
+</tr>
+<tr>
+<td data-label="구성 요소"><span class="cell">동승석 전용 화면</span></td>
+<td data-label="필요한 것"><span class="cell">동승석 디스플레이 제어</span></td>
+<td data-label="공개 API로 가능한가"><span class="cell">불가</span></td>
+<td data-label="근거"><span class="cell">동승석 화면 API를 공개 문서에서 찾지 못했습니다(<a class="xref" href="#s-2-9">2.9절</a>). 실차에 동승석 화면이 있는지는 확인 못 함</span></td>
+</tr>
+<tr>
+<td data-label="구성 요소"><span class="cell">위치·경로 기반 콘텐츠</span></td>
+<td data-label="필요한 것"><span class="cell">현재 위치, 주소, 경로, 남은 시간, 경유지 도착</span></td>
+<td data-label="공개 API로 가능한가"><span class="cell">가능</span></td>
+<td data-label="근거"><span class="cell"><code>getCurrentLocationInfo</code><wbr/>, <code>onTripInfo</code><wbr/>, DestinationInfo, <code>onWayPointArrived</code><wbr/>(NaviHelper, 사용 가능)</span></td>
+</tr>
+<tr>
+<td data-label="구성 요소"><span class="cell">음성 퀴즈·대화</span></td>
+<td data-label="필요한 것"><span class="cell">음성 입출력</span></td>
+<td data-label="공개 API로 가능한가"><span class="cell">부분</span></td>
+<td data-label="근거"><span class="cell">TextToSpeech, SpeechToText 준비 중. <code>ON_DEVICE</code><wbr/> 모드는 앱 등록이 필요 없지만 공모전 사용 가능 여부는 확인 못 함</span></td>
+</tr>
+<tr>
+<td data-label="구성 요소"><span class="cell">동승자 확인</span></td>
+<td data-label="필요한 것"><span class="cell">좌석별 탑승</span></td>
+<td data-label="공개 API로 가능한가"><span class="cell">가능</span></td>
+<td data-label="근거"><span class="cell"><code>getCurrentSeatOccupancy</code><wbr/>는 동승석·뒷좌석 좌석별 점유 여부(Boolean)를 줍니다. 탑승자 수는 좌석별 값에서 앱이 계산해야 하며, 어느 좌석에 센서가 있는지는 차종별입니다</span></td>
+</tr>
+<tr>
+<td data-label="구성 요소"><span class="cell">분위기 연출</span></td>
+<td data-label="필요한 것"><span class="cell">앰비언트 조명</span></td>
+<td data-label="공개 API로 가능한가"><span class="cell">부분</span></td>
+<td data-label="근거"><span class="cell"><code>setAmbientLightBrightnessColor</code><wbr/>는 제어 API로 준비 중 추정</span></td>
+</tr>
+<tr>
+<td data-label="구성 요소"><span class="cell">정차·충전 중 게임</span></td>
+<td data-label="필요한 것"><span class="cell">주차 상태 확인</span></td>
+<td data-label="공개 API로 가능한가"><span class="cell">가능</span></td>
+<td data-label="근거"><span class="cell">심사 가이드는 "모든 미디어 앱은 정차 중에만 사용 가능"하다고 적고(<a class="src" href="https://document.pleos.ai/docs/pleos-only/distribute/app-review-guide/review-driver-distraction-elements" title="https://document.pleos.ai/docs/pleos-only/distribute/app-review-guide/review-driver-distraction-elements">출처36</a>), 주행 규제 정책은 Parking 상태에서 앱 사용을 허용합니다(<a class="src" href="https://document.pleos.ai/docs/pleos-only/vehicle-app-planning-guide/driving-restiction-policy" title="https://document.pleos.ai/docs/pleos-only/vehicle-app-planning-guide/driving-restiction-policy">출처37</a>). 주행 상태는 AAOS CarUxRestrictionsManager(Android 표준 API, Pleos SDK 아님)와 <code>GEAR_SELECTION</code><wbr/>(normal)으로 확인합니다</span></td>
+</tr>
+</tbody>
+</table></div></figure><p>판정: 부분. 주행 중 화면을 쓰는 엔터테인먼트는 정책과 법령으로 막혀 있습니다. 주행 중에는 위치·경로와 좌석 점유를 쓰는 오디오·음성 중심 참여만 가능하고, 음성 SDK가 준비 중이라는 점이 공모전 일정상 위험입니다. 정차·충전 중 화면 콘텐츠는 가능합니다.</p></div><div class="blk" data-block="" id="s-5-4"><h3 class="blk__h" id="h-s-5-4"><span class="num">5.4</span><span class="ttl">세 후보 공통 위험</span></h3><ul>
+<li>준비 중 SDK 의존: TextToSpeech, SpeechToText, FusedLocation, Vehicle Control은 공모전 접수 기간(2026년 10월 21일~11월 15일)과 2차 PT(12월 3~4일) 전에 "사용 가능"으로 바뀐다는 공지를 찾지 못했습니다(일정 <a class="url" href="https://appdevchallenge.auto-hmg.io/">appdevchallenge.auto-hmg.io/<wbr/></a>, 공지 목록 <a class="url" href="https://appdevchallenge.auto-hmg.io/notice">appdevchallenge.auto-hmg.io/<wbr/>notice</a>).</li>
+<li>심사와 출시는 다릅니다. 공모전은 에뮬레이터 시연을 인정하지만, App Market 출시에는 퍼미션 사전 승인과 주의 분산 심사가 따로 있습니다(<a class="xref" href="#s-2-1">2.1절</a>).</li>
+<li>차종별 지원: 모든 Vehicle SDK 기능은 <code>checkXXXCapabilities</code>로 지원 여부를 확인하도록 설계해야 합니다(<a class="xref" href="#s-2-2">2.2절</a>).</li>
+</ul></div></div></section><section aria-labelledby="h-s-6" class="sec" id="s-6"><h2 class="sec__h" id="h-s-6"><button aria-controls="b-s-6" aria-expanded="true" class="sec__btn" type="button"><span class="num">6</span><span class="ttl">확인 못 한 것</span><svg aria-hidden="true" class="chev" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="m6 9 6 6 6-6"></path></svg></button></h2><div class="sec__body" id="b-s-6"><div class="blk blk--lead" data-block=""><p>아래 항목은 공개 자료만으로 결론을 내리지 못했습니다. 기획서에 쓰기 전에 직접 실행이나 공식 답변으로 확인해야 합니다.</p><figure class="tbl tbl--cards" data-cols="3"><div aria-label="표 12: 항목, 확인 못 한 이유, 확인 방법" class="tbl__scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">항목</th>
+<th scope="col">확인 못 한 이유</th>
+<th scope="col">확인 방법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="항목"><span class="cell">준비 중(Coming Soon) SDK가 에뮬레이터에서 실제로 호출되는지</span></td>
+<td data-label="확인 못 한 이유"><span class="cell">로그인 후 프로젝트를 만들고 에뮬레이터에서 실행해야 알 수 있음. 이 조사는 로그인하지 않았음</span></td>
+<td data-label="확인 방법"><span class="cell">에뮬레이터에서 TextToSpeech <code>ON_DEVICE</code><wbr/>, SpeechToText <code>ON_DEVICE</code><wbr/>, FusedLocation <code>isSupported</code><wbr/> 호출</span></td>
+</tr>
+<tr>
+<td data-label="항목"><span class="cell">Vehicle State와 Vehicle Control의 API 경계</span></td>
+<td data-label="확인 못 한 이유"><span class="cell">신청 화면이 로그인 필요로 확인 못 함. 이 보고서는 <code>CAR_*</code><wbr/> 조회 / <code>CONTROL_CAR_*</code><wbr/> 제어로 추정</span></td>
+<td data-label="확인 방법"><span class="cell">Playground Workspace의 SDK 상세 화면</span></td>
+</tr>
+<tr>
+<td data-label="항목"><span class="cell">Gleo Interface(App Schema)를 공모전 앱이 쓸 수 있는지</span></td>
+<td data-label="확인 못 한 이유"><span class="cell">공모전 SDK 목록에 없고 App Schema 등록 절차가 공개 문서에 없음</span></td>
+<td data-label="확인 방법"><span class="cell">공모전 온라인 설명회(2026.10.28) 안내 확인</span></td>
+</tr>
+<tr>
+<td data-label="항목"><span class="cell">Pleos Connect 실차가 제공하는 AAOS 프로퍼티 범위</span></td>
+<td data-label="확인 못 한 이유"><span class="cell">실차 접근 없음. 문서는 모델마다 다르다고만 안내</span></td>
+<td data-label="확인 방법"><span class="cell">CarPropertyManager.<code>getPropertyList</code><wbr/> 결과</span></td>
+</tr>
+<tr>
+<td data-label="항목"><span class="cell">에뮬레이터에서 차량 속도를 바꾸는 방법</span></td>
+<td data-label="확인 못 한 이유"><span class="cell">셋업 가이드는 "차량 속도" 변경을 언급하지만 사용 가이드 카드 목록에 속도 카드가 없음</span></td>
+<td data-label="확인 방법"><span class="cell">Virtual Console 화면 직접 확인</span></td>
+</tr>
+<tr>
+<td data-label="항목"><span class="cell">Vehicle SDK 리스너의 갱신 주기</span></td>
+<td data-label="확인 못 한 이유"><span class="cell">문서에 Hz나 주기 값이 없음</span></td>
+<td data-label="확인 방법"><span class="cell">에뮬레이터에서 콜백 간격 측정</span></td>
+</tr>
+<tr>
+<td data-label="항목"><span class="cell">일반 Android 카메라·마이크 API 사용 가능 여부</span></td>
+<td data-label="확인 못 한 이유"><span class="cell">Pleos 문서에 언급 없음</span></td>
+<td data-label="확인 방법"><span class="cell">에뮬레이터 권한 요청 실험, 앱 심사 가이드 재확인</span></td>
+</tr>
+<tr>
+<td data-label="항목"><span class="cell">좌석 점유 센서가 뒷좌석에도 있는 차종</span></td>
+<td data-label="확인 못 한 이유"><span class="cell">API는 1~3열을 정의하지만 실차 센서 위치는 차종별</span></td>
+<td data-label="확인 방법"><span class="cell"><code>checkSeatOccupancyCapabilities</code><wbr/> 결과</span></td>
+</tr>
+<tr>
+<td data-label="항목"><span class="cell"><code>getTelltalesInfo</code><wbr/>의 실제 요구 권한</span></td>
+<td data-label="확인 못 한 이유"><span class="cell">같은 페이지에 <code>CAR_SAFETY</code><wbr/>(어노테이션)와 <code>PRIVATE_CAR_SAFETY</code><wbr/>(설명)가 함께 적혀 있음</span></td>
+<td data-label="확인 방법"><span class="cell">normal 권한으로 호출해 <code>ERROR_SECURITY_PERMISSION</code><wbr/> 여부 확인</span></td>
+</tr>
+</tbody>
+</table></div></figure></div></div></section>
+<section aria-labelledby="h-s-sources" class="sec sec--aux" data-default="closed" id="s-sources"><h2 class="sec__h" id="h-s-sources"><button aria-controls="b-s-sources" aria-expanded="true" class="sec__btn" type="button"><span class="ttl">출처 목록</span><svg aria-hidden="true" class="chev" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="m6 9 6 6 6-6"></path></svg></button></h2><div class="sec__body" id="b-s-sources"><div class="blk blk--lead" data-block=""><p>표 안의 출처 번호가 가리키는 주소입니다. 번호는 문서 전체에서 같은 주소에 같은 번호를 씁니다.</p><ol class="srcs"><li id="src-1"><a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/brake/entry">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>Vehicle/<wbr/>vehicle/<wbr/>ai.pleos.playground.vehicle.api/<wbr/>brake/<wbr/>entry</a></li><li id="src-2"><a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/car-info/entry">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>Vehicle/<wbr/>vehicle/<wbr/>ai.pleos.playground.vehicle.api/<wbr/>car-info/<wbr/>entry</a></li><li id="src-3"><a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/display/entry">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>Vehicle/<wbr/>vehicle/<wbr/>ai.pleos.playground.vehicle.api/<wbr/>display/<wbr/>entry</a></li><li id="src-4"><a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/door/entry">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>Vehicle/<wbr/>vehicle/<wbr/>ai.pleos.playground.vehicle.api/<wbr/>door/<wbr/>entry</a></li><li id="src-5"><a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/driving-mode/entry">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>Vehicle/<wbr/>vehicle/<wbr/>ai.pleos.playground.vehicle.api/<wbr/>driving-mode/<wbr/>entry</a></li><li id="src-6"><a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/ev-battery/entry">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>Vehicle/<wbr/>vehicle/<wbr/>ai.pleos.playground.vehicle.api/<wbr/>ev-battery/<wbr/>entry</a></li><li id="src-7"><a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/fuel/entry">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>Vehicle/<wbr/>vehicle/<wbr/>ai.pleos.playground.vehicle.api/<wbr/>fuel/<wbr/>entry</a></li><li id="src-8"><a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/h-v-a-c/entry">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>Vehicle/<wbr/>vehicle/<wbr/>ai.pleos.playground.vehicle.api/<wbr/>h-v-a-c/<wbr/>entry</a></li><li id="src-9"><a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/light/entry">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>Vehicle/<wbr/>vehicle/<wbr/>ai.pleos.playground.vehicle.api/<wbr/>light/<wbr/>entry</a></li><li id="src-10"><a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/odometer/entry">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>Vehicle/<wbr/>vehicle/<wbr/>ai.pleos.playground.vehicle.api/<wbr/>odometer/<wbr/>entry</a></li><li id="src-11"><a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/safety/entry">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>Vehicle/<wbr/>vehicle/<wbr/>ai.pleos.playground.vehicle.api/<wbr/>safety/<wbr/>entry</a></li><li id="src-12"><a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/safety/get-telltales-info">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>Vehicle/<wbr/>vehicle/<wbr/>ai.pleos.playground.vehicle.api/<wbr/>safety/<wbr/>get-telltales-info</a></li><li id="src-13"><a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/seat/entry">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>Vehicle/<wbr/>vehicle/<wbr/>ai.pleos.playground.vehicle.api/<wbr/>seat/<wbr/>entry</a></li><li id="src-14"><a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/side-mirror/entry">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>Vehicle/<wbr/>vehicle/<wbr/>ai.pleos.playground.vehicle.api/<wbr/>side-mirror/<wbr/>entry</a></li><li id="src-15"><a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/steering-wheel/entry">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>Vehicle/<wbr/>vehicle/<wbr/>ai.pleos.playground.vehicle.api/<wbr/>steering-wheel/<wbr/>entry</a></li><li id="src-16"><a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/tire/entry">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>Vehicle/<wbr/>vehicle/<wbr/>ai.pleos.playground.vehicle.api/<wbr/>tire/<wbr/>entry</a></li><li id="src-17"><a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/toll/entry">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>Vehicle/<wbr/>vehicle/<wbr/>ai.pleos.playground.vehicle.api/<wbr/>toll/<wbr/>entry</a></li><li id="src-18"><a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/turn-signal/entry">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>Vehicle/<wbr/>vehicle/<wbr/>ai.pleos.playground.vehicle.api/<wbr/>turn-signal/<wbr/>entry</a></li><li id="src-19"><a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/window/entry">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>Vehicle/<wbr/>vehicle/<wbr/>ai.pleos.playground.vehicle.api/<wbr/>window/<wbr/>entry</a></li><li id="src-20"><a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/wiper/entry">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>Vehicle/<wbr/>vehicle/<wbr/>ai.pleos.playground.vehicle.api/<wbr/>wiper/<wbr/>entry</a></li><li id="src-21"><a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/NaviHelper/declaring-permissions">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>NaviHelper/<wbr/>declaring-permissions</a></li><li id="src-22"><a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/NaviHelper/navi-helper/ai.pleos.playground.navi.data/navigation-screen-request/entry">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>NaviHelper/<wbr/>navi-helper/<wbr/>ai.pleos.playground.navi.data/<wbr/>navigation-screen-request/<wbr/>entry</a></li><li id="src-23"><a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/TextToSpeech/declaring-permissions">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>TextToSpeech/<wbr/>declaring-permissions</a></li><li id="src-24"><a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/SpeechToText/declaring-permissions">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>SpeechToText/<wbr/>declaring-permissions</a></li><li id="src-25"><a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/TextToSpeech/intro">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>TextToSpeech/<wbr/>intro</a></li><li id="src-26"><a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/TextToSpeech/text-to-speech/ai.pleos.playground.tts/text-to-speech/set-speaker-type">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>TextToSpeech/<wbr/>text-to-speech/<wbr/>ai.pleos.playground.tts/<wbr/>text-to-speech/<wbr/>set-speaker-type</a></li><li id="src-27"><a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/SpeechToText/intro">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>SpeechToText/<wbr/>intro</a></li><li id="src-28"><a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/SpeechToText/sending-audio-data">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>SpeechToText/<wbr/>sending-audio-data</a></li><li id="src-29"><a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/intro">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/>Vehicle/<wbr/>intro</a></li><li id="src-30"><a class="url" href="https://document.pleos.ai/docs/pleos-only/release-note/sdk-261015">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>release-note/<wbr/>sdk-261015</a></li><li id="src-31"><a class="url" href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>connect-sdk-pleos/<wbr/></a></li><li id="src-32"><a class="url" href="https://document.pleos.ai/api-reference/vehicle-data-api/intro">document.pleos.ai/<wbr/>api-reference/<wbr/>vehicle-data-api/<wbr/>intro</a></li><li id="src-33"><a class="url" href="https://document.pleos.ai/api-reference/fleet-api/intro">document.pleos.ai/<wbr/>api-reference/<wbr/>fleet-api/<wbr/>intro</a></li><li id="src-34"><a class="url" href="https://document.pleos.ai/api-reference/pleos-platform-sdk/intro">document.pleos.ai/<wbr/>api-reference/<wbr/>pleos-platform-sdk/<wbr/>intro</a></li><li id="src-35"><a class="url" href="https://document.pleos.ai/api-reference/pleos-platform-sdk/get-started">document.pleos.ai/<wbr/>api-reference/<wbr/>pleos-platform-sdk/<wbr/>get-started</a></li><li id="src-36"><a class="url" href="https://document.pleos.ai/docs/pleos-only/distribute/app-review-guide/review-driver-distraction-elements">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>distribute/<wbr/>app-review-guide/<wbr/>review-driver-distraction-elements</a></li><li id="src-37"><a class="url" href="https://document.pleos.ai/docs/pleos-only/vehicle-app-planning-guide/driving-restiction-policy">document.pleos.ai/<wbr/>docs/<wbr/>pleos-only/<wbr/>vehicle-app-planning-guide/<wbr/>driving-restiction-policy</a></li></ol></div></div></section>
+    </article>
+  </div>
+</main>
+
+<footer class="ftr">
+  <div class="ftr__in">
+    <span>조사 기준일 <span class="mono">2026-10-23</span></span>
+    <span>공개 자료 기준</span>
+    <span>이 페이지는 보고서 Markdown에서 자동 생성되었습니다.</span>
+  </div>
+</footer>
+
+<dialog class="sheet" id="toc-sheet" aria-labelledby="sheet-title">
+  <div class="sheet__head">
+    <h2 class="sheet__title" id="sheet-title">목차</h2>
+    <button class="btn btn--icon" id="toc-close" type="button" aria-label="목차 닫기">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <div class="sheet__body">
+    <nav aria-label="목차"><ol class="toc"><li><a href="#s-0"><span class="toc__num">0</span><span class="toc__ttl">요약</span></a></li><li><a href="#s-1"><span class="toc__num">1</span><span class="toc__ttl">조사 범위와 방법</span></a></li><li><a href="#s-2"><span class="toc__num">2</span><span class="toc__ttl">Pleos SDK별 제공 정보 범위</span></a><ol class="toc__sub"><li><a href="#s-2-1"><span class="toc__num">2.1</span><span class="toc__ttl">SDK 목록과 공모전 사용 가능 상태</span></a></li><li><a href="#s-2-2"><span class="toc__num">2.2</span><span class="toc__ttl">공통 개발 환경</span></a></li><li><a href="#s-2-3"><span class="toc__num">2.3</span><span class="toc__ttl">Vehicle SDK</span></a></li><li><a href="#s-2-4"><span class="toc__num">2.4</span><span class="toc__ttl">NaviHelper SDK</span></a></li><li><a href="#s-2-5"><span class="toc__num">2.5</span><span class="toc__ttl">TextToSpeech SDK와 SpeechToText SDK</span></a></li><li><a href="#s-2-6"><span class="toc__num">2.6</span><span class="toc__ttl">FusedLocation SDK</span></a></li><li><a href="#s-2-7"><span class="toc__num">2.7</span><span class="toc__ttl">Gleo Interface와 AAOS 표준 Car API</span></a></li><li><a href="#s-2-8"><span class="toc__num">2.8</span><span class="toc__ttl">공개 API로 얻을 수 없는 정보</span></a></li><li><a href="#s-2-9"><span class="toc__num">2.9</span><span class="toc__ttl">주행 중 제한</span></a></li><li><a href="#s-2-10"><span class="toc__num">2.10</span><span class="toc__ttl">Playground의 다른 공개 API(차량 앱 밖)</span></a></li></ol></li><li><a href="#s-3"><span class="toc__num">3</span><span class="toc__ttl">기능 영역별 현실 문제와 불편</span></a><ol class="toc__sub"><li><a href="#s-3-1"><span class="toc__num">3.1</span><span class="toc__ttl">운전 보조·안전: 졸음과 주의 분산</span></a></li><li><a href="#s-3-2"><span class="toc__num">3.2</span><span class="toc__ttl">내비게이션·경로·휴게소</span></a></li><li><a href="#s-3-3"><span class="toc__num">3.3</span><span class="toc__ttl">전기차 충전</span></a></li><li><a href="#s-3-4"><span class="toc__num">3.4</span><span class="toc__ttl">차량 음성 비서와 앱 생태계</span></a></li><li><a href="#s-3-5"><span class="toc__num">3.5</span><span class="toc__ttl">차량 상태·정비</span></a></li><li><a href="#s-3-6"><span class="toc__num">3.6</span><span class="toc__ttl">뒷좌석 아이와 가족 이동</span></a></li><li><a href="#s-3-7"><span class="toc__num">3.7</span><span class="toc__ttl">동승자 엔터테인먼트</span></a></li></ol></li><li><a href="#s-4"><span class="toc__num">4</span><span class="toc__ttl">교차표: 현실 문제 × 쓸 수 있는 데이터</span></a></li><li><a href="#s-5"><span class="toc__num">5</span><span class="toc__ttl">후보 아이디어 3개의 실현 가능성</span></a><ol class="toc__sub"><li><a href="#s-5-1"><span class="toc__num">5.1</span><span class="toc__ttl">졸음운전 대응(ADAS 감지 + Gleo AI 대화 + NaviHelper 휴게소 안내)</span></a></li><li><a href="#s-5-2"><span class="toc__num">5.2</span><span class="toc__ttl">뒷좌석 아이 케어</span></a></li><li><a href="#s-5-3"><span class="toc__num">5.3</span><span class="toc__ttl">동승자 참여형 엔터테인먼트</span></a></li><li><a href="#s-5-4"><span class="toc__num">5.4</span><span class="toc__ttl">세 후보 공통 위험</span></a></li></ol></li><li><a href="#s-6"><span class="toc__num">6</span><span class="toc__ttl">확인 못 한 것</span></a></li><li><a href="#s-sources"><span class="toc__ttl">출처 목록</span></a></li></ol></nav>
+  </div>
+</dialog>
+
+<a class="totop js-only" id="totop" href="#top" aria-label="맨 위로" hidden>
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</a>
+
+<script>
+(() => {
+"use strict";
+const html = document.documentElement;
+const $ = (sel, root = document) => root.querySelector(sel);
+const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+const largeScreen = matchMedia("(min-width: 60em)");
+const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+const SEARCH_DEBOUNCE_MS = 150;
+const SHEET_CLOSE_FALLBACK_MS = 300;
+const sections = $$(".sec");
+const blocks = $$(".blk");
+const header = $(".hdr");
+const toggleAllBtn = $("#toggle-all");
+const tocOpenBtn = $("#toc-open");
+const tocCloseBtn = $("#toc-close");
+const sheet = $("#toc-sheet");
+const searchToggle = $("#search-toggle");
+const searchForm = $("#search-form");
+const searchInput = $("#q");
+const searchClear = $("#q-clear");
+const status = $("#search-status");
+const toTop = $("#totop");
+const hero = $(".hero");
+const openState = new Map();
+const isOpen = (sec) => openState.get(sec.id) !== false;
+function setOpen(sec, open, animate = true) {
+const btn = $(".sec__btn", sec);
+const body = $(".sec__body", sec);
+btn.setAttribute("aria-expanded", String(open));
+if (open) {
+body.removeAttribute("hidden");
+body.classList.remove("is-entering");
+if (animate && !reducedMotion.matches) {
+void body.offsetWidth;
+body.classList.add("is-entering");
+}
+} else {
+body.setAttribute("hidden", "until-found");
+}
+openState.set(sec.id, open);
+updateToggleAll();
+}
+const mainSections = sections.filter((sec) => !sec.classList.contains("sec--aux"));
+function updateToggleAll() {
+if (!toggleAllBtn) return;
+const anyClosed = mainSections.some((sec) => !isOpen(sec));
+const label = anyClosed ? "모두 펼치기" : "모두 접기";
+toggleAllBtn.dataset.action = anyClosed ? "open" : "close";
+$(".btn__label", toggleAllBtn).textContent = label;
+toggleAllBtn.setAttribute("aria-label", label);
+toggleAllBtn.title = label;
+}
+function applyDefaultState() {
+sections.forEach((sec, index) => {
+const open = sec.dataset.default === "closed" ? false : largeScreen.matches || index === 0;
+setOpen(sec, open, false);
+});
+html.classList.add("is-ready");
+}
+sections.forEach((sec) => {
+$(".sec__btn", sec).addEventListener("click", () => setOpen(sec, !isOpen(sec)));
+$(".sec__body", sec).addEventListener("beforematch", () => setOpen(sec, true, false));
+});
+toggleAllBtn?.addEventListener("click", () => {
+const open = toggleAllBtn.dataset.action === "open";
+sections.forEach((sec) => setOpen(sec, open, false));
+});
+function revealTarget(id) {
+const target = id && document.getElementById(id);
+if (!target) return null;
+const sec = target.closest(".sec");
+if (sec && !isOpen(sec)) setOpen(sec, true, false);
+return target;
+}
+window.addEventListener("hashchange", () => {
+const target = revealTarget(decodeURIComponent(location.hash.slice(1)));
+if (target) target.scrollIntoView({ block: "start" });
+});
+document.addEventListener("click", (event) => {
+const link = event.target.closest('a[href^="#"]');
+if (!link) return;
+const id = decodeURIComponent(link.getAttribute("href").slice(1));
+if (searchInput?.value) clearSearch({ focus: false });
+revealTarget(id);
+if (sheet?.open) closeSheet();
+});
+function openSheet() {
+if (!sheet || sheet.open) return;
+sheet.showModal();
+html.classList.add("sheet-open");
+}
+function finishClose() {
+sheet.classList.remove("is-closing");
+html.classList.remove("sheet-open");
+if (sheet.open) sheet.close();
+}
+function closeSheet() {
+if (!sheet || !sheet.open) return;
+if (reducedMotion.matches) {
+finishClose();
+return;
+}
+sheet.classList.add("is-closing");
+let done = false;
+const once = () => {
+if (done) return;
+done = true;
+sheet.removeEventListener("animationend", once);
+finishClose();
+};
+sheet.addEventListener("animationend", once);
+setTimeout(once, SHEET_CLOSE_FALLBACK_MS);
+}
+tocOpenBtn?.addEventListener("click", openSheet);
+tocCloseBtn?.addEventListener("click", closeSheet);
+sheet?.addEventListener("cancel", (event) => {
+event.preventDefault();
+closeSheet();
+});
+sheet?.addEventListener("click", (event) => {
+if (event.target === sheet) closeSheet();
+});
+sheet?.addEventListener("close", () => html.classList.remove("sheet-open"));
+const tocLinks = $$(".toc a");
+const headingFor = new Map();
+$$(".sec__h, .blk__h").forEach((heading) => {
+const owner = heading.closest(".blk[id], .sec[id]");
+if (owner) headingFor.set(heading, owner.id);
+});
+let currentId = null;
+function setCurrent(id) {
+if (currentId === id) return;
+currentId = id;
+tocLinks.forEach((link) => {
+if (decodeURIComponent(link.hash.slice(1)) === id) link.setAttribute("aria-current", "true");
+else link.removeAttribute("aria-current");
+});
+}
+if ("IntersectionObserver" in window && headingFor.size) {
+const headerPx = header ? header.getBoundingClientRect().height : 56;
+const spy = new IntersectionObserver((entries) => {
+const visible = entries.filter((entry) => entry.isIntersecting);
+if (visible.length) setCurrent(headingFor.get(visible[0].target));
+}, { rootMargin: `-${Math.round(headerPx)}px 0px -55% 0px`, threshold: 0 });
+headingFor.forEach((_, heading) => spy.observe(heading));
+}
+const normalize = (text) => text.normalize("NFC").toLowerCase();
+const tokensOf = (query) => normalize(query).trim().split(/\s+/).filter(Boolean);
+const matchesAll = (text, tokens) => tokens.every((token) => text.includes(token));
+const escapeRegExp = (text) => text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+let savedOpenState = null;
+let marks = [];
+let debounceTimer = 0;
+function highlight(root, tokens) {
+const pattern = new RegExp(tokens.map(escapeRegExp).join("|"), "giu");
+const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+acceptNode(node) {
+if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+const parent = node.parentElement;
+if (!parent || parent.closest("script, style, mark, .sec__h, .blk__h")) return NodeFilter.FILTER_REJECT;
+if (parent.closest("tr[hidden], [hidden]")) return NodeFilter.FILTER_REJECT;
+return NodeFilter.FILTER_ACCEPT;
+},
+});
+const targets = [];
+while (walker.nextNode()) targets.push(walker.currentNode);
+targets.forEach((textNode) => {
+const text = textNode.nodeValue;
+pattern.lastIndex = 0;
+if (!pattern.test(text)) return;
+pattern.lastIndex = 0;
+const fragment = document.createDocumentFragment();
+let last = 0;
+let match;
+while ((match = pattern.exec(text)) !== null) {
+if (match.index > last) fragment.appendChild(document.createTextNode(text.slice(last, match.index)));
+const mark = document.createElement("mark");
+mark.textContent = match[0];
+fragment.appendChild(mark);
+marks.push(mark);
+last = match.index + match[0].length;
+if (match[0].length === 0) pattern.lastIndex++;
+}
+if (last < text.length) fragment.appendChild(document.createTextNode(text.slice(last)));
+textNode.parentNode.replaceChild(fragment, textNode);
+});
+}
+function clearHighlights() {
+const parents = new Set();
+marks.forEach((mark) => {
+const parent = mark.parentNode;
+if (!parent) return;
+parent.replaceChild(document.createTextNode(mark.textContent), mark);
+parents.add(parent);
+});
+parents.forEach((parent) => parent.normalize());
+marks = [];
+}
+function showStatus(nodes) {
+status.replaceChildren(...nodes);
+status.hidden = false;
+}
+function makeClearButton() {
+const btn = document.createElement("button");
+btn.type = "button";
+btn.className = "btn";
+btn.textContent = "검색 지우기";
+btn.addEventListener("click", () => clearSearch({ focus: true }));
+return btn;
+}
+function strong(text) {
+const el = document.createElement("strong");
+el.textContent = text;
+return el;
+}
+function runSearch(query) {
+const tokens = tokensOf(query);
+clearHighlights();
+if (!tokens.length) {
+restoreAll();
+return;
+}
+if (!savedOpenState) savedOpenState = new Map(openState);
+searchClear.hidden = false;
+let visibleBlocks = 0;
+blocks.forEach((block) => {
+const blockMatches = matchesAll(normalize(block.textContent), tokens);
+$$("tbody tr", block).forEach((row) => {
+row.hidden = !matchesAll(normalize(row.textContent), tokens);
+});
+$$(".tbl", block).forEach((table) => {
+table.hidden = !$$("tbody tr", table).some((row) => !row.hidden);
+});
+block.hidden = !blockMatches;
+if (blockMatches) {
+visibleBlocks++;
+highlight(block, tokens);
+}
+});
+sections.forEach((sec) => {
+const anyBlock = $$(".blk", sec).some((block) => !block.hidden);
+sec.hidden = !anyBlock;
+if (anyBlock && !isOpen(sec)) setOpen(sec, true, false);
+});
+if (!visibleBlocks) {
+showStatus([
+strong(`"${query.trim()}"`),
+document.createTextNode(" 일치하는 내용이 없습니다. 다른 검색어를 입력하거나 검색을 지우세요."),
+makeClearButton(),
+]);
+return;
+}
+showStatus([
+strong(`"${query.trim()}"`),
+document.createTextNode(` 일치 ${marks.length}곳 · ${visibleBlocks}개 절 표시 중`),
+makeClearButton(),
+]);
+}
+function restoreAll() {
+blocks.forEach((block) => {
+block.hidden = false;
+$$("tbody tr, .tbl", block).forEach((el) => { el.hidden = false; });
+});
+sections.forEach((sec) => { sec.hidden = false; });
+if (savedOpenState) {
+sections.forEach((sec) => setOpen(sec, savedOpenState.get(sec.id) !== false, false));
+savedOpenState = null;
+}
+status.hidden = true;
+status.replaceChildren();
+searchClear.hidden = true;
+}
+function clearSearch({ focus }) {
+clearTimeout(debounceTimer);
+searchInput.value = "";
+runSearch("");
+if (focus) searchInput.focus();
+}
+if (searchForm && searchInput) {
+searchForm.addEventListener("submit", (event) => {
+event.preventDefault();
+clearTimeout(debounceTimer);
+runSearch(searchInput.value);
+});
+searchInput.addEventListener("input", () => {
+clearTimeout(debounceTimer);
+debounceTimer = setTimeout(() => runSearch(searchInput.value), SEARCH_DEBOUNCE_MS);
+});
+searchInput.addEventListener("keydown", (event) => {
+if (event.key === "Escape" && searchInput.value) {
+event.preventDefault();
+clearSearch({ focus: true });
+}
+});
+searchClear.addEventListener("click", () => clearSearch({ focus: true }));
+}
+searchToggle?.addEventListener("click", () => {
+const open = !header.classList.contains("search-open");
+header.classList.toggle("search-open", open);
+searchToggle.setAttribute("aria-expanded", String(open));
+searchToggle.setAttribute("aria-label", open ? "검색 닫기" : "검색 열기");
+if (open) searchInput.focus();
+else if (searchInput.value) clearSearch({ focus: false });
+});
+if (toTop && hero && "IntersectionObserver" in window) {
+new IntersectionObserver(([entry]) => {
+toTop.hidden = entry.isIntersecting;
+}, { threshold: 0 }).observe(hero);
+}
+applyDefaultState();
+const initial = revealTarget(decodeURIComponent(location.hash.slice(1)));
+if (initial) initial.scrollIntoView({ block: "start" });
+})();
+</script>
+</body>
+</html>
