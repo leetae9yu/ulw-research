@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}}</title>
+<meta name="description" content="{{DESCRIPTION}}">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#FBFBFA">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#131312">
+<meta property="og:title" content="{{TITLE}}">
+<meta property="og:description" content="{{DESCRIPTION}}">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231A1A1A'/%3E%3Cpath d='M8 9h16M8 16h16M8 23h10' stroke='%23FBFBFA' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+{{CSS}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+
+<header class="hdr" id="top">
+  <div class="hdr__in">
+    <a class="brand" href="#top">
+      <span class="brand__kicker">최근 갱신 <span class="mono">{{LATEST}}</span></span>
+      <span class="brand__title">{{TITLE_MAIN}}</span>
+    </a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="doc-title">
+    <p class="kicker">주제 {{COUNT}}개 <span class="kicker__sep" aria-hidden="true">·</span> 날짜 최신순</p>
+    <h1 id="doc-title"><span class="hero__sup">{{TITLE_SUP}}</span><span class="hero__sep" aria-hidden="true"> · </span><span class="hero__main">{{TITLE_MAIN}}</span></h1>
+  </section>
+
+  <div class="layout layout--index">
+    <div class="idx">
+{{DAYS}}
+    </div>
+  </div>
+</main>
+
+<footer class="ftr">
+  <div class="ftr__in">
+    <span>최근 갱신 <span class="mono">{{LATEST}}</span></span>
+    <span>공개 자료 기준</span>
+    <span>각 페이지는 보고서 Markdown에서 자동 생성되었습니다.</span>
+  </div>
+</footer>
+</body>
+</html>

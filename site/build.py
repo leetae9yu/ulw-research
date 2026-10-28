@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-"""Build the report site: Markdown -> dist/index.html (single file, no runtime network).
+"""Build the research site: topics/<YYYY-MM-DD-slug>/report.md -> docs/<YYYY-MM-DD-slug>/index.html,
+plus docs/index.html listing every topic grouped by date, newest first.
 
 Usage:
-    python3 build.py                 # report.md if present, else sec/*.md in filename order
-    python3 build.py --src FILE.md   # explicit source
-    python3 build.py --out DIR       # output directory (default: site/dist)
+    python3 site/build.py              # build every topic into docs/
+    python3 site/build.py --out DIR    # build into another directory (preview)
 
-Design contract: site/DESIGN.md (Section 9 lists every content transform done here).
+Each page is one self-contained HTML file (inline CSS and JS, no runtime network).
+Folders under topics/ that start with "_" (for example topics/_template) are skipped.
 """
 from __future__ import annotations
 
@@ -26,13 +27,17 @@ NodeList = list["PageElement | str"]
 SITE_DIR = Path(__file__).resolve().parent
 PROJECT_DIR = SITE_DIR.parent
 TEMPLATE_PATH = SITE_DIR / "templates" / "page.html"
+INDEX_TEMPLATE_PATH = SITE_DIR / "templates" / "index.html"
+TOPICS_DIR = PROJECT_DIR / "topics"
 CSS_PATH = SITE_DIR / "assets" / "site.css"
 JS_PATH = SITE_DIR / "assets" / "site.js"
 
-TITLE_SUP = "현대차그룹 차량용 앱 공모전"
-TITLE_MAIN = "Pleos SDK 제공 정보 범위 조사"
-PAGE_TITLE = f"{TITLE_SUP} · {TITLE_MAIN}"
-BASE_DATE = "2026-10-23"
+SITE_TITLE = "조사 기록"
+SITE_SUP = "공개 자료 조사 모음"
+SITE_DESCRIPTION = "공개 자료로 조사한 보고서를 날짜별로 모아 둔 목록입니다."
+TOPIC_DIR_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})-[a-z0-9]+(?:-[a-z0-9]+)*$")
+FRONT_KEYS = {"title", "subtitle", "summary", "status"}
+STATUS_LABELS = {"draft": "작성 중"}
 SOURCES_TITLE = "출처 목록"
 SOURCES_INTRO = "표 안의 출처 번호가 가리키는 주소입니다. 번호는 문서 전체에서 같은 주소에 같은 번호를 씁니다."
 DESCRIPTION_MAX = 155
@@ -79,25 +84,59 @@ class TocEntry:
     children: list["TocEntry"] = field(default_factory=list)
 
 
-def load_source(explicit: Path | None) -> tuple[str, str]:
-    if explicit is not None:
-        return explicit.read_text(encoding="utf-8"), str(explicit)
-    report = PROJECT_DIR / "report.md"
-    if report.exists():
-        return report.read_text(encoding="utf-8"), "report.md"
-    parts = sorted((PROJECT_DIR / "sec").glob("*.md"))
-    if not parts:
-        sys.exit("build.py: no report.md and no sec/*.md found")
-    texts = [p.read_text(encoding="utf-8").strip("\n") for p in parts]
-    return "\n\n".join(texts) + "\n", "sec/*.md (" + ", ".join(p.name for p in parts) + ")"
+@dataclass
+class Topic:
+    slug: str
+    date: str
+    title: str
+    subtitle: str
+    summary: str
+    status: str | None
+    body: str
 
 
-def strip_front_matter(text: str) -> str:
-    if text.startswith("---\n"):
-        end = text.find("\n---\n", 4)
-        if end != -1:
-            return text[end + 5:]
-    return text
+def split_front_matter(text: str, label: str) -> tuple[dict[str, str], str]:
+    """Read a `---`-delimited block of `key: value` lines at the top of a report."""
+    if not text.startswith("---\n"):
+        sys.exit(f"build.py: {label}: missing front matter (--- ... ---)")
+    end = text.find("\n---\n", 4)
+    if end == -1:
+        sys.exit(f"build.py: {label}: front matter is not closed with ---")
+    meta: dict[str, str] = {}
+    for line in text[4:end].splitlines():
+        if not line.strip() or line.lstrip().startswith("#"):
+            continue
+        key, sep, value = line.partition(":")
+        key = key.strip()
+        if not sep or key not in FRONT_KEYS:
+            sys.exit(f"build.py: {label}: unknown front matter line: {line!r}")
+        meta[key] = value.strip().strip('"')
+    return meta, text[end + 5:]
+
+
+def load_topics() -> list[Topic]:
+    topics: list[Topic] = []
+    for folder in sorted(TOPICS_DIR.iterdir()) if TOPICS_DIR.is_dir() else []:
+        if not folder.is_dir() or folder.name.startswith("_"):
+            continue
+        match = TOPIC_DIR_RE.match(folder.name)
+        if not match:
+            sys.exit(f"build.py: topics/{folder.name}: folder name must be YYYY-MM-DD-slug (lowercase, digits, hyphens)")
+        report = folder / "report.md"
+        if not report.exists():
+            sys.exit(f"build.py: topics/{folder.name}: report.md not found")
+        label = f"topics/{folder.name}/report.md"
+        meta, body = split_front_matter(report.read_text(encoding="utf-8"), label)
+        for key in ("title", "subtitle", "summary"):
+            if not meta.get(key):
+                sys.exit(f"build.py: {label}: front matter needs a non-empty {key}")
+        status = meta.get("status") or None
+        if status is not None and status not in STATUS_LABELS:
+            sys.exit(f"build.py: {label}: status must be one of {sorted(STATUS_LABELS)} or empty")
+        topics.append(Topic(folder.name, match.group(1), meta["title"], meta["subtitle"], meta["summary"], status, body))
+    if not topics:
+        sys.exit("build.py: no topics found under topics/")
+    return topics
 
 
 def protect_literal_markup(text: str) -> str:
@@ -445,10 +484,8 @@ def esc(text: str) -> str:
     return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
 
 
-def description_from(root: Tag) -> str:
-    first = root.find(["p", "li"])
-    text = first.get_text(" ", strip=True) if first else PAGE_TITLE
-    text = re.sub(r"\s+", " ", text)
+def description_from(text: str) -> str:
+    text = re.sub(r"\s+", " ", text).strip()
     if len(text) > DESCRIPTION_MAX:
         cut = text[:DESCRIPTION_MAX].rsplit(" ", 1)[0]
         text = cut.rstrip(" ,.;") + "…"
@@ -482,31 +519,77 @@ def compact_js(js: str) -> str:
     return "\n".join(line for line in lines if line)
 
 
-def render_page(doc: Doc, content_html: str, sources_html: str, description: str) -> str:
-    page = TEMPLATE_PATH.read_text(encoding="utf-8")
-    values = {
-        "TITLE": esc(PAGE_TITLE),
-        "TITLE_SUP": esc(TITLE_SUP),
-        "TITLE_MAIN": esc(TITLE_MAIN),
-        "BASE_DATE": BASE_DATE,
-        "DESCRIPTION": esc(description),
+def fill(template_path: Path, values: dict[str, str]) -> str:
+    page = template_path.read_text(encoding="utf-8")
+    for key, value in values.items():
+        page = page.replace("{{" + key + "}}", value)
+    leftover = re.findall(r"\{\{[A-Z_]+\}\}", page)
+    if leftover:
+        sys.exit(f"build.py: unresolved template placeholders in {template_path.name}: {leftover}")
+    return page
+
+
+def render_page(topic: Topic, doc: Doc, content_html: str, sources_html: str) -> str:
+    return fill(TEMPLATE_PATH, {
+        "TITLE": esc(f"{topic.subtitle} · {topic.title}"),
+        "TITLE_SUP": esc(topic.subtitle),
+        "TITLE_MAIN": esc(topic.title),
+        "BASE_DATE": topic.date,
+        "DESCRIPTION": esc(description_from(topic.summary)),
         "CSS": compact_css(CSS_PATH.read_text(encoding="utf-8")),
         "JS": compact_js(JS_PATH.read_text(encoding="utf-8")),
         "TOC": doc.toc_html(),
         "CONTENT": content_html,
         "SOURCES": sources_html,
-    }
-    for key, value in values.items():
-        page = page.replace("{{" + key + "}}", value)
-    leftover = re.findall(r"\{\{[A-Z_]+\}\}", page)
-    if leftover:
-        sys.exit(f"build.py: unresolved template placeholders: {leftover}")
-    return page
+    })
 
 
-def build(src: Path | None, out_dir: Path) -> Path:
-    text, source_label = load_source(src)
-    text = protect_literal_markup(strip_front_matter(text))
+def render_index(topics: list[Topic]) -> str:
+    by_date: dict[str, list[Topic]] = {}
+    for topic in topics:
+        by_date.setdefault(topic.date, []).append(topic)
+    days = []
+    for date in sorted(by_date, reverse=True):
+        items = []
+        for topic in sorted(by_date[date], key=lambda t: t.slug):
+            pill = ""
+            if topic.status:
+                pill = f' <span class="pill pill--part">{esc(STATUS_LABELS[topic.status])}</span>'
+            items.append(
+                '<li class="idx__item">'
+                f'<p class="idx__sup">{esc(topic.subtitle)}</p>'
+                f'<h3 class="idx__title"><a href="{topic.slug}/">{esc(topic.title)}</a>{pill}</h3>'
+                f'<p class="idx__sum">{esc(topic.summary)}</p>'
+                "</li>"
+            )
+        days.append(
+            f'<section class="idx__day" aria-labelledby="d-{date}">'
+            f'<h2 class="idx__date" id="d-{date}"><time datetime="{date}">{date}</time></h2>'
+            f'<ul class="idx__list">{"".join(items)}</ul>'
+            "</section>"
+        )
+    return fill(INDEX_TEMPLATE_PATH, {
+        "TITLE": esc(SITE_TITLE),
+        "TITLE_SUP": esc(SITE_SUP),
+        "TITLE_MAIN": esc(SITE_TITLE),
+        "DESCRIPTION": esc(SITE_DESCRIPTION),
+        "COUNT": str(len(topics)),
+        "LATEST": max(by_date),
+        "CSS": compact_css(CSS_PATH.read_text(encoding="utf-8")),
+        "DAYS": "".join(days),
+    })
+
+
+def write_checked(path: Path, page: str) -> None:
+    hits = privacy_scan(page)
+    if hits:
+        sys.exit(f"build.py: refusing to write {display_path(path)}, sensitive patterns found:\n  " + "\n  ".join(hits))
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(page, encoding="utf-8")
+
+
+def build_topic(topic: Topic, out_dir: Path) -> Path:
+    text = protect_literal_markup(topic.body)
 
     converter = markdown.Markdown(extensions=["tables", "sane_lists", "fenced_code"], output_format="html")
     soup = BeautifulSoup(converter.convert(text), "html.parser")
@@ -519,30 +602,37 @@ def build(src: Path | None, out_dir: Path) -> Path:
     doc.mark_identifiers(article)
     content_html = "".join(str(child) for child in article.contents)
     sources_html = doc.sources_section()
-    page = render_page(doc, content_html, sources_html, description_from(article))
-
-    hits = privacy_scan(page)
-    if hits:
-        sys.exit("build.py: refusing to write output, sensitive patterns found:\n  " + "\n  ".join(hits))
-
-    out_dir.mkdir(parents=True, exist_ok=True)
-    out_file = out_dir / "index.html"
-    out_file.write_text(page, encoding="utf-8")
-    (out_dir / ".nojekyll").write_text("", encoding="utf-8")
-
-    print(f"source   : {source_label}")
-    print(f"sections : {len(doc.toc)} (h2) / {sum(len(e.children) for e in doc.toc)} (h3)")
-    print(f"tables   : {doc.table_count}, sources: {len(doc.sources)}")
-    print(f"output   : {display_path(out_file)} ({out_file.stat().st_size // 1024} KB)")
+    out_file = out_dir / topic.slug / "index.html"
+    write_checked(out_file, render_page(topic, doc, content_html, sources_html))
+    print(f"{topic.slug}: {len(doc.toc)} h2 / {sum(len(e.children) for e in doc.toc)} h3, "
+          f"{doc.table_count} tables, {len(doc.sources)} sources, {out_file.stat().st_size // 1024} KB")
     return out_file
+
+
+def build(out_dir: Path) -> None:
+    topics = load_topics()
+    out_dir.mkdir(parents=True, exist_ok=True)
+    # Drop pages of topics whose source folder no longer exists.
+    slugs = {t.slug for t in topics}
+    for stale in out_dir.iterdir():
+        if stale.is_dir() and TOPIC_DIR_RE.match(stale.name) and stale.name not in slugs:
+            for f in sorted(stale.rglob("*"), reverse=True):
+                f.unlink() if f.is_file() else f.rmdir()
+            stale.rmdir()
+            print(f"removed  : {display_path(stale)} (no topics/{stale.name})")
+    for topic in topics:
+        build_topic(topic, out_dir)
+    index_file = out_dir / "index.html"
+    write_checked(index_file, render_index(topics))
+    (out_dir / ".nojekyll").write_text("", encoding="utf-8")
+    print(f"index    : {display_path(index_file)} ({len(topics)} topics)")
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--src", type=Path, default=None, help="Markdown source (default: report.md or sec/*.md)")
-    parser.add_argument("--out", type=Path, default=SITE_DIR / "dist", help="output directory (default: site/dist)")
+    parser.add_argument("--out", type=Path, default=PROJECT_DIR / "docs", help="output directory (default: docs)")
     args = parser.parse_args()
-    build(args.src, args.out)
+    build(args.out)
 
 
 if __name__ == "__main__":
