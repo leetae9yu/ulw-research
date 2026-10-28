@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
-"""Build the research site: topics/<YYYY-MM-DD-slug>/report.md -> docs/<YYYY-MM-DD-slug>/index.html,
-plus docs/index.html listing every topic grouped by date, newest first.
+"""Build the research site: topics/<slug>/report.md -> docs/<slug>/index.html,
+plus docs/index.html, a topic index sorted by update date, newest first.
+
+Folder names are topic names only (lowercase, digits, hyphens), never date prefixes.
+Dates live in each report's front matter (created, updated). A report may list old
+folder names in `aliases`; each alias gets a small redirect page at docs/<alias>/.
 
 Usage:
     python3 site/build.py              # build every topic into docs/
@@ -34,10 +38,13 @@ JS_PATH = SITE_DIR / "assets" / "site.js"
 
 SITE_TITLE = "조사 기록"
 SITE_SUP = "공개 자료 조사 모음"
-SITE_DESCRIPTION = "공개 자료로 조사한 보고서를 날짜별로 모아 둔 목록입니다."
-TOPIC_DIR_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})-[a-z0-9]+(?:-[a-z0-9]+)*$")
-FRONT_KEYS = {"title", "subtitle", "summary", "status"}
+SITE_DESCRIPTION = "공개 자료로 조사한 보고서를 주제별로 모아 둔 목록입니다."
+SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+DATE_PREFIX_RE = re.compile(r"^\d{4}-\d{2}-\d{2}-")
+DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+FRONT_KEYS = {"title", "subtitle", "summary", "status", "created", "updated", "aliases"}
 STATUS_LABELS = {"draft": "작성 중"}
+DONE_LABEL = "완료"
 SOURCES_TITLE = "출처 목록"
 SOURCES_INTRO = "표 안의 출처 번호가 가리키는 주소입니다. 번호는 문서 전체에서 같은 주소에 같은 번호를 씁니다."
 DESCRIPTION_MAX = 155
@@ -87,7 +94,9 @@ class TocEntry:
 @dataclass
 class Topic:
     slug: str
-    date: str
+    created: str
+    updated: str
+    aliases: list[str]
     title: str
     subtitle: str
     summary: str
@@ -119,23 +128,39 @@ def load_topics() -> list[Topic]:
     for folder in sorted(TOPICS_DIR.iterdir()) if TOPICS_DIR.is_dir() else []:
         if not folder.is_dir() or folder.name.startswith("_"):
             continue
-        match = TOPIC_DIR_RE.match(folder.name)
-        if not match:
-            sys.exit(f"build.py: topics/{folder.name}: folder name must be YYYY-MM-DD-slug (lowercase, digits, hyphens)")
+        if not SLUG_RE.match(folder.name) or DATE_PREFIX_RE.match(folder.name):
+            sys.exit(f"build.py: topics/{folder.name}: folder name must be a topic name only "
+                     "(lowercase, digits, hyphens, no YYYY-MM-DD- prefix)")
         report = folder / "report.md"
         if not report.exists():
             sys.exit(f"build.py: topics/{folder.name}: report.md not found")
         label = f"topics/{folder.name}/report.md"
         meta, body = split_front_matter(report.read_text(encoding="utf-8"), label)
-        for key in ("title", "subtitle", "summary"):
+        for key in ("title", "subtitle", "summary", "created", "updated"):
             if not meta.get(key):
                 sys.exit(f"build.py: {label}: front matter needs a non-empty {key}")
+        for key in ("created", "updated"):
+            if not DATE_RE.match(meta[key]):
+                sys.exit(f"build.py: {label}: {key} must be YYYY-MM-DD")
+        if meta["updated"] < meta["created"]:
+            sys.exit(f"build.py: {label}: updated is earlier than created")
+        aliases = [a.strip() for a in meta.get("aliases", "").split(",") if a.strip()]
+        for alias in aliases:
+            if not SLUG_RE.match(alias):
+                sys.exit(f"build.py: {label}: alias {alias!r} must be lowercase, digits, hyphens")
         status = meta.get("status") or None
         if status is not None and status not in STATUS_LABELS:
             sys.exit(f"build.py: {label}: status must be one of {sorted(STATUS_LABELS)} or empty")
-        topics.append(Topic(folder.name, match.group(1), meta["title"], meta["subtitle"], meta["summary"], status, body))
+        topics.append(Topic(folder.name, meta["created"], meta["updated"], aliases,
+                            meta["title"], meta["subtitle"], meta["summary"], status, body))
     if not topics:
         sys.exit("build.py: no topics found under topics/")
+    owners: dict[str, str] = {}
+    for topic in topics:
+        for name in [topic.slug, *topic.aliases]:
+            if name in owners:
+                sys.exit(f"build.py: path {name!r} is used by both topics/{owners[name]} and topics/{topic.slug}")
+            owners[name] = topic.slug
     return topics
 
 
@@ -534,7 +559,8 @@ def render_page(topic: Topic, doc: Doc, content_html: str, sources_html: str) ->
         "TITLE": esc(f"{topic.subtitle} · {topic.title}"),
         "TITLE_SUP": esc(topic.subtitle),
         "TITLE_MAIN": esc(topic.title),
-        "BASE_DATE": topic.date,
+        "CREATED": topic.created,
+        "UPDATED": topic.updated,
         "DESCRIPTION": esc(description_from(topic.summary)),
         "CSS": compact_css(CSS_PATH.read_text(encoding="utf-8")),
         "JS": compact_js(JS_PATH.read_text(encoding="utf-8")),
@@ -544,29 +570,26 @@ def render_page(topic: Topic, doc: Doc, content_html: str, sources_html: str) ->
     })
 
 
+def status_pill(topic: Topic) -> str:
+    if topic.status:
+        return f'<span class="pill pill--part">{esc(STATUS_LABELS[topic.status])}</span>'
+    return f'<span class="pill pill--ok">{esc(DONE_LABEL)}</span>'
+
+
 def render_index(topics: list[Topic]) -> str:
-    by_date: dict[str, list[Topic]] = {}
-    for topic in topics:
-        by_date.setdefault(topic.date, []).append(topic)
-    days = []
-    for date in sorted(by_date, reverse=True):
-        items = []
-        for topic in sorted(by_date[date], key=lambda t: t.slug):
-            pill = ""
-            if topic.status:
-                pill = f' <span class="pill pill--part">{esc(STATUS_LABELS[topic.status])}</span>'
-            items.append(
-                '<li class="idx__item">'
-                f'<p class="idx__sup">{esc(topic.subtitle)}</p>'
-                f'<h3 class="idx__title"><a href="{topic.slug}/">{esc(topic.title)}</a>{pill}</h3>'
-                f'<p class="idx__sum">{esc(topic.summary)}</p>'
-                "</li>"
-            )
-        days.append(
-            f'<section class="idx__day" aria-labelledby="d-{date}">'
-            f'<h2 class="idx__date" id="d-{date}"><time datetime="{date}">{date}</time></h2>'
-            f'<ul class="idx__list">{"".join(items)}</ul>'
-            "</section>"
+    items = []
+    for topic in sorted(topics, key=lambda t: (t.updated, t.slug), reverse=True):
+        items.append(
+            '<li class="idx__item">'
+            f'<p class="idx__sup">{esc(topic.subtitle)}</p>'
+            f'<h3 class="idx__title"><a href="{topic.slug}/">{esc(topic.title)}</a> {status_pill(topic)}</h3>'
+            f'<p class="idx__sum">{esc(topic.summary)}</p>'
+            '<p class="idx__meta">'
+            f'갱신일 <time class="mono" datetime="{topic.updated}">{topic.updated}</time>'
+            '<span class="kicker__sep" aria-hidden="true"> · </span>'
+            f'작성일 <time class="mono" datetime="{topic.created}">{topic.created}</time>'
+            "</p>"
+            "</li>"
         )
     return fill(INDEX_TEMPLATE_PATH, {
         "TITLE": esc(SITE_TITLE),
@@ -574,10 +597,26 @@ def render_index(topics: list[Topic]) -> str:
         "TITLE_MAIN": esc(SITE_TITLE),
         "DESCRIPTION": esc(SITE_DESCRIPTION),
         "COUNT": str(len(topics)),
-        "LATEST": max(by_date),
+        "LATEST": max(t.updated for t in topics),
         "CSS": compact_css(CSS_PATH.read_text(encoding="utf-8")),
-        "DAYS": "".join(days),
+        "TOPICS": f'<ul class="idx__list">{"".join(items)}</ul>',
     })
+
+
+def render_redirect(topic: Topic) -> str:
+    target = f"../{topic.slug}/"
+    title = esc(topic.title)
+    return (
+        '<!doctype html>\n<html lang="ko">\n<head>\n<meta charset="utf-8">\n'
+        f'<title>{title}</title>\n'
+        f'<meta http-equiv="refresh" content="0; url={target}">\n'
+        f'<link rel="canonical" href="{target}">\n'
+        '<meta name="robots" content="noindex">\n'
+        f'<script>location.replace("{target}" + location.hash);</script>\n'
+        '</head>\n<body>\n'
+        f'<p>이 주소는 바뀌었습니다. <a href="{target}">{title}</a>로 이동합니다.</p>\n'
+        '</body>\n</html>\n'
+    )
 
 
 def write_checked(path: Path, page: str) -> None:
@@ -613,15 +652,21 @@ def build(out_dir: Path) -> None:
     topics = load_topics()
     out_dir.mkdir(parents=True, exist_ok=True)
     # Drop pages of topics whose source folder no longer exists.
-    slugs = {t.slug for t in topics}
+    keep = {name for t in topics for name in [t.slug, *t.aliases]}
     for stale in out_dir.iterdir():
-        if stale.is_dir() and TOPIC_DIR_RE.match(stale.name) and stale.name not in slugs:
+        if stale.is_dir() and SLUG_RE.match(stale.name) and stale.name not in keep:
             for f in sorted(stale.rglob("*"), reverse=True):
                 f.unlink() if f.is_file() else f.rmdir()
             stale.rmdir()
-            print(f"removed  : {display_path(stale)} (no topics/{stale.name})")
+            print(f"removed  : {display_path(stale)} (no topic or alias)")
     for topic in topics:
         build_topic(topic, out_dir)
+        for alias in topic.aliases:
+            alias_dir = out_dir / alias
+            for f in sorted(alias_dir.rglob("*"), reverse=True) if alias_dir.is_dir() else []:
+                f.unlink() if f.is_file() else f.rmdir()
+            write_checked(alias_dir / "index.html", render_redirect(topic))
+            print(f"redirect : {alias}/ -> {topic.slug}/")
     index_file = out_dir / "index.html"
     write_checked(index_file, render_index(topics))
     (out_dir / ".nojekyll").write_text("", encoding="utf-8")

@@ -2,6 +2,9 @@
 title: Pleos SDK 제공 정보 범위 조사
 subtitle: 현대차그룹 차량용 앱 공모전
 summary: Pleos Connect SDK가 공모전에서 제공하는 차량·내비·음성 데이터 범위와 졸음운전, 뒷좌석 아이, 동승자 엔터테인먼트 관련 현실 문제를 공개 자료로 정리했습니다.
+created: 2026-10-23
+updated: 2026-10-23
+aliases: 2026-10-23-pleos-sdk
 ---
 # 현대차그룹 차량용 앱 공모전: Pleos SDK 제공 정보 범위와 관련 현실 문제 조사
 

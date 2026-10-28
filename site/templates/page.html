@@ -27,7 +27,7 @@
       <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
     </button>
     <a class="brand" href="#top">
-      <span class="brand__kicker">조사 기준일 <span class="mono">{{BASE_DATE}}</span></span>
+      <span class="brand__kicker">갱신일 <span class="mono">{{UPDATED}}</span></span>
       <span class="brand__title">{{TITLE_MAIN}}</span>
     </a>
     <button class="btn btn--icon btn--search js-only" id="search-toggle" type="button" aria-expanded="false" aria-controls="search-form" aria-label="검색 열기" title="검색">
@@ -53,7 +53,7 @@
 
 <main id="main">
   <section class="hero" aria-labelledby="doc-title">
-    <p class="kicker"><a class="kicker__back" href="../">조사 목록</a> <span class="kicker__sep" aria-hidden="true">·</span> 조사 보고서 <span class="kicker__sep" aria-hidden="true">·</span> 조사 기준일 <span class="mono">{{BASE_DATE}}</span></p>
+    <p class="kicker"><a class="kicker__back" href="../">조사 목록</a> <span class="kicker__sep" aria-hidden="true">·</span> 조사 보고서 <span class="kicker__sep" aria-hidden="true">·</span> 작성일 <span class="mono">{{CREATED}}</span> <span class="kicker__sep" aria-hidden="true">·</span> 갱신일 <span class="mono">{{UPDATED}}</span></p>
     <h1 id="doc-title"><span class="hero__sup">{{TITLE_SUP}}</span><span class="hero__sep" aria-hidden="true"> · </span><span class="hero__main">{{TITLE_MAIN}}</span></h1>
   </section>
 
@@ -71,7 +71,8 @@
 
 <footer class="ftr">
   <div class="ftr__in">
-    <span>조사 기준일 <span class="mono">{{BASE_DATE}}</span></span>
+    <span>작성일 <span class="mono">{{CREATED}}</span></span>
+    <span>갱신일 <span class="mono">{{UPDATED}}</span></span>
     <span>공개 자료 기준</span>
     <span>이 페이지는 보고서 Markdown에서 자동 생성되었습니다.</span>
     <a href="../">조사 목록으로</a>

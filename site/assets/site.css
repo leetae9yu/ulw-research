@@ -633,14 +633,6 @@ td code { font-size: .9em; }
 
 .layout--index { display: block; }
 .idx { max-width: 56rem; padding: var(--s-6) 0 var(--s-16); }
-.idx__day { border-top: 2px solid var(--rule); margin-top: var(--s-10); padding-top: var(--s-4); }
-.idx__day:first-child { border-top: 0; margin-top: 0; padding-top: 0; }
-.idx__date {
-  margin: 0 0 var(--s-2);
-  font: 500 var(--fs-small) / 1.4 var(--font-mono);
-  letter-spacing: .04em;
-  color: var(--ink-2);
-}
 .idx__list { list-style: none; margin: 0; padding: 0; }
 .idx__item { padding: var(--s-5) 0; border-bottom: 1px solid var(--hairline); }
 .idx__item:last-child { border-bottom: 0; }
@@ -650,6 +642,7 @@ td code { font-size: .9em; }
 .idx__title a:hover { color: var(--link-hover); text-decoration-color: currentColor; }
 .idx__title .pill { vertical-align: .15em; margin-left: var(--s-2); }
 .idx__sum { margin: 0; max-width: var(--measure); color: var(--ink-2); }
+.idx__meta { margin: var(--s-2) 0 0; font-size: var(--fs-small); color: var(--ink-2); }
 .kicker__back { font-weight: 600; }
 
 /* ---------- footer ---------- */
