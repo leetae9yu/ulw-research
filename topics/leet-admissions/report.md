@@ -37,7 +37,8 @@ updated: 2026-10-28
 
 | 학년도 | 문항 수(언어이해/추리논증) | 언어이해 표준점수 | 추리논증 표준점수 | 근거 |
 |---|---|---|---|---|
-| 2009~2018 | 35 / 35 | 50 + 10Z (0~100) | 50 + 10Z (0~100) | 각 학년도 채점결과 별첨 |
+| 2009 | 40 / 40 | 50 + 10Z (0~100) | 50 + 10Z (0~100) | https://leet.uwayapply.com/board/BoardView.htm?board_id=82&board_seqnum=23008 |
+| 2010~2018 | 35 / 35 | 50 + 10Z (0~100) | 50 + 10Z (0~100) | 각 학년도 채점결과 별첨 |
 | 2019 | 30 / 40 | 50 + 10Z (0~100) | 50 + 10Z (0~100) | https://leet.uwayapply.com/law/improve.php |
 | 2020~2027 | 30 / 40 | 45 + 9Z (0~90) | 60 + 12Z (0~120) | https://leet.uwayapply.com/board/BoardView.htm?board_id=82&board_seqnum=67712 |
 
