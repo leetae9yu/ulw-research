@@ -9,6 +9,7 @@
 
 | 주제 | 상태 | 갱신일 | 페이지 | 원문 |
 |---|---|---|---|---|
+| 능동형 메타하네스 선행연구 조사 | 완료 | 2026-11-20 | [열기](https://leetae9yu.github.io/ulw-research/active-meta-harness/) | [report.md](topics/active-meta-harness/report.md) |
 | 서울 AI 해커톤 2026 조사 | 작성 중 | 2026-10-28 | [열기](https://leetae9yu.github.io/ulw-research/seoul-ai-hackathon-2026/) | [report.md](topics/seoul-ai-hackathon-2026/report.md) |
 | Pleos SDK 제공 정보 범위 조사 | 완료 | 2026-10-23 | [열기](https://leetae9yu.github.io/ulw-research/pleos-sdk/) | [report.md](topics/pleos-sdk/report.md) |
 

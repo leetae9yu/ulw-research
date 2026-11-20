@@ -1,0 +1,954 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>연구 아이디어 검토 · 능동형 메타하네스(학생 요청형 하네스 최적화) 선행연구 조사</title>
+<meta name="description" content="학생 에이전트가 풀이 중 스킬·도구·가드레일을 교사에게 요청하고 교사가 하네스를 고치는 구조의 선행연구 157편을 원문으로 확인하고 새로움, 반론, 최소 실험 설계를 정리했습니다.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#FBFBFA">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#131312">
+<meta property="og:title" content="연구 아이디어 검토 · 능동형 메타하네스(학생 요청형 하네스 최적화) 선행연구 조사">
+<meta property="og:description" content="학생 에이전트가 풀이 중 스킬·도구·가드레일을 교사에게 요청하고 교사가 하네스를 고치는 구조의 선행연구 157편을 원문으로 확인하고 새로움, 반론, 최소 실험 설계를 정리했습니다.">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231A1A1A'/%3E%3Cpath d='M8 9h16M8 16h16M8 23h10' stroke='%23FBFBFA' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<script>(function(){var d=document.documentElement;d.className+=" js";try{if(!matchMedia("(min-width: 60em)").matches){d.className+=" m-collapse"}}catch(e){}})();</script>
+<style>
+:root{color-scheme:light dark;--canvas:#FBFBFA;--surface:#F3F2EE;--ink:#1A1A1A;--ink-2:#5E5C57;--ink-3:#8B8984;--hairline:#E3E1DB;--rule:#1A1A1A;--link:#0B5D97;--link-hover:#073E66;--ring:#0B5D97;--mark-bg:#FFE69C;--mark-ink:#1A1A1A;--wash-1:rgb(26 26 26 / .05);--wash-2:rgb(26 26 26 / .09);--ok-bg:#E9F2E7;--ok-ink:#2F6B3A;--part-bg:#FBF1D6;--part-ink:#8A5A00;--no-bg:#FCE9E8;--no-ink:#9C2E2C;--unk-bg:#EEEDE8;--unk-ink:#55534E;--scrim:rgb(26 26 26 / .35);--font-sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",Pretendard,"Noto Sans KR","Noto Sans CJK KR","Malgun Gothic","Segoe UI",sans-serif;--font-mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono","DejaVu Sans Mono",monospace;--fs-display:clamp(1.75rem,1.2rem + 2.2vw,2.5rem);--fs-h2:clamp(1.375rem,1.15rem + 1vw,1.75rem);--fs-h3:clamp(1.125rem,1.05rem + .4vw,1.3125rem);--fs-body:1.0625rem;--fs-table:.9375rem;--fs-ui:.9375rem;--fs-small:.8125rem;--lh-body:1.75;--lh-table:1.6;--lh-head:1.3;--lh-tight:1.2;--s-1:4px;--s-2:8px;--s-3:12px;--s-4:16px;--s-5:20px;--s-6:24px;--s-8:32px;--s-10:40px;--s-12:48px;--s-16:64px;--s-20:80px;--container:80rem;--gutter:clamp(1.25rem,4vw,3rem);--sidebar:15.5rem;--col-gap:var(--s-12);--measure:44rem;--header-h:3.5rem;--control-h:2.75rem;--icon:1.25rem;--r-ctl:4px;--r-pill:999px;--t-micro:120ms;--t-std:200ms;--ease:cubic-bezier(.2,0,0,1);--z-header:30;--z-totop:20}@media (prefers-color-scheme:dark){:root{--canvas:#131312;--surface:#1C1C1A;--ink:#ECEAE4;--ink-2:#A8A69F;--ink-3:#7C7A74;--hairline:#2A2927;--rule:#ECEAE4;--link:#7CBCEC;--link-hover:#AAD6F7;--ring:#7CBCEC;--mark-bg:#5E4C14;--mark-ink:#FFF3CF;--wash-1:rgb(236 234 228 / .07);--wash-2:rgb(236 234 228 / .12);--ok-bg:#1B2B1E;--ok-ink:#A3D9A8;--part-bg:#2D2712;--part-ink:#E5BD55;--no-bg:#34201F;--no-ink:#F2A19E;--unk-bg:#2A2926;--unk-ink:#B9B7B0;--scrim:rgb(0 0 0 / .55)}}*,*::before,*::after{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + var(--s-4));-webkit-text-size-adjust:100%;text-size-adjust:100%}body{margin:0;background:var(--canvas);color:var(--ink);font:400 var(--fs-body) / var(--lh-body) var(--font-sans);word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}html.sheet-open{overflow:hidden}[hidden]{display:none !important}.mono{font-family:var(--font-mono);letter-spacing:.04em}:focus-visible{outline:2px solid var(--ring);outline-offset:2px}a{color:var(--link);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.15em;text-decoration-color:color-mix(in srgb,var(--link) 45%,transparent);transition:color var(--t-micro) var(--ease),text-decoration-color var(--t-micro) var(--ease)}a:hover{color:var(--link-hover);text-decoration-color:currentColor}svg{display:block}.sr-only{position:absolute !important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}html:not(.js) .js-only{display:none !important}.skip{position:absolute;top:var(--s-2);left:var(--s-2);z-index:calc(var(--z-header) + 1);padding:var(--s-3) var(--s-4);background:var(--ink);color:var(--canvas);border-radius:var(--r-ctl);text-decoration:none;font-weight:600;transform:translateY(-200%)}.skip:focus-visible{transform:none;outline-color:var(--ring)}.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s-1);min-height:var(--control-h);min-width:var(--control-h);padding:0 var(--s-3);border:1px solid transparent;border-radius:var(--r-ctl);background:transparent;color:var(--ink);font:500 var(--fs-ui) / 1 var(--font-sans);cursor:pointer;text-decoration:none;white-space:nowrap;transition:background-color var(--t-micro) var(--ease)}.btn:hover{background:var(--wash-1)}.btn:active{background:var(--wash-2)}.btn--outline{border-color:var(--hairline)}.btn--icon{padding:0}.btn svg{width:var(--icon);height:var(--icon);flex:none}.hdr{position:sticky;top:0;z-index:var(--z-header);background:var(--canvas);border-bottom:1px solid var(--hairline)}.hdr__in{max-width:var(--container);margin:0 auto;padding:var(--s-1) var(--gutter);min-height:var(--header-h);display:flex;flex-wrap:wrap;align-items:center;gap:var(--s-1)}.brand{display:flex;flex-direction:column;justify-content:center;min-width:0;flex:1 1 0;min-height:var(--control-h);color:inherit;text-decoration:none;border-radius:var(--r-ctl)}.brand:hover{color:inherit}.brand__kicker{display:none;font-size:var(--fs-small);font-weight:600;line-height:1.3;letter-spacing:.02em;color:var(--ink-2);white-space:nowrap}.btn--all .btn__label{display:none}.btn--all[data-action="open"] .ico--close,.btn--all[data-action="close"] .ico--open{display:none}.hdr .btn--outline{border-color:transparent}.brand__title{font-size:var(--fs-ui);font-weight:600;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.srch{flex:1 1 100%;order:10;display:none;margin:0;padding-bottom:var(--s-2)}.hdr.search-open .srch{display:block}.srch__box{position:relative;display:flex;align-items:center}.srch__icon{position:absolute;left:var(--s-3);width:var(--icon);height:var(--icon);color:var(--ink-2);pointer-events:none}.srch input{width:100%;height:var(--control-h);margin:0;padding:0 var(--control-h) 0 calc(var(--s-3) + var(--icon) + var(--s-2));border:1px solid var(--hairline);border-radius:var(--r-ctl);background:var(--canvas);color:var(--ink);font:400 var(--fs-ui) / 1 var(--font-sans);-webkit-appearance:none;appearance:none}.srch input::placeholder{color:var(--ink-2);opacity:1}.srch input::-webkit-search-cancel-button,.srch input::-webkit-search-decoration{-webkit-appearance:none;appearance:none}.srch__clear{position:absolute;right:2px;top:2px;min-height:calc(var(--control-h) - 4px);min-width:calc(var(--control-h) - 4px);color:var(--ink-2)}.status{max-width:var(--container);margin:0 auto;padding:var(--s-2) var(--gutter);display:flex;flex-wrap:wrap;align-items:center;gap:var(--s-2) var(--s-3);background:var(--surface);border-top:1px solid var(--hairline);color:var(--ink-2);font-size:var(--fs-small);font-weight:500;line-height:1.4}.status[hidden]{display:none}.status strong{color:var(--ink);font-weight:600}.status .btn{min-height:2rem;padding:0 var(--s-2);font-size:var(--fs-small);color:var(--link)}@media (min-width:60em){.hdr__in{flex-wrap:nowrap;gap:var(--s-3)}.btn--toc,.btn--search{display:none}.brand__kicker{display:block}.btn--all svg{display:none}.btn--all .btn__label{display:inline}.hdr .btn--outline{border-color:var(--hairline)}.srch{display:block;flex:0 1 22rem;order:0;padding-bottom:0}}.hero{max-width:var(--container);margin:0 auto;padding:var(--s-10) var(--gutter) var(--s-8);border-bottom:2px solid var(--rule)}.kicker{margin:0 0 var(--s-3);font-size:var(--fs-small);font-weight:600;line-height:1.4;letter-spacing:.02em;color:var(--ink-2)}.kicker__sep{margin:0 var(--s-1)}.hero h1{margin:0;display:flex;flex-direction:column;gap:var(--s-2);max-width:var(--measure)}.hero__sup{font:500 var(--fs-ui) / 1.4 var(--font-sans);color:var(--ink-2)}.hero__sep{display:none}.hero__main{font-size:var(--fs-display);font-weight:700;line-height:var(--lh-tight);letter-spacing:-.02em}@media (min-width:60em){.hero{padding-top:var(--s-20);padding-bottom:var(--s-12)}}.layout{max-width:var(--container);margin:0 auto;padding:0 var(--gutter)}.side{display:none}.doc{min-width:0;padding-bottom:var(--s-16)}@media (min-width:60em){.layout{display:grid;grid-template-columns:var(--sidebar) minmax(0,1fr);gap:var(--col-gap);align-items:start}.side{display:block;position:sticky;top:calc(var(--header-h) + var(--s-6));max-height:calc(100dvh - var(--header-h) - var(--s-12));overflow-y:auto;padding:var(--s-6) 0 var(--s-6);scrollbar-width:thin}}.side__title{margin:0 0 var(--s-2);padding:0 var(--s-3);font-size:var(--fs-small);font-weight:600;line-height:1.4;letter-spacing:.02em;color:var(--ink-2)}.toc,.toc ol{list-style:none;margin:0;padding:0}.toc a{display:flex;align-items:baseline;gap:var(--s-2);min-height:var(--control-h);padding:var(--s-2) var(--s-3);border-radius:var(--r-ctl);color:var(--ink-2);font-size:var(--fs-ui);font-weight:500;line-height:1.4;text-decoration:none;transition:background-color var(--t-micro) var(--ease),color var(--t-micro) var(--ease)}.toc a:hover{background:var(--wash-1);color:var(--ink)}.toc a[aria-current="true"]{background:var(--wash-2);color:var(--ink);font-weight:600}.toc__num{flex:none;min-width:2rem;font:500 var(--fs-small) / 1.4 var(--font-mono);letter-spacing:.04em}.toc__sub a{padding-left:var(--s-6)}.toc__sub .toc__num{min-width:2.25rem}.sec{border-top:2px solid var(--rule);margin-top:var(--s-10);padding-top:var(--s-4)}.doc>.sec:first-child{border-top:0;margin-top:0;padding-top:var(--s-6)}.sec__h{margin:0;font-size:var(--fs-h2);font-weight:700;line-height:var(--lh-head);letter-spacing:-.01em}.sec__btn{display:flex;align-items:baseline;gap:var(--s-3);width:calc(100% + 2 * var(--s-2));margin:0 calc(-1 * var(--s-2));padding:var(--s-3) var(--s-2);border:0;border-radius:var(--r-ctl);background:transparent;color:inherit;font:inherit;letter-spacing:inherit;text-align:left;cursor:pointer;-webkit-appearance:none;appearance:none;transition:background-color var(--t-micro) var(--ease)}.sec__btn:hover{background:var(--wash-1)}.sec__btn:active{background:var(--wash-2)}.num{flex:none;font:500 var(--fs-ui) / 1 var(--font-mono);letter-spacing:.06em;color:var(--ink-2)}.ttl{flex:1 1 auto;min-width:0}.chev{flex:none;align-self:center;width:var(--icon);height:var(--icon);color:var(--ink-2);transition:transform var(--t-micro) var(--ease)}.sec__btn[aria-expanded="false"] .chev{transform:rotate(-90deg)}.sec__body{padding-top:var(--s-2)}.sec__body.is-entering{animation:fade-in var(--t-micro) var(--ease) both}@keyframes fade-in{from{opacity:0}to{opacity:1}}.js:not(.is-ready).m-collapse .doc>.sec ~ .sec>.sec__body,.js:not(.is-ready) .sec[data-default="closed"]>.sec__body{display:none}.blk{padding-top:var(--s-6)}.blk + .blk{border-top:1px solid var(--hairline);margin-top:var(--s-6)}.blk__h{display:flex;align-items:baseline;gap:var(--s-3);margin:0 0 var(--s-4);font-size:var(--fs-h3);font-weight:600;line-height:1.4}.blk__h .num{font-size:var(--fs-small)}.doc p,.doc ul,.doc ol:not(.srcs){max-width:var(--measure)}.doc p{margin:0 0 var(--s-4)}.doc ul,.doc ol{margin:0 0 var(--s-4);padding-left:var(--s-6)}.doc li{margin-bottom:var(--s-2)}.doc li::marker{color:var(--ink-2)}.doc>.blk>:last-child,.sec__body>.blk>:last-child{margin-bottom:0}code{font-family:var(--font-mono);font-size:.92em;letter-spacing:-.01em;background:var(--surface);padding:0 var(--s-1);border-radius:var(--r-ctl);overflow-wrap:anywhere}mark{background:var(--mark-bg);color:var(--mark-ink);border-radius:var(--r-ctl);padding:0 1px}.url{overflow-wrap:anywhere}.src{display:inline-flex;align-items:center;min-height:2rem;margin:1px 0;padding:0 var(--s-2);border:1px solid var(--hairline);border-radius:var(--r-ctl);font-size:var(--fs-small);font-weight:600;line-height:1;text-decoration:none;white-space:nowrap;transition:background-color var(--t-micro) var(--ease),color var(--t-micro) var(--ease)}.src:hover{background:var(--wash-1);text-decoration:underline}.src + .src{margin-left:var(--s-1)}.tbl{margin:var(--s-6) 0}.tbl__scroll{overflow-x:auto;scrollbar-width:thin}.tbl__scroll:focus-visible{outline-offset:4px}table{border-collapse:collapse;width:100%;font-size:var(--fs-table);line-height:var(--lh-table)}th,td{padding:var(--s-3) var(--s-2);text-align:left;vertical-align:top;border-bottom:1px solid var(--hairline);overflow-wrap:break-word}.tbl--scroll th:first-child,.tbl--scroll td:first-child{position:sticky;left:0;background:var(--canvas);border-right:1px solid var(--hairline)}.tbl--scroll thead th:first-child{background:var(--surface)}thead th{background:var(--surface);color:var(--ink-2);font-size:var(--fs-small);font-weight:600;letter-spacing:.02em;line-height:1.4;vertical-align:bottom;border-bottom:1px solid var(--rule)}td code{font-size:.9em}@media (min-width:48em){th,td{min-width:4rem}td code,th code{overflow-wrap:break-word}.tbl--cards th:first-child,.tbl--cards td:first-child{position:sticky;left:0;background:var(--canvas);border-right:1px solid var(--hairline)}.tbl--cards thead th:first-child{background:var(--surface)}}.pill{display:inline-flex;align-items:center;min-height:1.5rem;padding:var(--s-1) var(--s-3);border-radius:var(--r-pill);font-size:var(--fs-small);font-weight:600;line-height:1.3}.pill--ok{background:var(--ok-bg);color:var(--ok-ink)}.pill--part{background:var(--part-bg);color:var(--part-ink)}.pill--no{background:var(--no-bg);color:var(--no-ink)}.pill--unk{background:var(--unk-bg);color:var(--unk-ink)}.pill__note{display:block;margin-top:var(--s-1);color:var(--ink-2);font-size:var(--fs-small);line-height:1.4}@media (max-width:47.99em){.tbl--scroll th,.tbl--scroll td{min-width:5.5rem}.tbl--cards table,.tbl--cards tbody,.tbl--cards tr,.tbl--cards td{display:block}.tbl--cards thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}.tbl--cards tr{padding:var(--s-4) 0 var(--s-5);border-bottom:1px solid var(--hairline)}.tbl--cards tr:first-child{border-top:1px solid var(--rule)}.tbl--cards td{display:grid;grid-template-columns:minmax(5.5rem,28%) minmax(0,1fr);gap:var(--s-1) var(--s-3);padding:var(--s-1) 0;border:0}.tbl--cards td::before{content:attr(data-label);color:var(--ink-2);font-size:var(--fs-small);font-weight:600;line-height:var(--lh-table)}.tbl--cards td:first-child{display:block;margin-bottom:var(--s-2);font-size:var(--fs-body);font-weight:600;line-height:1.4}.tbl--cards td:first-child::before{display:none}.tbl--cards .cell{display:block;min-width:0}.tbl--numbered td:first-child{margin-bottom:var(--s-1);font:500 var(--fs-small) / 1.4 var(--font-mono);letter-spacing:.04em;color:var(--ink-2)}.tbl--numbered td:nth-child(2){display:block;margin-bottom:var(--s-2);font-size:var(--fs-body);font-weight:600;line-height:1.4}.tbl--numbered td:nth-child(2)::before{display:none}}.srcs{margin:0;padding-left:var(--s-8);font-size:var(--fs-table);line-height:var(--lh-table)}.srcs li{margin-bottom:var(--s-2);overflow-wrap:anywhere}.srcs li::marker{font-family:var(--font-mono);color:var(--ink-2)}.layout--index{display:block}.idx{max-width:56rem;padding:var(--s-6) 0 var(--s-16)}.idx__list{list-style:none;margin:0;padding:0}.idx__item{padding:var(--s-5) 0;border-bottom:1px solid var(--hairline)}.idx__item:last-child{border-bottom:0}.idx__sup{margin:0 0 var(--s-1);font-size:var(--fs-small);font-weight:600;letter-spacing:.02em;color:var(--ink-2)}.idx__title{margin:0 0 var(--s-2);font-size:var(--fs-h3);font-weight:700;line-height:var(--lh-head)}.idx__title a{color:var(--ink);text-decoration-color:var(--hairline)}.idx__title a:hover{color:var(--link-hover);text-decoration-color:currentColor}.idx__title .pill{vertical-align:.15em;margin-left:var(--s-2)}.idx__sum{margin:0;max-width:var(--measure);color:var(--ink-2)}.idx__meta{margin:var(--s-2) 0 0;font-size:var(--fs-small);color:var(--ink-2)}.kicker__back{font-weight:600}.ftr{border-top:1px solid var(--hairline)}.ftr__in{max-width:var(--container);margin:0 auto;padding:var(--s-6) var(--gutter) calc(var(--s-12) + var(--control-h));display:flex;flex-wrap:wrap;gap:var(--s-2) var(--s-4);color:var(--ink-2);font-size:var(--fs-small);font-weight:500}.sheet{position:fixed;inset:var(--header-h) 0 auto 0;width:100%;max-width:none;max-height:calc(100dvh - var(--header-h) - var(--s-10));margin:0;padding:0;border:0;border-bottom:1px solid var(--hairline);border-radius:0 0 var(--r-ctl) var(--r-ctl);background:var(--canvas);color:var(--ink);overflow:hidden}.sheet[open]{display:flex;flex-direction:column}.sheet::backdrop{background:var(--scrim)}.sheet__head{display:flex;align-items:center;justify-content:space-between;gap:var(--s-2);padding:var(--s-2) var(--gutter);border-bottom:1px solid var(--hairline)}.sheet__title{margin:0;font-size:var(--fs-ui);font-weight:600}.sheet__body{overflow-y:auto;padding:var(--s-3) var(--gutter) var(--s-6)}@media (prefers-reduced-motion:no-preference){.sheet[open]{animation:sheet-in var(--t-std) var(--ease)}.sheet.is-closing{animation:sheet-out var(--t-std) var(--ease) forwards}}@keyframes sheet-in{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}@keyframes sheet-out{from{opacity:1;transform:none}to{opacity:0;transform:translateY(-8px)}}.totop{position:fixed;right:var(--s-5);bottom:var(--s-5);z-index:var(--z-totop);display:inline-flex;align-items:center;justify-content:center;width:var(--control-h);height:var(--control-h);border:1px solid var(--rule);border-radius:var(--r-ctl);background:var(--canvas);color:var(--ink);text-decoration:none;animation:fade-in var(--t-micro) var(--ease) both;transition:background-color var(--t-micro) var(--ease)}.totop:hover{background:var(--wash-1);color:var(--ink)}.totop svg{width:var(--icon);height:var(--icon)}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.chev,.skip{transition:none}.sec__body.is-entering,.totop{animation-duration:1ms}}@media print{.hdr,.side,.totop,.sheet,.skip,.chev,.status{display:none !important}.sec__body[hidden]{display:block !important}body{font-size:11pt;line-height:1.6;color:#000;background:#fff}.hero{padding-top:0}.layout{display:block;padding:0}.sec__btn{padding:0;margin:0;width:auto}a{color:inherit}.src{border-color:#999}.tbl__scroll{overflow:visible}table{font-size:9.5pt}tr{break-inside:avoid}.sec{break-inside:auto}.blk__h,.sec__h{break-after:avoid}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+
+<header class="hdr" id="top">
+  <div class="hdr__in">
+    <button class="btn btn--toc js-only" id="toc-open" type="button" aria-haspopup="dialog" aria-controls="toc-sheet" aria-label="목차 열기" title="목차">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+    </button>
+    <a class="brand" href="#top">
+      <span class="brand__kicker">갱신일 <span class="mono">2026-11-20</span></span>
+      <span class="brand__title">능동형 메타하네스(학생 요청형 하네스 최적화) 선행연구 조사</span>
+    </a>
+    <button class="btn btn--icon btn--search js-only" id="search-toggle" type="button" aria-expanded="false" aria-controls="search-form" aria-label="검색 열기" title="검색">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    </button>
+    <button class="btn btn--outline btn--all js-only" id="toggle-all" type="button" data-action="close" aria-label="모두 접기" title="모두 접기">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path class="ico--open" d="m7 15 5 5 5-5M7 9l5-5 5 5"/><path class="ico--close" d="m7 20 5-5 5 5M7 4l5 5 5-5"/></svg>
+      <span class="btn__label">모두 접기</span>
+    </button>
+    <form class="srch js-only" id="search-form" role="search" action="#main" method="get">
+      <label class="sr-only" for="q">본문 검색</label>
+      <div class="srch__box">
+        <svg class="srch__icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" name="q" type="search" placeholder="본문 검색 (예: 퍼미션, SOC)" autocomplete="off" enterkeyhint="search" spellcheck="false">
+        <button class="btn btn--icon srch__clear" id="q-clear" type="button" aria-label="검색 지우기" hidden>
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="status" id="search-status" role="status" hidden></div>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="doc-title">
+    <p class="kicker"><a class="kicker__back" href="../">조사 목록</a> <span class="kicker__sep" aria-hidden="true">·</span> 조사 보고서 <span class="kicker__sep" aria-hidden="true">·</span> 작성일 <span class="mono">2026-11-20</span> <span class="kicker__sep" aria-hidden="true">·</span> 갱신일 <span class="mono">2026-11-20</span></p>
+    <h1 id="doc-title"><span class="hero__sup">연구 아이디어 검토</span><span class="hero__sep" aria-hidden="true"> · </span><span class="hero__main">능동형 메타하네스(학생 요청형 하네스 최적화) 선행연구 조사</span></h1>
+  </section>
+
+  <div class="layout">
+    <aside class="side" aria-label="목차 사이드바">
+      <p class="side__title">목차</p>
+      <nav aria-label="목차"><ol class="toc"><li><a href="#s-x1"><span class="toc__ttl">요약</span></a></li><li><a href="#s-1"><span class="toc__num">1</span><span class="toc__ttl">조사 범위와 방법</span></a></li><li><a href="#s-2"><span class="toc__num">2</span><span class="toc__ttl">Meta-Harness와 하네스 최적화 계열</span></a><ol class="toc__sub"><li><a href="#s-2-1"><span class="toc__num">2.1</span><span class="toc__ttl">Meta-Harness 원문</span></a></li><li><a href="#s-2-2"><span class="toc__num">2.2</span><span class="toc__ttl">2026년 하네스 진화 계열</span></a></li><li><a href="#s-2-3"><span class="toc__num">2.3</span><span class="toc__ttl">고전 계열과 2025년 계열</span></a></li></ol></li><li><a href="#s-3"><span class="toc__num">3</span><span class="toc__ttl">학생이 요청하는 계열</span></a><ol class="toc__sub"><li><a href="#s-3-1"><span class="toc__num">3.1</span><span class="toc__ttl">요청 결과가 다음 과제까지 남는 연구</span></a></li><li><a href="#s-3-2"><span class="toc__num">3.2</span><span class="toc__ttl">요청 결과가 그 에피소드에서 끝나는 연구</span></a></li><li><a href="#s-3-3"><span class="toc__num">3.3</span><span class="toc__ttl">교사가 하네스를 고치지만 학생 요청이 촉발하지 않는 연구</span></a></li></ol></li><li><a href="#s-4"><span class="toc__num">4</span><span class="toc__ttl">결합의 직접 선행연구: 가장 가까운 5편</span></a><ol class="toc__sub"><li><a href="#s-4-1"><span class="toc__num">4.1</span><span class="toc__ttl">HarnessCompass (arXiv 2608.01918)</span></a></li><li><a href="#s-4-2"><span class="toc__num">4.2</span><span class="toc__ttl">Evo-Harness (arXiv 2608.15071)</span></a></li><li><a href="#s-4-3"><span class="toc__num">4.3</span><span class="toc__ttl">MetaForge (arXiv 2606.01801)</span></a></li><li><a href="#s-4-4"><span class="toc__num">4.4</span><span class="toc__ttl">How² (arXiv 2510.11144)</span></a></li><li><a href="#s-4-5"><span class="toc__num">4.5</span><span class="toc__ttl">Teaching the Harness / SAT (arXiv 2611.13144)</span></a></li><li><a href="#s-4-6"><span class="toc__num">4.6</span><span class="toc__ttl">그 밖에 가까운 연구</span></a></li></ol></li><li><a href="#s-5"><span class="toc__num">5</span><span class="toc__ttl">Motivation 후보</span></a><ol class="toc__sub"><li><a href="#s-5-1"><span class="toc__num">5.1</span><span class="toc__ttl">처음 세운 서사 평가: &quot;proposer는 정적인 정보만 마주한다&quot;</span></a></li><li><a href="#s-5-2"><span class="toc__num">5.2</span><span class="toc__ttl">후보 1: 정보 비대칭</span></a></li><li><a href="#s-5-3"><span class="toc__num">5.3</span><span class="toc__ttl">후보 2: 학생 맞춤</span></a></li><li><a href="#s-5-4"><span class="toc__num">5.4</span><span class="toc__ttl">후보 3: 효율</span></a></li></ol></li><li><a href="#s-6"><span class="toc__num">6</span><span class="toc__ttl">논문성 평가</span></a><ol class="toc__sub"><li><a href="#s-6-1"><span class="toc__num">6.1</span><span class="toc__ttl">새로움</span></a></li><li><a href="#s-6-2"><span class="toc__num">6.2</span><span class="toc__ttl">예상 반론과 대응</span></a></li><li><a href="#s-6-3"><span class="toc__num">6.3</span><span class="toc__ttl">대조군 설계(최소안)</span></a></li><li><a href="#s-6-4"><span class="toc__num">6.4</span><span class="toc__ttl">벤치마크 후보</span></a></li><li><a href="#s-6-5"><span class="toc__num">6.5</span><span class="toc__ttl">최소 실험 규모와 비용 감</span></a></li><li><a href="#s-6-6"><span class="toc__num">6.6</span><span class="toc__ttl">목표 학회와 마감</span></a></li><li><a href="#s-6-7"><span class="toc__num">6.7</span><span class="toc__ttl">ChatGPT 의견 검토</span></a></li></ol></li><li><a href="#s-7"><span class="toc__num">7</span><span class="toc__ttl">확인하지 못한 것</span></a></li><li><a href="#s-x9"><span class="toc__ttl">참고문헌</span></a></li></ol></nav>
+    </aside>
+    <article class="doc">
+<div class="blk blk--lead" data-block="" id="s-lead"><p>작성일: 2026-11-20. 조사 기준 시점: 2026-11-20에 공개된 <code>arXiv</code> 원문.</p></div><section aria-labelledby="h-s-x1" class="sec" id="s-x1"><h2 class="sec__h" id="h-s-x1"><button aria-controls="b-s-x1" aria-expanded="true" class="sec__btn" type="button"><span class="ttl">요약</span><svg aria-hidden="true" class="chev" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="m6 9 6 6 6-6"></path></svg></button></h2><div class="sec__body" id="b-s-x1"><div class="blk blk--lead" data-block=""><p><strong>결론.</strong> 이 아이디어는 세 단계입니다. 학생 하네스가 문제를 푸는 도중 필요한 스킬, 도구, 가드레일을 교사에게 요청합니다. 교사는 그 요청과 trajectory를 함께 보고 하네스를 고칩니다. 요청 채널의 효과를 대조군으로 측정합니다. 이 세 단계를 모두 갖춘 논문은 이번 조사 범위에서 찾지 못했습니다. 다만 구성요소는 2026년에 대부분 따로 발표되었습니다. 따라서 "요청 채널을 붙였더니 올랐다"는 주장만으로는 새로움이 약합니다. 논문이 되려면 요청 신호가 무엇을 더 알려 주는지(정보량), 언제 요청해야 하는지(시점), 요청이 정답 누설과 과적합을 일으키지 않는지(통제)를 대조 실험으로 보여야 합니다.</p><p><strong>가장 가까운 선행연구 3편.</strong></p><ol>
+<li>HarnessCompass (<code>arXiv</code> 2608.01918, 2026-08). 실패한 과제마다 같은 모델에게 "하네스에 있었으면 했던 기능"을 사후에 보고하게 합니다. trajectory로 검증한 보고만 메타 에이전트의 하네스 진화 증거로 씁니다. 학생 신호를 하네스 최적화에 넣는다는 점에서 가장 가깝습니다. 차이는 시스템이 풀이 후에 묻는 방식이며, 학생이 풀이 중 스스로 요청하지 않는다는 점입니다.</li>
+<li>Evo-Harness (<code>arXiv</code> 2608.15071, 2026-08). 과제 묶음이 끝날 때마다 solver가 "빠졌던 행동, 명령, 도구 호출, 도메인 규칙"을 분석해 재사용 스킬을 제안하고, evolver가 제안을 받아들이거나 합쳐 하네스에 넣습니다. 학생 쪽 제안 채널이 있다는 점에서 가깝습니다. 차이는 제안이 풀이 후에 나오고, evolver는 제안을 고르는 큐레이터이며 도구나 가드레일을 설계하는 교사가 없다는 점입니다.</li>
+<li>MetaForge (<code>arXiv</code> 2606.01801, 2026-06). 정책이 풀이 중 기존 도구로 안 되면 자연어 요구를 담아 create_skill을 호출하고, 별도 tool-forging 모델이 도구를 만들어 검증 후 도구 풀에 남깁니다. "풀이 중 요청 → 다른 모델이 만듦 → 다음 과제에 남음"의 세 단계를 갖춘 가장 가까운 사례입니다. 차이는 요청 대상이 도구뿐이고, trace와 점수를 보고 하네스 전체를 반복 최적화하는 교사가 없다는 점입니다.</li>
+</ol><p>4위와 5위는 How² (<code>arXiv</code> 2510.11144)와 Teaching the Harness/SAT (<code>arXiv</code> 2611.13144)입니다. How²는 학생이 풀이 중 교사에게 질문하고 답을 메모리에 남기지만 교사가 하네스를 고치지 않습니다. SAT는 교사가 학생을 진단해 스킬을 쓰지만 능동성이 교사 쪽에 있습니다. 이 아이디어는 SAT의 방향을 뒤집은 구조이므로 SAT가 가장 직접적인 비교 기준선입니다.</p><p><strong>Motivation.</strong> 처음 세운 서사 "proposer는 정적인 정보만 본다"는 그대로 쓰기 어렵습니다. Meta-Harness의 proposer도 학생 출력을 포함한 전체 trace를 읽기 때문입니다. 권하는 서사는 "trace는 학생이 한 일만 남기고, 결정 시점에 무엇이 모자랐는지는 학생만 안다"입니다(5절).</p><p><strong>논문성 판단.</strong> 가능성은 있습니다. 다만 경쟁이 매우 빠릅니다. 2026년 11월 한 달에만 SAT(11-09)와 자기개선 하네스 서베이(11-17)가 나왔습니다. 핵심 위험은 두 가지입니다. 첫째, HarnessCompass의 절제 실험에서 1인칭 피드백을 넣자 진화 과제 정답률은 올랐지만 held-out 정답률은 58.4%에서 55.8%로 내려갔습니다. 요청 신호는 과적합을 키울 수 있습니다. 둘째, "같은 모델이 사후에 반성한 것"과 "풀이 중 요청한 것"의 차이를 대조군으로 분리하지 못하면 self-reflection의 변형으로 읽힙니다.</p><p><strong>권고.</strong> 주제는 "능동 요청 채널이 바깥 하네스 최적화에 주는 정보 가치"로 한정하는 것이 좋습니다. 대조군은 (a) 수동 Meta-Harness형, (b) 사후 보고형(HarnessCompass형), (c) 풀이 중 요청형, (d) 요청 내용을 섞은 셔플 대조, (e) 학생이 자기 요청을 스스로 구현하는 self-harness 대조입니다. 같은 교사 토큰 예산과 같은 평가 횟수에서 held-out 성능을 비교합니다. 1차 벤치마크는 HarnessCompass와 직접 비교할 수 있는 SWE-bench Verified 분할이고, 2차는 EHRSQL 같은 EHR text-to-SQL 벤치마크입니다. 마감이 공식 확인된 학회는 ACL 2027(ARR 2027-01-04)과 ICML 2027(초록 2027-01-14, 본문 2027-01-22)입니다. 남은 기간이 6~9주이므로 현실적인 목표는 공식 일정이 아직 없는 COLM 2027 또는 NeurIPS 2027입니다.</p></div></div></section><section aria-labelledby="h-s-1" class="sec" id="s-1"><h2 class="sec__h" id="h-s-1"><button aria-controls="b-s-1" aria-expanded="true" class="sec__btn" type="button"><span class="num">1</span><span class="ttl">조사 범위와 방법</span><svg aria-hidden="true" class="chev" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="m6 9 6 6 6-6"></path></svg></button></h2><div class="sec__body" id="b-s-1"><div class="blk blk--lead" data-block=""><ul>
+<li>사실로 쓴 내용은 모두 <code>arXiv</code> 원문(HTML 또는 abs 페이지)이나 공식 페이지를 직접 읽고 확인했습니다. abs 페이지의 citation_title 메타데이터로 제목을 대조했습니다. 검색 결과 요약만 본 항목은 "확인 못 함"으로 표시했습니다.</li>
+<li><code>arXiv</code> 검색 API(<code>export.arxiv.org</code>)는 조사 중 HTTP 429를 반환했고, 반환된 일부 목록은 id와 제목이 실제 원문과 달랐습니다. 예를 들어 목록에 "Harness Handbook"으로 나온 2611.04579는 실제로 "FreeForm Harness" 논문이었습니다. 그래서 API 목록은 버리고, 웹 검색 결과와 참고문헌에서 얻은 id를 abs 페이지에서 하나씩 대조했습니다.</li>
+<li>원문을 읽은 논문은 157편입니다(papers.csv). 하네스 최적화 계열과 학생 요청 계열은 별도 조사 lane이 각각 67편, 38편을 읽었고, 나머지는 직접 읽었습니다. 반대 검색으로 찾은 2026년 하네스 진화 논문 21편은 본문에서 학생 요청 채널을 정규식으로 찾았고, 해당 채널은 나오지 않았습니다.</li>
+<li>유료 API는 쓰지 않았습니다.</li>
+</ul></div></div></section><section aria-labelledby="h-s-2" class="sec" id="s-2"><h2 class="sec__h" id="h-s-2"><button aria-controls="b-s-2" aria-expanded="true" class="sec__btn" type="button"><span class="num">2</span><span class="ttl">Meta-Harness와 하네스 최적화 계열</span><svg aria-hidden="true" class="chev" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="m6 9 6 6 6-6"></path></svg></button></h2><div class="sec__body" id="b-s-2"><div class="blk" data-block="" id="s-2-1"><h3 class="blk__h" id="h-s-2-1"><span class="num">2.1</span><span class="ttl">Meta-Harness 원문</span></h3><p>Meta-Harness: End-to-End Optimization of Model Harnesses (Lee, Nair, Zhang, Lee, Khattab, Finn; <code>arXiv</code> 2603.28052, 2026-03-30)를 원문으로 확인했습니다. <a href="https://arxiv.org/abs/2603.28052">링크</a>, 코드 <a href="https://github.com/stanford-iris-lab/meta-harness">stanford-iris-lab/meta-harness</a>.</p><ul>
+<li>구조: 바깥 루프의 proposer는 코딩 에이전트(Claude Code, Opus-4.6)입니다. proposer는 이전 모든 후보 하네스의 소스 코드, 점수, 실행 trace가 저장된 파일시스템을 grep, cat으로 읽고 새 하네스를 제안합니다. 원문은 이 점을 "an outer-loop system that searches over harness code"라고 씁니다.</li>
+<li>규모: 보통 한 번의 실행에서 20회 반복 동안 약 60개 하네스를 평가합니다. 가장 무거운 설정에서 proposer는 반복당 중앙값 82개 파일을 읽습니다.</li>
+<li>결과: 온라인 텍스트 분류에서 ACE보다 7.7점 높고 문맥 토큰은 4분의 1입니다. IMO 수준 수학 200문항에서 held-out 모델 5개 평균 4.7점 향상입니다. TerminalBench-2에서 Opus 4.6 기준 76.4%, Haiku 4.5 기준 37.6%입니다.</li>
+<li>학생(하네스 안의 고정 모델)의 역할: 학생은 주어진 하네스로 과제를 풀고 trace를 남길 뿐입니다. 학생이 proposer에게 무엇을 요청하는 경로는 원문에 없습니다. 이 아이디어가 문제 삼는 "passive" 구조와 일치합니다.</li>
+</ul><p>같은 이름 주의: MoMHa (<code>arXiv</code> 2609.30967)도 초록에서 자기 시스템을 "Meta-Harness"라고 부릅니다. 정확도, 안전, 토큰 비용의 다목적 하네스 탐색입니다. 인용할 때 저자로 구분해야 합니다.</p></div><div class="blk" data-block="" id="s-2-2"><h3 class="blk__h" id="h-s-2-2"><span class="num">2.2</span><span class="ttl">2026년 하네스 진화 계열</span></h3><p>2026년에 "하네스 자동 진화"가 하나의 연구 계열이 되었습니다. 원문으로 확인한 대표 논문과 학생 요청 채널 유무는 아래와 같습니다. 모두 학생 요청 채널이 없거나, 있어도 시스템이 사후에 묻는 형태입니다.</p><figure class="tbl tbl--cards" data-cols="4"><div aria-label="표 1: 논문, arXiv, 바깥 최적화기, 학생 요청 채널" class="tbl__scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">논문</th>
+<th scope="col">arXiv</th>
+<th scope="col">바깥 최적화기</th>
+<th scope="col">학생 요청 채널</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="논문"><span class="cell">Agentic Harness Engineering (AHE)</span></td>
+<td data-label="arXiv"><span class="cell">2604.25850</span></td>
+<td data-label="바깥 최적화기"><span class="cell">관측성 기반 진화 에이전트</span></td>
+<td data-label="학생 요청 채널"><span class="cell">없음</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">HarnessCompass</span></td>
+<td data-label="arXiv"><span class="cell">2608.01918</span></td>
+<td data-label="바깥 최적화기"><span class="cell">메타 에이전트(학생과 같은 GPT-5.4)</span></td>
+<td data-label="학생 요청 채널"><span class="cell">사후 1인칭 보고(실패 과제만)</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">Training the Whole Agent (HarnessAdapt-RL)</span></td>
+<td data-label="arXiv"><span class="cell">2610.28069</span></td>
+<td data-label="바깥 최적화기"><span class="cell">RL 중 교사가 스킬, 도구, 훅 진화</span></td>
+<td data-label="학생 요청 채널"><span class="cell">없음(실패 시 시스템이 스킬 생성)</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">VERSE</span></td>
+<td data-label="arXiv"><span class="cell">2610.02616</span></td>
+<td data-label="바깥 최적화기"><span class="cell">스스로 진화하는 최적화기</span></td>
+<td data-label="학생 요청 채널"><span class="cell">없음(최적화기가 능동 탐침)</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">Self-Harness</span></td>
+<td data-label="arXiv"><span class="cell">2606.09498</span></td>
+<td data-label="바깥 최적화기"><span class="cell">학생 자신</span></td>
+<td data-label="학생 요청 채널"><span class="cell">해당 없음(자기 개선)</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">Multi-Task Self-Evolving Harnesses</span></td>
+<td data-label="arXiv"><span class="cell">2609.38372</span></td>
+<td data-label="바깥 최적화기"><span class="cell">같은 모델이 solver 후 proposer</span></td>
+<td data-label="학생 요청 채널"><span class="cell">해당 없음(자기 개선)</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">AI4AI at Test-Time</span></td>
+<td data-label="arXiv"><span class="cell">2608.12307</span></td>
+<td data-label="바깥 최적화기"><span class="cell">강한 builder가 약한 target의 하네스 구성</span></td>
+<td data-label="학생 요청 채널"><span class="cell">없음</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">Learning Meta-Skills for Harness Design</span></td>
+<td data-label="arXiv"><span class="cell">2609.38143</span></td>
+<td data-label="바깥 최적화기"><span class="cell">builder가 meta-skill 학습</span></td>
+<td data-label="학생 요청 채널"><span class="cell">없음</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">ActiveSaddler</span></td>
+<td data-label="arXiv"><span class="cell">2610.00906</span></td>
+<td data-label="바깥 최적화기"><span class="cell">최적화기가 학습 시나리오(커리큘럼) 선택</span></td>
+<td data-label="학생 요청 채널"><span class="cell">없음</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">Harness Learning</span></td>
+<td data-label="arXiv"><span class="cell">2609.35738</span></td>
+<td data-label="바깥 최적화기"><span class="cell">RL로 훈련한 proposer</span></td>
+<td data-label="학생 요청 채널"><span class="cell">없음</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">Harnesses That Improve Themselves (서베이)</span></td>
+<td data-label="arXiv"><span class="cell">2611.22299</span></td>
+<td data-label="바깥 최적화기"><span class="cell">4단계 루프 정리</span></td>
+<td data-label="학생 요청 채널"><span class="cell">분류 축에 없음</span></td>
+</tr>
+</tbody>
+</table></div></figure><p>"Active"라는 이름 충돌도 있습니다. ActiveSaddler는 최적화기가 어떤 학습 시나리오를 쓸지 고르는 커리큘럼 학습을 "Active"라고 부릅니다. 우리 아이디어의 "학생이 능동적으로 요청한다"와 뜻이 다르므로, 제목에서 active를 쓰면 구분 문장이 필요합니다.</p></div><div class="blk" data-block="" id="s-2-3"><h3 class="blk__h" id="h-s-2-3"><span class="num">2.3</span><span class="ttl">고전 계열과 2025년 계열</span></h3><p>브리프가 지정한 고전 계열은 모두 원문으로 확인했습니다. 학생이 최적화기에 요청하는 경로는 어느 논문에도 정의되어 있지 않습니다. 요청과 비슷한 행동이 있는 경우만 아래에 적습니다.</p><figure class="tbl tbl--cards" data-cols="4"><div aria-label="표 2: 논문, arXiv, 최적화 방식, 요청과 비슷한 행동" class="tbl__scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">논문</th>
+<th scope="col">arXiv</th>
+<th scope="col">최적화 방식</th>
+<th scope="col">요청과 비슷한 행동</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="논문"><span class="cell">ADAS</span></td>
+<td data-label="arXiv"><span class="cell">2408.08435</span></td>
+<td data-label="최적화 방식"><span class="cell">메타 에이전트가 에이전트 코드를 쓰고 아카이브로 탐색</span></td>
+<td data-label="요청과 비슷한 행동"><span class="cell">없음</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">AFlow</span></td>
+<td data-label="arXiv"><span class="cell">2410.10762</span></td>
+<td data-label="최적화 방식"><span class="cell">MCTS로 코드형 워크플로 수정</span></td>
+<td data-label="요청과 비슷한 행동"><span class="cell">없음</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">Gödel Agent</span></td>
+<td data-label="arXiv"><span class="cell">2410.04444 (ACL 2025)</span></td>
+<td data-label="최적화 방식"><span class="cell">에이전트가 실행 중 자기 코드를 교체</span></td>
+<td data-label="요청과 비슷한 행동"><span class="cell">제약 없는 변형에서 "spontaneous requests for assistance from more powerful models"를 관찰. 설계된 채널은 아님</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">Darwin Gödel Machine</span></td>
+<td data-label="arXiv"><span class="cell">2505.22954</span></td>
+<td data-label="최적화 방식"><span class="cell">아카이브 기반 자기 수정 코딩 에이전트</span></td>
+<td data-label="요청과 비슷한 행동"><span class="cell">없음(자기 수정)</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">DSPy</span></td>
+<td data-label="arXiv"><span class="cell">2310.03714</span></td>
+<td data-label="최적화 방식"><span class="cell">trace 부트스트랩으로 데모와 모듈 최적화</span></td>
+<td data-label="요청과 비슷한 행동"><span class="cell">없음</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">MIPRO</span></td>
+<td data-label="arXiv"><span class="cell">2406.11695 (EMNLP 2024)</span></td>
+<td data-label="최적화 방식"><span class="cell">지시문과 데모를 베이지안 최적화</span></td>
+<td data-label="요청과 비슷한 행동"><span class="cell">없음</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">GEPA</span></td>
+<td data-label="arXiv"><span class="cell">2507.19457 (ICLR 2026)</span></td>
+<td data-label="최적화 방식"><span class="cell">trace 반성 기반 프롬프트 진화</span></td>
+<td data-label="요청과 비슷한 행동"><span class="cell">없음</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">TextGrad</span></td>
+<td data-label="arXiv"><span class="cell">2406.07496</span></td>
+<td data-label="최적화 방식"><span class="cell">텍스트 피드백 역전파</span></td>
+<td data-label="요청과 비슷한 행동"><span class="cell">없음</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">Trace / OPTO</span></td>
+<td data-label="arXiv"><span class="cell">2406.16218</span></td>
+<td data-label="최적화 방식"><span class="cell">실행 그래프 trace로 생성형 최적화. OPTO는 이 논문 안의 정식화</span></td>
+<td data-label="요청과 비슷한 행동"><span class="cell">없음</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">Promptbreeder</span></td>
+<td data-label="arXiv"><span class="cell">2309.16797</span></td>
+<td data-label="최적화 방식"><span class="cell">과제 프롬프트와 변이 프롬프트를 함께 진화</span></td>
+<td data-label="요청과 비슷한 행동"><span class="cell">없음</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">Agent Workflow Memory</span></td>
+<td data-label="arXiv"><span class="cell">2409.07429</span></td>
+<td data-label="최적화 방식"><span class="cell">trajectory에서 워크플로를 유도해 메모리에 추가</span></td>
+<td data-label="요청과 비슷한 행동"><span class="cell">없음</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">Voyager</span></td>
+<td data-label="arXiv"><span class="cell">2305.16291</span></td>
+<td data-label="최적화 방식"><span class="cell">자동 커리큘럼과 스킬 라이브러리</span></td>
+<td data-label="요청과 비슷한 행동"><span class="cell">커리큘럼이 현재 상태로 스스로 질문</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">LATM</span></td>
+<td data-label="arXiv"><span class="cell">2305.17126</span></td>
+<td data-label="최적화 방식"><span class="cell">강한 모델이 도구를 만들고 약한 모델이 사용</span></td>
+<td data-label="요청과 비슷한 행동"><span class="cell">dispatcher가 도구 제작을 촉발</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">CREATOR</span></td>
+<td data-label="arXiv"><span class="cell">2305.14318 (Findings of EMNLP 2023)</span></td>
+<td data-label="최적화 방식"><span class="cell">생성-결정-실행-수정 파이프라인</span></td>
+<td data-label="요청과 비슷한 행동"><span class="cell">없음</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">CRAFT</span></td>
+<td data-label="arXiv"><span class="cell">2309.17428 (ICLR 2024)</span></td>
+<td data-label="최적화 방식"><span class="cell">오프라인 도구셋 생성과 검색</span></td>
+<td data-label="요청과 비슷한 행동"><span class="cell">모델이 필요한 함수를 서술해 검색 질의로 사용</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">Alita</span></td>
+<td data-label="arXiv"><span class="cell">2505.20286</span></td>
+<td data-label="최적화 방식"><span class="cell">관리자가 역량 공백을 찾아 MCP 도구 생성</span></td>
+<td data-label="요청과 비슷한 행동"><span class="cell">관리자가 빌더에게 하위 과제 설명 전달</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">ACE</span></td>
+<td data-label="arXiv"><span class="cell">2510.04618 (ICLR 2026)</span></td>
+<td data-label="최적화 방식"><span class="cell">Generator-Reflector-Curator로 playbook 진화</span></td>
+<td data-label="요청과 비슷한 행동"><span class="cell">Generator가 항목의 유용성을 표시</span></td>
+</tr>
+</tbody>
+</table></div></figure><p>2025년 이후 자기 개선 계열(Live-SWE-agent 2511.13646, SICA 2504.15228, EvoAgentX 2507.03616, Agent KB 2507.06229, SkillWeaver 2504.07079)도 확인했습니다. 에이전트가 자기 도구를 직접 쓰거나 최적화기가 실행 기록을 읽는 구조이고, 학생이 외부 최적화기에 요청하는 구조는 없습니다. 학회명은 <code>arXiv</code> 원문 주석에 적힌 경우만 적었습니다.</p></div></div></section><section aria-labelledby="h-s-3" class="sec" id="s-3"><h2 class="sec__h" id="h-s-3"><button aria-controls="b-s-3" aria-expanded="true" class="sec__btn" type="button"><span class="num">3</span><span class="ttl">학생이 요청하는 계열</span><svg aria-hidden="true" class="chev" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="m6 9 6 6 6-6"></path></svg></button></h2><div class="sec__body" id="b-s-3"><div class="blk blk--lead" data-block=""><p>학생 쪽 능동성은 오래된 연구 계열입니다. 다만 요청의 결과가 그 에피소드 안에서 끝나는 경우가 대부분이고, 요청이 교사의 하네스 수정으로 이어지는 경우는 확인하지 못했습니다. 학생 요청 계열 조사 lane이 38편의 원문을 읽고 abs 메타데이터로 제목과 날짜를 대조했습니다.</p></div><div class="blk" data-block="" id="s-3-1"><h3 class="blk__h" id="h-s-3-1"><span class="num">3.1</span><span class="ttl">요청 결과가 다음 과제까지 남는 연구</span></h3><figure class="tbl tbl--cards" data-cols="4"><div aria-label="표 3: 논문, arXiv, 누가 누구에게 무엇을 요청하는가, 무엇이 남는가" class="tbl__scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">논문</th>
+<th scope="col">arXiv</th>
+<th scope="col">누가 누구에게 무엇을 요청하는가</th>
+<th scope="col">무엇이 남는가</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="논문"><span class="cell">How²</span></td>
+<td data-label="arXiv"><span class="cell">2510.11144</span></td>
+<td data-label="누가 누구에게 무엇을 요청하는가"><span class="cell">에이전트가 교사에게 how-to 질문</span></td>
+<td data-label="무엇이 남는가"><span class="cell">상태와 분리한 지시문을 메모리에 저장해 재사용</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">LATM</span></td>
+<td data-label="arXiv"><span class="cell">2305.17126</span></td>
+<td data-label="누가 누구에게 무엇을 요청하는가"><span class="cell">dispatcher가 강한 모델에게 도구 제작 요청</span></td>
+<td data-label="무엇이 남는가"><span class="cell">검증된 도구를 캐시에 저장</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">UCT</span></td>
+<td data-label="arXiv"><span class="cell">2602.01983</span></td>
+<td data-label="누가 누구에게 무엇을 요청하는가"><span class="cell">에이전트가 없는 도구를 build ticket으로 요청</span></td>
+<td data-label="무엇이 남는가"><span class="cell">시험을 통과한 도구를 라이브러리에 등록</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">Uni-Skill</span></td>
+<td data-label="arXiv"><span class="cell">2603.02623</span></td>
+<td data-label="누가 누구에게 무엇을 요청하는가"><span class="cell">계획 파이프라인이 부족한 스킬 구현을 요청</span></td>
+<td data-label="무엇이 남는가"><span class="cell">스킬 저장소(새 구현의 재사용은 원문에서 분명하지 않음)</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">STELLA</span></td>
+<td data-label="arXiv"><span class="cell">2507.02004</span></td>
+<td data-label="누가 누구에게 무엇을 요청하는가"><span class="cell">관리 에이전트가 도구 제작 에이전트에게 위임</span></td>
+<td data-label="무엇이 남는가"><span class="cell">Template Library, Tool Ocean</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">SMITH</span></td>
+<td data-label="arXiv"><span class="cell">2512.11303</span></td>
+<td data-label="누가 누구에게 무엇을 요청하는가"><span class="cell">planner가 developer-tester 루프에 하위 의도를 위임</span></td>
+<td data-label="무엇이 남는가"><span class="cell">도구와 과제 간 에피소드 메모리</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">Ask Now, Use Later</span></td>
+<td data-label="arXiv"><span class="cell">2605.28108</span></td>
+<td data-label="누가 누구에게 무엇을 요청하는가"><span class="cell">에이전트가 사용자에게 지속 선호와 제약을 질문</span></td>
+<td data-label="무엇이 남는가"><span class="cell">이후 세션에서 쓰는 고정 문맥</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">MetaAgent</span></td>
+<td data-label="arXiv"><span class="cell">2508.00271</span></td>
+<td data-label="누가 누구에게 무엇을 요청하는가"><span class="cell">추론 에이전트가 tool router에게 자연어 help request</span></td>
+<td data-label="무엇이 남는가"><span class="cell">경험 텍스트와 지식베이스(router는 고정)</span></td>
+</tr>
+<tr>
+<td data-label="논문"><span class="cell">MCP-Zero</span></td>
+<td data-label="arXiv"><span class="cell">2506.01056</span></td>
+<td data-label="누가 누구에게 무엇을 요청하는가"><span class="cell">에이전트가 역량 공백을 찾아 구조화된 도구 요청(Active Tool Request)</span></td>
+<td data-label="무엇이 남는가"><span class="cell">기존 MCP 서버 풀에서 검색한 도구를 누적. 새 도구를 만들지 않음</span></td>
+</tr>
+</tbody>
+</table></div></figure><p>LATM은 이 아이디어의 "도구 요청" 부분에 가장 오래된 선례입니다. 원문 표현은 "dispatcher determines whether it needs to request tool-making"입니다. 다만 요청 주체가 도구를 쓰는 학생과 다른 dispatcher이고, 학생에 맞춰 하네스를 반복 최적화하는 루프는 없습니다.</p></div><div class="blk" data-block="" id="s-3-2"><h3 class="blk__h" id="h-s-3-2"><span class="num">3.2</span><span class="ttl">요청 결과가 그 에피소드에서 끝나는 연구</span></h3><ul>
+<li>도움 요청 시점 학습: Robots That Ask For Help/KnowNo (2307.01928), Ask4Help (2211.09960), Learning When to Ask for Help (2305.16502), R2V Agent (2605.16604), Bayesian Self-Escalation (2608.24087), Inference-Time Distillation (2512.02543), AHCE (2602.22546). 앞의 세 편은 LLM이 아닌 로봇 또는 내비게이션 정책입니다.</li>
+<li>명확화 질문: ClarifyGPT (2310.10996), STaR-GATE (2403.19154), Learning to Ask (2409.00557), TO-GATE (2506.02827), Modeling Future Conversation Turns (2410.13788), Ask-before-Plan (2406.12639), Asking Before Acting (2305.15695), 임베디드 MLLM의 도움 요청 (2504.00907).</li>
+<li>교사에게 질문하며 배우기: Socratic Students (2512.13102), INTERACT (2412.11388, ACL 2025), AI Pedagogy (2507.21065), Active Inquiry/LaMAI (2402.03719), Knowledge Distillation with Training Wheels (2502.17717).</li>
+</ul><p>Learning to Ask (2409.00557)는 기존 API로 풀 수 없을 때 도구 한계를 보고하라고 지시합니다. 새 도구를 요청하거나 만드는 경로는 없습니다. 이 아이디어는 이 "보고"를 "요청"으로 바꾸고 교사가 응답하게 하는 확장으로 볼 수 있습니다.</p></div><div class="blk" data-block="" id="s-3-3"><h3 class="blk__h" id="h-s-3-3"><span class="num">3.3</span><span class="ttl">교사가 하네스를 고치지만 학생 요청이 촉발하지 않는 연구</span></h3><ul>
+<li>Teaching the Harness/SAT (2611.13144), SkillGen (2605.10999), AgentDistill (2506.14728), Compiling Deterministic Structure into SLM Harnesses (2604.17450), Harness Compilation (2610.11231).</li>
+<li>가드레일: GuardAgent (2406.09187)와 AGrail (2502.11448)은 운영자 기준과 관찰한 행동으로 검사 규칙을 추가하고 고칩니다. AGrail은 검사 규칙을 메모리에 남겨 이후 과제에 씁니다. 대상 에이전트가 가드레일을 요청하는 경로는 없습니다.</li>
+</ul><p>Harness Compilation (<code>arXiv</code> 2610.11231)은 반론 근거로 중요합니다. 큰 교사가 작은 VLM 학생의 실행 trace로 하네스를 고치는데, 학생에게 자원을 명시적으로 요청하게 하면 성능이 떨어졌습니다. 원문은 "Requiring an explicit resource request costs 9.0 points on InfoSeek and 2.7 on DocVQA"라고 보고합니다. 작은 학생에게는 요청 행위 자체가 부담일 수 있다는 뜻입니다. <a class="xref" href="#s-6-2">6.2절</a>의 반론 5에 반영했습니다.</p></div></div></section><section aria-labelledby="h-s-4" class="sec" id="s-4"><h2 class="sec__h" id="h-s-4"><button aria-controls="b-s-4" aria-expanded="true" class="sec__btn" type="button"><span class="num">4</span><span class="ttl">결합의 직접 선행연구: 가장 가까운 5편</span><svg aria-hidden="true" class="chev" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="m6 9 6 6 6-6"></path></svg></button></h2><div class="sec__body" id="b-s-4"><div class="blk blk--lead" data-block=""><p>"학생 요청 → 교사의 하네스 수정 → 성능 측정"의 세 고리를 기준으로 비교했습니다.</p><figure class="tbl tbl--cards tbl--numbered" data-cols="5"><div aria-label="표 4: 순위, 논문, 학생이 요청하는가, 다른 주체가 하네스를 고치는가, 요청 효과를 대조로 측정했는가" class="tbl__scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">순위</th>
+<th scope="col">논문</th>
+<th scope="col">학생이 요청하는가</th>
+<th scope="col">다른 주체가 하네스를 고치는가</th>
+<th scope="col">요청 효과를 대조로 측정했는가</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="순위"><span class="cell">1</span></td>
+<td data-label="논문"><span class="cell">HarnessCompass (2608.01918)</span></td>
+<td data-label="학생이 요청하는가"><span class="cell">풀이 후 시스템이 물으면 보고</span></td>
+<td data-label="다른 주체가 하네스를 고치는가"><span class="cell">예(메타 에이전트, 학생과 같은 모델)</span></td>
+<td data-label="요청 효과를 대조로 측정했는가"><span class="cell">절제 실험 1행</span></td>
+</tr>
+<tr>
+<td data-label="순위"><span class="cell">2</span></td>
+<td data-label="논문"><span class="cell">Evo-Harness (2608.15071)</span></td>
+<td data-label="학생이 요청하는가"><span class="cell">풀이 후 solver가 스킬 제안</span></td>
+<td data-label="다른 주체가 하네스를 고치는가"><span class="cell">예(evolver가 받아들이거나 합침)</span></td>
+<td data-label="요청 효과를 대조로 측정했는가"><span class="cell">제안 채널 자체의 절제는 확인 못 함</span></td>
+</tr>
+<tr>
+<td data-label="순위"><span class="cell">3</span></td>
+<td data-label="논문"><span class="cell">MetaForge (2606.01801)</span></td>
+<td data-label="학생이 요청하는가"><span class="cell">예(풀이 중 create_skill)</span></td>
+<td data-label="다른 주체가 하네스를 고치는가"><span class="cell">도구만(별도 tool-forging 모델)</span></td>
+<td data-label="요청 효과를 대조로 측정했는가"><span class="cell">요청 채널 자체의 절제는 확인 못 함</span></td>
+</tr>
+<tr>
+<td data-label="순위"><span class="cell">4</span></td>
+<td data-label="논문"><span class="cell">How² (2510.11144)</span></td>
+<td data-label="학생이 요청하는가"><span class="cell">예(풀이 중 how-to 질문)</span></td>
+<td data-label="다른 주체가 하네스를 고치는가"><span class="cell">아니오(답을 메모리에 저장)</span></td>
+<td data-label="요청 효과를 대조로 측정했는가"><span class="cell">교사 답의 추상화 수준 비교</span></td>
+</tr>
+<tr>
+<td data-label="순위"><span class="cell">5</span></td>
+<td data-label="논문"><span class="cell">SAT (2611.13144)</span></td>
+<td data-label="학생이 요청하는가"><span class="cell">아니오(교사가 탐침 요청)</span></td>
+<td data-label="다른 주체가 하네스를 고치는가"><span class="cell">예(스킬 라이브러리)</span></td>
+<td data-label="요청 효과를 대조로 측정했는가"><span class="cell">학습자 모델 유무 비교</span></td>
+</tr>
+</tbody>
+</table></div></figure></div><div class="blk" data-block="" id="s-4-1"><h3 class="blk__h" id="h-s-4-1"><span class="num">4.1</span><span class="ttl">HarnessCompass (arXiv 2608.01918)</span></h3><p><a href="https://arxiv.org/abs/2608.01918">원문</a>. 자동 하네스 진화에 세 원칙(제약된 진화, proactive feedback, 구성요소별 최적화)을 더합니다. proactive feedback은 실패한 과제마다 같은 모델에게 두 번 묻습니다. 첫째는 판정을 숨긴 "blind report"입니다. 여기서 하네스가 어디서 방해했는지와 "capabilities you WISHED EXISTED"(있었으면 했던 기능)를 받습니다. 둘째는 판정을 보여 준 "hindsight report"입니다. 여기서 실패 원인을 하네스, 자기 추론, 과제 모호성, 환경 중 하나로 돌립니다. 새 기능 요청은 trajectory가 구체적 공백을 보여 줄 때만 남깁니다. 모든 역할이 GPT-5.4를 쓰고, SWE-bench Verified를 진화 50과제와 held-out 450과제로 나눕니다.</p><p>절제 결과가 우리에게 가장 중요합니다. 일반화 게이트만 넣었을 때 진화 과제 62.0%, held-out 58.4%였습니다. 여기에 proactive feedback을 더하자 진화 과제는 66.0%로 올랐지만 held-out은 55.8%로 내려가고 반복 수는 2에서 12로 늘었습니다. 구성요소 병합(R3)을 더해야 held-out 60.4%로 회복했습니다. 원문은 이를 "feedback-driven edits may overfit to the evolution set"으로 해석합니다.</p><p>우리 아이디어와의 차이: (1) 보고 시점이 풀이 후입니다. (2) 시스템이 실패 과제에만 묻습니다. (3) 학생과 메타 에이전트가 같은 모델입니다. (4) 요청에 대한 응답이 그 에피소드 안에 돌아오지 않습니다. (5) 요청 신호 유무를 같은 예산에서 분리한 실험은 절제 표 1행뿐입니다.</p></div><div class="blk" data-block="" id="s-4-2"><h3 class="blk__h" id="h-s-4-2"><span class="num">4.2</span><span class="ttl">Evo-Harness (arXiv 2608.15071)</span></h3><p><a href="https://arxiv.org/abs/2608.15071">원문</a>. 고정된 에이전트가 과제 흐름을 풀며 외부 하네스를 계속 갱신하는 "online harness learning"을 정식화합니다. 과제 묶음이 끝나면 solver 쪽 프롬프트가 실행 결과, 검증기 피드백, 압축 trajectory를 받습니다. solver는 "the concrete missing action, command, tool call, navigation step, or domain rule"을 찾고 "Propose a reusable skill"을 수행합니다(NEW, ENHANCE, NONE 중 선택). evolver 쪽 큐레이터는 각 제안을 ACCEPT, MERGE, SKIP 중 하나로 처리하고, 여러 미지 과제에 쓸모 있는지 일반화 시험을 적용합니다. 평가는 TerminalBench2, SWE-bench Lite, CL-Bench, τ-bench, WebArena-Infinity 다섯 개입니다. Claude Sonnet 4.5가 학습 분할에서 진화시킨 스킬을 Opus 4.7 solver가 시험 분할에서 쓰는 전이 실험도 있습니다.</p><p>우리 아이디어와의 차이: (1) 제안이 풀이 후 반성 단계에서 나옵니다. (2) 제안 대상이 스킬(지시문)이며 도구, 가드레일, 코드 수정은 없습니다. (3) evolver는 제안을 고르는 큐레이터이고, 학생이 원하는 것을 보고 새로 설계하는 교사가 아닙니다. (4) 제안 채널이 있을 때와 없을 때를 같은 예산에서 비교했는지는 확인하지 못했습니다.</p></div><div class="blk" data-block="" id="s-4-3"><h3 class="blk__h" id="h-s-4-3"><span class="num">4.3</span><span class="ttl">MetaForge (arXiv 2606.01801)</span></h3><p><a href="https://arxiv.org/abs/2606.01801">원문</a>. 멀티모달 에이전트의 도구 사용을 Decide, Retrieve, Adapt, Forge 네 단계로 나눕니다. 원문은 "When no existing tool can handle a task, the policy triggers a create_skill action with a natural language requirement"라고 씁니다. 이어서 별도 tool-forging 모델이 계획과 구현 두 단계로 도구를 만듭니다. 검증을 통과한 도구는 용량 제한이 있는 도구 라이브러리에 들어가 재사용됩니다. 정책은 정답, 도구 필요성, 도구 생성 성공, 호출 비용을 합친 보상으로 RL 학습합니다. 12개 벤치마크에서 16개 기준선과 비교합니다.</p><p>우리 아이디어와의 차이: (1) 요청 대상이 도구뿐입니다. (2) tool-forging 모델은 요청 하나에 도구 하나로 응답하며, 여러 과제의 trace와 점수를 보고 하네스 전체(프롬프트, 워크플로, 가드레일)를 고치는 교사가 아닙니다. (3) 학생 정책을 가중치로 학습합니다. 우리 설계는 학생 가중치를 고정합니다.</p></div><div class="blk" data-block="" id="s-4-4"><h3 class="blk__h" id="h-s-4-4"><span class="num">4.4</span><span class="ttl">How² (arXiv 2510.11144)</span></h3><p><a href="https://arxiv.org/abs/2510.11144">원문</a>. Plancraft(Minecraft 조합 과제)에서 에이전트가 how-to 질문을 하고, 교사 모델이 답하고, 답을 메모리에 저장해 이후 과제에 재사용합니다. 교사 답의 추상화 수준(실행 가능한 행동열부터 고수준 하위목표까지)을 바꿔 비교했습니다. 즉시 성공률은 실행 가능한 답이 가장 높았고, 평생 학습에는 "abstracted and decoupled from the current state"인 답이 가장 유리했습니다.</p><p>우리 아이디어와의 차이: 교사는 질문에 답만 하고 도구, 가드레일, 하네스 코드를 고치지 않습니다. 평가 점수를 보고 하네스를 탐색하는 바깥 루프가 없습니다. 환경이 하나입니다. 그러나 "추상적인 답일수록 재사용성이 높다"는 결과는 정답 누설 반론에 대한 설계 근거로 쓸 수 있습니다.</p></div><div class="blk" data-block="" id="s-4-5"><h3 class="blk__h" id="h-s-4-5"><span class="num">4.5</span><span class="ttl">Teaching the Harness / SAT (arXiv 2611.13144)</span></h3><p><a href="https://arxiv.org/abs/2611.13144">원문</a>. 강한 교사가 학습자 모델(경험 프로필과 실패 가설)을 만들고, 가설을 시험하는 탐침 과제를 요청하고, 진단된 실패에 맞는 스킬을 씁니다. 스킬은 matched 개발 과제에서 성공률을 올릴 때만 라이브러리에 들어갑니다. Claude-Sonnet-5가 DeepSeek-V4-Flash를 가르친 주 실험에서 86.46%로, 학습자 모델 없는 교사 81.04%와 가르치지 않은 학생 75.00%보다 높습니다. 교사가 떠난 뒤 저장된 라이브러리가 평균 5.6~11.1점 이득을 유지합니다.</p><p>우리 아이디어와의 차이: 능동성이 교사 쪽에 있습니다. 원문 표현은 "The teacher requests probes"입니다. 학생은 탐침 과제를 풀 뿐 요청하지 않습니다.</p></div><div class="blk" data-block="" id="s-4-6"><h3 class="blk__h" id="h-s-4-6"><span class="num">4.6</span><span class="ttl">그 밖에 가까운 연구</span></h3><ul>
+<li>UCT (<code>arXiv</code> 2602.01983): 풀이 중 에이전트가 "requests a tool that does not yet exist"이면 build ticket이 생깁니다. 격리된 빌드 루프가 도구 코드와 시험 스크립트를 만들어 라이브러리에 넣습니다. 빌드 루프도 같은 주 모델("we continue to employ the main model")입니다.</li>
+<li>MUSE-Autoskill (<code>arXiv</code> 2605.27366): 스킬이 부족하면 에이전트가 기능 명세를 넘겨 스킬을 만들고 등록합니다. 별도 교사는 없습니다.</li>
+<li>FreeForm Harness (<code>arXiv</code> 2611.04579): 맞는 확장이 없으면 기기의 에이전트가 Web 코딩 에이전트에게 확장 제작을 의뢰하고, 결과를 기기에서 검증해 받아들입니다. 요청과 외부 제작은 있지만 trace 기반 최적화는 아닙니다.</li>
+<li>
+<p>Socratic Skill Learning/SSL (<code>arXiv</code> 2610.17860): Educator가 정해진 시점에 학생 작업을 검토하고, 학생은 "can question, test, adapt, or reject advice"합니다. 주 코호트 유틸리티 0.801로 스킬 없음 0.723보다 높고, Issue-Guided 방식은 0.805에 Educator 토큰을 61.7% 줄였습니다. 학생이 도구를 요청하는 경로와 교사의 하네스 수정은 없습니다.</p>
+</li>
+<li>
+<p>MetaAgent (<code>arXiv</code> 2508.00271): 지식 공백에서 자연어 help request를 만들고 tool router가 외부 도구로 보냅니다. 스스로 도구와 지식베이스를 쌓습니다. 교사가 하네스를 고치는 구조는 없습니다.</p>
+</li>
+<li>AHCE (<code>arXiv</code> 2602.22546): 언제 사람 전문가에게 물을지 학습한 정책으로 Minecraft 성공률을 보통 난이도에서 32%, 고난도에서 약 70% 올립니다. 도움은 그 에피소드에만 쓰입니다.</li>
+<li>R2V Agent (<code>arXiv</code> 2605.16604): 작은 모델이 어느 단계에서 큰 모델에게 도움을 청할지 단계별 라우터로 정합니다. 하네스 변경은 없습니다.</li>
+<li>Knowledge Distillation with Training Wheels (<code>arXiv</code> 2502.17717): 학생이 테스트 시 교사의 도움을 청하는 법을 가중치 학습으로 배웁니다.</li>
+<li>HarnessAdapt-RL (<code>arXiv</code> 2610.28069): RL 중 고정 교사가 스킬을 만들고 다른 교사가 도구와 훅을 진화시킵니다. Qwen3.5-9B로 SWE-bench Verified에서 GRPO 대비 9.8점 높습니다. 스킬 생성은 실패 조건이 촉발합니다.</li>
+<li>AgentBrew (<code>arXiv</code> 2607.16851): 학생 실패가 교사 루프를 촉발해 외부 메모리에 노트를 남깁니다. 촉발 주체는 실패 판정입니다.</li>
+<li>LATM (<code>arXiv</code> 2305.17126): 도구 제작 모델이 Python 도구를 만들고 다른(더 작은) 모델이 그 도구를 씁니다. 새 유형의 요청이 들어오면 dispatcher가 도구 제작을 요청할지 정하고, 만든 도구는 캐시에 남습니다. 강한 모델이 약한 모델을 위해 지속 도구를 만드는 가장 이른 사례(2023)입니다. 요청 주체는 도구 사용 모델이 아닌 dispatcher이고, 하네스 최적화 루프는 없습니다.</li>
+<li>Harness Compilation (<code>arXiv</code> 2610.11231): 큰 교사가 작은 VLM의 실행 trace로 하네스의 내용과 제어를 고치고, 별도 검증 세트로 배포 하네스를 고릅니다. 학생 요청은 촉발 조건이 아닙니다.</li>
+</ul></div></div></section><section aria-labelledby="h-s-5" class="sec" id="s-5"><h2 class="sec__h" id="h-s-5"><button aria-controls="b-s-5" aria-expanded="true" class="sec__btn" type="button"><span class="num">5</span><span class="ttl">Motivation 후보</span><svg aria-hidden="true" class="chev" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="m6 9 6 6 6-6"></path></svg></button></h2><div class="sec__body" id="b-s-5"><div class="blk blk--lead" data-block=""><p>권고하는 서사는 세 문장입니다. 기존 하네스 최적화는 학생이 한 일(trace)에서 학생에게 없던 것(공백)을 거꾸로 추론합니다. 공백은 결정 시점에 학생에게 가장 잘 보입니다. 학생이 그 시점에 싼 요청을 남기면 교사는 같은 예산으로 더 정확한 수정을 합니다. 후보 1(정보 비대칭)을 중심 주장으로, 후보 3(효율)을 주 결과로, 후보 2(학생 맞춤)를 분석 절로 두는 구성을 권합니다.</p></div><div class="blk" data-block="" id="s-5-1"><h3 class="blk__h" id="h-s-5-1"><span class="num">5.1</span><span class="ttl">처음 세운 서사 평가: "proposer는 정적인 정보만 마주한다"</span></h3><p>이 표현을 그대로 쓰면 반박당하기 쉽습니다. Meta-Harness의 proposer는 실행 trace를 원문 그대로 읽고, 원문은 trace에 "prompts, tool calls, model outputs, and state updates"가 들어 있다고 씁니다. 같은 논문은 점수만 준 조건(중앙값 34.6), 요약을 준 조건(34.9), 전체 trace를 준 조건(50.0)을 비교해 "더 풍부한 사후 정보"가 중요하다는 주장을 이미 했습니다. 심사자는 "학생의 출력과 추론이 trace에 다 있는데 무엇이 정적인가"라고 물을 것입니다.</p><p>살릴 수 있는 형태는 "trace는 학생이 한 행동만 기록하고, 하지 못해서 원했던 것은 기록하지 않는다"입니다. 이 주장은 HarnessCompass가 이미 했습니다. 원문은 기존 방법이 "show that a task failed and where, but not why the code agent struggled"라고 씁니다. 학생에게 묻는 이유는 "only the code agent knows where it got stuck"입니다. 따라서 원안의 차별점은 정보가 정적인지 여부에서 찾을 수 없고, 신호를 얻는 시점(풀이 중)과 주체(학생이 스스로 요청)에서 찾아야 합니다.</p></div><div class="blk" data-block="" id="s-5-2"><h3 class="blk__h" id="h-s-5-2"><span class="num">5.2</span><span class="ttl">후보 1: 정보 비대칭</span></h3><p>주장: proposer는 사후 trajectory로 실패 원인을 추론해야 합니다. 결정 시점에 무엇이 모자랐는지는 학생만 압니다.</p><p>같은 주장을 한 논문: HarnessCompass(2608.01918)가 사후 보고 형태로 같은 주장을 했습니다(5.1의 인용). How²(2510.11144)는 에이전트가 how-to 질문으로 "reduce uncertainty and fill knowledge gaps"한다고 쓰며, 학생이 자기 공백을 안다는 전제를 씁니다. 풀이 중 요청과 사후 보고를 같은 예산에서 비교한 논문은 확인하지 못했습니다.</p><p>반론:
+- HarnessCompass가 이미 했다는 반론에는 시점 차이를 실험으로 보여야 합니다.
+- 학생의 자기 진단이 틀릴 수 있습니다. HarnessCompass도 보고를 trajectory로 검증한 뒤에만 썼습니다. 우리도 요청을 후보 증거로만 쓰고 교사가 trace로 확인하게 합니다.
+- 요청 도구가 생기면 학생의 풀이 행동 자체가 바뀝니다. 요청 도구는 있지만 교사가 요청을 읽지 않는 조건을 두어 이 효과를 분리합니다.</p><p>보여 줄 실험: 교사 예산을 고정하고 C2(사후 보고)와 C3(풀이 중 요청)를 비교합니다. 추가로 교사에게 요청 문장만 주는 조건과 요청 문장과 요청 직전 trace 구간을 함께 주는 조건을 비교합니다. 요청 정확도는 "요청이 가리킨 공백을 채운 수정이 그 과제를 실제로 고친 비율"로 잽니다.</p></div><div class="blk" data-block="" id="s-5-3"><h3 class="blk__h" id="h-s-5-3"><span class="num">5.3</span><span class="ttl">후보 2: 학생 맞춤</span></h3><p>주장: 교사가 설계한 도구와 스킬은 학생 능력에 맞지 않을 수 있습니다. 요청은 학생의 능력 경계를 드러냅니다.</p><p>같은 주장을 한 논문: 교사 쪽에서 학생을 추론하는 형태로 여러 편이 이미 주장했습니다.
+- SAT(2611.13144): 교사가 학습자 모델과 탐침으로 학생 맞춤 스킬을 만들고, 틀린 프로필과 라이브러리 교환 통제로 학생 특이성을 보였습니다.
+- EvoMatch(2610.33024): 103개 과제-스킬 쌍에서 같은 스킬이 GPT-5.6-luna를 31.1점 올리고 Gemma-4-E4B를 8.8점 떨어뜨렸습니다.
+- AgentBrew(2607.16851): 교사 노트는 "tailored to be concretely executable by a substantially weaker student"여야 한다고 씁니다.
+- SKILL-KD(2607.28048): 기존 스킬이 약한 학생에게 "mismatch"를 만든다고 씁니다.</p><p>학생이 요청으로 능력 경계를 직접 드러내는 형태는 확인하지 못했습니다.</p><p>반론:
+- SAT의 교사 탐침이 같은 정보를 얻습니다. 학생 요청과 교사 탐침을 비용 대비로 비교해야 합니다.
+- 약한 학생은 자기 공백을 모를 수 있습니다. EvoMatch는 약한 모델 실패의 86%에서 어긴 요구사항이 이미 스킬에 적혀 있었다고 보고합니다. 이런 실패는 요청으로 드러나지 않는 실행 문제입니다.</p><p>보여 줄 실험: 학생 모델 2~3개(강, 중, 약)에서 C3와 SAT형 교사 탐침을 같은 예산으로 비교합니다. 학생 A의 요청으로 만든 하네스를 학생 B에 적용하는 교환 통제(SAT의 library swap과 같은 방식)로 맞춤 효과를 확인합니다.</p></div><div class="blk" data-block="" id="s-5-4"><h3 class="blk__h" id="h-s-5-4"><span class="num">5.4</span><span class="ttl">후보 3: 효율</span></h3><p>주장: 요청은 학생이 싸게 붙이는 진단 라벨입니다. 같은 교사 예산에서 더 높은 성능, 또는 같은 성능에 더 적은 반복을 얻습니다. active learning에서 학습자가 질의할 표본을 골라 라벨 효율을 높이는 주장과 대응합니다. 대응 관계는 학생이 질의자, 교사가 oracle, 하네스 수정이 라벨입니다.</p><p>같은 주장을 한 논문: 최적화기 쪽 능동성으로는 이미 나왔습니다.
+- VERSE(2610.02616): 최적화기가 스스로 고른 실험이 중요하다며 "probes the optimizer did not ask for can be worse than none"이라고 씁니다.
+- SSL(2610.17860): 미해결 이슈에 검토를 집중해 Educator 토큰을 61.7% 줄였습니다.
+- HarnessCompass(2608.01918): AHE 반복의 약 4분의 1로 더 높은 성능에 도달했습니다. 다만 원문은 이 효율을 일반화 게이트와 R3 병합으로 설명하고, 1인칭 피드백만 더한 행에서는 반복이 2에서 12로 늘었습니다.</p><p>학생 요청을 라벨로 보고 교사 예산 대비 성능 곡선을 그린 논문은 확인하지 못했습니다.</p><p>반론:
+- 라벨에 잡음이 많을 수 있습니다. HarnessCompass의 피드백 단독 행은 held-out 하락과 반복 증가를 보였습니다.
+- 요청 생성이 학생 토큰을 늘립니다. 학생과 교사를 합한 총비용으로 비교해야 합니다.
+- active learning의 라벨은 정답 라벨이고 여기서 "라벨"은 하네스 수정입니다. 비유는 맞지만 이론 결과를 그대로 가져올 수는 없습니다.</p><p>보여 줄 실험: 교사 토큰 예산을 세 단계(0.5배, 1배, 2배)로 두고 C1, C2, C3의 held-out 성능 곡선을 그립니다. 요청 신호 절제는 세 가지입니다. (a) C3-shuffle(다른 과제의 요청), (b) 요청 문장을 지우고 요청 위치만 남김, (c) 과제당 요청 횟수 상한 변화. C3의 곡선이 같은 예산에서 C1, C2보다 위에 있고 (a)에서 이 차이가 사라지면 후보 3이 성립합니다.</p></div></div></section><section aria-labelledby="h-s-6" class="sec" id="s-6"><h2 class="sec__h" id="h-s-6"><button aria-controls="b-s-6" aria-expanded="true" class="sec__btn" type="button"><span class="num">6</span><span class="ttl">논문성 평가</span><svg aria-hidden="true" class="chev" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="m6 9 6 6 6-6"></path></svg></button></h2><div class="sec__body" id="b-s-6"><div class="blk" data-block="" id="s-6-1"><h3 class="blk__h" id="h-s-6-1"><span class="num">6.1</span><span class="ttl">새로움</span></h3><p>조사 범위에서 세 고리(학생의 풀이 중 요청, 교사의 하네스 수정, 요청 효과의 통제 측정)를 모두 갖춘 논문은 찾지 못했습니다. 각 고리는 따로 존재합니다. 풀이 중 요청과 지속 결과는 MetaForge, How², UCT, MUSE-Autoskill이 했습니다. 학생 신호를 하네스 진화에 넣는 것은 HarnessCompass(사후 보고)와 Evo-Harness(사후 스킬 제안)가 했습니다. 교사-학생 하네스 교육은 SAT, SSL, AI4AI, HarnessAdapt-RL, Harness Compilation이 했습니다.</p><p>따라서 새로움은 "결합 자체"보다 다음 질문에서 나와야 합니다.</p><ol>
+<li>풀이 중 요청은 사후 보고보다 무엇을 더 알려 주는가. 실패 직전 상태와 결정 시점의 맥락이 요청에 담기는지 측정할 수 있습니다.</li>
+<li>요청이 있는 과제와 없는 과제의 차이로 학생이 자기 공백을 얼마나 정확히 아는지(요청 보정)를 측정할 수 있습니다. EvoMatch(<code>arXiv</code> 2610.33024)는 103개 과제-스킬 쌍에서 같은 스킬이 GPT-5.6-luna를 31.1점 올리고 Gemma-4-E4B를 8.8점 떨어뜨린다고 보고합니다. 학생 요청은 이런 능력 불일치를 줄이는 신호가 될 수 있습니다.</li>
+<li>요청 예산과 교사 비용의 교환 관계입니다.</li>
+</ol></div><div class="blk" data-block="" id="s-6-2"><h3 class="blk__h" id="h-s-6-2"><span class="num">6.2</span><span class="ttl">예상 반론과 대응</span></h3><p><strong>반론 1: 요청 신호가 정답 누설이 된다.</strong> 학생이 "이 테스트를 통과하는 함수를 달라"고 요청하고 교사가 과제별 코드를 넣으면 하네스가 과제를 외웁니다. HarnessCompass의 절제 결과(held-out 58.4% → 55.8%)가 이 위험의 실측 사례입니다. 대응은 네 가지입니다. (a) 교사는 진화 분할만 보고, 수정은 과제 비의존 규칙을 따릅니다(HarnessCompass의 일반화 게이트). (b) 모든 수정을 held-out 분할에서 받아들일지 정합니다. (c) Meta-Harness처럼 과제 문자열 누설을 정규식으로 감사합니다. (d) Bad Genius/CHASE(<code>arXiv</code> 2609.18366)처럼 평가 형식을 바꿔도 이득이 남는지 시험합니다. How²의 결과는 추상적인 응답이 재사용에 유리하다는 설계 근거를 줍니다.</p><p><strong>반론 2: 교사 비용이 늘어난다.</strong> 요청마다 교사가 반응하면 비용이 늘어납니다. 대응은 같은 교사 토큰 예산과 같은 평가 횟수에서 비교하는 것입니다. SAT는 교사 비용을 실행당 달러로 보고하고(부록 G 설정에서 학습자 모델 교사 $1.245, 비교 교사 $0.459), SSL은 Issue-Guided 방식으로 Educator 토큰을 61.7% 줄였습니다. 우리도 요청을 모아 반복마다 한 번 처리하는 배치형을 기본으로 두는 것이 좋습니다.</p><p><strong>반론 3: 단순 self-reflection과 무엇이 다른가.</strong> Self-Harness(2606.09498)와 Multi-Task Self-Evolving Harnesses(2609.38372)는 학생 자신이 하네스를 고칩니다. 대응은 대조군 두 개입니다. (a) 학생이 자기 요청을 스스로 구현하는 self 대조군, (b) 같은 모델이 풀이 후에 반성하는 사후 보고 대조군. 두 대조군보다 "풀이 중 요청 + 강한 교사"가 held-out에서 높아야 주장이 섭니다.</p><p><strong>반론 4: 효과를 내는 것은 요청 내용과 무관한 요청 횟수나 추가 토큰이다.</strong> 대응은 셔플 대조군입니다. 요청 문장을 다른 과제의 요청과 섞어 교사에게 주고, 성능 차이가 사라지는지 봅니다.</p><p><strong>반론 5: 작은 학생에게는 요청 행위가 부담이다.</strong> Harness Compilation(2610.11231)에서 작은 VLM에게 명시적 자원 요청을 요구하자 InfoSeek에서 9.0점, DocVQA에서 2.7점이 떨어졌습니다. 대응은 두 가지입니다. (a) 요청 도구를 선택 사항으로 두고, 요청 도구는 있으나 교사가 읽지 않는 조건으로 요청 행위의 비용을 따로 잽니다. (b) 학생 크기별로 결과를 나눠 보고합니다. 요청이 강한 학생에게만 효과가 있다면 그 자체가 후보 2(학생 맞춤)의 분석 결과가 됩니다.</p></div><div class="blk" data-block="" id="s-6-3"><h3 class="blk__h" id="h-s-6-3"><span class="num">6.3</span><span class="ttl">대조군 설계(최소안)</span></h3><p>모든 조건은 같은 학생 모델, 같은 교사 모델, 같은 seed 하네스, 같은 평가 횟수, 같은 교사 토큰 상한을 씁니다.</p><figure class="tbl tbl--cards" data-cols="3"><div aria-label="표 5: 조건, 교사가 받는 정보, 학생 쪽 변화" class="tbl__scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">조건</th>
+<th scope="col">교사가 받는 정보</th>
+<th scope="col">학생 쪽 변화</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="조건"><span class="cell">C0</span></td>
+<td data-label="교사가 받는 정보"><span class="cell">없음(seed 하네스 고정)</span></td>
+<td data-label="학생 쪽 변화"><span class="cell">없음</span></td>
+</tr>
+<tr>
+<td data-label="조건"><span class="cell">C1 수동</span></td>
+<td data-label="교사가 받는 정보"><span class="cell">trace + 점수(Meta-Harness형)</span></td>
+<td data-label="학생 쪽 변화"><span class="cell">없음</span></td>
+</tr>
+<tr>
+<td data-label="조건"><span class="cell">C2 사후 보고</span></td>
+<td data-label="교사가 받는 정보"><span class="cell">C1 + 실패 후 1인칭 보고(HarnessCompass형)</span></td>
+<td data-label="학생 쪽 변화"><span class="cell">풀이 후 질문 응답</span></td>
+</tr>
+<tr>
+<td data-label="조건"><span class="cell">C3 능동 요청</span></td>
+<td data-label="교사가 받는 정보"><span class="cell">C1 + 풀이 중 요청 로그</span></td>
+<td data-label="학생 쪽 변화"><span class="cell">request_capability(type, need, evidence) 도구 추가, 응답은 다음 반복에 반영</span></td>
+</tr>
+<tr>
+<td data-label="조건"><span class="cell">C3-shuffle</span></td>
+<td data-label="교사가 받는 정보"><span class="cell">C1 + 다른 과제의 요청 로그</span></td>
+<td data-label="학생 쪽 변화"><span class="cell">C3와 같음</span></td>
+</tr>
+<tr>
+<td data-label="조건"><span class="cell">C3-self</span></td>
+<td data-label="교사가 받는 정보"><span class="cell">교사 없음, 학생이 자기 요청을 구현</span></td>
+<td data-label="학생 쪽 변화"><span class="cell">C3와 같음</span></td>
+</tr>
+</tbody>
+</table></div></figure><p>요청 유형은 tool, skill, guardrail, knowledge 네 가지로 제한합니다. 지표는 held-out pass@1, 목표 점수 도달까지 반복 수, 교사 토큰, 요청 채택률(요청이 받아들여진 수정으로 이어진 비율), 요청 보정(요청한 과제와 실패한 과제의 일치도)입니다.</p></div><div class="blk" data-block="" id="s-6-4"><h3 class="blk__h" id="h-s-6-4"><span class="num">6.4</span><span class="ttl">벤치마크 후보</span></h3><figure class="tbl tbl--cards" data-cols="3"><div aria-label="표 6: 벤치마크, 원문, 쓰는 이유" class="tbl__scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">벤치마크</th>
+<th scope="col">원문</th>
+<th scope="col">쓰는 이유</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="벤치마크"><span class="cell">SWE-bench Verified</span></td>
+<td data-label="원문"><span class="cell"><a href="https://arxiv.org/abs/2310.06770">2310.06770</a></span></td>
+<td data-label="쓰는 이유"><span class="cell">HarnessCompass, HarnessAdapt-RL과 직접 비교 가능. HarnessCompass의 50/450 분할을 재사용할 수 있습니다.</span></td>
+</tr>
+<tr>
+<td data-label="벤치마크"><span class="cell">Terminal-Bench 2</span></td>
+<td data-label="원문"><span class="cell">Meta-Harness <a class="xref" href="#s-4-3">4.3절</a></span></td>
+<td data-label="쓰는 이유"><span class="cell">Meta-Harness와 직접 비교. 원문은 별도 분할 없이 89과제에서 탐색과 평가를 같이 했으므로 우리 실험은 분할을 따로 두어야 합니다.</span></td>
+</tr>
+<tr>
+<td data-label="벤치마크"><span class="cell">τ-bench</span></td>
+<td data-label="원문"><span class="cell"><a href="https://arxiv.org/abs/2406.12045">2406.12045</a></span></td>
+<td data-label="쓰는 이유"><span class="cell">도구와 정책(가드레일) 요청이 자연스럽게 생기는 도메인.</span></td>
+</tr>
+<tr>
+<td data-label="벤치마크"><span class="cell">AppWorld</span></td>
+<td data-label="원문"><span class="cell"><a href="https://arxiv.org/abs/2407.18901">2407.18901</a></span></td>
+<td data-label="쓰는 이유"><span class="cell">앱 API 공백이 많아 도구 요청 신호를 보기 좋습니다.</span></td>
+</tr>
+<tr>
+<td data-label="벤치마크"><span class="cell">WebArena</span></td>
+<td data-label="원문"><span class="cell"><a href="https://arxiv.org/abs/2307.13854">2307.13854</a></span></td>
+<td data-label="쓰는 이유"><span class="cell">웹 에이전트 일반성 확인용.</span></td>
+</tr>
+<tr>
+<td data-label="벤치마크"><span class="cell">EHRSQL</span></td>
+<td data-label="원문"><span class="cell"><a href="https://arxiv.org/abs/2301.07695">2301.07695</a>, 2024 shared task <a href="https://arxiv.org/abs/2405.06673">2405.06673</a></span></td>
+<td data-label="쓰는 이유"><span class="cell">text-to-SQL on EHR. 2024 shared task는 답할 수 없는 질문을 다루므로 "가드레일 요청"을 시험하기 좋습니다.</span></td>
+</tr>
+</tbody>
+</table></div></figure><p>EHR text-to-SQL과 연결하면 요청 유형이 구체적으로 나옵니다. 예를 들어 "OMOP concept 이름 조회 도구", "단위 변환 스킬", "답할 수 없는 질문에서 거절하는 가드레일" 요청이 나올 수 있습니다. 이 연결은 도메인 논문(예: 의료 NLP 워크숍)으로도 쓸 수 있습니다.</p></div><div class="blk" data-block="" id="s-6-5"><h3 class="blk__h" id="h-s-6-5"><span class="num">6.5</span><span class="ttl">최소 실험 규모와 비용 감</span></h3><p>아래는 추정이며 원문 수치가 아닙니다. 가정은 Meta-Harness의 "20회 반복, 약 60개 하네스 평가"를 그대로 따르고, 평가 한 번에 진화 분할 50과제를 쓰는 것입니다.</p><ul>
+<li>학생 에피소드 수 = 조건 6개 × seed 3개 × 하네스 60개 × 50과제 = 54,000회, 여기에 held-out 평가가 더해집니다.</li>
+<li>이 규모는 학생을 로컬 오픈 모델로 돌릴 때만 현실적입니다. 학생 비용은 GPU 시간이 대부분입니다.</li>
+<li>교사 비용은 반복 20회 × 조건 5개(C0 제외) × seed 3개 = 300회의 교사 세션입니다. 교사 세션 하나가 trace를 많이 읽으므로 교사 토큰 상한을 조건 공통으로 정해야 합니다.</li>
+<li>줄인 1차 실험: SWE-bench Verified 대신 τ-bench 한 도메인이나 EHRSQL 일부로 시작하고, 조건을 C1, C2, C3, C3-shuffle 네 개, seed 2개로 줄입니다. 이 규모에서 C3가 C1, C2보다 held-out에서 높지 않으면 주제를 접는 기준으로 씁니다.</li>
+</ul></div><div class="blk" data-block="" id="s-6-6"><h3 class="blk__h" id="h-s-6-6"><span class="num">6.6</span><span class="ttl">목표 학회와 마감</span></h3><figure class="tbl tbl--cards" data-cols="3"><div aria-label="표 7: 학회, 마감, 확인 상태" class="tbl__scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">학회</th>
+<th scope="col">마감</th>
+<th scope="col">확인 상태</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="학회"><span class="cell">ACL 2027</span></td>
+<td data-label="마감"><span class="cell">ARR 제출 2027-01-04</span></td>
+<td data-label="확인 상태"><span class="cell"><a href="https://2027.aclweb.org/calls/main/">공식 CFP</a>에서 확인</span></td>
+</tr>
+<tr>
+<td data-label="학회"><span class="cell">ICML 2027</span></td>
+<td data-label="마감"><span class="cell">초록 2027-01-14, 본문 2027-01-22 (AoE)</span></td>
+<td data-label="확인 상태"><span class="cell"><a href="https://icml.cc/Conferences/2027/Dates">공식 일정</a>에서 확인</span></td>
+</tr>
+<tr>
+<td data-label="학회"><span class="cell">COLM 2027</span></td>
+<td data-label="마감"><span class="cell">미발표</span></td>
+<td data-label="확인 상태"><span class="cell">공식 2027 일정 페이지 404. 참고로 COLM 2026은 초록 3월 26일, 본문 3월 31일이었습니다(<a href="https://colm.cc/Conferences/2026/Dates">공식</a>, 검색 결과 기준이며 직접 열지 않음)</span></td>
+</tr>
+<tr>
+<td data-label="학회"><span class="cell">NeurIPS 2027</span></td>
+<td data-label="마감"><span class="cell">미발표</span></td>
+<td data-label="확인 상태"><span class="cell">공식 2027 일정 페이지 404</span></td>
+</tr>
+<tr>
+<td data-label="학회"><span class="cell">ICLR 2027</span></td>
+<td data-label="마감"><span class="cell">2026-09-25 마감 지남</span></td>
+<td data-label="확인 상태"><span class="cell"><a href="https://iclr.cc/Conferences/2027/AuthorGuidelines">공식 저자 안내</a>, 검색 결과 기준</span></td>
+</tr>
+<tr>
+<td data-label="학회"><span class="cell">KDD 2027 1차</span></td>
+<td data-label="마감"><span class="cell">2026-07-26 마감 지남</span></td>
+<td data-label="확인 상태"><span class="cell"><a href="https://kdd2027.kdd.org/research-track-call-for-papers/">공식 CFP</a>에서 확인</span></td>
+</tr>
+</tbody>
+</table></div></figure><p>추천 순서는 COLM 2027(언어모델 에이전트 주제와 맞고, Meta-Harness도 COLM 2026 포스터 페이지가 검색 결과에 있었습니다. 직접 열지 않아 확인 못 함), 다음이 NeurIPS 2027입니다. ACL과 ICML은 6~9주 안에 위 대조 실험을 끝내야 하므로 1차 결과가 12월 중순까지 나올 때만 시도할 만합니다.</p></div><div class="blk" data-block="" id="s-6-7"><h3 class="blk__h" id="h-s-6-7"><span class="num">6.7</span><span class="ttl">ChatGPT 의견 검토</span></h3><p>같은 아이디어에 대해 받은 ChatGPT 의견을 이번 조사 결과와 대조했습니다. 의견의 큰 방향은 이 보고서의 결론과 같습니다. 학생 요청이 trajectory 진단보다 무엇을 더 주는지 증명해야 하고, online task recovery와 cross-task improvement를 따로 재야 하며, 첫 프로토타입은 skill과 guardrail 요청으로 한정한다는 점입니다. 다음 네 가지는 고쳐야 합니다.</p><ol>
+<li>가칭 "Active Harness Evolution (AHE)"는 약어가 Agentic Harness Engineering(AHE, <code>arXiv</code> 2604.25850)과 겹칩니다. HarnessCompass가 이 AHE를 기준선으로 씁니다.</li>
+<li>제안 제목의 "Learning to Ask"는 Learning to Ask: When LLM Agents Meet Unclear Instruction(<code>arXiv</code> 2409.00557)과 같습니다.</li>
+<li>의견이 든 선행연구(MCP-Zero, MetaAgent, Meta-Skills, SAT, ActiveSaddler)는 모두 원문으로 확인했습니다. MCP-Zero(2506.01056)는 "Active Tool Request"로 필요한 도구를 요청하지만 기존 서버 풀에서 검색할 뿐입니다. 더 가까운 HarnessCompass, Evo-Harness, MetaForge가 빠져 있습니다. 특히 MetaForge는 풀이 중 create_skill 요청으로 별도 모델이 도구를 만드는 구조이므로, "tool 요청"을 핵심 기여로 내세우면 겹칩니다. skill과 guardrail 요청으로 시작하자는 의견은 이 점에서도 맞습니다.</li>
+<li>요청 정책 학습(언제, 무엇을 요청할지)은 AHCE, R2V Agent, KnowNo, Bayesian Self-Escalation이 "언제 도움을 청할지"를 이미 학습했습니다. 이 방향을 기여로 삼으려면 요청 결과가 하네스에 지속되고 다음 과제에 쓰인다는 점에서 차별점을 보여야 합니다.</li>
+</ol></div></div></section><section aria-labelledby="h-s-7" class="sec" id="s-7"><h2 class="sec__h" id="h-s-7"><button aria-controls="b-s-7" aria-expanded="true" class="sec__btn" type="button"><span class="num">7</span><span class="ttl">확인하지 못한 것</span><svg aria-hidden="true" class="chev" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="m6 9 6 6 6-6"></path></svg></button></h2><div class="sec__body" id="b-s-7"><div class="blk blk--lead" data-block=""><ul>
+<li>조사 lane이 찾았지만 원문을 열지 못한 후보: Tool-Genesis (2603.05578), Joint Optimization of Tool Creation and Use (2608.24571), Guided-OPD (2606.15912). 세 편 모두 API 목록에만 있었고 abs 페이지로 제목을 대조하지 못했습니다.</li>
+<li>FlowEvo (2607.21596), SkillCraft (2603.00718), AI Pedagogy (2507.21065)는 abs 페이지의 citation_date가 <code>arXiv</code> id의 연월과 맞지 않습니다. papers.csv에는 citation_date의 연도를 적었습니다.</li>
+<li>Uni-Skill (2603.02623)이 배포 중 새로 만든 스킬 구현을 이후 과제에 재사용하는지는 원문에서 분명하지 않습니다.</li>
+<li>
+<p>Evo-Harness와 MetaForge가 요청(제안) 채널을 끈 조건과 비교했는지는 이번에 읽은 부분에서 확인하지 못했습니다.</p>
+</li>
+<li>
+<p>COLM 2027, NeurIPS 2027 공식 마감은 아직 공개되지 않아 확인하지 못했습니다.</p>
+</li>
+<li>Meta-Harness의 COLM 2026 채택은 검색 결과 요약에만 있고 해당 페이지를 직접 열지 않았습니다.</li>
+<li>Semantic Scholar API는 429를 반환해 인용 그래프 기반 탐색은 하지 못했습니다. 따라서 "직접 선행연구 없음"은 웹 검색, 참고문헌 추적, 반대 검색 21편 기준의 결론입니다.</li>
+<li>비공개 진행 연구나 <code>arXiv</code> 외 학회 논문집에만 있는 논문은 범위 밖입니다.</li>
+</ul></div></div></section><section aria-labelledby="h-s-x9" class="sec" id="s-x9"><h2 class="sec__h" id="h-s-x9"><button aria-controls="b-s-x9" aria-expanded="true" class="sec__btn" type="button"><span class="ttl">참고문헌</span><svg aria-hidden="true" class="chev" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="m6 9 6 6 6-6"></path></svg></button></h2><div class="sec__body" id="b-s-x9"><div class="blk blk--lead" data-block=""><p>전체 157편의 제목, 연도, 링크, 분류, 거리는 papers.csv에 있습니다. 본문에서 인용한 주요 문헌은 아래와 같습니다.</p><ol>
+<li>Meta-Harness: End-to-End Optimization of Model Harnesses (2026). <a class="url" href="https://arxiv.org/abs/2603.28052">arxiv.org/<wbr/>abs/<wbr/>2603.28052</a></li>
+<li>MoMHa: Multi-Objective Optimization of LLM Harnesses over Accuracy, Safety, and Tokens (2026). <a class="url" href="https://arxiv.org/abs/2609.30967">arxiv.org/<wbr/>abs/<wbr/>2609.30967</a></li>
+<li>HarnessCompass: Guiding Automatic Harness Evolution toward Generalizable and Effective Agent Harnesses (2026). <a class="url" href="https://arxiv.org/abs/2608.01918">arxiv.org/<wbr/>abs/<wbr/>2608.01918</a></li>
+<li>Evo-Harness: Context-to-Harness Skill Compilation for Self-Evolving Agents (2026). <a class="url" href="https://arxiv.org/abs/2608.15071">arxiv.org/<wbr/>abs/<wbr/>2608.15071</a></li>
+<li>MetaForge: A Self-Evolving Multimodal Agent that Retrieves, Adapts, and Forges Tools On Demand (2026). <a class="url" href="https://arxiv.org/abs/2606.01801">arxiv.org/<wbr/>abs/<wbr/>2606.01801</a></li>
+<li>$How^{2}$: How to learn from procedural How-to questions (2025). <a class="url" href="https://arxiv.org/abs/2510.11144">arxiv.org/<wbr/>abs/<wbr/>2510.11144</a></li>
+<li>Teaching the Harness: Student-Aware Skill Transfer for LLM Agents (2026). <a class="url" href="https://arxiv.org/abs/2611.13144">arxiv.org/<wbr/>abs/<wbr/>2611.13144</a></li>
+<li>Evolving from Tool User to Creator via Training-Free Experience Reuse in Multimodal Reasoning (2026). <a class="url" href="https://arxiv.org/abs/2602.01983">arxiv.org/<wbr/>abs/<wbr/>2602.01983</a></li>
+<li>Socratic Skill Learning: Interleaving Teaching and Practice for Transferable Agent Skills (2026). <a class="url" href="https://arxiv.org/abs/2610.17860">arxiv.org/<wbr/>abs/<wbr/>2610.17860</a></li>
+<li>Large Language Models as Tool Makers (2023). <a class="url" href="https://arxiv.org/abs/2305.17126">arxiv.org/<wbr/>abs/<wbr/>2305.17126</a></li>
+<li>MUSE-Autoskill: Self-Evolving Agents via Skill Creation, Memory, Management, and Evaluation (2026). <a class="url" href="https://arxiv.org/abs/2605.27366">arxiv.org/<wbr/>abs/<wbr/>2605.27366</a></li>
+<li>FreeForm Harness: A Mobile-Native Agent Harness for Open and Composable Extensions (2026). <a class="url" href="https://arxiv.org/abs/2611.04579">arxiv.org/<wbr/>abs/<wbr/>2611.04579</a></li>
+<li>MetaAgent: Toward Self-Evolving Agent via Tool Meta-Learning (2025). <a class="url" href="https://arxiv.org/abs/2508.00271">arxiv.org/<wbr/>abs/<wbr/>2508.00271</a></li>
+<li>Requesting Expert Reasoning: Augmenting LLM Agents with Learned Collaborative Intervention (2026). <a class="url" href="https://arxiv.org/abs/2602.22546">arxiv.org/<wbr/>abs/<wbr/>2602.22546</a></li>
+<li>R2V Agent: Teaching SLMs When to Ask for Help (2026). <a class="url" href="https://arxiv.org/abs/2605.16604">arxiv.org/<wbr/>abs/<wbr/>2605.16604</a></li>
+<li>Knowledge Distillation with Training Wheels (2025). <a class="url" href="https://arxiv.org/abs/2502.17717">arxiv.org/<wbr/>abs/<wbr/>2502.17717</a></li>
+<li>Training the Whole Agent, Not Just the Model (2026). <a class="url" href="https://arxiv.org/abs/2610.28069">arxiv.org/<wbr/>abs/<wbr/>2610.28069</a></li>
+<li>AgentBrew: Lifelong Knowledge Brewing from Strong Teachers to Weak LLM Agents (2026). <a class="url" href="https://arxiv.org/abs/2607.16851">arxiv.org/<wbr/>abs/<wbr/>2607.16851</a></li>
+<li>Harness Compilation: Which Decisions Should a Small Vision-Language Model Keep? (2026). <a class="url" href="https://arxiv.org/abs/2610.11231">arxiv.org/<wbr/>abs/<wbr/>2610.11231</a></li>
+<li>Evolving to Match Capabilities: Improving Harness Self-Evolution via Skill Adaptation (2026). <a class="url" href="https://arxiv.org/abs/2610.33024">arxiv.org/<wbr/>abs/<wbr/>2610.33024</a></li>
+<li>SKILL-KD: Contrastive Skill Distillation for LLM Agents (2026). <a class="url" href="https://arxiv.org/abs/2607.28048">arxiv.org/<wbr/>abs/<wbr/>2607.28048</a></li>
+<li>VERSE: Verified Self-Evolving Optimizer for Agent Harnesses (2026). <a class="url" href="https://arxiv.org/abs/2610.02616">arxiv.org/<wbr/>abs/<wbr/>2610.02616</a></li>
+<li>Self-Harness: Harnesses That Improve Themselves (2026). <a class="url" href="https://arxiv.org/abs/2606.09498">arxiv.org/<wbr/>abs/<wbr/>2606.09498</a></li>
+<li>Multi-Task Self-Evolving Harnesses with the Agent as Its Own Optimizer (2026). <a class="url" href="https://arxiv.org/abs/2609.38372">arxiv.org/<wbr/>abs/<wbr/>2609.38372</a></li>
+<li>Bad Genius: Counterfactual-Guided Harness Evolution Beyond Task-Specific Shortcuts (2026). <a class="url" href="https://arxiv.org/abs/2609.18366">arxiv.org/<wbr/>abs/<wbr/>2609.18366</a></li>
+<li>ActiveSaddler: Automated Curriculum Learning for Agent Harness Optimization (2026). <a class="url" href="https://arxiv.org/abs/2610.00906">arxiv.org/<wbr/>abs/<wbr/>2610.00906</a></li>
+<li>Harnesses That Improve Themselves: A Unifying Framework for Self-Improving Agent Harnesses (2026). <a class="url" href="https://arxiv.org/abs/2611.22299">arxiv.org/<wbr/>abs/<wbr/>2611.22299</a></li>
+<li>Agentic Harness Engineering: Observability-Driven Automatic Evolution of Coding-Agent Harnesses (2026). <a class="url" href="https://arxiv.org/abs/2604.25850">arxiv.org/<wbr/>abs/<wbr/>2604.25850</a></li>
+<li>AI4AI at Test-Time: Strong-to-Weak Capability Transfer via Harnesses (2026). <a class="url" href="https://arxiv.org/abs/2608.12307">arxiv.org/<wbr/>abs/<wbr/>2608.12307</a></li>
+<li>Learning to Ask: When LLM Agents Meet Unclear Instruction (2024). <a class="url" href="https://arxiv.org/abs/2409.00557">arxiv.org/<wbr/>abs/<wbr/>2409.00557</a></li>
+<li>Gödel Agent: A Self-Referential Agent Framework for Recursive Self-Improvement (2024). <a class="url" href="https://arxiv.org/abs/2410.04444">arxiv.org/<wbr/>abs/<wbr/>2410.04444</a></li>
+<li>SWE-bench: Can Language Models Resolve Real-World GitHub Issues? (2023). <a class="url" href="https://arxiv.org/abs/2310.06770">arxiv.org/<wbr/>abs/<wbr/>2310.06770</a></li>
+<li>$\tau$-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains (2024). <a class="url" href="https://arxiv.org/abs/2406.12045">arxiv.org/<wbr/>abs/<wbr/>2406.12045</a></li>
+<li>AppWorld: A Controllable World of Apps and People for Benchmarking Interactive Coding Agents (2024). <a class="url" href="https://arxiv.org/abs/2407.18901">arxiv.org/<wbr/>abs/<wbr/>2407.18901</a></li>
+<li>WebArena: A Realistic Web Environment for Building Autonomous Agents (2023). <a class="url" href="https://arxiv.org/abs/2307.13854">arxiv.org/<wbr/>abs/<wbr/>2307.13854</a></li>
+<li>EHRSQL: A Practical Text-to-SQL Benchmark for Electronic Health Records (2023). <a class="url" href="https://arxiv.org/abs/2301.07695">arxiv.org/<wbr/>abs/<wbr/>2301.07695</a></li>
+<li>Overview of the EHRSQL 2024 Shared Task on Reliable Text-to-SQL Modeling on Electronic Health Records (2024). <a class="url" href="https://arxiv.org/abs/2405.06673">arxiv.org/<wbr/>abs/<wbr/>2405.06673</a></li>
+</ol><p>학회 일정: ICML 2027 <a class="url" href="https://icml.cc/Conferences/2027/Dates">icml.cc/<wbr/>Conferences/<wbr/>2027/<wbr/>Dates</a> , ACL 2027 <a class="url" href="https://2027.aclweb.org/calls/main/">2027.aclweb.org/<wbr/>calls/<wbr/>main/<wbr/></a> , KDD 2027 <a class="url" href="https://kdd2027.kdd.org/research-track-call-for-papers/">kdd2027.kdd.org/<wbr/>research-track-call-for-papers/<wbr/></a></p><p>코드: Meta-Harness <a class="url" href="https://github.com/stanford-iris-lab/meta-harness">github.com/<wbr/>stanford-iris-lab/<wbr/>meta-harness</a></p></div></div></section>
+
+    </article>
+  </div>
+</main>
+
+<footer class="ftr">
+  <div class="ftr__in">
+    <span>작성일 <span class="mono">2026-11-20</span></span>
+    <span>갱신일 <span class="mono">2026-11-20</span></span>
+    <span>공개 자료 기준</span>
+    <span>이 페이지는 보고서 Markdown에서 자동 생성되었습니다.</span>
+    <a href="../">조사 목록으로</a>
+  </div>
+</footer>
+
+<dialog class="sheet" id="toc-sheet" aria-labelledby="sheet-title">
+  <div class="sheet__head">
+    <h2 class="sheet__title" id="sheet-title">목차</h2>
+    <button class="btn btn--icon" id="toc-close" type="button" aria-label="목차 닫기">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <div class="sheet__body">
+    <nav aria-label="목차"><ol class="toc"><li><a href="#s-x1"><span class="toc__ttl">요약</span></a></li><li><a href="#s-1"><span class="toc__num">1</span><span class="toc__ttl">조사 범위와 방법</span></a></li><li><a href="#s-2"><span class="toc__num">2</span><span class="toc__ttl">Meta-Harness와 하네스 최적화 계열</span></a><ol class="toc__sub"><li><a href="#s-2-1"><span class="toc__num">2.1</span><span class="toc__ttl">Meta-Harness 원문</span></a></li><li><a href="#s-2-2"><span class="toc__num">2.2</span><span class="toc__ttl">2026년 하네스 진화 계열</span></a></li><li><a href="#s-2-3"><span class="toc__num">2.3</span><span class="toc__ttl">고전 계열과 2025년 계열</span></a></li></ol></li><li><a href="#s-3"><span class="toc__num">3</span><span class="toc__ttl">학생이 요청하는 계열</span></a><ol class="toc__sub"><li><a href="#s-3-1"><span class="toc__num">3.1</span><span class="toc__ttl">요청 결과가 다음 과제까지 남는 연구</span></a></li><li><a href="#s-3-2"><span class="toc__num">3.2</span><span class="toc__ttl">요청 결과가 그 에피소드에서 끝나는 연구</span></a></li><li><a href="#s-3-3"><span class="toc__num">3.3</span><span class="toc__ttl">교사가 하네스를 고치지만 학생 요청이 촉발하지 않는 연구</span></a></li></ol></li><li><a href="#s-4"><span class="toc__num">4</span><span class="toc__ttl">결합의 직접 선행연구: 가장 가까운 5편</span></a><ol class="toc__sub"><li><a href="#s-4-1"><span class="toc__num">4.1</span><span class="toc__ttl">HarnessCompass (arXiv 2608.01918)</span></a></li><li><a href="#s-4-2"><span class="toc__num">4.2</span><span class="toc__ttl">Evo-Harness (arXiv 2608.15071)</span></a></li><li><a href="#s-4-3"><span class="toc__num">4.3</span><span class="toc__ttl">MetaForge (arXiv 2606.01801)</span></a></li><li><a href="#s-4-4"><span class="toc__num">4.4</span><span class="toc__ttl">How² (arXiv 2510.11144)</span></a></li><li><a href="#s-4-5"><span class="toc__num">4.5</span><span class="toc__ttl">Teaching the Harness / SAT (arXiv 2611.13144)</span></a></li><li><a href="#s-4-6"><span class="toc__num">4.6</span><span class="toc__ttl">그 밖에 가까운 연구</span></a></li></ol></li><li><a href="#s-5"><span class="toc__num">5</span><span class="toc__ttl">Motivation 후보</span></a><ol class="toc__sub"><li><a href="#s-5-1"><span class="toc__num">5.1</span><span class="toc__ttl">처음 세운 서사 평가: &quot;proposer는 정적인 정보만 마주한다&quot;</span></a></li><li><a href="#s-5-2"><span class="toc__num">5.2</span><span class="toc__ttl">후보 1: 정보 비대칭</span></a></li><li><a href="#s-5-3"><span class="toc__num">5.3</span><span class="toc__ttl">후보 2: 학생 맞춤</span></a></li><li><a href="#s-5-4"><span class="toc__num">5.4</span><span class="toc__ttl">후보 3: 효율</span></a></li></ol></li><li><a href="#s-6"><span class="toc__num">6</span><span class="toc__ttl">논문성 평가</span></a><ol class="toc__sub"><li><a href="#s-6-1"><span class="toc__num">6.1</span><span class="toc__ttl">새로움</span></a></li><li><a href="#s-6-2"><span class="toc__num">6.2</span><span class="toc__ttl">예상 반론과 대응</span></a></li><li><a href="#s-6-3"><span class="toc__num">6.3</span><span class="toc__ttl">대조군 설계(최소안)</span></a></li><li><a href="#s-6-4"><span class="toc__num">6.4</span><span class="toc__ttl">벤치마크 후보</span></a></li><li><a href="#s-6-5"><span class="toc__num">6.5</span><span class="toc__ttl">최소 실험 규모와 비용 감</span></a></li><li><a href="#s-6-6"><span class="toc__num">6.6</span><span class="toc__ttl">목표 학회와 마감</span></a></li><li><a href="#s-6-7"><span class="toc__num">6.7</span><span class="toc__ttl">ChatGPT 의견 검토</span></a></li></ol></li><li><a href="#s-7"><span class="toc__num">7</span><span class="toc__ttl">확인하지 못한 것</span></a></li><li><a href="#s-x9"><span class="toc__ttl">참고문헌</span></a></li></ol></nav>
+  </div>
+</dialog>
+
+<a class="totop js-only" id="totop" href="#top" aria-label="맨 위로" hidden>
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</a>
+
+<script>
+(() => {
+"use strict";
+const html = document.documentElement;
+const $ = (sel, root = document) => root.querySelector(sel);
+const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+const largeScreen = matchMedia("(min-width: 60em)");
+const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+const SEARCH_DEBOUNCE_MS = 150;
+const SHEET_CLOSE_FALLBACK_MS = 300;
+const sections = $$(".sec");
+const blocks = $$(".blk");
+const header = $(".hdr");
+const toggleAllBtn = $("#toggle-all");
+const tocOpenBtn = $("#toc-open");
+const tocCloseBtn = $("#toc-close");
+const sheet = $("#toc-sheet");
+const searchToggle = $("#search-toggle");
+const searchForm = $("#search-form");
+const searchInput = $("#q");
+const searchClear = $("#q-clear");
+const status = $("#search-status");
+const toTop = $("#totop");
+const hero = $(".hero");
+const openState = new Map();
+const isOpen = (sec) => openState.get(sec.id) !== false;
+function setOpen(sec, open, animate = true) {
+const btn = $(".sec__btn", sec);
+const body = $(".sec__body", sec);
+btn.setAttribute("aria-expanded", String(open));
+if (open) {
+body.removeAttribute("hidden");
+body.classList.remove("is-entering");
+if (animate && !reducedMotion.matches) {
+void body.offsetWidth;
+body.classList.add("is-entering");
+}
+} else {
+body.setAttribute("hidden", "until-found");
+}
+openState.set(sec.id, open);
+updateToggleAll();
+}
+const mainSections = sections.filter((sec) => !sec.classList.contains("sec--aux"));
+function updateToggleAll() {
+if (!toggleAllBtn) return;
+const anyClosed = mainSections.some((sec) => !isOpen(sec));
+const label = anyClosed ? "모두 펼치기" : "모두 접기";
+toggleAllBtn.dataset.action = anyClosed ? "open" : "close";
+$(".btn__label", toggleAllBtn).textContent = label;
+toggleAllBtn.setAttribute("aria-label", label);
+toggleAllBtn.title = label;
+}
+function applyDefaultState() {
+sections.forEach((sec, index) => {
+const open = sec.dataset.default === "closed" ? false : largeScreen.matches || index === 0;
+setOpen(sec, open, false);
+});
+html.classList.add("is-ready");
+}
+sections.forEach((sec) => {
+$(".sec__btn", sec).addEventListener("click", () => setOpen(sec, !isOpen(sec)));
+$(".sec__body", sec).addEventListener("beforematch", () => setOpen(sec, true, false));
+});
+toggleAllBtn?.addEventListener("click", () => {
+const open = toggleAllBtn.dataset.action === "open";
+sections.forEach((sec) => setOpen(sec, open, false));
+});
+function revealTarget(id) {
+const target = id && document.getElementById(id);
+if (!target) return null;
+const sec = target.closest(".sec");
+if (sec && !isOpen(sec)) setOpen(sec, true, false);
+return target;
+}
+window.addEventListener("hashchange", () => {
+const target = revealTarget(decodeURIComponent(location.hash.slice(1)));
+if (target) target.scrollIntoView({ block: "start" });
+});
+document.addEventListener("click", (event) => {
+const link = event.target.closest('a[href^="#"]');
+if (!link) return;
+const id = decodeURIComponent(link.getAttribute("href").slice(1));
+if (searchInput?.value) clearSearch({ focus: false });
+revealTarget(id);
+if (sheet?.open) closeSheet();
+});
+function openSheet() {
+if (!sheet || sheet.open) return;
+sheet.showModal();
+html.classList.add("sheet-open");
+}
+function finishClose() {
+sheet.classList.remove("is-closing");
+html.classList.remove("sheet-open");
+if (sheet.open) sheet.close();
+}
+function closeSheet() {
+if (!sheet || !sheet.open) return;
+if (reducedMotion.matches) {
+finishClose();
+return;
+}
+sheet.classList.add("is-closing");
+let done = false;
+const once = () => {
+if (done) return;
+done = true;
+sheet.removeEventListener("animationend", once);
+finishClose();
+};
+sheet.addEventListener("animationend", once);
+setTimeout(once, SHEET_CLOSE_FALLBACK_MS);
+}
+tocOpenBtn?.addEventListener("click", openSheet);
+tocCloseBtn?.addEventListener("click", closeSheet);
+sheet?.addEventListener("cancel", (event) => {
+event.preventDefault();
+closeSheet();
+});
+sheet?.addEventListener("click", (event) => {
+if (event.target === sheet) closeSheet();
+});
+sheet?.addEventListener("close", () => html.classList.remove("sheet-open"));
+const tocLinks = $$(".toc a");
+const headingFor = new Map();
+$$(".sec__h, .blk__h").forEach((heading) => {
+const owner = heading.closest(".blk[id], .sec[id]");
+if (owner) headingFor.set(heading, owner.id);
+});
+let currentId = null;
+function setCurrent(id) {
+if (currentId === id) return;
+currentId = id;
+tocLinks.forEach((link) => {
+if (decodeURIComponent(link.hash.slice(1)) === id) link.setAttribute("aria-current", "true");
+else link.removeAttribute("aria-current");
+});
+}
+if ("IntersectionObserver" in window && headingFor.size) {
+const headerPx = header ? header.getBoundingClientRect().height : 56;
+const spy = new IntersectionObserver((entries) => {
+const visible = entries.filter((entry) => entry.isIntersecting);
+if (visible.length) setCurrent(headingFor.get(visible[0].target));
+}, { rootMargin: `-${Math.round(headerPx)}px 0px -55% 0px`, threshold: 0 });
+headingFor.forEach((_, heading) => spy.observe(heading));
+}
+const normalize = (text) => text.normalize("NFC").toLowerCase();
+const tokensOf = (query) => normalize(query).trim().split(/\s+/).filter(Boolean);
+const matchesAll = (text, tokens) => tokens.every((token) => text.includes(token));
+const escapeRegExp = (text) => text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+let savedOpenState = null;
+let marks = [];
+let debounceTimer = 0;
+function highlight(root, tokens) {
+const pattern = new RegExp(tokens.map(escapeRegExp).join("|"), "giu");
+const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+acceptNode(node) {
+if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+const parent = node.parentElement;
+if (!parent || parent.closest("script, style, mark, .sec__h, .blk__h")) return NodeFilter.FILTER_REJECT;
+if (parent.closest("tr[hidden], [hidden]")) return NodeFilter.FILTER_REJECT;
+return NodeFilter.FILTER_ACCEPT;
+},
+});
+const targets = [];
+while (walker.nextNode()) targets.push(walker.currentNode);
+targets.forEach((textNode) => {
+const text = textNode.nodeValue;
+pattern.lastIndex = 0;
+if (!pattern.test(text)) return;
+pattern.lastIndex = 0;
+const fragment = document.createDocumentFragment();
+let last = 0;
+let match;
+while ((match = pattern.exec(text)) !== null) {
+if (match.index > last) fragment.appendChild(document.createTextNode(text.slice(last, match.index)));
+const mark = document.createElement("mark");
+mark.textContent = match[0];
+fragment.appendChild(mark);
+marks.push(mark);
+last = match.index + match[0].length;
+if (match[0].length === 0) pattern.lastIndex++;
+}
+if (last < text.length) fragment.appendChild(document.createTextNode(text.slice(last)));
+textNode.parentNode.replaceChild(fragment, textNode);
+});
+}
+function clearHighlights() {
+const parents = new Set();
+marks.forEach((mark) => {
+const parent = mark.parentNode;
+if (!parent) return;
+parent.replaceChild(document.createTextNode(mark.textContent), mark);
+parents.add(parent);
+});
+parents.forEach((parent) => parent.normalize());
+marks = [];
+}
+function showStatus(nodes) {
+status.replaceChildren(...nodes);
+status.hidden = false;
+}
+function makeClearButton() {
+const btn = document.createElement("button");
+btn.type = "button";
+btn.className = "btn";
+btn.textContent = "검색 지우기";
+btn.addEventListener("click", () => clearSearch({ focus: true }));
+return btn;
+}
+function strong(text) {
+const el = document.createElement("strong");
+el.textContent = text;
+return el;
+}
+function runSearch(query) {
+const tokens = tokensOf(query);
+clearHighlights();
+if (!tokens.length) {
+restoreAll();
+return;
+}
+if (!savedOpenState) savedOpenState = new Map(openState);
+searchClear.hidden = false;
+let visibleBlocks = 0;
+blocks.forEach((block) => {
+const blockMatches = matchesAll(normalize(block.textContent), tokens);
+$$("tbody tr", block).forEach((row) => {
+row.hidden = !matchesAll(normalize(row.textContent), tokens);
+});
+$$(".tbl", block).forEach((table) => {
+table.hidden = !$$("tbody tr", table).some((row) => !row.hidden);
+});
+block.hidden = !blockMatches;
+if (blockMatches) {
+visibleBlocks++;
+highlight(block, tokens);
+}
+});
+sections.forEach((sec) => {
+const anyBlock = $$(".blk", sec).some((block) => !block.hidden);
+sec.hidden = !anyBlock;
+if (anyBlock && !isOpen(sec)) setOpen(sec, true, false);
+});
+if (!visibleBlocks) {
+showStatus([
+strong(`"${query.trim()}"`),
+document.createTextNode(" 일치하는 내용이 없습니다. 다른 검색어를 입력하거나 검색을 지우세요."),
+makeClearButton(),
+]);
+return;
+}
+showStatus([
+strong(`"${query.trim()}"`),
+document.createTextNode(` 일치 ${marks.length}곳 · ${visibleBlocks}개 절 표시 중`),
+makeClearButton(),
+]);
+}
+function restoreAll() {
+blocks.forEach((block) => {
+block.hidden = false;
+$$("tbody tr, .tbl", block).forEach((el) => { el.hidden = false; });
+});
+sections.forEach((sec) => { sec.hidden = false; });
+if (savedOpenState) {
+sections.forEach((sec) => setOpen(sec, savedOpenState.get(sec.id) !== false, false));
+savedOpenState = null;
+}
+status.hidden = true;
+status.replaceChildren();
+searchClear.hidden = true;
+}
+function clearSearch({ focus }) {
+clearTimeout(debounceTimer);
+searchInput.value = "";
+runSearch("");
+if (focus) searchInput.focus();
+}
+if (searchForm && searchInput) {
+searchForm.addEventListener("submit", (event) => {
+event.preventDefault();
+clearTimeout(debounceTimer);
+runSearch(searchInput.value);
+});
+searchInput.addEventListener("input", () => {
+clearTimeout(debounceTimer);
+debounceTimer = setTimeout(() => runSearch(searchInput.value), SEARCH_DEBOUNCE_MS);
+});
+searchInput.addEventListener("keydown", (event) => {
+if (event.key === "Escape" && searchInput.value) {
+event.preventDefault();
+clearSearch({ focus: true });
+}
+});
+searchClear.addEventListener("click", () => clearSearch({ focus: true }));
+}
+searchToggle?.addEventListener("click", () => {
+const open = !header.classList.contains("search-open");
+header.classList.toggle("search-open", open);
+searchToggle.setAttribute("aria-expanded", String(open));
+searchToggle.setAttribute("aria-label", open ? "검색 닫기" : "검색 열기");
+if (open) searchInput.focus();
+else if (searchInput.value) clearSearch({ focus: false });
+});
+if (toTop && hero && "IntersectionObserver" in window) {
+new IntersectionObserver(([entry]) => {
+toTop.hidden = entry.isIntersecting;
+}, { threshold: 0 }).observe(hero);
+}
+applyDefaultState();
+const initial = revealTarget(decodeURIComponent(location.hash.slice(1)));
+if (initial) initial.scrollIntoView({ block: "start" });
+})();
+</script>
+</body>
+</html>
