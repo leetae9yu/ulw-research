@@ -1,0 +1,970 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>텍스트-SQL·EHR 질의 에이전트 · 에이전트 self-training과 모델 주도 문맥 관리 문헌 조사</title>
+<meta name="description" content="EHRSQL 2024 1위 self-training, STaR·ReST 계열, Stream of Search, NVIDIA 모델 주도 문맥 관리를 정리하고 의료 LLM 문헌 4편의 수치를 대조했습니다.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#FBFBFA">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#131312">
+<meta property="og:title" content="텍스트-SQL·EHR 질의 에이전트 · 에이전트 self-training과 모델 주도 문맥 관리 문헌 조사">
+<meta property="og:description" content="EHRSQL 2024 1위 self-training, STaR·ReST 계열, Stream of Search, NVIDIA 모델 주도 문맥 관리를 정리하고 의료 LLM 문헌 4편의 수치를 대조했습니다.">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231A1A1A'/%3E%3Cpath d='M8 9h16M8 16h16M8 23h10' stroke='%23FBFBFA' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<script>(function(){var d=document.documentElement;d.className+=" js";try{if(!matchMedia("(min-width: 60em)").matches){d.className+=" m-collapse"}}catch(e){}})();</script>
+<style>
+:root{color-scheme:light dark;--canvas:#FBFBFA;--surface:#F3F2EE;--ink:#1A1A1A;--ink-2:#5E5C57;--ink-3:#8B8984;--hairline:#E3E1DB;--rule:#1A1A1A;--link:#0B5D97;--link-hover:#073E66;--ring:#0B5D97;--mark-bg:#FFE69C;--mark-ink:#1A1A1A;--wash-1:rgb(26 26 26 / .05);--wash-2:rgb(26 26 26 / .09);--ok-bg:#E9F2E7;--ok-ink:#2F6B3A;--part-bg:#FBF1D6;--part-ink:#8A5A00;--no-bg:#FCE9E8;--no-ink:#9C2E2C;--unk-bg:#EEEDE8;--unk-ink:#55534E;--scrim:rgb(26 26 26 / .35);--font-sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",Pretendard,"Noto Sans KR","Noto Sans CJK KR","Malgun Gothic","Segoe UI",sans-serif;--font-mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono","DejaVu Sans Mono",monospace;--fs-display:clamp(1.75rem,1.2rem + 2.2vw,2.5rem);--fs-h2:clamp(1.375rem,1.15rem + 1vw,1.75rem);--fs-h3:clamp(1.125rem,1.05rem + .4vw,1.3125rem);--fs-body:1.0625rem;--fs-table:.9375rem;--fs-ui:.9375rem;--fs-small:.8125rem;--lh-body:1.75;--lh-table:1.6;--lh-head:1.3;--lh-tight:1.2;--s-1:4px;--s-2:8px;--s-3:12px;--s-4:16px;--s-5:20px;--s-6:24px;--s-8:32px;--s-10:40px;--s-12:48px;--s-16:64px;--s-20:80px;--container:80rem;--gutter:clamp(1.25rem,4vw,3rem);--sidebar:15.5rem;--col-gap:var(--s-12);--measure:44rem;--header-h:3.5rem;--control-h:2.75rem;--icon:1.25rem;--r-ctl:4px;--r-pill:999px;--t-micro:120ms;--t-std:200ms;--ease:cubic-bezier(.2,0,0,1);--z-header:30;--z-totop:20}@media (prefers-color-scheme:dark){:root{--canvas:#131312;--surface:#1C1C1A;--ink:#ECEAE4;--ink-2:#A8A69F;--ink-3:#7C7A74;--hairline:#2A2927;--rule:#ECEAE4;--link:#7CBCEC;--link-hover:#AAD6F7;--ring:#7CBCEC;--mark-bg:#5E4C14;--mark-ink:#FFF3CF;--wash-1:rgb(236 234 228 / .07);--wash-2:rgb(236 234 228 / .12);--ok-bg:#1B2B1E;--ok-ink:#A3D9A8;--part-bg:#2D2712;--part-ink:#E5BD55;--no-bg:#34201F;--no-ink:#F2A19E;--unk-bg:#2A2926;--unk-ink:#B9B7B0;--scrim:rgb(0 0 0 / .55)}}*,*::before,*::after{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + var(--s-4));-webkit-text-size-adjust:100%;text-size-adjust:100%}body{margin:0;background:var(--canvas);color:var(--ink);font:400 var(--fs-body) / var(--lh-body) var(--font-sans);word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}html.sheet-open{overflow:hidden}[hidden]{display:none !important}.mono{font-family:var(--font-mono);letter-spacing:.04em}:focus-visible{outline:2px solid var(--ring);outline-offset:2px}a{color:var(--link);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.15em;text-decoration-color:color-mix(in srgb,var(--link) 45%,transparent);transition:color var(--t-micro) var(--ease),text-decoration-color var(--t-micro) var(--ease)}a:hover{color:var(--link-hover);text-decoration-color:currentColor}svg{display:block}.sr-only{position:absolute !important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}html:not(.js) .js-only{display:none !important}.skip{position:absolute;top:var(--s-2);left:var(--s-2);z-index:calc(var(--z-header) + 1);padding:var(--s-3) var(--s-4);background:var(--ink);color:var(--canvas);border-radius:var(--r-ctl);text-decoration:none;font-weight:600;transform:translateY(-200%)}.skip:focus-visible{transform:none;outline-color:var(--ring)}.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s-1);min-height:var(--control-h);min-width:var(--control-h);padding:0 var(--s-3);border:1px solid transparent;border-radius:var(--r-ctl);background:transparent;color:var(--ink);font:500 var(--fs-ui) / 1 var(--font-sans);cursor:pointer;text-decoration:none;white-space:nowrap;transition:background-color var(--t-micro) var(--ease)}.btn:hover{background:var(--wash-1)}.btn:active{background:var(--wash-2)}.btn--outline{border-color:var(--hairline)}.btn--icon{padding:0}.btn svg{width:var(--icon);height:var(--icon);flex:none}.hdr{position:sticky;top:0;z-index:var(--z-header);background:var(--canvas);border-bottom:1px solid var(--hairline)}.hdr__in{max-width:var(--container);margin:0 auto;padding:var(--s-1) var(--gutter);min-height:var(--header-h);display:flex;flex-wrap:wrap;align-items:center;gap:var(--s-1)}.brand{display:flex;flex-direction:column;justify-content:center;min-width:0;flex:1 1 0;min-height:var(--control-h);color:inherit;text-decoration:none;border-radius:var(--r-ctl)}.brand:hover{color:inherit}.brand__kicker{display:none;font-size:var(--fs-small);font-weight:600;line-height:1.3;letter-spacing:.02em;color:var(--ink-2);white-space:nowrap}.btn--all .btn__label{display:none}.btn--all[data-action="open"] .ico--close,.btn--all[data-action="close"] .ico--open{display:none}.hdr .btn--outline{border-color:transparent}.brand__title{font-size:var(--fs-ui);font-weight:600;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.srch{flex:1 1 100%;order:10;display:none;margin:0;padding-bottom:var(--s-2)}.hdr.search-open .srch{display:block}.srch__box{position:relative;display:flex;align-items:center}.srch__icon{position:absolute;left:var(--s-3);width:var(--icon);height:var(--icon);color:var(--ink-2);pointer-events:none}.srch input{width:100%;height:var(--control-h);margin:0;padding:0 var(--control-h) 0 calc(var(--s-3) + var(--icon) + var(--s-2));border:1px solid var(--hairline);border-radius:var(--r-ctl);background:var(--canvas);color:var(--ink);font:400 var(--fs-ui) / 1 var(--font-sans);-webkit-appearance:none;appearance:none}.srch input::placeholder{color:var(--ink-2);opacity:1}.srch input::-webkit-search-cancel-button,.srch input::-webkit-search-decoration{-webkit-appearance:none;appearance:none}.srch__clear{position:absolute;right:2px;top:2px;min-height:calc(var(--control-h) - 4px);min-width:calc(var(--control-h) - 4px);color:var(--ink-2)}.status{max-width:var(--container);margin:0 auto;padding:var(--s-2) var(--gutter);display:flex;flex-wrap:wrap;align-items:center;gap:var(--s-2) var(--s-3);background:var(--surface);border-top:1px solid var(--hairline);color:var(--ink-2);font-size:var(--fs-small);font-weight:500;line-height:1.4}.status[hidden]{display:none}.status strong{color:var(--ink);font-weight:600}.status .btn{min-height:2rem;padding:0 var(--s-2);font-size:var(--fs-small);color:var(--link)}@media (min-width:60em){.hdr__in{flex-wrap:nowrap;gap:var(--s-3)}.btn--toc,.btn--search{display:none}.brand__kicker{display:block}.btn--all svg{display:none}.btn--all .btn__label{display:inline}.hdr .btn--outline{border-color:var(--hairline)}.srch{display:block;flex:0 1 22rem;order:0;padding-bottom:0}}.hero{max-width:var(--container);margin:0 auto;padding:var(--s-10) var(--gutter) var(--s-8);border-bottom:2px solid var(--rule)}.kicker{margin:0 0 var(--s-3);font-size:var(--fs-small);font-weight:600;line-height:1.4;letter-spacing:.02em;color:var(--ink-2)}.kicker__sep{margin:0 var(--s-1)}.hero h1{margin:0;display:flex;flex-direction:column;gap:var(--s-2);max-width:var(--measure)}.hero__sup{font:500 var(--fs-ui) / 1.4 var(--font-sans);color:var(--ink-2)}.hero__sep{display:none}.hero__main{font-size:var(--fs-display);font-weight:700;line-height:var(--lh-tight);letter-spacing:-.02em}@media (min-width:60em){.hero{padding-top:var(--s-20);padding-bottom:var(--s-12)}}.layout{max-width:var(--container);margin:0 auto;padding:0 var(--gutter)}.side{display:none}.doc{min-width:0;padding-bottom:var(--s-16)}@media (min-width:60em){.layout{display:grid;grid-template-columns:var(--sidebar) minmax(0,1fr);gap:var(--col-gap);align-items:start}.side{display:block;position:sticky;top:calc(var(--header-h) + var(--s-6));max-height:calc(100dvh - var(--header-h) - var(--s-12));overflow-y:auto;padding:var(--s-6) 0 var(--s-6);scrollbar-width:thin}}.side__title{margin:0 0 var(--s-2);padding:0 var(--s-3);font-size:var(--fs-small);font-weight:600;line-height:1.4;letter-spacing:.02em;color:var(--ink-2)}.toc,.toc ol{list-style:none;margin:0;padding:0}.toc a{display:flex;align-items:baseline;gap:var(--s-2);min-height:var(--control-h);padding:var(--s-2) var(--s-3);border-radius:var(--r-ctl);color:var(--ink-2);font-size:var(--fs-ui);font-weight:500;line-height:1.4;text-decoration:none;transition:background-color var(--t-micro) var(--ease),color var(--t-micro) var(--ease)}.toc a:hover{background:var(--wash-1);color:var(--ink)}.toc a[aria-current="true"]{background:var(--wash-2);color:var(--ink);font-weight:600}.toc__num{flex:none;min-width:2rem;font:500 var(--fs-small) / 1.4 var(--font-mono);letter-spacing:.04em}.toc__sub a{padding-left:var(--s-6)}.toc__sub .toc__num{min-width:2.25rem}.sec{border-top:2px solid var(--rule);margin-top:var(--s-10);padding-top:var(--s-4)}.doc>.sec:first-child{border-top:0;margin-top:0;padding-top:var(--s-6)}.sec__h{margin:0;font-size:var(--fs-h2);font-weight:700;line-height:var(--lh-head);letter-spacing:-.01em}.sec__btn{display:flex;align-items:baseline;gap:var(--s-3);width:calc(100% + 2 * var(--s-2));margin:0 calc(-1 * var(--s-2));padding:var(--s-3) var(--s-2);border:0;border-radius:var(--r-ctl);background:transparent;color:inherit;font:inherit;letter-spacing:inherit;text-align:left;cursor:pointer;-webkit-appearance:none;appearance:none;transition:background-color var(--t-micro) var(--ease)}.sec__btn:hover{background:var(--wash-1)}.sec__btn:active{background:var(--wash-2)}.num{flex:none;font:500 var(--fs-ui) / 1 var(--font-mono);letter-spacing:.06em;color:var(--ink-2)}.ttl{flex:1 1 auto;min-width:0}.chev{flex:none;align-self:center;width:var(--icon);height:var(--icon);color:var(--ink-2);transition:transform var(--t-micro) var(--ease)}.sec__btn[aria-expanded="false"] .chev{transform:rotate(-90deg)}.sec__body{padding-top:var(--s-2)}.sec__body.is-entering{animation:fade-in var(--t-micro) var(--ease) both}@keyframes fade-in{from{opacity:0}to{opacity:1}}.js:not(.is-ready).m-collapse .doc>.sec ~ .sec>.sec__body,.js:not(.is-ready) .sec[data-default="closed"]>.sec__body{display:none}.blk{padding-top:var(--s-6)}.blk + .blk{border-top:1px solid var(--hairline);margin-top:var(--s-6)}.blk__h{display:flex;align-items:baseline;gap:var(--s-3);margin:0 0 var(--s-4);font-size:var(--fs-h3);font-weight:600;line-height:1.4}.blk__h .num{font-size:var(--fs-small)}.doc p,.doc ul,.doc ol:not(.srcs){max-width:var(--measure)}.doc p{margin:0 0 var(--s-4)}.doc ul,.doc ol{margin:0 0 var(--s-4);padding-left:var(--s-6)}.doc li{margin-bottom:var(--s-2)}.doc li::marker{color:var(--ink-2)}.doc>.blk>:last-child,.sec__body>.blk>:last-child{margin-bottom:0}code{font-family:var(--font-mono);font-size:.92em;letter-spacing:-.01em;background:var(--surface);padding:0 var(--s-1);border-radius:var(--r-ctl);overflow-wrap:anywhere}mark{background:var(--mark-bg);color:var(--mark-ink);border-radius:var(--r-ctl);padding:0 1px}.url{overflow-wrap:anywhere}.src{display:inline-flex;align-items:center;min-height:2rem;margin:1px 0;padding:0 var(--s-2);border:1px solid var(--hairline);border-radius:var(--r-ctl);font-size:var(--fs-small);font-weight:600;line-height:1;text-decoration:none;white-space:nowrap;transition:background-color var(--t-micro) var(--ease),color var(--t-micro) var(--ease)}.src:hover{background:var(--wash-1);text-decoration:underline}.src + .src{margin-left:var(--s-1)}.tbl{margin:var(--s-6) 0}.tbl__scroll{overflow-x:auto;scrollbar-width:thin}.tbl__scroll:focus-visible{outline-offset:4px}table{border-collapse:collapse;width:100%;font-size:var(--fs-table);line-height:var(--lh-table)}th,td{padding:var(--s-3) var(--s-2);text-align:left;vertical-align:top;border-bottom:1px solid var(--hairline);overflow-wrap:break-word}.tbl--scroll th:first-child,.tbl--scroll td:first-child{position:sticky;left:0;background:var(--canvas);border-right:1px solid var(--hairline)}.tbl--scroll thead th:first-child{background:var(--surface)}thead th{background:var(--surface);color:var(--ink-2);font-size:var(--fs-small);font-weight:600;letter-spacing:.02em;line-height:1.4;vertical-align:bottom;border-bottom:1px solid var(--rule)}td code{font-size:.9em}@media (min-width:48em){th,td{min-width:4rem}td code,th code{overflow-wrap:break-word}.tbl--cards th:first-child,.tbl--cards td:first-child{position:sticky;left:0;background:var(--canvas);border-right:1px solid var(--hairline)}.tbl--cards thead th:first-child{background:var(--surface)}}.pill{display:inline-flex;align-items:center;min-height:1.5rem;padding:var(--s-1) var(--s-3);border-radius:var(--r-pill);font-size:var(--fs-small);font-weight:600;line-height:1.3}.pill--ok{background:var(--ok-bg);color:var(--ok-ink)}.pill--part{background:var(--part-bg);color:var(--part-ink)}.pill--no{background:var(--no-bg);color:var(--no-ink)}.pill--unk{background:var(--unk-bg);color:var(--unk-ink)}.pill__note{display:block;margin-top:var(--s-1);color:var(--ink-2);font-size:var(--fs-small);line-height:1.4}@media (max-width:47.99em){.tbl--scroll th,.tbl--scroll td{min-width:5.5rem}.tbl--cards table,.tbl--cards tbody,.tbl--cards tr,.tbl--cards td{display:block}.tbl--cards thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}.tbl--cards tr{padding:var(--s-4) 0 var(--s-5);border-bottom:1px solid var(--hairline)}.tbl--cards tr:first-child{border-top:1px solid var(--rule)}.tbl--cards td{display:grid;grid-template-columns:minmax(5.5rem,28%) minmax(0,1fr);gap:var(--s-1) var(--s-3);padding:var(--s-1) 0;border:0}.tbl--cards td::before{content:attr(data-label);color:var(--ink-2);font-size:var(--fs-small);font-weight:600;line-height:var(--lh-table)}.tbl--cards td:first-child{display:block;margin-bottom:var(--s-2);font-size:var(--fs-body);font-weight:600;line-height:1.4}.tbl--cards td:first-child::before{display:none}.tbl--cards .cell{display:block;min-width:0}.tbl--numbered td:first-child{margin-bottom:var(--s-1);font:500 var(--fs-small) / 1.4 var(--font-mono);letter-spacing:.04em;color:var(--ink-2)}.tbl--numbered td:nth-child(2){display:block;margin-bottom:var(--s-2);font-size:var(--fs-body);font-weight:600;line-height:1.4}.tbl--numbered td:nth-child(2)::before{display:none}}.srcs{margin:0;padding-left:var(--s-8);font-size:var(--fs-table);line-height:var(--lh-table)}.srcs li{margin-bottom:var(--s-2);overflow-wrap:anywhere}.srcs li::marker{font-family:var(--font-mono);color:var(--ink-2)}.layout--index{display:block}.idx{max-width:56rem;padding:var(--s-6) 0 var(--s-16)}.idx__list{list-style:none;margin:0;padding:0}.idx__item{padding:var(--s-5) 0;border-bottom:1px solid var(--hairline)}.idx__item:last-child{border-bottom:0}.idx__sup{margin:0 0 var(--s-1);font-size:var(--fs-small);font-weight:600;letter-spacing:.02em;color:var(--ink-2)}.idx__title{margin:0 0 var(--s-2);font-size:var(--fs-h3);font-weight:700;line-height:var(--lh-head)}.idx__title a{color:var(--ink);text-decoration-color:var(--hairline)}.idx__title a:hover{color:var(--link-hover);text-decoration-color:currentColor}.idx__title .pill{vertical-align:.15em;margin-left:var(--s-2)}.idx__sum{margin:0;max-width:var(--measure);color:var(--ink-2)}.idx__meta{margin:var(--s-2) 0 0;font-size:var(--fs-small);color:var(--ink-2)}.kicker__back{font-weight:600}.ftr{border-top:1px solid var(--hairline)}.ftr__in{max-width:var(--container);margin:0 auto;padding:var(--s-6) var(--gutter) calc(var(--s-12) + var(--control-h));display:flex;flex-wrap:wrap;gap:var(--s-2) var(--s-4);color:var(--ink-2);font-size:var(--fs-small);font-weight:500}.sheet{position:fixed;inset:var(--header-h) 0 auto 0;width:100%;max-width:none;max-height:calc(100dvh - var(--header-h) - var(--s-10));margin:0;padding:0;border:0;border-bottom:1px solid var(--hairline);border-radius:0 0 var(--r-ctl) var(--r-ctl);background:var(--canvas);color:var(--ink);overflow:hidden}.sheet[open]{display:flex;flex-direction:column}.sheet::backdrop{background:var(--scrim)}.sheet__head{display:flex;align-items:center;justify-content:space-between;gap:var(--s-2);padding:var(--s-2) var(--gutter);border-bottom:1px solid var(--hairline)}.sheet__title{margin:0;font-size:var(--fs-ui);font-weight:600}.sheet__body{overflow-y:auto;padding:var(--s-3) var(--gutter) var(--s-6)}@media (prefers-reduced-motion:no-preference){.sheet[open]{animation:sheet-in var(--t-std) var(--ease)}.sheet.is-closing{animation:sheet-out var(--t-std) var(--ease) forwards}}@keyframes sheet-in{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}@keyframes sheet-out{from{opacity:1;transform:none}to{opacity:0;transform:translateY(-8px)}}.totop{position:fixed;right:var(--s-5);bottom:var(--s-5);z-index:var(--z-totop);display:inline-flex;align-items:center;justify-content:center;width:var(--control-h);height:var(--control-h);border:1px solid var(--rule);border-radius:var(--r-ctl);background:var(--canvas);color:var(--ink);text-decoration:none;animation:fade-in var(--t-micro) var(--ease) both;transition:background-color var(--t-micro) var(--ease)}.totop:hover{background:var(--wash-1);color:var(--ink)}.totop svg{width:var(--icon);height:var(--icon)}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.chev,.skip{transition:none}.sec__body.is-entering,.totop{animation-duration:1ms}}@media print{.hdr,.side,.totop,.sheet,.skip,.chev,.status{display:none !important}.sec__body[hidden]{display:block !important}body{font-size:11pt;line-height:1.6;color:#000;background:#fff}.hero{padding-top:0}.layout{display:block;padding:0}.sec__btn{padding:0;margin:0;width:auto}a{color:inherit}.src{border-color:#999}.tbl__scroll{overflow:visible}table{font-size:9.5pt}tr{break-inside:avoid}.sec{break-inside:auto}.blk__h,.sec__h{break-after:avoid}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+
+<header class="hdr" id="top">
+  <div class="hdr__in">
+    <button class="btn btn--toc js-only" id="toc-open" type="button" aria-haspopup="dialog" aria-controls="toc-sheet" aria-label="목차 열기" title="목차">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+    </button>
+    <a class="brand" href="#top">
+      <span class="brand__kicker">갱신일 <span class="mono">2026-11-28</span></span>
+      <span class="brand__title">에이전트 self-training과 모델 주도 문맥 관리 문헌 조사</span>
+    </a>
+    <button class="btn btn--icon btn--search js-only" id="search-toggle" type="button" aria-expanded="false" aria-controls="search-form" aria-label="검색 열기" title="검색">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    </button>
+    <button class="btn btn--outline btn--all js-only" id="toggle-all" type="button" data-action="close" aria-label="모두 접기" title="모두 접기">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path class="ico--open" d="m7 15 5 5 5-5M7 9l5-5 5 5"/><path class="ico--close" d="m7 20 5-5 5 5M7 4l5 5 5-5"/></svg>
+      <span class="btn__label">모두 접기</span>
+    </button>
+    <form class="srch js-only" id="search-form" role="search" action="#main" method="get">
+      <label class="sr-only" for="q">본문 검색</label>
+      <div class="srch__box">
+        <svg class="srch__icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" name="q" type="search" placeholder="본문 검색 (예: 퍼미션, SOC)" autocomplete="off" enterkeyhint="search" spellcheck="false">
+        <button class="btn btn--icon srch__clear" id="q-clear" type="button" aria-label="검색 지우기" hidden>
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="status" id="search-status" role="status" hidden></div>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="doc-title">
+    <p class="kicker"><a class="kicker__back" href="../">조사 목록</a> <span class="kicker__sep" aria-hidden="true">·</span> 조사 보고서 <span class="kicker__sep" aria-hidden="true">·</span> 작성일 <span class="mono">2026-11-28</span> <span class="kicker__sep" aria-hidden="true">·</span> 갱신일 <span class="mono">2026-11-28</span></p>
+    <h1 id="doc-title"><span class="hero__sup">텍스트-SQL·EHR 질의 에이전트</span><span class="hero__sep" aria-hidden="true"> · </span><span class="hero__main">에이전트 self-training과 모델 주도 문맥 관리 문헌 조사</span></h1>
+  </section>
+
+  <div class="layout">
+    <aside class="side" aria-label="목차 사이드바">
+      <p class="side__title">목차</p>
+      <nav aria-label="목차"><ol class="toc"><li><a href="#s-0"><span class="toc__num">0</span><span class="toc__ttl">요약</span></a></li><li><a href="#s-1"><span class="toc__num">1</span><span class="toc__ttl">조사 범위와 방법</span></a></li><li><a href="#s-2"><span class="toc__num">2</span><span class="toc__ttl">EHRSQL 2024 1위 팀의 self-training(PLUQ)</span></a><ol class="toc__sub"><li><a href="#s-2-1"><span class="toc__num">2.1</span><span class="toc__ttl">대회 과제와 평가 지표</span></a></li><li><a href="#s-2-2"><span class="toc__num">2.2</span><span class="toc__ttl">방법</span></a></li><li><a href="#s-2-3"><span class="toc__num">2.3</span><span class="toc__ttl">점수와 ablation</span></a></li><li><a href="#s-2-4"><span class="toc__num">2.4</span><span class="toc__ttl">다른 상위 팀의 방법</span></a></li><li><a href="#s-2-5"><span class="toc__num">2.5</span><span class="toc__ttl">읽을 때 주의할 점</span></a></li></ol></li><li><a href="#s-3"><span class="toc__num">3</span><span class="toc__ttl">일반 self-training 문헌</span></a><ol class="toc__sub"><li><a href="#s-3-1"><span class="toc__num">3.1</span><span class="toc__ttl">공통 틀</span></a></li><li><a href="#s-3-2"><span class="toc__num">3.2</span><span class="toc__ttl">방법별 정리</span></a></li><li><a href="#s-3-3"><span class="toc__num">3.3</span><span class="toc__ttl">에이전트 self-training</span></a></li><li><a href="#s-3-4"><span class="toc__num">3.4</span><span class="toc__ttl">텍스트-SQL의 합성 데이터와 RL</span></a></li><li><a href="#s-3-5"><span class="toc__num">3.5</span><span class="toc__ttl">2025~2026년 흐름과 위험</span></a></li></ol></li><li><a href="#s-4"><span class="toc__num">4</span><span class="toc__ttl">Stream of Search(SoS)</span></a><ol class="toc__sub"><li><a href="#s-4-1"><span class="toc__num">4.1</span><span class="toc__ttl">무엇을 학습시키나</span></a></li><li><a href="#s-4-2"><span class="toc__num">4.2</span><span class="toc__ttl">결과</span></a></li><li><a href="#s-4-3"><span class="toc__num">4.3</span><span class="toc__ttl">관련 연구</span></a></li><li><a href="#s-4-4"><span class="toc__num">4.4</span><span class="toc__ttl">텍스트-SQL 에이전트 궤적과의 대응</span></a></li></ol></li><li><a href="#s-5"><span class="toc__num">5</span><span class="toc__ttl">모델이 직접 문맥을 관리하는 방식(NVIDIA, 2026)</span></a><ol class="toc__sub"><li><a href="#s-5-1"><span class="toc__num">5.1</span><span class="toc__ttl">무엇을 비교했나</span></a></li><li><a href="#s-5-2"><span class="toc__num">5.2</span><span class="toc__ttl">주요 결과</span></a></li><li><a href="#s-5-3"><span class="toc__num">5.3</span><span class="toc__ttl">시사점</span></a></li></ol></li><li><a href="#s-6"><span class="toc__num">6</span><span class="toc__ttl">받은 의료 LLM 문헌 4편의 수치 확인</span></a></li><li><a href="#s-7"><span class="toc__num">7</span><span class="toc__ttl">텍스트-SQL·EHR 질의 에이전트에 주는 시사점</span></a><ol class="toc__sub"><li><a href="#s-7-1"><span class="toc__num">7.1</span><span class="toc__ttl">도구 결과가 잘리는 문제</span></a></li><li><a href="#s-7-2"><span class="toc__num">7.2</span><span class="toc__ttl">답 못 함 판단과 &quot;기록 없음&quot;</span></a></li><li><a href="#s-7-3"><span class="toc__num">7.3</span><span class="toc__ttl">코드와 용어는 사전과 뷰에서 찾게 하기</span></a></li><li><a href="#s-7-4"><span class="toc__num">7.4</span><span class="toc__ttl">평가 설계</span></a></li><li><a href="#s-7-5"><span class="toc__num">7.5</span><span class="toc__ttl">self-training을 적용한다면</span></a></li></ol></li><li><a href="#s-8"><span class="toc__num">8</span><span class="toc__ttl">확인 못 한 것</span></a></li><li><a href="#s-sources"><span class="toc__ttl">출처 목록</span></a></li></ol></nav>
+    </aside>
+    <article class="doc">
+<div class="blk blk--lead" data-block="" id="s-lead"><p>조사 기준일: 2026년 11월 28일. 공개 논문과 공개 페이지만 사용했습니다. 수치는 모두 원문 페이지와 대조했고, 확인하지 못한 곳은 그렇게 표시했습니다.</p></div><section aria-labelledby="h-s-0" class="sec" id="s-0"><h2 class="sec__h" id="h-s-0"><button aria-controls="b-s-0" aria-expanded="true" class="sec__btn" type="button"><span class="num">0</span><span class="ttl">요약</span><svg aria-hidden="true" class="chev" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="m6 9 6 6 6-6"></path></svg></button></h2><div class="sec__body" id="b-s-0"><div class="blk blk--lead" data-block=""><ul>
+<li>EHRSQL 2024 공유 과제 1위는 LG AI Research &amp; KAIST의 PLUQ입니다. 이 팀은 GPT-3.5-Turbo를 파인튜닝했습니다. 그다음 라벨 없는 질문 중 모델이 "답 못 함"으로 예측한 것만 null 라벨로 더해 한 번 더 학습했습니다. 시험 세트 RS(10)은 81.32로, 2위보다 6.4점 높습니다(2절).</li>
+<li>PLUQ 점수의 큰 부분은 필터에서 나옵니다. 필터가 없으면 검증 RS(10)은 -69.94이고, 실행 필터와 최대 token entropy 필터를 더하면 88.65입니다. self-training 단계만의 효과는 논문에 따로 나오지 않습니다(<a class="xref" href="#s-2-3">2.3절</a>, <a class="xref" href="#s-2-5">2.5절</a>).</li>
+<li>일반 self-training 문헌(STaR, ReST, ReST-EM, RFT, V-STaR, SPIN 등)은 "스스로 만든 답 중 맞은 것만 골라 다시 학습"이라는 같은 틀을 씁니다. 공통 조건은 자동으로 잴 수 있는 정답 신호입니다. 공통 실패는 초기 모델이 너무 약할 때, 반복을 늘릴 때의 과적합, 생성 데이터만 되풀이해 학습할 때의 분포 꼬리 소실입니다(3절).</li>
+<li>Stream of Search는 탐색 과정 전체(탐색, 막힘, 되돌아가기)를 글로 펼쳐 학습시킵니다. Countdown에서 최적 경로만 학습한 모델은 25.73%, 탐색 과정을 학습한 모델은 51.27%를 풀었습니다. STaR와 APA로 더 학습하면, 처음에 못 풀던 문제의 36%를 풉니다(4절).</li>
+<li>NVIDIA 연구(2026년 11월)는 하네스의 자동 요약 대신 모델이 직접 줄일 범위를 고르고, 원래 기록은 보관해 다시 꺼내게 했습니다. 32K 예산에서 GPT-6.1 Sol의 점수가 21%에서 56%로 올랐습니다. 그러나 같은 도구를 Claude Opus 5.5는 과제의 4%에서만 썼습니다(5절).</li>
+<li>받은 의료 LLM 문헌 4편의 요약 수치(Bedi 5%, Soroush 50% 미만, Ferber 정확도 상승, NVIDIA 방법 설명)는 원문과 맞습니다. Bedi 논문의 온라인 게재는 2024년이고 권호는 2025년입니다(6절).</li>
+<li>텍스트-SQL·EHR 질의 에이전트에는 다섯 가지를 권합니다. 잘린 결과에 잘림 표시와 다시 꺼내는 도구를 붙입니다. 빈 결과와 "기록 없음"을 구분합니다. 코드는 사전과 뷰에서 찾게 합니다. 정답률 밖에 답 못 함 판단과 calibration을 잽니다. self-training은 평가 문항과 분리한 합성 질문과 실행 결과 일치 필터로 합니다(7절).</li>
+</ul></div></div></section><section aria-labelledby="h-s-1" class="sec" id="s-1"><h2 class="sec__h" id="h-s-1"><button aria-controls="b-s-1" aria-expanded="true" class="sec__btn" type="button"><span class="num">1</span><span class="ttl">조사 범위와 방법</span><svg aria-hidden="true" class="chev" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="m6 9 6 6 6-6"></path></svg></button></h2><div class="sec__body" id="b-s-1"><div class="blk blk--lead" data-block=""><figure class="tbl tbl--cards" data-cols="2"><div aria-label="표 1: 주제, 본 문헌" class="tbl__scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">주제</th>
+<th scope="col">본 문헌</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="주제"><span class="cell">텍스트-SQL self-training</span></td>
+<td data-label="본 문헌"><span class="cell">EHRSQL 2024 1위 논문, 대회 개요 논문, SENSE, OmniSQL, SQL-R1, Reasoning-SQL</span></td>
+</tr>
+<tr>
+<td data-label="주제"><span class="cell">일반 self-training</span></td>
+<td data-label="본 문헌"><span class="cell">STaR, ReST, ReST-EM, RFT, V-STaR, Quiet-STaR, SPIN, Self-Rewarding</span></td>
+</tr>
+<tr>
+<td data-label="주제"><span class="cell">에이전트 self-training</span></td>
+<td data-label="본 문헌"><span class="cell">FireAct, ReST meets ReAct, SWE-Gym, SWE-smith</span></td>
+</tr>
+<tr>
+<td data-label="주제"><span class="cell">최근 흐름</span></td>
+<td data-label="본 문헌"><span class="cell">DeepSeek-R1, model collapse(Nature 2024)</span></td>
+</tr>
+<tr>
+<td data-label="주제"><span class="cell">탐색 학습</span></td>
+<td data-label="본 문헌"><span class="cell">Stream of Search, Searchformer</span></td>
+</tr>
+<tr>
+<td data-label="주제"><span class="cell">문맥 관리</span></td>
+<td data-label="본 문헌"><span class="cell">NVIDIA, Letting Models Manage Their Own Context</span></td>
+</tr>
+<tr>
+<td data-label="주제"><span class="cell">의료 LLM 평가·응용</span></td>
+<td data-label="본 문헌"><span class="cell">Bedi(JAMA), Soroush(NEJM AI), Ferber(Nature Cancer)</span></td>
+</tr>
+</tbody>
+</table></div></figure></div></div></section><section aria-labelledby="h-s-2" class="sec" id="s-2"><h2 class="sec__h" id="h-s-2"><button aria-controls="b-s-2" aria-expanded="true" class="sec__btn" type="button"><span class="num">2</span><span class="ttl">EHRSQL 2024 1위 팀의 self-training(PLUQ)</span><svg aria-hidden="true" class="chev" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="m6 9 6 6 6-6"></path></svg></button></h2><div class="sec__body" id="b-s-2"><div class="blk" data-block="" id="s-2-1"><h3 class="blk__h" id="h-s-2-1"><span class="num">2.1</span><span class="ttl">대회 과제와 평가 지표</span></h3><p>EHRSQL 2024는 NAACL 2024 ClinicalNLP 워크숍의 공유 과제입니다. 참가자는 자연어 질문을 MIMIC-IV demo DB의 SQL로 바꿉니다. DB로 답할 수 없는 질문에는 SQL 대신 null을 냅니다. 100명 이상이 신청했고, 8개 팀이 코드와 fact sheet까지 제출했습니다. [출처: <a class="url" href="https://arxiv.org/abs/2405.06673">arxiv.org/<wbr/>abs/<wbr/>2405.06673</a>]</p><p>질문 템플릿은 국내 한 대학병원 의료진 200명 이상에게 받은 질문에서 나왔습니다. 학습, 검증, 시험 세트마다 답할 수 없는 질문이 20%입니다. 새로 만든 어려운 답 못 하는 질문은 검증과 시험 세트에만 넣었습니다. 학습 세트에 없는 SQL 유형도 검증과 시험 세트에 들어 있습니다. [출처: <a class="url" href="https://arxiv.org/html/2405.06673">arxiv.org/<wbr/>html/<wbr/>2405.06673</a>]</p><p>주 지표는 Reliability Score RS(c)입니다. 문항마다 아래 점수를 매기고 평균합니다. [출처: <a class="url" href="https://arxiv.org/html/2405.11162">arxiv.org/<wbr/>html/<wbr/>2405.11162</a>]</p><figure class="tbl tbl--scroll" data-cols="2"><div aria-label="표 2: 경우, 점수" class="tbl__scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">경우</th>
+<th scope="col">점수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="경우">답할 수 있는 질문에 맞는 SQL을 냄</td>
+<td data-label="점수">1</td>
+</tr>
+<tr>
+<td data-label="경우">답할 수 있는 질문에 null을 냄</td>
+<td data-label="점수">0</td>
+</tr>
+<tr>
+<td data-label="경우">답할 수 있는 질문에 틀린 SQL을 냄</td>
+<td data-label="점수">-c</td>
+</tr>
+<tr>
+<td data-label="경우">답할 수 없는 질문에 SQL을 냄</td>
+<td data-label="점수">-c</td>
+</tr>
+<tr>
+<td data-label="경우">답할 수 없는 질문에 null을 냄</td>
+<td data-label="점수">1</td>
+</tr>
+</tbody>
+</table></div></figure><p>c는 0, 5, 10, N(문항 수)입니다. 순위는 RS(10)으로 정합니다. RS(10)에서는 틀린 답 하나가 맞는 답 10개를 지웁니다. 그래서 확신이 없으면 답하지 않는 쪽이 유리합니다.</p></div><div class="blk" data-block="" id="s-2-2"><h3 class="blk__h" id="h-s-2-2"><span class="num">2.2</span><span class="ttl">방법</span></h3><p>논문 제목은 "LG AI Research &amp; KAIST at EHRSQL 2024: Self-Training Large Language Models with Pseudo-Labeled Unanswerable Questions for a Reliable Text-to-SQL System on EHRs"입니다. 저자는 Yongrae Jo, Seongyun Lee, Minju Seo, Sung Ju Hwang, Moontae Lee입니다. ClinicalNLP 2024 논문집 635~643쪽에 실렸습니다. [출처: <a class="url" href="https://aclanthology.org/2024.clinicalnlp-1.61/">aclanthology.org/<wbr/>2024.clinicalnlp-1.61/<wbr/></a>]</p><p>방법은 두 단계 self-training과 두 단계 필터입니다. [출처: <a class="url" href="https://arxiv.org/html/2405.11162">arxiv.org/<wbr/>html/<wbr/>2405.11162</a>]</p><ol>
+<li>시드 모델 학습: GPT-3.5-Turbo-0125를 OpenAI 파인튜닝 API로 학습 세트 전체에 학습합니다. 입력에는 글로 바꾼 DB 스키마와 답 못 하는 질문의 기준을 넣습니다.</li>
+<li>의사 라벨: 시드 모델이 라벨 없는 검증·시험 질문마다 SQL 또는 null을 예측합니다. null로 예측한 질문 K개만 null 라벨로 학습 세트에 더합니다. 정답 SQL을 모르는 답할 수 있는 질문은 더하지 않습니다.</li>
+<li>재학습: 늘린 학습 세트로 모델을 다시 학습합니다. 반복은 한 번입니다.</li>
+<li>최대 token entropy 필터: 예측 안에서 entropy가 가장 큰 token의 값을 예측의 entropy로 정합니다. entropy 상위 7%를 null로 바꿉니다. 이 비율은 예상되는 답 못 하는 질문 비율에 맞춘 hyperparameter입니다.</li>
+<li>실행 필터: 남은 SQL을 sqlite3로 실행합니다. 오류가 나거나, 결과가 비었거나, None이면 null로 바꿉니다.</li>
+</ol><p>저자들은 self-training의 이유를 두 가지로 듭니다. 첫째, 학습 세트에 답 못 하는 질문이 적어 class 불균형이 있습니다. 둘째, 학습 질문과 검증·시험 질문의 embedding cosine 유사도 평균이 0.36과 0.34로 낮습니다. [출처: <a class="url" href="https://arxiv.org/html/2405.11162">arxiv.org/<wbr/>html/<wbr/>2405.11162</a>]</p></div><div class="blk" data-block="" id="s-2-3"><h3 class="blk__h" id="h-s-2-3"><span class="num">2.3</span><span class="ttl">점수와 ablation</span></h3><figure class="tbl tbl--cards" data-cols="4"><div aria-label="표 3: 팀, 시험 RS(0), 시험 RS(10), 시험 RS(N)" class="tbl__scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">팀</th>
+<th scope="col">시험 RS(0)</th>
+<th scope="col">시험 RS(10)</th>
+<th scope="col">시험 RS(N)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="팀"><span class="cell">PLUQ(LG AI Research &amp; KAIST)</span></td>
+<td data-label="시험 RS(0)"><span class="cell">88.17</span></td>
+<td data-label="시험 RS(10)"><span class="cell">81.32</span></td>
+<td data-label="시험 RS(N)"><span class="cell">-711.83</span></td>
+</tr>
+<tr>
+<td data-label="팀"><span class="cell">PromptMind</span></td>
+<td data-label="시험 RS(0)"><span class="cell">82.6</span></td>
+<td data-label="시험 RS(10)"><span class="cell">74.89</span></td>
+<td data-label="시험 RS(N)"><span class="cell">-817.4</span></td>
+</tr>
+<tr>
+<td data-label="팀"><span class="cell">ProbGate</span></td>
+<td data-label="시험 RS(0)"><span class="cell">81.92</span></td>
+<td data-label="시험 RS(10)"><span class="cell">74.21</span></td>
+<td data-label="시험 RS(N)"><span class="cell">-818.08</span></td>
+</tr>
+<tr>
+<td data-label="팀"><span class="cell">KU-DMIS</span></td>
+<td data-label="시험 RS(0)"><span class="cell">72.07</span></td>
+<td data-label="시험 RS(10)"><span class="cell">59.21</span></td>
+<td data-label="시험 RS(N)"><span class="cell">-1427.93</span></td>
+</tr>
+</tbody>
+</table></div></figure><p>값은 PLUQ 논문 Table 1에서 가져왔습니다. [출처: <a class="url" href="https://arxiv.org/html/2405.11162">arxiv.org/<wbr/>html/<wbr/>2405.11162</a>]</p><figure class="tbl tbl--scroll" data-cols="3"><div aria-label="표 4: 검증 세트 조건, RS(0), RS(10)" class="tbl__scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">검증 세트 조건</th>
+<th scope="col">RS(0)</th>
+<th scope="col">RS(10)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="검증 세트 조건">파인튜닝만</td>
+<td data-label="RS(0)">83.23</td>
+<td data-label="RS(10)">73.77</td>
+</tr>
+<tr>
+<td data-label="검증 세트 조건">+ 스키마 입력</td>
+<td data-label="RS(0)">89.85</td>
+<td data-label="RS(10)">77.82</td>
+</tr>
+<tr>
+<td data-label="검증 세트 조건">+ 답 못 함 기준 입력(최종)</td>
+<td data-label="RS(0)">90.37</td>
+<td data-label="RS(10)">88.65</td>
+</tr>
+<tr>
+<td data-label="검증 세트 조건">필터 없음</td>
+<td data-label="RS(0)">80.82</td>
+<td data-label="RS(10)">-69.94</td>
+</tr>
+<tr>
+<td data-label="검증 세트 조건">+ 실행 필터</td>
+<td data-label="RS(0)">93.98</td>
+<td data-label="RS(10)">85.38</td>
+</tr>
+<tr>
+<td data-label="검증 세트 조건">+ entropy 필터(최종)</td>
+<td data-label="RS(0)">90.37</td>
+<td data-label="RS(10)">88.65</td>
+</tr>
+<tr>
+<td data-label="검증 세트 조건">Flan-T5-base 파인튜닝</td>
+<td data-label="RS(0)">82.11</td>
+<td data-label="RS(10)">70.94</td>
+</tr>
+<tr>
+<td data-label="검증 세트 조건">GPT-4-Turbo in-context learning(4-shot)</td>
+<td data-label="RS(0)">63.52</td>
+<td data-label="RS(10)">-301.22</td>
+</tr>
+</tbody>
+</table></div></figure><p>값은 PLUQ 논문 Table 2~4에서 가져왔습니다. [출처: <a class="url" href="https://arxiv.org/html/2405.11162">arxiv.org/<wbr/>html/<wbr/>2405.11162</a>]</p><ul>
+<li>필터가 없으면 RS(10)이 음수입니다. 실행 필터 하나로 RS(10)이 85.38까지 오릅니다.</li>
+<li>실행 필터만 쓰면 RS(0)은 가장 높지만 RS(10)은 entropy 필터를 더한 쪽이 높습니다. 불확실한 답을 더 버리면 맞는 답 일부를 잃는 대신 벌점이 줄어듭니다.</li>
+<li>파인튜닝 없이 GPT-4-Turbo를 4-shot으로 쓰면 RS(10)이 -301.22입니다. 파인튜닝한 Flan-T5-base보다 낮습니다.</li>
+<li>우승 팀도 RS(N)은 음수입니다. 저자들은 한계 절에서 실제 적용에 주의가 필요하다고 적었습니다.</li>
+</ul></div><div class="blk" data-block="" id="s-2-4"><h3 class="blk__h" id="h-s-2-4"><span class="num">2.4</span><span class="ttl">다른 상위 팀의 방법</span></h3><figure class="tbl tbl--cards" data-cols="3"><div aria-label="표 5: 팀, SQL 생성, 답 못 함 판단" class="tbl__scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">팀</th>
+<th scope="col">SQL 생성</th>
+<th scope="col">답 못 함 판단</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="팀"><span class="cell">PromptMind</span></td>
+<td data-label="SQL 생성"><span class="cell">파인튜닝한 ChatGPT, GPT-4, Claude Opus의 앙상블. 일반·의료 retriever 2개로 비슷한 질문-SQL 예시를 가져옴</span></td>
+<td data-label="답 못 함 판단"><span class="cell">세 모델의 SQL이 모두 같을 때만 답함</span></td>
+</tr>
+<tr>
+<td data-label="팀"><span class="cell">ProbGate</span></td>
+<td data-label="SQL 생성"><span class="cell">파인튜닝한 ChatGPT</span></td>
+<td data-label="답 못 함 판단"><span class="cell">log-probability 임계값과 오류 처리. 임계값은 검증 세트의 답 못 함 비율로 정함</span></td>
+</tr>
+<tr>
+<td data-label="팀"><span class="cell">KU-DMIS</span></td>
+<td data-label="SQL 생성"><span class="cell">의사 질문-SQL 쌍을 만들어 시험 분포에 맞춘 뒤 ChatGPT 파인튜닝</span></td>
+<td data-label="답 못 함 판단"><span class="cell">SQL을 여러 번 뽑아 서로 다르면 답하지 않음</span></td>
+</tr>
+<tr>
+<td data-label="팀"><span class="cell">AIRI NLP</span></td>
+<td data-label="SQL 생성"><span class="cell">logistic regression 분류기, T5-3B 파인튜닝</span></td>
+<td data-label="답 못 함 판단"><span class="cell">분류기와 SQL 실행 가능 여부</span></td>
+</tr>
+<tr>
+<td data-label="팀"><span class="cell">LTRC-IIITH</span></td>
+<td data-label="SQL 생성"><span class="cell">SQLCoder-7b-2 2개(분류용, 생성용)</span></td>
+<td data-label="답 못 함 판단"><span class="cell">log-probability와 실행 가능 여부</span></td>
+</tr>
+</tbody>
+</table></div></figure><p>값은 대회 개요 논문 <a class="xref" href="#s-5-2">5.2절</a>에서 가져왔습니다. [출처: <a class="url" href="https://arxiv.org/html/2405.06673">arxiv.org/<wbr/>html/<wbr/>2405.06673</a>]</p><p>상위 3팀은 모두 파인튜닝한 모델에 불확실성 신호를 붙여 답을 거릅니다. 신호는 entropy, log-probability, 모델 사이 합의입니다.</p></div><div class="blk" data-block="" id="s-2-5"><h3 class="blk__h" id="h-s-2-5"><span class="num">2.5</span><span class="ttl">읽을 때 주의할 점</span></h3><ul>
+<li>self-training 단계만 뺀 ablation은 논문에 없습니다. Table 3과 4는 입력과 필터의 효과만 보여 줍니다. 그래서 RS 향상 중 의사 라벨 재학습의 몫은 확인할 수 없습니다. [출처: <a class="url" href="https://arxiv.org/html/2405.11162">arxiv.org/<wbr/>html/<wbr/>2405.11162</a>]</li>
+<li>의사 라벨은 라벨 없는 검증·시험 질문 자체에 붙입니다. 정답은 쓰지 않지만 시험 입력 분포를 학습에 씁니다(transductive). 실제 서비스에서는 운영 중에 들어온 질문으로 같은 일을 합니다. 저자들도 실제 서비스에서는 사용자 질문을 쉽게 모을 수 있다는 점을 이유로 듭니다. [출처: <a class="url" href="https://arxiv.org/html/2405.11162">arxiv.org/<wbr/>html/<wbr/>2405.11162</a>]</li>
+<li>실행 필터는 결과가 빈 SQL을 답 못 함으로 바꿉니다. 실제 EHR에는 "해당 기록 없음"이 맞는 답인 질문이 있습니다. 이런 질문에서는 빈 결과가 정답입니다(<a class="xref" href="#s-7-2">7.2절</a>).</li>
+<li>학습 세트 크기의 표기가 논문 안에서 다릅니다. <a class="xref" href="#s-3-1">3.1절</a>은 5,124개에 두 종류 질문이 모두 들어 있다고 씁니다. <a class="xref" href="#s-3-2">3.2절</a>은 답할 수 있는 질문이 5,124개이고 답 못 하는 질문이 450개라고 씁니다. [출처: <a class="url" href="https://arxiv.org/html/2405.11162">arxiv.org/<wbr/>html/<wbr/>2405.11162</a>]</li>
+<li>더한 null 질문의 수 K는 논문에서 찾지 못했습니다.</li>
+</ul></div></div></section><section aria-labelledby="h-s-3" class="sec" id="s-3"><h2 class="sec__h" id="h-s-3"><button aria-controls="b-s-3" aria-expanded="true" class="sec__btn" type="button"><span class="num">3</span><span class="ttl">일반 self-training 문헌</span><svg aria-hidden="true" class="chev" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="m6 9 6 6 6-6"></path></svg></button></h2><div class="sec__body" id="b-s-3"><div class="blk" data-block="" id="s-3-1"><h3 class="blk__h" id="h-s-3-1"><span class="num">3.1</span><span class="ttl">공통 틀</span></h3><p>대부분의 방법은 같은 순환을 씁니다. 모델이 답을 여러 개 만듭니다. 자동 신호로 답을 거릅니다. 남은 답으로 모델을 다시 학습합니다. 이 순환을 몇 번 되풀이합니다. 방법마다 다른 곳은 거르는 신호, 오답의 사용 여부, 학습 시작점입니다.</p><figure class="tbl tbl--cards" data-cols="4"><div aria-label="표 6: 방법, 거르는 신호, 오답 사용, 학습 시작점" class="tbl__scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">방법</th>
+<th scope="col">거르는 신호</th>
+<th scope="col">오답 사용</th>
+<th scope="col">학습 시작점</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="방법"><span class="cell">STaR</span></td>
+<td data-label="거르는 신호"><span class="cell">최종 답 일치</span></td>
+<td data-label="오답 사용"><span class="cell">정답을 힌트로 주고 다시 생성(rationalization)</span></td>
+<td data-label="학습 시작점"><span class="cell">매번 처음 모델</span></td>
+</tr>
+<tr>
+<td data-label="방법"><span class="cell">ReST</span></td>
+<td data-label="거르는 신호"><span class="cell">보상 모델 점수 임계값(점점 높임)</span></td>
+<td data-label="오답 사용"><span class="cell">쓰지 않음</span></td>
+<td data-label="학습 시작점"><span class="cell">이전 반복 모델</span></td>
+</tr>
+<tr>
+<td data-label="방법"><span class="cell">ReST-EM</span></td>
+<td data-label="거르는 신호"><span class="cell">이진 정답 신호</span></td>
+<td data-label="오답 사용"><span class="cell">쓰지 않음</span></td>
+<td data-label="학습 시작점"><span class="cell">매번 처음 모델</span></td>
+</tr>
+<tr>
+<td data-label="방법"><span class="cell">RFT</span></td>
+<td data-label="거르는 신호"><span class="cell">최종 답 일치, 서로 다른 추론 경로만 남김</span></td>
+<td data-label="오답 사용"><span class="cell">쓰지 않음</span></td>
+<td data-label="학습 시작점"><span class="cell">SFT 모델</span></td>
+</tr>
+<tr>
+<td data-label="방법"><span class="cell">V-STaR</span></td>
+<td data-label="거르는 신호"><span class="cell">최종 답 일치</span></td>
+<td data-label="오답 사용"><span class="cell">정답·오답 쌍으로 DPO verifier 학습</span></td>
+<td data-label="학습 시작점"><span class="cell">반복</span></td>
+</tr>
+<tr>
+<td data-label="방법"><span class="cell">SPIN</span></td>
+<td data-label="거르는 신호"><span class="cell">사람이 쓴 SFT 데이터와 자기 답의 구분</span></td>
+<td data-label="오답 사용"><span class="cell">자기 이전 답을 음성 예로 씀</span></td>
+<td data-label="학습 시작점"><span class="cell">이전 반복 모델</span></td>
+</tr>
+<tr>
+<td data-label="방법"><span class="cell">Self-Rewarding</span></td>
+<td data-label="거르는 신호"><span class="cell">모델 자신의 LLM-as-a-Judge 점수</span></td>
+<td data-label="오답 사용"><span class="cell">선호 쌍으로 씀</span></td>
+<td data-label="학습 시작점"><span class="cell">이전 반복 모델(반복 DPO)</span></td>
+</tr>
+<tr>
+<td data-label="방법"><span class="cell">PLUQ</span></td>
+<td data-label="거르는 신호"><span class="cell">모델의 null 예측</span></td>
+<td data-label="오답 사용"><span class="cell">쓰지 않음</span></td>
+<td data-label="학습 시작점"><span class="cell">시드 모델 학습 후 한 번 재학습</span></td>
+</tr>
+</tbody>
+</table></div></figure></div><div class="blk" data-block="" id="s-3-2"><h3 class="blk__h" id="h-s-3-2"><span class="num">3.2</span><span class="ttl">방법별 정리</span></h3><p>STaR(Zelikman et al., 2022). [출처: <a class="url" href="https://arxiv.org/abs/2203.14465">arxiv.org/<wbr/>abs/<wbr/>2203.14465</a>]
+- 몇 개의 예시로 rationale과 답을 만들고, 답이 맞은 rationale만 모아 학습합니다. 틀린 문제는 정답을 힌트로 주고 rationale을 다시 만듭니다(rationalization).
+- 새 데이터를 모을 때마다 처음 사전학습 모델에서 다시 학습합니다. 저자들은 과적합을 피하려는 선택이라고 씁니다. [출처: <a class="url" href="https://ar5iv.labs.arxiv.org/html/2203.14465">ar5iv.labs.arxiv.org/<wbr/>html/<wbr/>2203.14465</a>]
+- CommonsenseQA에서 72.5%로, 30배 큰 파인튜닝 GPT-3의 73.0%와 비슷합니다. [출처: <a class="url" href="https://ar5iv.labs.arxiv.org/html/2203.14465">ar5iv.labs.arxiv.org/<wbr/>html/<wbr/>2203.14465</a>]
+- 한계: 첫 반복이 되려면 few-shot 성능이 우연보다 높아야 합니다. GPT-2는 산술에서도 시작하지 못했습니다. 맞은 예만 학습하므로, 못 푸는 문제에서는 신호를 얻지 못합니다. rationale의 정확성은 따로 확인하지 않습니다. [출처: <a class="url" href="https://ar5iv.labs.arxiv.org/html/2203.14465">ar5iv.labs.arxiv.org/<wbr/>html/<wbr/>2203.14465</a>]</p><p>ReST(Gulcehre et al., 2023). [출처: <a class="url" href="https://arxiv.org/abs/2308.08998">arxiv.org/<wbr/>abs/<wbr/>2308.08998</a>]
+- Grow 단계에서 정책 모델로 샘플을 만들고, Improve 단계에서 보상으로 거른 데이터에 offline RL을 합니다. 데이터를 offline으로 만들어 다시 쓸 수 있으므로 online RLHF보다 효율적이라고 씁니다.
+- 기계 번역에서 자동 지표와 사람 평가가 모두 올랐습니다.</p><p>ReST-EM(Singh et al., 2023, Beyond Human Data). [출처: <a class="url" href="https://arxiv.org/abs/2312.06585">arxiv.org/<wbr/>abs/<wbr/>2312.06585</a>]
+- 샘플 생성, 이진 정답 신호로 거르기, 학습을 몇 번 되풀이합니다. 매 반복 처음 사전학습 모델을 학습해 과제 과적합을 줄입니다. [출처: <a class="url" href="https://arxiv.org/html/2312.06585">arxiv.org/<wbr/>html/<wbr/>2312.06585</a>]
+- PaLM 2로 MATH(학습 문제 7,500개)와 APPS Introductory(2,342개)에서 사람 데이터만으로 파인튜닝한 것보다 크게 좋았고, 모델이 클수록 효과가 컸습니다.
+- 한계: 반복을 몇 번 넘기면 향상이 줄어듭니다. 저자들은 적은 학습 문제에 대한 과적합을 원인으로 듭니다. 새 과제마다 문제 세트와 자동 보상 함수가 필요합니다. [출처: <a class="url" href="https://arxiv.org/html/2312.06585">arxiv.org/<wbr/>html/<wbr/>2312.06585</a>]</p><p>RFT(Yuan et al., 2023). [출처: <a class="url" href="https://arxiv.org/abs/2308.01825">arxiv.org/<wbr/>abs/<wbr/>2308.01825</a>]
+- SFT 모델로 추론 경로를 샘플링하고, 맞은 경로를 학습 데이터에 더합니다. 서로 다른 추론 경로가 많을수록 효과가 큽니다. 약한 모델일수록 더 많이 오릅니다.
+- 여러 모델의 rejection sample을 합치면 LLaMA-7B의 GSM8K 정답률이 SFT 35.9%에서 49.3%로 오릅니다.</p><p>V-STaR(Hosseini et al., 2024). [출처: <a class="url" href="https://arxiv.org/abs/2402.06457">arxiv.org/<wbr/>abs/<wbr/>2402.06457</a>]
+- STaR가 버리는 오답도 씁니다. 정답과 오답으로 DPO verifier를 학습하고, 추론 때 여러 후보 중 하나를 verifier로 고릅니다.
+- LLaMA2로 코드 생성과 수학에서 기존 self-improvement·검증 방법보다 시험 정답률이 4~17% 높습니다.</p><p>Quiet-STaR(Zelikman et al., 2024). [출처: <a class="url" href="https://arxiv.org/abs/2403.09629">arxiv.org/<wbr/>abs/<wbr/>2403.09629</a>]
+- 질문-답 대신 일반 글의 token마다 생각을 만들고, 다음 글 예측에 도움이 된 생각을 학습합니다.
+- 인터넷 글로 계속 사전학습한 뒤, 과제별 파인튜닝 없이 GSM8K 5.9%에서 10.9%, CommonsenseQA 36.3%에서 47.2%로 올랐습니다.</p><p>SPIN(Chen et al., 2024). [출처: <a class="url" href="https://arxiv.org/abs/2401.01335">arxiv.org/<wbr/>abs/<wbr/>2401.01335</a>]
+- SFT 모델에서 시작해, 이전 반복의 자기 답과 사람이 쓴 SFT 답을 구분하도록 학습합니다.
+- 목적 함수의 최적점은 모델 분포가 목표 데이터 분포와 같을 때뿐이라고 증명합니다. 따라서 상한은 사람이 쓴 SFT 데이터의 분포입니다.</p><p>Self-Rewarding Language Models(Yuan et al., 2024). [출처: <a class="url" href="https://arxiv.org/abs/2401.10020">arxiv.org/<wbr/>abs/<wbr/>2401.10020</a>]
+- 모델이 LLM-as-a-Judge로 자기 답에 보상을 매기고 반복 DPO를 합니다. Llama 2 70B를 3번 반복하자 AlpacaEval 2.0에서 Claude 2, Gemini Pro, GPT-4 0613보다 높았습니다.</p></div><div class="blk" data-block="" id="s-3-3"><h3 class="blk__h" id="h-s-3-3"><span class="num">3.3</span><span class="ttl">에이전트 self-training</span></h3><figure class="tbl tbl--cards" data-cols="5"><div aria-label="표 7: 연구, 궤적 생성, 거르는 신호, 주요 수치, 출처" class="tbl__scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">연구</th>
+<th scope="col">궤적 생성</th>
+<th scope="col">거르는 신호</th>
+<th scope="col">주요 수치</th>
+<th scope="col">출처</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="연구"><span class="cell">FireAct(2023)</span></td>
+<td data-label="궤적 생성"><span class="cell">GPT-4가 검색 API로 만든 QA 궤적</span></td>
+<td data-label="거르는 신호"><span class="cell">정답 궤적</span></td>
+<td data-label="주요 수치"><span class="cell">Llama2-7B에 궤적 500개로 HotpotQA 77% 향상</span></td>
+<td data-label="출처"><span class="cell"><a class="src" href="https://arxiv.org/abs/2310.05915" title="https://arxiv.org/abs/2310.05915">출처1</a></span></td>
+</tr>
+<tr>
+<td data-label="연구"><span class="cell">ReST meets ReAct(2023)</span></td>
+<td data-label="궤적 생성"><span class="cell">ReAct 에이전트의 이전 궤적</span></td>
+<td data-label="거르는 신호"><span class="cell">AI feedback 순위</span></td>
+<td data-label="주요 수치"><span class="cell">2번 반복 후 매개변수가 약 100분의 1인 모델이 비슷한 성능</span></td>
+<td data-label="출처"><span class="cell"><a class="src" href="https://arxiv.org/abs/2312.10003" title="https://arxiv.org/abs/2312.10003">출처2</a></span></td>
+</tr>
+<tr>
+<td data-label="연구"><span class="cell">SWE-Gym(2024)</span></td>
+<td data-label="궤적 생성"><span class="cell">실행 환경이 있는 실제 Python 과제 2,438개</span></td>
+<td data-label="거르는 신호"><span class="cell">단위 시험 통과</span></td>
+<td data-label="주요 수치"><span class="cell">SWE-Bench 해결률 최대 19%p 향상, verifier와 함께 Verified 32.0%, Lite 26.0%</span></td>
+<td data-label="출처"><span class="cell"><a class="src" href="https://arxiv.org/abs/2412.21139" title="https://arxiv.org/abs/2412.21139">출처3</a></span></td>
+</tr>
+<tr>
+<td data-label="연구"><span class="cell">SWE-smith(2025)</span></td>
+<td data-label="궤적 생성"><span class="cell">코드베이스의 시험을 깨는 과제를 자동 합성, 128개 저장소에서 5만 개</span></td>
+<td data-label="거르는 신호"><span class="cell">시험 통과 궤적</span></td>
+<td data-label="주요 수치"><span class="cell">SWE-agent-LM-32B가 SWE-bench Verified Pass@1 40.2%</span></td>
+<td data-label="출처"><span class="cell"><a class="src" href="https://arxiv.org/abs/2504.21798" title="https://arxiv.org/abs/2504.21798">출처4</a></span></td>
+</tr>
+</tbody>
+</table></div></figure><p>에이전트 쪽의 공통점은 실행 가능한 환경과 자동 판정(시험 통과, 정답 일치)입니다. 판정이 있으면 궤적을 대량으로 만들고 거를 수 있습니다.</p></div><div class="blk" data-block="" id="s-3-4"><h3 class="blk__h" id="h-s-3-4"><span class="num">3.4</span><span class="ttl">텍스트-SQL의 합성 데이터와 RL</span></h3><figure class="tbl tbl--cards" data-cols="4"><div aria-label="표 8: 연구, 방법, 주요 수치, 출처" class="tbl__scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">연구</th>
+<th scope="col">방법</th>
+<th scope="col">주요 수치</th>
+<th scope="col">출처</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="연구"><span class="cell">SENSE(2024)</span></td>
+<td data-label="방법"><span class="cell">강한 모델이 만든 데이터와 약한 모델의 오류 데이터를 합침. 오류 데이터는 선호 학습에 씀</span></td>
+<td data-label="주요 수치"><span class="cell">SPIDER와 BIRD에서 당시 최고 성능</span></td>
+<td data-label="출처"><span class="cell"><a class="src" href="https://arxiv.org/abs/2408.03256" title="https://arxiv.org/abs/2408.03256">출처5</a></span></td>
+</tr>
+<tr>
+<td data-label="연구"><span class="cell">OmniSQL(2025)</span></td>
+<td data-label="방법"><span class="cell">합성 DB 16,000개 이상에서 250만 개 질문-SQL-CoT 합성(SynSQL-2.5M)</span></td>
+<td data-label="주요 수치"><span class="cell">7B·14B·32B 모델이 9개 데이터셋에서 GPT-4o, DeepSeek-V3와 비슷하거나 높음</span></td>
+<td data-label="출처"><span class="cell"><a class="src" href="https://arxiv.org/abs/2503.02240" title="https://arxiv.org/abs/2503.02240">출처6</a></span></td>
+</tr>
+<tr>
+<td data-label="연구"><span class="cell">SQL-R1(2025)</span></td>
+<td data-label="방법"><span class="cell">NL2SQL 전용 보상으로 RL. 적은 합성 데이터와 cold start 영향 분석</span></td>
+<td data-label="주요 수치"><span class="cell">Spider 88.6%, BIRD 67.1% 실행 정확도</span></td>
+<td data-label="출처"><span class="cell"><a class="src" href="https://arxiv.org/abs/2504.08600" title="https://arxiv.org/abs/2504.08600">출처7</a></span></td>
+</tr>
+<tr>
+<td data-label="연구"><span class="cell">Reasoning-SQL(2025)</span></td>
+<td data-label="방법"><span class="cell">GRPO와 부분 보상(schema linking, AI feedback, n-gram 유사도, 문법 검사)</span></td>
+<td data-label="주요 수치"><span class="cell">RL만 쓴 14B 모델이 BIRD에서 o3-mini보다 4%, Gemini-1.5-Pro-002보다 3% 높음. SFT보다 일반화가 좋음</span></td>
+<td data-label="출처"><span class="cell"><a class="src" href="https://arxiv.org/abs/2503.23157" title="https://arxiv.org/abs/2503.23157">출처8</a></span></td>
+</tr>
+</tbody>
+</table></div></figure></div><div class="blk" data-block="" id="s-3-5"><h3 class="blk__h" id="h-s-3-5"><span class="num">3.5</span><span class="ttl">2025~2026년 흐름과 위험</span></h3><ul>
+<li>검증 가능한 보상으로 RL: DeepSeek-R1은 사람이 쓴 추론 궤적 없이 RL만으로 추론 능력을 키웠다고 보고합니다. 큰 모델의 추론 패턴을 작은 모델에 옮길 수 있다고도 씁니다. 텍스트-SQL에서는 실행 결과 일치가 이 보상이 됩니다(SQL-R1, Reasoning-SQL). [출처: <a class="url" href="https://arxiv.org/abs/2501.12948">arxiv.org/<wbr/>abs/<wbr/>2501.12948</a>]</li>
+<li>model collapse: 다른 모델이 만든 데이터로 가리지 않고 학습하면, 세대가 지나며 원래 분포의 꼬리부터 사라지고 행동이 한 점으로 모입니다. 분포의 꼬리가 중요한 과제에서는 사람이 만든 실제 데이터가 필요합니다. [출처: <a class="url" href="https://www.nature.com/articles/s41586-024-07566-y">www.nature.com/<wbr/>articles/<wbr/>s41586-024-07566-y</a>]</li>
+<li>의료 질의에서 드문 질문 유형, 드문 코드, 드문 기록 형태가 이 꼬리에 해당합니다. self-training 데이터에는 실제 질문과 실제 DB 실행 결과를 계속 섞어야 합니다.</li>
+</ul></div></div></section><section aria-labelledby="h-s-4" class="sec" id="s-4"><h2 class="sec__h" id="h-s-4"><button aria-controls="b-s-4" aria-expanded="true" class="sec__btn" type="button"><span class="num">4</span><span class="ttl">Stream of Search(SoS)</span><svg aria-hidden="true" class="chev" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="m6 9 6 6 6-6"></path></svg></button></h2><div class="sec__body" id="b-s-4"><div class="blk" data-block="" id="s-4-1"><h3 class="blk__h" id="h-s-4-1"><span class="num">4.1</span><span class="ttl">무엇을 학습시키나</span></h3><p>논문은 Gandhi et al., "Stream of Search (SoS): Learning to Search in Language"(2024)입니다. 언어 모델은 학습 때 쓸모 있는 실수를 거의 보지 못하고, 그래서 오류가 눈덩이처럼 커진다는 문제에서 시작합니다. 저자들은 탐색 과정 전체를 한 줄의 글로 펼쳐 학습시킵니다. [출처: <a class="url" href="https://arxiv.org/abs/2404.03683">arxiv.org/<wbr/>abs/<wbr/>2404.03683</a>]</p><ul>
+<li>과제: Countdown입니다. 입력 숫자들을 사칙연산으로 묶어 목표 숫자를 만듭니다. 24 게임을 넓힌 문제입니다.</li>
+<li>직렬화: 탐색, 되돌아가기(backtracking), 목표 확인을 글로 명시합니다. heuristic 값, 상태 값, 가지치기 전략은 글에 쓰지 않습니다. [출처: <a class="url" href="https://arxiv.org/html/2404.03683">arxiv.org/<wbr/>html/<wbr/>2404.03683</a>]</li>
+<li>데이터: BFS와 DFS를 바탕으로, 간단한 heuristic 함수 2개를 쓰는 탐색 전략 12개로 궤적을 만듭니다. 문제는 50만 개입니다. SoS 데이터에서 정답에 이른 궤적은 28만 5천 개이고, 최적 경로(OP) 데이터는 50만 개 모두 정답입니다. [출처: <a class="url" href="https://arxiv.org/html/2404.03683">arxiv.org/<wbr/>html/<wbr/>2404.03683</a>]</li>
+<li>모델: GPT-Neo 250M, 문맥 4,096 token, 처음부터 사전학습합니다.</li>
+</ul></div><div class="blk" data-block="" id="s-4-2"><h3 class="blk__h" id="h-s-4-2"><span class="num">4.2</span><span class="ttl">결과</span></h3><figure class="tbl tbl--scroll" data-cols="3"><div aria-label="표 9: 조건, 결과, 출처" class="tbl__scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">조건</th>
+<th scope="col">결과</th>
+<th scope="col">출처</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="조건">최적 경로만 학습(OP)</td>
+<td data-label="결과">보지 못한 입력에서 25.73%</td>
+<td data-label="출처"><a class="src" href="https://arxiv.org/html/2404.03683" title="https://arxiv.org/html/2404.03683">출처9</a></td>
+</tr>
+<tr>
+<td data-label="조건">탐색 과정 학습(SoS)</td>
+<td data-label="결과">51.27%</td>
+<td data-label="출처"><a class="src" href="https://arxiv.org/html/2404.03683" title="https://arxiv.org/html/2404.03683">출처9</a></td>
+</tr>
+<tr>
+<td data-label="조건">SoS + STaR(expert iteration)</td>
+<td data-label="결과">3번 반복 후 수렴. 보지 못한 입력에서 SoS보다 약 5% 더 풂. 반복마다 정답 궤적 10만 개 생성</td>
+<td data-label="출처"><a class="src" href="https://arxiv.org/html/2404.03683" title="https://arxiv.org/html/2404.03683">출처9</a></td>
+</tr>
+<tr>
+<td data-label="조건">SoS + APA</td>
+<td data-label="결과">reference policy를 3번 재설정, SoS보다 약 6% 향상</td>
+<td data-label="출처"><a class="src" href="https://arxiv.org/html/2404.03683" title="https://arxiv.org/html/2404.03683">출처9</a></td>
+</tr>
+<tr>
+<td data-label="조건">처음에 못 풀던 문제</td>
+<td data-label="결과">파인튜닝한 SoS 모델이 36%를 풂. 어느 heuristic solver도 못 푸는 문제도 포함</td>
+<td data-label="출처"><a class="src" href="https://arxiv.org/abs/2404.03683" title="https://arxiv.org/abs/2404.03683">출처10</a></td>
+</tr>
+</tbody>
+</table></div></figure><ul>
+<li>정답 궤적 수가 더 적은 SoS 데이터가 더 좋은 모델을 만듭니다. 실수와 되돌아가기를 보여 준 것이 효과를 냅니다.</li>
+<li>정책 개선 뒤에는 궤적당 산술 오류가 줄고, 맞은 풀이에서 방문한 상태 수도 줄었습니다. [출처: <a class="url" href="https://arxiv.org/html/2404.03683">arxiv.org/<wbr/>html/<wbr/>2404.03683</a>]</li>
+</ul></div><div class="blk" data-block="" id="s-4-3"><h3 class="blk__h" id="h-s-4-3"><span class="num">4.3</span><span class="ttl">관련 연구</span></h3><ul>
+<li>Searchformer(Lehnert et al., 2024)는 A* 탐색의 진행(상태를 탐색 트리에 넣고 빼는 순서)을 token 열로 학습시킵니다. 보지 못한 Sokoban 문제의 93.7%를 최적으로 풀고, 학습에 쓴 A* 구현보다 탐색 단계를 최대 26.8% 적게 씁니다. [출처: <a class="url" href="https://arxiv.org/abs/2402.14083">arxiv.org/<wbr/>abs/<wbr/>2402.14083</a>]</li>
+</ul></div><div class="blk" data-block="" id="s-4-4"><h3 class="blk__h" id="h-s-4-4"><span class="num">4.4</span><span class="ttl">텍스트-SQL 에이전트 궤적과의 대응</span></h3><figure class="tbl tbl--scroll" data-cols="2"><div aria-label="표 10: SoS, 텍스트-SQL·EHR 질의 에이전트" class="tbl__scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">SoS</th>
+<th scope="col">텍스트-SQL·EHR 질의 에이전트</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="SoS">상태: 남은 숫자</td>
+<td data-label="텍스트-SQL·EHR 질의 에이전트">지금까지 확인한 테이블, 열, 값, 중간 결과</td>
+</tr>
+<tr>
+<td data-label="SoS">행동: 두 숫자에 연산 적용</td>
+<td data-label="텍스트-SQL·EHR 질의 에이전트">스키마 조회, 값 탐색 SQL, 최종 SQL 실행</td>
+</tr>
+<tr>
+<td data-label="SoS">목표 확인</td>
+<td data-label="텍스트-SQL·EHR 질의 에이전트">결과가 질문 조건을 만족하는지 확인</td>
+</tr>
+<tr>
+<td data-label="SoS">되돌아가기</td>
+<td data-label="텍스트-SQL·EHR 질의 에이전트">SQL 오류나 빈 결과 뒤에 다른 테이블·조건으로 다시 시도</td>
+</tr>
+<tr>
+<td data-label="SoS">최적 경로만 학습(OP)</td>
+<td data-label="텍스트-SQL·EHR 질의 에이전트">최종 SQL만 학습</td>
+</tr>
+<tr>
+<td data-label="SoS">탐색 과정 학습(SoS)</td>
+<td data-label="텍스트-SQL·EHR 질의 에이전트">탐색·오류·수정이 담긴 궤적 전체 학습</td>
+</tr>
+<tr>
+<td data-label="SoS">정답 판정</td>
+<td data-label="텍스트-SQL·EHR 질의 에이전트">실행 결과가 정답 결과와 같음</td>
+</tr>
+</tbody>
+</table></div></figure><p>SoS의 결과에 따르면, 탐색과 복구가 담긴 궤적 전체를 학습한 모델이 최종 SQL만 학습한 모델보다 나을 것으로 예상합니다. 다만 SoS 궤적은 4,096 token 안에 들어가고, 에이전트 궤적은 도구 결과 때문에 훨씬 깁니다. 궤적을 학습 데이터로 쓰려면 긴 도구 결과를 줄이는 규칙(5절)이 함께 필요합니다.</p></div></div></section><section aria-labelledby="h-s-5" class="sec" id="s-5"><h2 class="sec__h" id="h-s-5"><button aria-controls="b-s-5" aria-expanded="true" class="sec__btn" type="button"><span class="num">5</span><span class="ttl">모델이 직접 문맥을 관리하는 방식(NVIDIA, 2026)</span><svg aria-hidden="true" class="chev" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="m6 9 6 6 6-6"></path></svg></button></h2><div class="sec__body" id="b-s-5"><div class="blk" data-block="" id="s-5-1"><h3 class="blk__h" id="h-s-5-1"><span class="num">5.1</span><span class="ttl">무엇을 비교했나</span></h3><p>논문 제목은 "Letting Models Manage Their Own Context: Where We Stand"입니다. <code>arXiv</code> 2611.34147이고, 2026년 11월 25일에 제출되었습니다. 저자는 Alessio Devoto 외 NVIDIA 연구진입니다. [출처: <a class="url" href="https://arxiv.org/abs/2611.34147">arxiv.org/<wbr/>abs/<wbr/>2611.34147</a>]</p><figure class="tbl tbl--cards" data-cols="4"><div aria-label="표 11: 방식, 언제 줄이나, 무엇을 줄이나, 원래 기록" class="tbl__scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">방식</th>
+<th scope="col">언제 줄이나</th>
+<th scope="col">무엇을 줄이나</th>
+<th scope="col">원래 기록</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="방식"><span class="cell">하네스 주도</span></td>
+<td data-label="언제 줄이나"><span class="cell">문맥 사용량이 예산의 80%에 이를 때</span></td>
+<td data-label="무엇을 줄이나"><span class="cell">첫 지시와 최근 사건 10개를 빼고 모두 요약</span></td>
+<td data-label="원래 기록"><span class="cell">남지 않음</span></td>
+</tr>
+<tr>
+<td data-label="방식"><span class="cell">모델 주도</span></td>
+<td data-label="언제 줄이나"><span class="cell">모델이 정함. 85%부터 고려하라는 지시, 사용량 표시, 한계 근처 경고를 줌</span></td>
+<td data-label="무엇을 줄이나"><span class="cell">모델이 고른 사건 범위를 모델이 쓴 요약으로 바꿈(collapse)</span></td>
+<td data-label="원래 기록"><span class="cell">보관함. 모델이 원래 tag로 다시 꺼냄</span></td>
+</tr>
+</tbody>
+</table></div></figure><p>값은 논문 2~3절에서 가져왔습니다. [출처: <a class="url" href="https://arxiv.org/html/2611.34147v1">arxiv.org/<wbr/>html/<wbr/>2611.34147v1</a>]</p><p>시험 과제는 OfficeQA Pro v2(문서 조사 90문항)와 MLE-bench Lite(Kaggle 대회 22개)입니다. 문맥 예산은 8K~512K token입니다. 모델은 GPT-6.1 Sol, Kimi K3, DeepSeek V4 Pro, Claude Opus 5.5입니다. 문맥 관리용 추가 학습은 하지 않았습니다.</p></div><div class="blk" data-block="" id="s-5-2"><h3 class="blk__h" id="h-s-5-2"><span class="num">5.2</span><span class="ttl">주요 결과</span></h3><ul>
+<li>OfficeQA Pro v2, 32K 예산에서 GPT-6.1 Sol의 점수는 하네스 주도 21%에서 모델 주도 56%로 올랐습니다. [출처: <a class="url" href="https://arxiv.org/abs/2611.34147">arxiv.org/<wbr/>abs/<wbr/>2611.34147</a>]</li>
+<li>효과는 예산이 작을수록 크고, 예산이 커지면 두 방식이 비슷해집니다. MLE-bench Lite에서는 가장 작은 예산에서만 효과가 보입니다. [출처: <a class="url" href="https://arxiv.org/html/2611.34147v1">arxiv.org/<wbr/>html/<wbr/>2611.34147v1</a>]</li>
+<li>문맥 API를 한 번 이상 쓴 과제 비율은 GPT, Kimi, DeepSeek이 42~53%이고 Opus 5.5는 4%입니다. 경고를 받으면 Opus는 대개 바로 답을 내고 끝냅니다. [출처: <a class="url" href="https://arxiv.org/html/2611.34147v1">arxiv.org/<wbr/>html/<wbr/>2611.34147v1</a>]</li>
+<li>보관한 원래 기록을 다시 꺼낸 비율은 compaction 호출 기준으로 GPT 19%, Kimi 7%, DeepSeek 3%입니다(하한값). GPT는 한 번에 요청 크기를 중앙값 3.7배 줄여 가장 많이 줄이고, 가장 자주 다시 꺼냅니다. [출처: <a class="url" href="https://arxiv.org/html/2611.34147v1">arxiv.org/<wbr/>html/<wbr/>2611.34147v1</a>]</li>
+<li>85% 시점 지시를 빼면 Kimi와 DeepSeek은 훨씬 일찍 줄입니다. 128K 이상 예산에서 두 모델의 점수는 하네스 기준보다 약 8점 낮아졌습니다. 저자들은 이 현상을 context anxiety라고 부릅니다. [출처: <a class="url" href="https://arxiv.org/html/2611.34147v1">arxiv.org/<wbr/>html/<wbr/>2611.34147v1</a>]</li>
+<li>32K 예산에서 Kimi K3의 모델 주도 방식은 누적 입력 token이 41% 적었고(3,600만 대 6,200만), 점수는 43% 대 41%였습니다. [출처: <a class="url" href="https://arxiv.org/html/2611.34147v1">arxiv.org/<wbr/>html/<wbr/>2611.34147v1</a>]</li>
+<li>문맥을 고치면 고친 지점 뒤의 KV cache가 무효가 됩니다. 저자들은 바뀌지 않은 뒷부분의 KV cache를 다시 쓰는 SGLang 시제품으로 요청당 prefill 계산을 4~15% 줄였습니다. 정답률 변화는 측정 범위 안에서 보이지 않았습니다(Qwen3.6-27B, 32K). [출처: <a class="url" href="https://arxiv.org/html/2611.34147v1">arxiv.org/<wbr/>html/<wbr/>2611.34147v1</a>]</li>
+</ul></div><div class="blk" data-block="" id="s-5-3"><h3 class="blk__h" id="h-s-5-3"><span class="num">5.3</span><span class="ttl">시사점</span></h3><ul>
+<li>원래 기록을 지우지 않고 보관하고 tag로 다시 꺼내게 하면, 요약에서 빠진 정보를 모델이 되찾을 수 있습니다. GPT의 다시 꺼낸 비율 19%는 공격적으로 줄일수록 이 통로가 필요하다는 근거입니다.</li>
+<li>도구를 준다고 모든 모델이 쓰지는 않습니다. 같은 도구와 지시에서 사용률이 4%에서 53%까지 다릅니다. 도구를 붙인 실험에서는 정답률과 함께 도구 사용률과 다시 꺼낸 비율을 잽니다.</li>
+<li>언제 줄일지에 대한 지시 한 줄이 결과를 바꿉니다. 지시 문장도 실험 변수로 다룹니다.</li>
+<li>저자들은 GPT의 좋은 결과에 학습이 기여했을 수 있다고 추정하고, 문맥 관리를 학습으로 가르치는 연구가 필요하다고 씁니다. 3절의 self-training을 문맥 관리 행동에도 적용할 수 있습니다. [출처: <a class="url" href="https://arxiv.org/html/2611.34147v1">arxiv.org/<wbr/>html/<wbr/>2611.34147v1</a>]</li>
+</ul></div></div></section><section aria-labelledby="h-s-6" class="sec" id="s-6"><h2 class="sec__h" id="h-s-6"><button aria-controls="b-s-6" aria-expanded="true" class="sec__btn" type="button"><span class="num">6</span><span class="ttl">받은 의료 LLM 문헌 4편의 수치 확인</span><svg aria-hidden="true" class="chev" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="m6 9 6 6 6-6"></path></svg></button></h2><div class="sec__body" id="b-s-6"><div class="blk blk--lead" data-block=""><figure class="tbl tbl--cards" data-cols="4"><div aria-label="표 12: 문헌, 받은 요약, 원문 확인 결과, 판정" class="tbl__scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">문헌</th>
+<th scope="col">받은 요약</th>
+<th scope="col">원문 확인 결과</th>
+<th scope="col">판정</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="문헌"><span class="cell">Devoto et al., <code>arXiv</code><wbr/> 2611.34147</span></td>
+<td data-label="받은 요약"><span class="cell">모델이 줄일 범위를 고르고, 원래 기록은 보관했다가 다시 꺼냄</span></td>
+<td data-label="원문 확인 결과"><span class="cell">collapse로 범위를 요약하고, 원래 사건은 보관해 tag로 다시 꺼냄. 2026년 11월 25일 제출</span></td>
+<td data-label="판정"><span class="cell">맞음</span></td>
+</tr>
+<tr>
+<td data-label="문헌"><span class="cell">Bedi et al., JAMA</span></td>
+<td data-label="받은 요약"><span class="cell">519편 중 실제 환자 데이터로 평가한 연구는 5%. 대부분 정확도만 봄</span></td>
+<td data-label="원문 확인 결과"><span class="cell">519편 중 5%가 실제 환자 진료 데이터를 씀. 95.4%가 accuracy를 주 평가 차원으로 씀</span></td>
+<td data-label="판정"><span class="cell">맞음</span></td>
+</tr>
+<tr>
+<td data-label="문헌"><span class="cell">Soroush et al., NEJM AI 2024</span></td>
+<td data-label="받은 요약"><span class="cell">GPT-4도 ICD·CPT 코드를 정확히 맞힌 비율이 50% 미만</span></td>
+<td data-label="원문 확인 결과"><span class="cell">GPT-4 exact match: ICD-9-CM 45.9%, ICD-10-CM 33.9%, CPT 49.8%. 시험한 4개 모델 중 가장 높음</span></td>
+<td data-label="판정"><span class="cell">맞음</span></td>
+</tr>
+<tr>
+<td data-label="문헌"><span class="cell">Ferber et al., Nature Cancer 2025</span></td>
+<td data-label="받은 요약"><span class="cell">도구를 쓰는 에이전트로 정확도가 크게 오름</span></td>
+<td data-label="원문 확인 결과"><span class="cell">완전성 기준 정답률이 GPT-4 단독 30.3%에서 에이전트 87.2%로 오름</span></td>
+<td data-label="판정"><span class="cell">맞음</span></td>
+</tr>
+</tbody>
+</table></div></figure><p>출처: [출처: <a class="url" href="https://arxiv.org/abs/2611.34147">arxiv.org/<wbr/>abs/<wbr/>2611.34147</a>] [출처: <a class="url" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11480901/">pmc.ncbi.nlm.nih.gov/<wbr/>articles/<wbr/>PMC11480901/<wbr/></a>] [출처: <a class="url" href="https://ai.nejm.org/doi/full/10.1056/AIdbp2300040">ai.nejm.org/<wbr/>doi/<wbr/>full/<wbr/>10.1056/<wbr/>AIdbp2300040</a>] [출처: <a class="url" href="https://www.nature.com/articles/s43018-025-00991-6">www.nature.com/<wbr/>articles/<wbr/>s43018-025-00991-6</a>]</p><p>Bedi et al.(JAMA)의 세부 수치는 다음과 같습니다. [출처: <a class="url" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11480901/">pmc.ncbi.nlm.nih.gov/<wbr/>articles/<wbr/>PMC11480901/<wbr/></a>]
+- 대상은 2022년 1월 1일부터 2024년 2월 19일까지 나온 연구 519편입니다.
+- 의료 과제는 의학 지식 평가(면허 시험 문제 등) 44.5%, 진단 19.5%가 많았습니다. 청구 코드 부여와 처방 작성은 각각 0.2%였습니다.
+- NLP 과제는 질의응답이 84.2%였고, 요약 8.9%, 대화 3.3%였습니다.
+- 평가 차원은 accuracy 95.4%, fairness·bias·toxicity 15.8%, 배포 고려 4.6%, calibration·uncertainty 1.2%였습니다.
+- 온라인 게재는 2024년 10월 15일이고, 권호는 JAMA 2025;333(4):319-328입니다. 받은 요약의 "JAMA 2024"는 온라인 게재 연도입니다.</p><p>Soroush et al.(NEJM AI)의 세부 수치는 다음과 같습니다. 학술지 페이지는 이 조사 환경에서 본문이 열리지 않아, 같은 DOI의 Europe PMC 초록으로 확인했습니다. [출처: <a class="url" href="https://europepmc.org/search?query=10.1056%2FAIdbp2300040">europepmc.org/<wbr/>search?query=10.1056%2FAIdbp2300040</a>]
+- GPT-3.5, GPT-4, Gemini Pro, Llama2-70b Chat에 코드 설명을 주고 코드를 만들게 했습니다. 한 의료 기관의 EHR에서 12개월 동안 쓰인 코드를 뽑았습니다. ICD-9-CM 7,697개, ICD-10-CM 15,950개, CPT 3,673개입니다.
+- 틀린 코드 중 GPT-4는 같은 뜻의 다른 코드를 가장 많이 냈습니다(ICD-9-CM 7.0%, ICD-10-CM 10.9%).
+- 저자들은 모든 모델이 부정확하거나 지어낸 정보를 담은 코드를 자주 만들었고, 추가 연구 없이 의료 코딩에 쓰기에 적절하지 않다고 결론 내렸습니다.</p><p>Ferber et al.(Nature Cancer)의 세부 수치는 다음과 같습니다. [출처: <a class="url" href="https://www.nature.com/articles/s43018-025-00991-6">www.nature.com/<wbr/>articles/<wbr/>s43018-025-00991-6</a>]
+- GPT-4에 병리 슬라이드용 vision transformer(MSI, KRAS, BRAF 예측), 영상 분할용 MedSAM, OncoKB·PubMed·Google 검색을 도구로 붙였습니다.
+- 현실적인 다중 모달 환자 사례 20개, 완전성 평가 문장 109개로 평가했습니다. 사람 전문가 4명이 눈가림 평가를 했습니다.
+- 필요한 도구 호출 64번 중 56번을 맞게 써서 도구 사용 정확도가 87.5%입니다. 맞는 임상 결론은 91.0%, 관련 지침 인용은 75.5%입니다.</p></div></div></section><section aria-labelledby="h-s-7" class="sec" id="s-7"><h2 class="sec__h" id="h-s-7"><button aria-controls="b-s-7" aria-expanded="true" class="sec__btn" type="button"><span class="num">7</span><span class="ttl">텍스트-SQL·EHR 질의 에이전트에 주는 시사점</span><svg aria-hidden="true" class="chev" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="m6 9 6 6 6-6"></path></svg></button></h2><div class="sec__body" id="b-s-7"><div class="blk" data-block="" id="s-7-1"><h3 class="blk__h" id="h-s-7-1"><span class="num">7.1</span><span class="ttl">도구 결과가 잘리는 문제</span></h3><p>EHR 질의 에이전트는 긴 결과를 자주 받습니다. 행이 많은 검사 결과, 긴 서술형 기록이 그 예입니다. 하네스가 결과를 일정 행이나 글자 수로 자르면, 모델은 뒷부분에 있던 기록을 못 보고 "기록 없음"이라고 답할 수 있습니다. 5절의 연구는 하네스가 대신 줄이면 필요한 정보가 빠질 수 있다는 같은 문제를 다룹니다.</p><p>권하는 설계는 다음과 같습니다.
+1. 잘린 결과에는 잘렸다는 표시, 전체 행 수, 전체 길이를 함께 보여 줍니다.
+2. 원래 결과는 지우지 않고 보관합니다. 결과마다 id를 붙이고, 모델이 id와 범위(행 번호, 글자 위치)로 잘린 부분을 다시 꺼내는 도구를 줍니다. NVIDIA 연구의 보관과 tag 조회와 같은 구조입니다.
+3. SQL 에이전트에서는 다시 꺼내기 대신 같은 질의에 LIMIT, OFFSET, WHERE 조건을 붙여 다시 실행하게 할 수도 있습니다.
+4. 잘린 결과만 보고 "없음"이라는 부정 결론을 내지 말라는 규칙을 시스템 지시에 넣습니다.
+5. 도구 사용률을 잽니다. NVIDIA 연구에서 같은 도구를 Opus 5.5는 4%만 썼습니다. 모델이 도구를 잘 쓰지 않으면, 잘림 표시를 더 눈에 띄게 하거나 부정 결론 전에 하네스가 확인을 요구합니다.
+6. 평가 지표에 잘린 결과 뒤의 부정 답 비율과 다시 꺼낸 비율을 넣습니다.</p></div><div class="blk" data-block="" id="s-7-2"><h3 class="blk__h" id="h-s-7-2"><span class="num">7.2</span><span class="ttl">답 못 함 판단과 "기록 없음"</span></h3><ul>
+<li>EHRSQL 2024의 RS처럼 틀린 답에 벌점을 주는 지표로 평가하면, 답 못 함 판단의 가치가 점수에 드러납니다(<a class="xref" href="#s-2-1">2.1절</a>).</li>
+<li>상위 팀은 모두 불확실성 신호(token entropy, log-probability, 여러 샘플이나 여러 모델의 합의)로 답을 걸렀습니다. token 확률을 주지 않는 API 모델에서는 여러 번 샘플링한 SQL 결과의 합의가 쓸 수 있는 신호입니다(<a class="xref" href="#s-2-4">2.4절</a>).</li>
+<li>"DB로 답할 수 없는 질문"과 "답할 수 있고 정답이 빈 결과인 질문"을 구분합니다. PLUQ의 실행 필터는 빈 결과를 답 못 함으로 바꿉니다. 실제 EHR에서 "해당 환자에게 그 검사 기록이 없음"은 맞는 답일 수 있습니다. 평가 세트에도 두 종류를 따로 넣습니다.</li>
+</ul></div><div class="blk" data-block="" id="s-7-3"><h3 class="blk__h" id="h-s-7-3"><span class="num">7.3</span><span class="ttl">코드와 용어는 사전과 뷰에서 찾게 하기</span></h3><p>GPT-4도 코드 설명에서 ICD-9-CM, ICD-10-CM, CPT 코드를 정확히 만든 비율이 50% 미만입니다(6절). 에이전트가 코드를 기억으로 만들지 않고, 코드 사전 테이블이나 뷰를 조회해 찾게 합니다. 사전 조회 결과가 없으면 코드를 지어내지 말고 그 사실을 답에 적게 합니다.</p></div><div class="blk" data-block="" id="s-7-4"><h3 class="blk__h" id="h-s-7-4"><span class="num">7.4</span><span class="ttl">평가 설계</span></h3><ul>
+<li>실제 환자 데이터(또는 실제 EHR 구조의 DB)로 평가합니다. Bedi et al.이 본 519편 중 5%만 실제 진료 데이터를 썼습니다.</li>
+<li>정답률 밖의 차원을 잽니다. calibration·uncertainty를 잰 연구는 1.2%뿐입니다. 답 못 함 판단, 확신도와 정답의 관계, 도구 사용 정확도를 함께 잽니다.</li>
+<li>Ferber et al.처럼 도구 호출의 정확도(필요한 도구를 맞게 불렀는지)와 최종 결론의 정확도를 따로 잽니다.</li>
+</ul></div><div class="blk" data-block="" id="s-7-5"><h3 class="blk__h" id="h-s-7-5"><span class="num">7.5</span><span class="ttl">self-training을 적용한다면</span></h3><ol>
+<li>학습 질문: 평가 문항으로 학습하지 않습니다. 평가와 분리한 합성 질문을 템플릿이나 강한 모델로 만듭니다(KU-DMIS, OmniSQL). 실제 운영 질문을 쓸 때는 평가 세트와 겹치지 않게 분리합니다.</li>
+<li>궤적 생성: 에이전트가 각 질문을 여러 번 풉니다. 스키마 탐색, SQL 오류, 수정이 담긴 궤적 전체를 남깁니다(SoS).</li>
+<li>거르기: 최종 SQL의 실행 결과가 정답 SQL의 실행 결과와 같은 궤적만 남깁니다(STaR, RFT, ReST-EM). 답 못 하는 질문은 null 라벨로 따로 늘려 class 불균형을 줄입니다(PLUQ).</li>
+<li>오답 궤적: 버리지 않고 verifier나 선호 학습에 씁니다(V-STaR, SENSE).</li>
+<li>학습: LoRA나 QLoRA 같은 parameter-efficient 파인튜닝으로 합니다. 반복은 2~3회로 두고, 매 반복 처음 모델에서 다시 학습합니다(STaR, ReST-EM). 생성 데이터만 되풀이하지 않고 실제 질문과 실제 실행 결과를 섞습니다(model collapse).</li>
+<li>문맥 관리 행동: 긴 결과를 줄이고 다시 꺼낸 궤적 중 정답에 이른 것을 학습 데이터에 넣으면, 5절에서 저자들이 말한 문맥 관리 학습이 됩니다.</li>
+</ol><p>LoRA와 QLoRA의 원 논문은 다음과 같습니다. [출처: <a class="url" href="https://arxiv.org/abs/2106.09685">arxiv.org/<wbr/>abs/<wbr/>2106.09685</a>] [출처: <a class="url" href="https://arxiv.org/abs/2305.14314">arxiv.org/<wbr/>abs/<wbr/>2305.14314</a>]</p></div></div></section><section aria-labelledby="h-s-8" class="sec" id="s-8"><h2 class="sec__h" id="h-s-8"><button aria-controls="b-s-8" aria-expanded="true" class="sec__btn" type="button"><span class="num">8</span><span class="ttl">확인 못 한 것</span><svg aria-hidden="true" class="chev" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="m6 9 6 6 6-6"></path></svg></button></h2><div class="sec__body" id="b-s-8"><div class="blk blk--lead" data-block=""><ul>
+<li>PLUQ의 K 값과, self-training 단계만의 효과는 논문에서 찾지 못했습니다.</li>
+<li>NEJM AI와 JAMA의 학술지 페이지는 이 조사 환경에서 본문이 열리지 않았습니다. 같은 논문을 Europe PMC 초록과 PMC 본문으로 확인했습니다.</li>
+<li>SENSE의 구체적 점수는 초록에 없어 적지 않았습니다.</li>
+</ul></div></div></section>
+<section aria-labelledby="h-s-sources" class="sec sec--aux" data-default="closed" id="s-sources"><h2 class="sec__h" id="h-s-sources"><button aria-controls="b-s-sources" aria-expanded="true" class="sec__btn" type="button"><span class="ttl">출처 목록</span><svg aria-hidden="true" class="chev" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="m6 9 6 6 6-6"></path></svg></button></h2><div class="sec__body" id="b-s-sources"><div class="blk blk--lead" data-block=""><p>표 안의 출처 번호가 가리키는 주소입니다. 번호는 문서 전체에서 같은 주소에 같은 번호를 씁니다.</p><ol class="srcs"><li id="src-1"><a class="url" href="https://arxiv.org/abs/2310.05915">arxiv.org/<wbr/>abs/<wbr/>2310.05915</a></li><li id="src-2"><a class="url" href="https://arxiv.org/abs/2312.10003">arxiv.org/<wbr/>abs/<wbr/>2312.10003</a></li><li id="src-3"><a class="url" href="https://arxiv.org/abs/2412.21139">arxiv.org/<wbr/>abs/<wbr/>2412.21139</a></li><li id="src-4"><a class="url" href="https://arxiv.org/abs/2504.21798">arxiv.org/<wbr/>abs/<wbr/>2504.21798</a></li><li id="src-5"><a class="url" href="https://arxiv.org/abs/2408.03256">arxiv.org/<wbr/>abs/<wbr/>2408.03256</a></li><li id="src-6"><a class="url" href="https://arxiv.org/abs/2503.02240">arxiv.org/<wbr/>abs/<wbr/>2503.02240</a></li><li id="src-7"><a class="url" href="https://arxiv.org/abs/2504.08600">arxiv.org/<wbr/>abs/<wbr/>2504.08600</a></li><li id="src-8"><a class="url" href="https://arxiv.org/abs/2503.23157">arxiv.org/<wbr/>abs/<wbr/>2503.23157</a></li><li id="src-9"><a class="url" href="https://arxiv.org/html/2404.03683">arxiv.org/<wbr/>html/<wbr/>2404.03683</a></li><li id="src-10"><a class="url" href="https://arxiv.org/abs/2404.03683">arxiv.org/<wbr/>abs/<wbr/>2404.03683</a></li></ol></div></div></section>
+    </article>
+  </div>
+</main>
+
+<footer class="ftr">
+  <div class="ftr__in">
+    <span>작성일 <span class="mono">2026-11-28</span></span>
+    <span>갱신일 <span class="mono">2026-11-28</span></span>
+    <span>공개 자료 기준</span>
+    <span>이 페이지는 보고서 Markdown에서 자동 생성되었습니다.</span>
+    <a href="../">조사 목록으로</a>
+  </div>
+</footer>
+
+<dialog class="sheet" id="toc-sheet" aria-labelledby="sheet-title">
+  <div class="sheet__head">
+    <h2 class="sheet__title" id="sheet-title">목차</h2>
+    <button class="btn btn--icon" id="toc-close" type="button" aria-label="목차 닫기">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <div class="sheet__body">
+    <nav aria-label="목차"><ol class="toc"><li><a href="#s-0"><span class="toc__num">0</span><span class="toc__ttl">요약</span></a></li><li><a href="#s-1"><span class="toc__num">1</span><span class="toc__ttl">조사 범위와 방법</span></a></li><li><a href="#s-2"><span class="toc__num">2</span><span class="toc__ttl">EHRSQL 2024 1위 팀의 self-training(PLUQ)</span></a><ol class="toc__sub"><li><a href="#s-2-1"><span class="toc__num">2.1</span><span class="toc__ttl">대회 과제와 평가 지표</span></a></li><li><a href="#s-2-2"><span class="toc__num">2.2</span><span class="toc__ttl">방법</span></a></li><li><a href="#s-2-3"><span class="toc__num">2.3</span><span class="toc__ttl">점수와 ablation</span></a></li><li><a href="#s-2-4"><span class="toc__num">2.4</span><span class="toc__ttl">다른 상위 팀의 방법</span></a></li><li><a href="#s-2-5"><span class="toc__num">2.5</span><span class="toc__ttl">읽을 때 주의할 점</span></a></li></ol></li><li><a href="#s-3"><span class="toc__num">3</span><span class="toc__ttl">일반 self-training 문헌</span></a><ol class="toc__sub"><li><a href="#s-3-1"><span class="toc__num">3.1</span><span class="toc__ttl">공통 틀</span></a></li><li><a href="#s-3-2"><span class="toc__num">3.2</span><span class="toc__ttl">방법별 정리</span></a></li><li><a href="#s-3-3"><span class="toc__num">3.3</span><span class="toc__ttl">에이전트 self-training</span></a></li><li><a href="#s-3-4"><span class="toc__num">3.4</span><span class="toc__ttl">텍스트-SQL의 합성 데이터와 RL</span></a></li><li><a href="#s-3-5"><span class="toc__num">3.5</span><span class="toc__ttl">2025~2026년 흐름과 위험</span></a></li></ol></li><li><a href="#s-4"><span class="toc__num">4</span><span class="toc__ttl">Stream of Search(SoS)</span></a><ol class="toc__sub"><li><a href="#s-4-1"><span class="toc__num">4.1</span><span class="toc__ttl">무엇을 학습시키나</span></a></li><li><a href="#s-4-2"><span class="toc__num">4.2</span><span class="toc__ttl">결과</span></a></li><li><a href="#s-4-3"><span class="toc__num">4.3</span><span class="toc__ttl">관련 연구</span></a></li><li><a href="#s-4-4"><span class="toc__num">4.4</span><span class="toc__ttl">텍스트-SQL 에이전트 궤적과의 대응</span></a></li></ol></li><li><a href="#s-5"><span class="toc__num">5</span><span class="toc__ttl">모델이 직접 문맥을 관리하는 방식(NVIDIA, 2026)</span></a><ol class="toc__sub"><li><a href="#s-5-1"><span class="toc__num">5.1</span><span class="toc__ttl">무엇을 비교했나</span></a></li><li><a href="#s-5-2"><span class="toc__num">5.2</span><span class="toc__ttl">주요 결과</span></a></li><li><a href="#s-5-3"><span class="toc__num">5.3</span><span class="toc__ttl">시사점</span></a></li></ol></li><li><a href="#s-6"><span class="toc__num">6</span><span class="toc__ttl">받은 의료 LLM 문헌 4편의 수치 확인</span></a></li><li><a href="#s-7"><span class="toc__num">7</span><span class="toc__ttl">텍스트-SQL·EHR 질의 에이전트에 주는 시사점</span></a><ol class="toc__sub"><li><a href="#s-7-1"><span class="toc__num">7.1</span><span class="toc__ttl">도구 결과가 잘리는 문제</span></a></li><li><a href="#s-7-2"><span class="toc__num">7.2</span><span class="toc__ttl">답 못 함 판단과 &quot;기록 없음&quot;</span></a></li><li><a href="#s-7-3"><span class="toc__num">7.3</span><span class="toc__ttl">코드와 용어는 사전과 뷰에서 찾게 하기</span></a></li><li><a href="#s-7-4"><span class="toc__num">7.4</span><span class="toc__ttl">평가 설계</span></a></li><li><a href="#s-7-5"><span class="toc__num">7.5</span><span class="toc__ttl">self-training을 적용한다면</span></a></li></ol></li><li><a href="#s-8"><span class="toc__num">8</span><span class="toc__ttl">확인 못 한 것</span></a></li><li><a href="#s-sources"><span class="toc__ttl">출처 목록</span></a></li></ol></nav>
+  </div>
+</dialog>
+
+<a class="totop js-only" id="totop" href="#top" aria-label="맨 위로" hidden>
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</a>
+
+<script>
+(() => {
+"use strict";
+const html = document.documentElement;
+const $ = (sel, root = document) => root.querySelector(sel);
+const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+const largeScreen = matchMedia("(min-width: 60em)");
+const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+const SEARCH_DEBOUNCE_MS = 150;
+const SHEET_CLOSE_FALLBACK_MS = 300;
+const sections = $$(".sec");
+const blocks = $$(".blk");
+const header = $(".hdr");
+const toggleAllBtn = $("#toggle-all");
+const tocOpenBtn = $("#toc-open");
+const tocCloseBtn = $("#toc-close");
+const sheet = $("#toc-sheet");
+const searchToggle = $("#search-toggle");
+const searchForm = $("#search-form");
+const searchInput = $("#q");
+const searchClear = $("#q-clear");
+const status = $("#search-status");
+const toTop = $("#totop");
+const hero = $(".hero");
+const openState = new Map();
+const isOpen = (sec) => openState.get(sec.id) !== false;
+function setOpen(sec, open, animate = true) {
+const btn = $(".sec__btn", sec);
+const body = $(".sec__body", sec);
+btn.setAttribute("aria-expanded", String(open));
+if (open) {
+body.removeAttribute("hidden");
+body.classList.remove("is-entering");
+if (animate && !reducedMotion.matches) {
+void body.offsetWidth;
+body.classList.add("is-entering");
+}
+} else {
+body.setAttribute("hidden", "until-found");
+}
+openState.set(sec.id, open);
+updateToggleAll();
+}
+const mainSections = sections.filter((sec) => !sec.classList.contains("sec--aux"));
+function updateToggleAll() {
+if (!toggleAllBtn) return;
+const anyClosed = mainSections.some((sec) => !isOpen(sec));
+const label = anyClosed ? "모두 펼치기" : "모두 접기";
+toggleAllBtn.dataset.action = anyClosed ? "open" : "close";
+$(".btn__label", toggleAllBtn).textContent = label;
+toggleAllBtn.setAttribute("aria-label", label);
+toggleAllBtn.title = label;
+}
+function applyDefaultState() {
+sections.forEach((sec, index) => {
+const open = sec.dataset.default === "closed" ? false : largeScreen.matches || index === 0;
+setOpen(sec, open, false);
+});
+html.classList.add("is-ready");
+}
+sections.forEach((sec) => {
+$(".sec__btn", sec).addEventListener("click", () => setOpen(sec, !isOpen(sec)));
+$(".sec__body", sec).addEventListener("beforematch", () => setOpen(sec, true, false));
+});
+toggleAllBtn?.addEventListener("click", () => {
+const open = toggleAllBtn.dataset.action === "open";
+sections.forEach((sec) => setOpen(sec, open, false));
+});
+function revealTarget(id) {
+const target = id && document.getElementById(id);
+if (!target) return null;
+const sec = target.closest(".sec");
+if (sec && !isOpen(sec)) setOpen(sec, true, false);
+return target;
+}
+window.addEventListener("hashchange", () => {
+const target = revealTarget(decodeURIComponent(location.hash.slice(1)));
+if (target) target.scrollIntoView({ block: "start" });
+});
+document.addEventListener("click", (event) => {
+const link = event.target.closest('a[href^="#"]');
+if (!link) return;
+const id = decodeURIComponent(link.getAttribute("href").slice(1));
+if (searchInput?.value) clearSearch({ focus: false });
+revealTarget(id);
+if (sheet?.open) closeSheet();
+});
+function openSheet() {
+if (!sheet || sheet.open) return;
+sheet.showModal();
+html.classList.add("sheet-open");
+}
+function finishClose() {
+sheet.classList.remove("is-closing");
+html.classList.remove("sheet-open");
+if (sheet.open) sheet.close();
+}
+function closeSheet() {
+if (!sheet || !sheet.open) return;
+if (reducedMotion.matches) {
+finishClose();
+return;
+}
+sheet.classList.add("is-closing");
+let done = false;
+const once = () => {
+if (done) return;
+done = true;
+sheet.removeEventListener("animationend", once);
+finishClose();
+};
+sheet.addEventListener("animationend", once);
+setTimeout(once, SHEET_CLOSE_FALLBACK_MS);
+}
+tocOpenBtn?.addEventListener("click", openSheet);
+tocCloseBtn?.addEventListener("click", closeSheet);
+sheet?.addEventListener("cancel", (event) => {
+event.preventDefault();
+closeSheet();
+});
+sheet?.addEventListener("click", (event) => {
+if (event.target === sheet) closeSheet();
+});
+sheet?.addEventListener("close", () => html.classList.remove("sheet-open"));
+const tocLinks = $$(".toc a");
+const headingFor = new Map();
+$$(".sec__h, .blk__h").forEach((heading) => {
+const owner = heading.closest(".blk[id], .sec[id]");
+if (owner) headingFor.set(heading, owner.id);
+});
+let currentId = null;
+function setCurrent(id) {
+if (currentId === id) return;
+currentId = id;
+tocLinks.forEach((link) => {
+if (decodeURIComponent(link.hash.slice(1)) === id) link.setAttribute("aria-current", "true");
+else link.removeAttribute("aria-current");
+});
+}
+if ("IntersectionObserver" in window && headingFor.size) {
+const headerPx = header ? header.getBoundingClientRect().height : 56;
+const spy = new IntersectionObserver((entries) => {
+const visible = entries.filter((entry) => entry.isIntersecting);
+if (visible.length) setCurrent(headingFor.get(visible[0].target));
+}, { rootMargin: `-${Math.round(headerPx)}px 0px -55% 0px`, threshold: 0 });
+headingFor.forEach((_, heading) => spy.observe(heading));
+}
+const normalize = (text) => text.normalize("NFC").toLowerCase();
+const tokensOf = (query) => normalize(query).trim().split(/\s+/).filter(Boolean);
+const matchesAll = (text, tokens) => tokens.every((token) => text.includes(token));
+const escapeRegExp = (text) => text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+let savedOpenState = null;
+let marks = [];
+let debounceTimer = 0;
+function highlight(root, tokens) {
+const pattern = new RegExp(tokens.map(escapeRegExp).join("|"), "giu");
+const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+acceptNode(node) {
+if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+const parent = node.parentElement;
+if (!parent || parent.closest("script, style, mark, .sec__h, .blk__h")) return NodeFilter.FILTER_REJECT;
+if (parent.closest("tr[hidden], [hidden]")) return NodeFilter.FILTER_REJECT;
+return NodeFilter.FILTER_ACCEPT;
+},
+});
+const targets = [];
+while (walker.nextNode()) targets.push(walker.currentNode);
+targets.forEach((textNode) => {
+const text = textNode.nodeValue;
+pattern.lastIndex = 0;
+if (!pattern.test(text)) return;
+pattern.lastIndex = 0;
+const fragment = document.createDocumentFragment();
+let last = 0;
+let match;
+while ((match = pattern.exec(text)) !== null) {
+if (match.index > last) fragment.appendChild(document.createTextNode(text.slice(last, match.index)));
+const mark = document.createElement("mark");
+mark.textContent = match[0];
+fragment.appendChild(mark);
+marks.push(mark);
+last = match.index + match[0].length;
+if (match[0].length === 0) pattern.lastIndex++;
+}
+if (last < text.length) fragment.appendChild(document.createTextNode(text.slice(last)));
+textNode.parentNode.replaceChild(fragment, textNode);
+});
+}
+function clearHighlights() {
+const parents = new Set();
+marks.forEach((mark) => {
+const parent = mark.parentNode;
+if (!parent) return;
+parent.replaceChild(document.createTextNode(mark.textContent), mark);
+parents.add(parent);
+});
+parents.forEach((parent) => parent.normalize());
+marks = [];
+}
+function showStatus(nodes) {
+status.replaceChildren(...nodes);
+status.hidden = false;
+}
+function makeClearButton() {
+const btn = document.createElement("button");
+btn.type = "button";
+btn.className = "btn";
+btn.textContent = "검색 지우기";
+btn.addEventListener("click", () => clearSearch({ focus: true }));
+return btn;
+}
+function strong(text) {
+const el = document.createElement("strong");
+el.textContent = text;
+return el;
+}
+function runSearch(query) {
+const tokens = tokensOf(query);
+clearHighlights();
+if (!tokens.length) {
+restoreAll();
+return;
+}
+if (!savedOpenState) savedOpenState = new Map(openState);
+searchClear.hidden = false;
+let visibleBlocks = 0;
+blocks.forEach((block) => {
+const blockMatches = matchesAll(normalize(block.textContent), tokens);
+$$("tbody tr", block).forEach((row) => {
+row.hidden = !matchesAll(normalize(row.textContent), tokens);
+});
+$$(".tbl", block).forEach((table) => {
+table.hidden = !$$("tbody tr", table).some((row) => !row.hidden);
+});
+block.hidden = !blockMatches;
+if (blockMatches) {
+visibleBlocks++;
+highlight(block, tokens);
+}
+});
+sections.forEach((sec) => {
+const anyBlock = $$(".blk", sec).some((block) => !block.hidden);
+sec.hidden = !anyBlock;
+if (anyBlock && !isOpen(sec)) setOpen(sec, true, false);
+});
+if (!visibleBlocks) {
+showStatus([
+strong(`"${query.trim()}"`),
+document.createTextNode(" 일치하는 내용이 없습니다. 다른 검색어를 입력하거나 검색을 지우세요."),
+makeClearButton(),
+]);
+return;
+}
+showStatus([
+strong(`"${query.trim()}"`),
+document.createTextNode(` 일치 ${marks.length}곳 · ${visibleBlocks}개 절 표시 중`),
+makeClearButton(),
+]);
+}
+function restoreAll() {
+blocks.forEach((block) => {
+block.hidden = false;
+$$("tbody tr, .tbl", block).forEach((el) => { el.hidden = false; });
+});
+sections.forEach((sec) => { sec.hidden = false; });
+if (savedOpenState) {
+sections.forEach((sec) => setOpen(sec, savedOpenState.get(sec.id) !== false, false));
+savedOpenState = null;
+}
+status.hidden = true;
+status.replaceChildren();
+searchClear.hidden = true;
+}
+function clearSearch({ focus }) {
+clearTimeout(debounceTimer);
+searchInput.value = "";
+runSearch("");
+if (focus) searchInput.focus();
+}
+if (searchForm && searchInput) {
+searchForm.addEventListener("submit", (event) => {
+event.preventDefault();
+clearTimeout(debounceTimer);
+runSearch(searchInput.value);
+});
+searchInput.addEventListener("input", () => {
+clearTimeout(debounceTimer);
+debounceTimer = setTimeout(() => runSearch(searchInput.value), SEARCH_DEBOUNCE_MS);
+});
+searchInput.addEventListener("keydown", (event) => {
+if (event.key === "Escape" && searchInput.value) {
+event.preventDefault();
+clearSearch({ focus: true });
+}
+});
+searchClear.addEventListener("click", () => clearSearch({ focus: true }));
+}
+searchToggle?.addEventListener("click", () => {
+const open = !header.classList.contains("search-open");
+header.classList.toggle("search-open", open);
+searchToggle.setAttribute("aria-expanded", String(open));
+searchToggle.setAttribute("aria-label", open ? "검색 닫기" : "검색 열기");
+if (open) searchInput.focus();
+else if (searchInput.value) clearSearch({ focus: false });
+});
+if (toTop && hero && "IntersectionObserver" in window) {
+new IntersectionObserver(([entry]) => {
+toTop.hidden = entry.isIntersecting;
+}, { threshold: 0 }).observe(hero);
+}
+applyDefaultState();
+const initial = revealTarget(decodeURIComponent(location.hash.slice(1)));
+if (initial) initial.scrollIntoView({ block: "start" });
+})();
+</script>
+</body>
+</html>
