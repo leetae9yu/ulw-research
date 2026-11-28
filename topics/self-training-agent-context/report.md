@@ -1,14 +1,14 @@
 ---
 title: 에이전트 self-training과 모델 주도 문맥 관리 문헌 조사
 subtitle: 텍스트-SQL·EHR 질의 에이전트
-summary: EHRSQL 2024 1위 self-training, STaR·ReST 계열, Stream of Search, NVIDIA 모델 주도 문맥 관리를 논문 본문·표·appendix 기준으로 정리하고 의료 LLM 문헌 4편의 수치를 대조했습니다.
+summary: EHRSQL 2024 1위 self-training, STaR·ReST 계열, Stream of Search, NVIDIA 모델 주도 문맥 관리, closed model 에이전트 궤적 distillation을 논문 본문·표·appendix 기준으로 정리하고 의료 LLM 문헌 4편의 수치를 대조했습니다.
 created: 2026-11-28
 updated: 2026-11-28
 ---
 
 # 에이전트 self-training과 모델 주도 문맥 관리 문헌 조사
 
-조사 기준일: 2026년 11월 28일. 공개 논문과 공개 페이지만 사용했습니다. 수치는 초록 대신 논문 본문, 표, 그림, appendix와 대조했습니다. 수치마다 출처 뒤에 본 위치(절, 표, 그림 번호)를 적었습니다. 본문을 열지 못한 논문은 1.2절과 8절에 어디까지 봤는지 적었습니다.
+조사 기준일: 2026년 11월 28일. 공개 논문과 공개 페이지만 사용했습니다. 수치는 초록 대신 논문 본문, 표, 그림, appendix와 대조했습니다. 수치마다 출처 뒤에 본 위치(절, 표, 그림 번호)를 적었습니다. 본문을 열지 못한 논문은 1.2절과 9절에 어디까지 봤는지 적었습니다.
 
 ## 0. 요약
 
@@ -19,6 +19,7 @@ updated: 2026-11-28
 - Stream of Search는 탐색 과정 전체(탐색, 막힘, 되돌아가기)를 글로 펼쳐 학습시킵니다. Countdown에서 최적 경로만 학습한 모델은 25.73%, 탐색 과정을 학습한 모델은 51.27%를 풀었습니다. STaR와 APA로 더 학습하면 55.59%와 56.52%입니다(4절).
 - NVIDIA 연구(2026년 11월)는 하네스의 자동 요약 대신 모델이 직접 줄일 범위를 고르고, 원래 기록은 보관해 다시 꺼내게 했습니다. 32K 예산에서 GPT-6.1 Sol의 점수가 21%에서 56%로 올랐습니다. 그러나 같은 도구를 Claude Opus 5.5는 과제의 4%에서만 썼습니다. 경고를 받은 Opus는 88%의 경우 바로 답을 냈습니다(5절).
 - 받은 의료 LLM 문헌 4편의 요약 수치는 원문과 맞습니다. Ferber 논문의 91.0%는 평가 문장 245개 중 223개가 맞았다는 뜻이고, 사례 비율이 아닙니다. Soroush 논문(NEJM AI)은 학술지 본문을 열지 못해 최종판 초록으로만 확인했습니다(6절).
+- closed model의 추론 과정이 숨겨져 있어도 도구 호출과 관찰 결과만으로 소형 모델에 정책을 옮길 수 있습니다. CoT-Proxy 연구에서 행동만 학습한 Qwen3-4B는 AppWorld 성공률이 7.3%에서 17.9%로 올랐고, 추론 요약을 별도 위치에 더하면 34.5%였습니다. 다만 OpenAI, Anthropic, Google 약관은 출력으로 경쟁 모델을 만드는 일을 금지합니다(8절).
 - 텍스트-SQL·EHR 질의 에이전트에는 다섯 가지를 권합니다. 잘린 결과에 잘림 표시와 다시 꺼내는 도구를 붙입니다. 빈 결과와 "기록 없음"을 구분합니다. 코드는 사전과 뷰에서 찾게 합니다. 정답률 밖에 답 못 함 판단과 calibration을 잽니다. self-training은 평가 문항과 분리한 합성 질문과 실행 결과 일치 필터로 합니다(7절).
 
 ## 1. 조사 범위와 방법
@@ -34,6 +35,7 @@ updated: 2026-11-28
 | 탐색 학습 | Stream of Search, Searchformer |
 | 문맥 관리 | NVIDIA, Letting Models Manage Their Own Context |
 | 의료 LLM 평가·응용 | Bedi(JAMA), Soroush(NEJM AI), Ferber(Nature Cancer) |
+| 에이전트 궤적 distillation | ReAct, AgentTuning, Agent-FLAN, ToolLLM, Orca, Orca 2, The False Promise of Imitating Proprietary LLMs, Distilling Step-by-Step, ETO, NAT, ReAct Meets ActRe, Agent Distillation, CoT-Proxy, closed model 약관 |
 
 ### 1.2 논문별로 읽은 범위
 
@@ -57,6 +59,8 @@ arXiv 논문은 PDF를 내려받아 텍스트로 바꾼 뒤 본문, 표, 그림 
 | Bedi(JAMA) | PMC 본문 | 본문, Table 1~2. Supplement(eTable)는 내려받기가 막혀 못 봄 |
 | Soroush(NEJM AI) | Europe PMC 최종판 초록, medRxiv 2023 프리프린트 본문 | 최종판 본문은 못 봄. 프리프린트는 GPT-3.5·GPT-4와 ICD만 다룬 이전 판이라 수치 근거로 쓰지 않음 |
 | Ferber(Nature Cancer) | Nature 본문(Open Access), Supplementary Information PDF | 본문, 그림, 보충 자료 |
+| ReAct, AgentTuning, Agent-FLAN, ToolLLM, Orca, Orca 2, False Promise, Distilling Step-by-Step, ETO, NAT, ActRe, Agent Distillation, CoT-Proxy | arXiv PDF | 본문, 표, appendix |
+| OpenAI·Anthropic·Google 약관 | 각 회사 공식 약관 페이지(2026년 11월 28일 조회) | 해당 조항 원문. Anthropic Consumer Terms는 한국어판만 열려 경쟁 모델 조항을 확인하지 못함 |
 
 ## 2. EHRSQL 2024 1위 팀의 self-training(PLUQ)
 
@@ -516,10 +520,121 @@ GPT-4도 코드 설명에서 ICD-9-CM, ICD-10-CM, CPT 코드를 정확히 만든
 
 LoRA와 QLoRA의 원 논문은 다음과 같습니다. 이 두 논문의 수치는 이 보고서에 쓰지 않았습니다. [출처: https://arxiv.org/abs/2106.09685] [출처: https://arxiv.org/abs/2305.14314]
 
-## 8. 확인 못 한 것
+## 8. closed model의 에이전트 궤적으로 소형 모델 distillation
+
+### 8.1 질문
+
+closed model은 추론 과정을 숨기거나 요약해서 보여 줍니다. 그러나 에이전트 작업에서는 도구 호출, 인자, 도구가 돌려준 관찰 결과가 로그로 남습니다. 하네스를 씌운 teacher의 궤적을 SFT 데이터로 쓰는 방식도 흔합니다. 이 절은 세 가지를 봅니다.
+
+1. 추론 없이 도구 호출 순서와 결과만 있는 궤적으로 SFT하면 무엇이 빠지는지 봅니다.
+2. 빠진 부분을 메우는 방법과 그 효과 수치를 봅니다.
+3. 약관상 제약과 대안을 봅니다.
+
+### 8.2 기존 연구를 teacher 궤적 distillation으로 다시 묶기
+
+3.3절의 에이전트 연구 대부분은 강한 teacher의 궤적을 작은 student에 학습시키는 distillation입니다. 궤적을 스스로 만드는 self-training과 다른 점은 궤적의 출처입니다.
+
+| 연구 | teacher | student | 궤적에 든 것 | 결과(본 위치) |
+|---|---|---|---|---|
+| FireAct | GPT-4 | Llama-2-7B 등 | 생각, 검색 호출, 관찰 500개 | HotpotQA EM 14.8에서 26.2(Table 2) |
+| ToolLLM | ChatGPT(gpt-3.5-turbo-16k) | LLaMA(ToolLLaMA) | 생각, 실제 REST API 호출과 응답 126,486개 | 평균 pass rate: student 66.7%, teacher 64.8%(DFSDT 기준, Table 4) |
+| AgentTuning | GPT-4(gpt-4-0613) | Llama 2 chat 7B·13B·70B | 단계별 CoT와 행동 1,866개 | held-out 점수 70B 1.40, GPT-3.5 1.49(Table 4) |
+| SWE-Gym | gpt-4o, claude-3-5-sonnet | Qwen-2.5-Coder 32B | OpenHands 궤적 491개 | SWE-Bench Verified 15.3%(+12.3%p)(1절, Appendix B.4) |
+| SWE-smith | claude-3-7-sonnet | Qwen-2.5-Coder 32B | SWE-agent의 생각과 행동 5,016개 | SWE-bench Verified 40.2%(3절, Table 3) |
+
+[출처: https://arxiv.org/pdf/2310.05915, Table 2] [출처: https://arxiv.org/pdf/2307.16789, Table 1, Table 4] [출처: https://arxiv.org/pdf/2310.12823, 2.1절, Table 4] [출처: https://arxiv.org/pdf/2412.21139, 1절, Appendix B.4] [출처: https://arxiv.org/pdf/2504.21798, 3절, Table 3]
+
+- 이 연구들의 teacher 궤적에는 모두 ReAct 형식의 "생각"이 들어 있습니다. teacher가 생각을 글로 쓰도록 하네스가 요구했기 때문입니다.
+- ToolLLM에서 ReACT로 탐색한 student는 평균 29.0%였고, 깊이 우선 탐색(DFSDT)으로 만든 궤적을 쓰면 66.7%였습니다. 궤적을 만드는 하네스의 탐색 방식이 student 성능을 바꿉니다. [출처: https://arxiv.org/pdf/2307.16789, Table 3, Table 4]
+- AgentTuning에서 70B student는 Database 과제(SQL 생성)에서 37.7로 GPT-4(33.7)보다 높았습니다. 7B와 13B는 30.6과 33.7입니다. [출처: https://arxiv.org/pdf/2310.12823, Table 4]
+- 정답 궤적만 남기는 거르기가 중요합니다. AgentTuning 7B에서 거르지 않은 궤적으로 학습하면 held-in 1.34, held-out 0.47이고, 거른 궤적으로 학습하면 1.96과 0.65입니다. [출처: https://arxiv.org/pdf/2310.12823, Table 2]
+- 에이전트 궤적만 학습하면 일반화가 무너집니다. AgentTuning 7B를 에이전트 데이터만으로 학습하면 held-out 0.09, 일반 대화 데이터와 섞으면 0.67입니다. [출처: https://arxiv.org/pdf/2310.12823, Table 5]
+
+### 8.3 추론 없이 행동만 있는 궤적에서 빠지는 것
+
+궤적에서 생각을 빼고 행동만 남기면 다음이 빠집니다.
+
+- 행동을 고른 이유: ReAct 논문에서 HotpotQA 정답 궤적 3,000개로 PaLM-8B·62B를 파인튜닝하면, 생각과 행동을 함께 학습한 ReAct가 행동만 학습한 Act보다 높았습니다. 다만 Act도 답만 학습한 Standard나 CoT보다는 훨씬 높았습니다. 결과는 그림으로만 나옵니다. [출처: https://arxiv.org/pdf/2210.03629, 3.3절, Figure 3]
+- 형식 밖의 내용: Agent-FLAN은 ReAct·JSON 형식의 학습 데이터에서 형식 부분의 loss가 빨리 0 가까이 떨어지고(0.04), 내용 부분의 loss는 높게 남는다(0.54)고 보고합니다. 고정된 형식을 먼저 외우고 추론은 덜 배운다는 뜻입니다. 형식을 일반 대화 형식으로 바꾸면 T-Eval이 61.8에서 64.9로, HotpotQA가 25.4에서 27.9로 오릅니다. [출처: https://arxiv.org/pdf/2403.12881, 3절, Table 2]
+- 문체만 옮겨지는 위험: ChatGPT 출력으로 모방 학습한 모델은 사람 평가자에게 좋은 점수를 받지만, 모방 데이터가 다루지 않은 과제(Natural Questions)에서는 기반 모델보다 거의 나아지지 않습니다. 저자들은 모방 모델이 ChatGPT의 문체는 따라 하지만 사실성은 따라 하지 못한다고 정리합니다. [출처: https://arxiv.org/pdf/2305.15717, 1절, Figure 1, 4절]
+- 평가 방식에 따라 차이가 숨습니다. Orca 논문은 GPT-4 판정으로는 Vicuna가 ChatGPT 품질의 92%를 유지하지만, 사람 라벨 기준으로는 AGIEval에서 64%, BigBench-Hard에서 48%만 유지한다고 보고합니다. [출처: https://arxiv.org/pdf/2306.02707, 1절]
+- 실패에서 배울 정보: 정답 궤적만 학습하면 teacher가 피한 실수를 볼 수 없습니다. 실패 궤적을 쓰면 오릅니다. NAT는 실패 궤적에 실패 표시를 붙여 함께 학습해 HotpotQA 7B 점수를 정답만 쓴 55.40에서 65.80으로 올렸고, 표시 없이 섞으면 62.40이었습니다. ETO는 실패-성공 궤적 쌍으로 대조 학습해 SFT보다 WebShop 평균 보상을 8%, ScienceWorld를 9.5% 올렸습니다. [출처: https://arxiv.org/pdf/2402.11651, Table 3, Table 6] [출처: https://arxiv.org/pdf/2403.02502, 4.2절, Table 2]
+
+CoT-Proxy(Kopiczko et al., 2026)는 이 질문을 직접 시험했습니다. teacher 궤적에서 추론을 빼고 행동만 남긴 뒤, student의 추론 칸을 비워 둔 채 학습합니다. 자기 생성 데이터에 대한 KL loss로 처음 모델에서 멀어지지 않게 합니다. [출처: https://arxiv.org/pdf/2611.33148, 2절, 식 (1)]
+
+| AppWorld 과제 성공률 TGC(%), 학생 Qwen3-4B | 공개 teacher(Qwen3.6-27B) | closed teacher(GPT-5.6 Luna) |
+|---|---|---|
+| 학습 전 | 7.3 | 7.3 |
+| teacher 추론 전체 학습(Full-CoT) | 29.2 | 추론이 숨겨져 불가 |
+| 행동만 학습(Action-only) | 17.9 | 35.1 |
+| 행동 + 추론 요약을 별도 위치에 학습(CoT-proxy) | 34.5 | 48.2 |
+| 같은 요약을 추론 칸 안에 넣어 학습(Summary as CoT) | 23.4 | 33.9 |
+| teacher | 60.7 | 89.3 |
+
+[출처: https://arxiv.org/pdf/2611.33148, Table 1, Table 2, Table 5]
+
+- 행동만으로도 정책이 옮겨집니다. 행동만 학습한 student도 추론을 켜고 쓰면 자기 방식으로 추론하면서 teacher처럼 행동합니다. 저자들은 이를 cross-format transfer라고 부릅니다. [출처: https://arxiv.org/pdf/2611.33148, 4절]
+- 그러나 행동만 학습하면 teacher 추론 전체를 학습할 때(29.2)보다 낮습니다(17.9). 이 차이가 "추론이 빠져서 잃는 몫"입니다.
+- closed teacher가 API로 돌려주는 추론 요약을 추론 칸 안에 그대로 넣으면 student가 요약의 짧은 문체를 따라 해 성능이 낮아집니다(33.9). 같은 요약을 빈 추론 칸 뒤에 두면 48.2입니다. [출처: https://arxiv.org/pdf/2611.33148, Table 5]
+- teacher의 보이는 응답 문장을 모두 학습 대상에 남기면 행동만 학습한 student의 성공률이 17.9에서 4.6으로 무너집니다. 학습 대상은 파싱한 행동만 남겼습니다. [출처: https://arxiv.org/pdf/2611.33148, Table 7]
+- SWE-bench Verified에서 closed teacher로 학습한 Qwen3-4B는 2.7%에서 행동만 18.0%, CoT-proxy 27.8%였습니다. 이 값은 seed 한 번의 결과입니다. [출처: https://arxiv.org/pdf/2611.33148, Table 2]
+- 자기 생성 데이터 15%를 섞은 KL 제약이 일반 능력을 지킵니다. 행동만 학습할 때 replay가 없으면 AIME25가 74.7에서 71.1로 떨어지고 TGC도 14.3으로 낮습니다. [출처: https://arxiv.org/pdf/2611.33148, Table 3]
+
+### 8.4 빠진 추론을 메우는 방법과 효과
+
+| 방법 | 무엇을 메우나 | 효과(본 위치) |
+|---|---|---|
+| 사후 설명(CoT-Proxy Table 6) | 과제, 마지막 관찰, 행동만 보고 다른 모델이 행동의 이유를 씀 | Qwen3-4B AppWorld TGC: 행동만 17.9, 사후 설명 29.0, teacher 추론 요약 34.5. 요약 이득의 약 3분의 2를 회복 |
+| 작은 요약 모델(CoT-Proxy Table 6) | teacher 추론을 Qwen3-4B-Instruct로 요약 | 36.9로 기본 요약(34.5)과 같은 수준. 작성 비용은 약 1%. Qwen3-1.7B로 요약하면 27.6 |
+| ActRe(ReAct Meets ActRe) | 행동을 먼저 정하고, 그 행동의 이유를 사후에 써서 ReAct 궤적으로 만듦 | WebShop 학습 궤적 모음의 성공률이 반복 0에서 40.0%, 반복 3에서 73.9%(Table 6). 한 번 시도한 agent의 test 보상 73.9로 평균 사람 수준(75.5)에 근접(4절) |
+| first-thought prefix(Agent Distillation) | teacher의 첫 추론 단계를 에이전트 궤적 앞에 붙여 궤적을 만듦 | Qwen2.5-3B 8개 과제 평균: CoT distillation 27.72, agent distillation 33.60, prefix 추가 34.49, 추론 시 self-consistent action까지 36.60(Table 2) |
+| 추론을 별도 과제로 학습(Distilling Step-by-Step) | teacher rationale을 답과 다른 출력으로 학습 | 770M T5가 540B PaLM few-shot보다 높음. rationale과 답을 한 줄로 이어 학습하면 ANLI 43.50으로 표준 파인튜닝(43.58)보다 낮음(Table 2) |
+| Prompt Erasure(Orca 2) | teacher에게는 자세한 전략 지시를 주고, student 학습에서는 그 지시를 지움 | student가 지시 없이 과제별 전략을 고르도록 학습. 정량 비교는 이 보고서에 옮기지 않음(3절) |
+| 실패 궤적 활용(NAT, ETO) | teacher가 보여 주지 않은 실패와 그 결과 | 8.3절 수치 |
+
+[출처: https://arxiv.org/pdf/2611.33148, Table 6] [출처: https://arxiv.org/pdf/2403.14589, 3절, 4절, Table 6, Appendix A] [출처: https://arxiv.org/pdf/2505.17612, 3절, Table 2] [출처: https://arxiv.org/pdf/2305.02301, 4절, Table 2] [출처: https://arxiv.org/pdf/2311.11045, 3절]
+
+- Agent Distillation에서 first-thought prefix는 검색 호출 수를 줄이지만, 모델이 내부 지식에 더 기대어 사실 오류가 늘 수 있습니다. [출처: https://arxiv.org/pdf/2505.17612, Figure 8, Appendix D.3]
+- 사후 설명은 행동을 정당화하는 글이고, teacher의 실제 추론과는 다를 수 있습니다. CoT-Proxy에서도 teacher 추론을 요약한 쪽(34.5)이 사후 설명(29.0)보다 높았습니다.
+- 같은 궤적에서 distillation과 self-training을 비교한 결과도 있습니다. ETO와 ActRe는 teacher 궤적으로 SFT한 뒤 student가 스스로 탐색한 궤적으로 더 학습해 SFT보다 높아졌습니다(8.3절, 위 표). ETO에서 teacher 궤적 없이 처음부터 자기 탐색만 한 경우는 Table 5에 따로 있습니다. [출처: https://arxiv.org/pdf/2403.02502, Table 5]
+
+### 8.5 약관
+
+2026년 11월 28일에 각 회사 공식 약관 페이지에서 확인한 조항입니다. 이 보고서는 법률 해석을 하지 않습니다.
+
+| 회사·문서 | 조항 원문 | 출처 |
+|---|---|---|
+| OpenAI Terms of Use | "Use Output to develop models that compete with OpenAI"를 금지 행위로 나열 | https://openai.com/policies/row-terms-of-use/ |
+| OpenAI Services Agreement(API 고객) | "except for a Permitted Exception, use Output to develop artificial intelligence models that compete with OpenAI's products and services"를 금지. Permitted Exception은 외부에 배포하지 않는 분류·임베딩 모델 개발과 OpenAI 파인튜닝 서비스 안의 파인튜닝 | https://openai.com/policies/services-agreement/ |
+| Anthropic Commercial Terms(API 고객) | "access the Services to build a competing product or service, including to train competing AI models"를 Anthropic 승인 없이 금지 | https://www.anthropic.com/legal/commercial-terms |
+| Google Gemini API Additional Terms | "You may not use the Services to develop models that compete with the Services" | https://ai.google.dev/gemini-api/terms |
+
+- 세 회사 모두 "경쟁하는 모델"의 개발을 금지합니다. 사내 전용 소형 에이전트가 이 "경쟁"에 해당하는지는 약관 문장만으로 정해지지 않습니다. 실제 적용 전에는 법무 검토가 필요합니다.
+- OpenAI의 예외는 분류·임베딩 모델과 OpenAI 파인튜닝 서비스 안의 학습에 한정됩니다. 에이전트 궤적으로 다른 생성 모델을 학습하는 경우는 예외에 들지 않습니다.
+- 위 연구들(FireAct, ToolLLM, AgentTuning, SWE-Gym, SWE-smith, CoT-Proxy)은 closed teacher를 연구 목적으로 썼습니다. 논문에 쓰였다는 사실이 서비스 적용을 허용한다는 뜻은 아닙니다.
+
+대안은 다음과 같습니다.
+
+1. 공개 가중치 teacher를 씁니다. CoT-Proxy의 공개 teacher(Qwen3.6-27B)로 학습한 Qwen3-4B는 34.5%로, 행동만 쓴 closed teacher 결과(35.1%)와 비슷했습니다. 공개 모델의 라이선스 조건은 따로 확인합니다. [출처: https://arxiv.org/pdf/2611.33148, Table 1, Table 2]
+2. self-training으로 student가 스스로 궤적을 만들고 실행 결과로 거릅니다(3절, ETO, ActRe).
+3. 사람이 쓴 정답과 실제 실행 결과에서 궤적을 만듭니다. 정답 SQL과 실행 결과가 있는 과제에서는 teacher 없이 판정할 수 있습니다.
+4. 회사가 제공하는 파인튜닝 서비스 안에서 학습합니다. 이 경우 학습한 모델은 그 회사 플랫폼 안에서만 씁니다.
+
+### 8.6 텍스트-SQL·EHR 질의 에이전트에 주는 시사점
+
+- 도구 호출 궤적만으로도 정책은 일부 옮겨집니다. 그러나 추론을 빼면 성능 일부를 잃으므로, 궤적에 행동의 이유를 남기는 방법을 함께 씁니다. 공개 teacher의 추론 요약이 가장 효과가 컸고, 사후 설명은 그다음이었습니다(8.3절, 8.4절).
+- 요약이나 사후 설명은 student의 추론 칸 안에 넣지 않고 별도 위치에 둡니다. 추론 칸에 넣으면 student가 짧은 요약 문체를 따라 합니다(CoT-Proxy Table 5).
+- 학습 대상은 파싱한 도구 호출만 남깁니다. teacher의 보이는 설명 문장까지 학습하면 성능이 크게 떨어질 수 있습니다(CoT-Proxy Table 7).
+- 정답 궤적만 남기는 실행 결과 필터, 실패 궤적의 별도 활용, 일반 데이터나 자기 생성 데이터의 혼합을 함께 씁니다. 에이전트 데이터만 학습하면 다른 과제 성능이 무너질 수 있습니다(AgentTuning Table 5, CoT-Proxy Table 3).
+- closed model을 teacher로 쓰기 전에 약관의 경쟁 모델 조항을 확인합니다. 공개 teacher와 self-training이 약관 위험이 적은 경로입니다(8.5절).
+
+## 9. 확인 못 한 것
 
 - PLUQ의 K 값과 self-training 단계만의 효과는 arXiv판과 ACL Anthology판 본문 전체에 없습니다. 두 판 모두 appendix가 없어 더 찾을 곳이 없습니다. 저자 코드나 추가 자료는 확인하지 않았습니다.
 - Soroush et al.(NEJM AI)의 학술지 본문과 PDF는 접근이 막혀 열지 못했습니다. 이 논문의 수치는 최종판 초록만 근거입니다.
 - Bedi et al.(JAMA)의 supplement(eTable)는 내려받기가 막혀 보지 못했습니다. 본문 수치는 PMC 본문으로 확인했습니다.
 - model collapse 논문은 Nature 게재판 본문 대신 arXiv 프리프린트 본문으로 확인했습니다. 게재판에서 수치나 실험이 바뀌었는지는 대조하지 않았습니다.
 - ReST-EM과 V-STaR의 주요 결과는 그림으로만 나와, 정확한 수치 대신 그림 번호와 본문 서술을 적었습니다.
+- ReAct의 Act 대 ReAct 파인튜닝 결과도 그림(Figure 3)으로만 나와 정확한 수치를 적지 않았습니다.
+- Anthropic Consumer Terms는 이 조사 환경에서 한국어판만 열려 경쟁 모델 조항을 원문으로 확인하지 못했습니다. API 사용에 적용되는 Commercial Terms는 확인했습니다.
+- Orca 2는 Prompt Erasure 방법 설명(3절)만 확인했고, 결과 표는 이 보고서에 옮기지 않았습니다.
